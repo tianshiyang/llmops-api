@@ -24,7 +24,7 @@ class Router:
         """注册路由"""
         # 1. 创建一个蓝图（一组路由的集合）
         bp = Blueprint('llmops', __name__, url_prefix='')
-
+        bp.add_url_rule('/apps/<uuid:app_id>/debug', view_func=self.app_handler.debug, methods=['POST'])
         bp.add_url_rule('/ping', view_func=self.app_handler.ping)
         bp.add_url_rule('/app/completion', methods=["POST"], view_func=self.app_handler.completion)
         bp.add_url_rule('/app', methods=["POST"], view_func=self.app_handler.create_app)

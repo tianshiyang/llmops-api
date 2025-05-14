@@ -6,6 +6,8 @@
 @File    : app.py
 """
 import dotenv
+from flask_cors import CORS
+
 from pkg.sqlalchemy import SQLAlchemy
 from injector import Injector
 
@@ -30,5 +32,14 @@ app = Http(
     migrate=injector.get(Migrate),
     conf=conf,
 )
+
+CORS(app, resources={
+    r"/*": {
+        "origins": "*",
+        "supports_credentials": True,
+        # "methods": ["GET", "POST"],
+        # "allow_headers": ["Content-Type"],
+    }
+})
 if __name__ == '__main__':
     app.run(debug=True)
