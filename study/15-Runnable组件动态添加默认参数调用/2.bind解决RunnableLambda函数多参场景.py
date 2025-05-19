@@ -20,8 +20,6 @@ def get_weather(location: str, unit: str, name: str):
 
 get_weather_runnable = RunnableLambda(get_weather).bind(unit="摄氏度", name='慕小课')
 
-content = get_weather_runnable.invoke({
-    "location": "121231233",
-})
+content = get_weather_runnable.invoke("广州")
 
 print(content)
