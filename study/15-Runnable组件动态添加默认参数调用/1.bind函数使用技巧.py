@@ -18,7 +18,7 @@ prompt = ChatPromptTemplate.from_messages([
 
 llm = ChatOpenAI()
 
-chain = prompt | llm.bind(model="moonshot-v1-8k") | StrOutputParser()
+chain = prompt | llm.bind(model="qwen-long") | StrOutputParser()
 
 content = chain.invoke({
     "query": "你是什么模型呢,具体哪个版本呢"
