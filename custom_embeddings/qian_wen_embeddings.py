@@ -6,6 +6,7 @@
 @File    : qian_wen_embeddings.py
 """
 import os
+from itertools import islice
 from typing import List
 
 import dotenv
@@ -20,18 +21,37 @@ class DashScopeEmbeddings(Embeddings):
         self.api_key = api_key
         self.model = model
 
+    def _chunk(self, iterable, size):
+        """Yield successive chunks from iterable of max length `size`."""
+        it = iter(iterable)
+        while chunk := list(islice(it, size)):
+            yield chunk
+
     def embed_documents(self, texts: List[str]) -> List[List[float]]:
-        response = TextEmbedding.call(
-            model=self.model,
-            input=texts,
-            api_key=self.api_key
-        )
-        return [item["embedding"] for item in response.output["embeddings"]]
+        all_embeddings = []
+        for batch in self._chunk(texts, 25):  # DashScope batch size limit
+            try:
+                response = TextEmbedding.call(
+                    model=self.model,
+                    input=batch,
+                    api_key=self.api_key
+                )
+                if not response.output or "embeddings" not in response.output:
+                    raise ValueError(f"DashScope returned unexpected response: {response}")
+                all_embeddings.extend([item["embedding"] for item in response.output["embeddings"]])
+            except Exception as e:
+                raise RuntimeError(f"DashScope batch failed: {str(e)}")
+        return all_embeddings
 
     def embed_query(self, text: str) -> List[float]:
-        response = TextEmbedding.call(
-            model=self.model,
-            input=text,
-            api_key=self.api_key
-        )
-        return response.output["embeddings"][0]["embedding"]
+        try:
+            response = TextEmbedding.call(
+                model=self.model,
+                input=text,
+                api_key=self.api_key
+            )
+            if not response.output or "embeddings" not in response.output:
+                raise ValueError(f"DashScope returned unexpected response: {response}")
+            return response.output["embeddings"][0]["embedding"]
+        except Exception as e:
+            raise RuntimeError(f"Error calling DashScope embed_query: {str(e)}")
