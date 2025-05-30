@@ -17,7 +17,7 @@ dotenv.load_dotenv()
 
 
 class DashScopeEmbeddings(Embeddings):
-    def __init__(self, api_key: str = os.getenv("OPENAI_API_KEY"), model: str = "text-embedding-v1"):
+    def __init__(self, api_key: str = os.getenv("ALI_API_KEY_EMBEDDING"), model: str = "text-embedding-v1"):
         self.api_key = api_key
         self.model = model
 
