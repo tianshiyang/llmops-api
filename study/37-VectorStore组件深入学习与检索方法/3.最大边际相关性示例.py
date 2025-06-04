@@ -5,6 +5,7 @@
 @Author  : tianshiyang
 @File    : 3.最大边际相关性示例.py
 """
+# MMR（最大边际相关性）让你的检索结果不仅相关，而且不重复，让语言模型有“丰富、有用、少废话”的输入，是 RAG 中非常实用的检索策略。
 import dotenv
 import weaviate
 from langchain_text_splitters import RecursiveCharacterTextSplitter
