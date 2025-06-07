@@ -22,7 +22,7 @@ class GoogleSerperArgsSchema(BaseModel):
 google_serper = GoogleSerperRun(
     name="google_serper_tool",
     description="这是一个调用谷歌搜索引擎的tool，当你需要进行联网搜索的时候，可以调用此工具",
-    args_schema=GoogleSerperArgsSchema,
+    # args_schema=GoogleSerperArgsSchema,
     api_wrapper=GoogleSerperAPIWrapper()
 )
 
