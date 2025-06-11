@@ -45,4 +45,7 @@ graph_builder.add_edge("parallel2", "chat_end")
 
 graph = graph_builder.compile()
 
+# Mermaid 图（可以粘贴进 Mermaid 编辑器查看）
+print(graph.get_graph().draw_ascii())
+
 print(graph.invoke({"messages": [HumanMessage(content="你好，你是")]}))
