@@ -23,7 +23,7 @@ class App(db.Model):
     id = Column(UUID, nullable=False, server_default=text("uuid_generate_v4()"))
     account_id = Column(UUID)
     name = Column(String(255), nullable=False, server_default=text("''::character varying"))
-    icon = Column(String(255), nullable=False, server_default=text("''::character varying"))
+    # icon = Column(String(255), nullable=False, server_default=text("''::character varying"))
     description = Column(Text, nullable=False, server_default=text("''::text"))
     status = Column(String(255), nullable=False, server_default=text("''::character varying"))
     update_at = Column(
