@@ -51,7 +51,7 @@ class BuiltinProviderManager(BaseModel):
 
         for idx, provider_data in enumerate(provider_yaml_data):
             provider_entity = ProviderEntity(**provider_data)
-            self.provider_map[provider_data.name] = Provider(
+            self.provider_map[provider_entity.name] = Provider(
                 name=provider_entity.name,
                 position=idx,
                 provider_entity=provider_entity

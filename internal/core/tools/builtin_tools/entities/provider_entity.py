@@ -53,7 +53,7 @@ class Provider(BaseModel):
     def _provider_init(self):
         current_path = os.path.abspath(__file__)
         entities_path = os.path.dirname(current_path)
-        provider_path = os.path.join(entities_path, "providers", self.name)
+        provider_path = os.path.join(os.path.dirname(entities_path), "providers", self.name)
 
         positions_yaml_path = os.path.join(provider_path, "positions.yaml")
         with open(positions_yaml_path, encoding="utf-8") as f:

@@ -24,3 +24,7 @@ class BuiltinToolHandler:
         """获取所有内置提供商的分类信息"""
         categories = self.builtin_tool_service.get_categories()
         return success_json(categories)
+
+    def get_builtin_tools(self) -> list[dict[str, Any]]:
+        tools = self.builtin_tool_service.get_builtin_tools()
+        return success_json(tools)
