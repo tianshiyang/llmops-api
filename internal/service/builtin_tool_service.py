@@ -60,12 +60,13 @@ class BuiltinToolService:
     def get_tool_inputs(cls, tool) -> list:
         """根据传入的工具获取inputs信息"""
         inputs = []
+
         if hasattr(tool, "args_schema") and issubclass(tool.args_schema, BaseModel):
-            for field_name, model_field in tool.args_schema.__fields__.items():
+            for field_name, model_field in tool.args_schema.__pydantic_fields__.items():
                 inputs.append({
                     "name": field_name,
-                    "description": model_field.field_info.description or "",
-                    "required": model_field.required,
-                    "type": model_field.outer_type_.__name__,
+                    "description": model_field.description,
+                    "required": model_field.is_required(),
+                    "type": model_field.description,
                 })
         return inputs
