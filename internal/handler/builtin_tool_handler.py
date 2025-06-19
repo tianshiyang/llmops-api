@@ -34,3 +34,7 @@ class BuiltinToolHandler:
     def get_provider_icon(self, provider_name: str):
         icon, mimetype = self.builtin_tool_service.get_get_provider_icon(provider_name)
         return send_file(io.BytesIO(icon), mimetype=mimetype)
+
+    def get_provider_tool(self, provider_name: str, tool_name: str) -> dict[str, Any]:
+        builtin_tool = self.builtin_tool_service.get_provider_tool(provider_name, tool_name)
+        return success_json(builtin_tool)

@@ -16,6 +16,7 @@ from dataclasses import dataclass
 from pydantic import BaseModel
 
 from internal.core.tools.builtin_tools.categories import BuiltinCategoryManager
+from internal.core.tools.builtin_tools.entities import Provider
 from internal.core.tools.builtin_tools.providers.builtin_provider_manager import BuiltinProviderManager
 from internal.exception import NotFoundException
 
@@ -34,6 +35,9 @@ class BuiltinToolService:
             "category": category["entity"].category,
             "icon": category["icon"],
         } for category in category_map.values()]
+
+    def get_provider(self, provider_name: str) -> Provider:
+        return self.builtin_provider_manager.get_provider(provider_name)
 
     def get_builtin_tools(self) -> list[dict[str, Any]]:
         """获取LLMOps项目中的所有内置提供商+工具对应的信息"""
@@ -89,7 +93,19 @@ class BuiltinToolService:
         with open(icon_path, "rb") as f:
             byte_data = f.read()
             return byte_data, mimetype
-        return provider
+
+    def get_provider_tool(self, provider_name: str, tool_name: str) -> Any:
+        provider = self.builtin_provider_manager.get_provider(provider_name)
+        tool_entity = provider.get_tool_entity(tool_name)
+        if tool_entity is None:
+            raise NotFoundException(f"该工具{tool_name}不存在")
+
+        tool = provider.get_tool(tool_name)
+        return {
+            "provider": {**provider.provider_entity.model_dump(exclude={"icon", "created_at"})},
+            **tool_entity.model_dump(),
+            "input": self.get_tool_inputs(tool)
+        }
 
     @classmethod
     def get_tool_inputs(cls, tool) -> list:
