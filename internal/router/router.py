@@ -36,9 +36,14 @@ class Router:
         bp.add_url_rule('/app/<uuid:id>', methods=["POST"], view_func=self.app_handler.update_app)
         bp.add_url_rule('/app/<uuid:id>/delete', methods=["POST"], view_func=self.app_handler.delete_app)
 
-        # 3.内置插件广场模块
+        # 3.1 内置插件广场模块
         bp.add_url_rule("/builtin-tools", view_func=self.builtin_tool_handler.get_builtin_tools)
-        # 3.1获取插件广场所有分类信息（不分页）
+        # 3.2 获取插件广场所有分类信息（不分页）
         bp.add_url_rule("/builtin-tools/categories", view_func=self.builtin_tool_handler.get_categories)
+        # 3.3 获取icon
+        bp.add_url_rule(
+            "/builtin-tools/<string:provider_name>/icon",
+            view_func=self.builtin_tool_handler.get_provider_icon,
+        )
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)

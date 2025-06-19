@@ -5,8 +5,11 @@
 @Author  : tianshiyang
 @File    : builtin_tool_service.py
 """
+import mimetypes
+import os.path
 from typing import Any
 
+from flask import current_app
 from injector import inject
 from dataclasses import dataclass
 
@@ -14,6 +17,7 @@ from pydantic import BaseModel
 
 from internal.core.tools.builtin_tools.categories import BuiltinCategoryManager
 from internal.core.tools.builtin_tools.providers.builtin_provider_manager import BuiltinProviderManager
+from internal.exception import NotFoundException
 
 
 @inject
@@ -55,6 +59,37 @@ class BuiltinToolService:
             builtin_tools.append(builtin_tool)
 
         return builtin_tools
+
+    def get_get_provider_icon(self, provider_name: str) -> Any:
+        """根据传递的提供者名字获取icon流信息"""
+        provider = self.builtin_provider_manager.get_provider(provider_name)
+        if not provider:
+            raise NotFoundException(f"该工具提供者{provider_name}不存在")
+        # 获取项目根目录信息
+        root_path = os.path.dirname(os.path.dirname(current_app.root_path))
+
+        # 3.拼接得到提供者所在的文件夹
+        provider_path = os.path.join(
+            root_path,
+            "internal", "core", "tools", "builtin_tools", "providers", provider_name,
+        )
+
+        # 4.拼接得到icon对应的路径
+        icon_path = os.path.join(provider_path, "_asset", provider.provider_entity.icon)
+
+        # 5.检测icon是否存在
+        if not os.path.exists(icon_path):
+            raise NotFoundException(f"该工具提供者_asset下未提供图标")
+
+        # 6.读取icon的类型
+        mimetype, _ = mimetypes.guess_type(icon_path)
+        mimetype = mimetype or "application/octet-stream"
+
+        # 7.读取icon的字节数据
+        with open(icon_path, "rb") as f:
+            byte_data = f.read()
+            return byte_data, mimetype
+        return provider
 
     @classmethod
     def get_tool_inputs(cls, tool) -> list:

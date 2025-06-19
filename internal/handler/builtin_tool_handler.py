@@ -5,9 +5,11 @@
 @Author  : tianshiyang
 @File    : builtin_tool_handler.py
 """
+import io
 from dataclasses import dataclass
 from typing import Any
 
+from flask import send_file
 from injector import inject
 
 from internal.service import BuiltinToolService
@@ -28,3 +30,7 @@ class BuiltinToolHandler:
     def get_builtin_tools(self) -> list[dict[str, Any]]:
         tools = self.builtin_tool_service.get_builtin_tools()
         return success_json(tools)
+
+    def get_provider_icon(self, provider_name: str):
+        icon, mimetype = self.builtin_tool_service.get_get_provider_icon(provider_name)
+        return send_file(io.BytesIO(icon), mimetype=mimetype)
