@@ -65,5 +65,10 @@ class Router:
             methods=["POST"],
             view_func=self.api_tool_handler.validate_openapi_schema,
         )
+        # 4.3获取工具列表
+        bp.add_url_rule(
+            "/api-tools",
+            view_func=self.api_tool_handler.get_api_tool_providers_with_page,
+        )
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)

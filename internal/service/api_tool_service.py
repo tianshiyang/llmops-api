@@ -8,14 +8,16 @@
 from dataclasses import dataclass
 
 from injector import inject
+from sqlalchemy import desc
 
 from internal.core.tools.api_tools.openapi_schema import OpenAPISchema
 from internal.exception import ValidateErrorException
 from internal.model import ApiToolProvider, ApiTool
-from internal.schema.api_tool_schema import CreateApiToolReq
+from internal.schema.api_tool_schema import CreateApiToolReq, GetApiToolProvidersWithPageReq
 import json
 
 from internal.service.base_service import BaseService
+from pkg.paginator.paginator import Paginator
 from pkg.sqlalchemy import SQLAlchemy
 
 
@@ -31,7 +33,6 @@ class ApiToolService(BaseService):
         # 1.检验并提取openapi_schema对应的数据
         openapi_schema = self.parse_openapi_schema(req.openapi_schema.data)
 
-        print(req.name)
         # 2.查询当前登录的账号是否已经创建了同名的工具提供者，如果是则抛出错误
         api_tool_provider = self.db.session.query(ApiToolProvider).filter_by(
             account_id=account_id,
@@ -65,6 +66,19 @@ class ApiToolService(BaseService):
                     method=method,
                     parameters=method_item.get("parameters", []),
                 )
+
+    def get_api_tool_providers_with_page(self, req: GetApiToolProvidersWithPageReq):
+        """获取自定义API工具服务提供者分页列表数据"""
+        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
+        paginator = Paginator(db=self.db, req=req)
+        filters = [ApiToolProvider.account_id == account_id]
+        if req.search_word.data:
+            filters.append(ApiToolProvider.name.ilike(f"%{req.search_word.data}%"))
+
+        api_tool_providers = paginator.paginate(
+            self.db.session.query(ApiToolProvider).filter(*filters).order_by(desc("created_at")))
+
+        return api_tool_providers, paginator
 
     @classmethod
     def parse_openapi_schema(cls, openapi_schema_str: str) -> OpenAPISchema:

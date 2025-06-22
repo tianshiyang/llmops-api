@@ -28,7 +28,7 @@ def json(data: Response = None):
 
 def success_json(data: Any = None):
     """成功数据响应"""
-    return json(Response(data=data, code=HttpCode.SUCCESS, message=""))
+    return json(Response(code=HttpCode.SUCCESS, message="", data=data))
 
 
 def fail_json(data: Any = None):

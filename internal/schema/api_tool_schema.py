@@ -6,10 +6,13 @@
 @File    : api_tool_schema.py
 """
 from flask_wtf import FlaskForm
+from marshmallow import Schema, fields, pre_dump
 from wtforms import StringField, ValidationError
-from wtforms.validators import DataRequired, Length, URL
+from wtforms.validators import DataRequired, Length, URL, Optional
 
+from internal.model import ApiToolProvider
 from internal.schema.schema import ListField
+from pkg.paginator.paginator import PaginatorReq
 
 
 class CreateApiToolReq(FlaskForm):
@@ -37,3 +40,38 @@ class CreateApiToolReq(FlaskForm):
                 raise ValidationError("headers里的每一个元素都必须是字典")
             if set(header.keys()) != {"key", "value"}:
                 raise ValidationError("headers里的每一个元素都必须包含key/value两个属性，不允许有其他属性")
+
+
+class GetApiToolProvidersWithPageReq(PaginatorReq):
+    search_word: str = StringField("search_word", validators=[
+        Optional()
+    ])
+
+
+class GetApiToolProvidersWithPageResp(Schema):
+    """获取API工具提供者分页列表数据响应"""
+    id = fields.UUID()
+    name = fields.String()
+    icon = fields.String()
+    description = fields.String()
+    headers = fields.List(fields.Dict, default=[])
+    tools = fields.List(fields.Dict, default=[])
+    created_at = fields.Integer(default=0)
+
+    @pre_dump
+    def process_data(self, data: ApiToolProvider, **kwargs):
+        tools = data.tools
+        return {
+            "id": data.id,
+            "name": data.name,
+            "icon": data.icon,
+            "description": data.description,
+            "headers": data.headers,
+            "tools": [{
+                "id": tool.id,
+                "description": tool.description,
+                "name": tool.name,
+                "inputs": [{k: v for k, v in parameter.items() if k != "in"} for parameter in tool.parameters]
+            } for tool in tools],
+            "created_at": int(data.created_at.timestamp())
+        }
