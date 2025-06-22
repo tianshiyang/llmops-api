@@ -25,3 +25,11 @@ class ApiToolHandler:
             return validate_error_json(req.errors)
         self.api_tool_service.create_api_tool(req)
         return success_message("创建自定义API插件成功")
+
+    def validate_openapi_schema(self):
+        """校验openapi_schema是否正确"""
+        req = CreateApiToolReq()
+        if req.validate():
+            return validate_error_json(req.errors)
+        self.api_tool_service.parse_openapi_schema(req.openapi_schema.data)
+        return success_message("校验成功")
