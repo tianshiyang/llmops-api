@@ -75,10 +75,16 @@ class Router:
             "/api-tools/<string:provider_id>",
             view_func=self.api_tool_handler.get_api_tool_provider,
         )
-        # 根据传递的provider_id+tool_name获取对应工具的参数详情信息
+        # 4.5根据传递的provider_id+tool_name获取对应工具的参数详情信息
         bp.add_url_rule(
             "/api-tools/<uuid:provider_id>/tools/<string:tool_name>",
             view_func=self.api_tool_handler.get_api_tool,
+        )
+        # 4.6更新服务提供者信息
+        bp.add_url_rule(
+            "/api-tools/<uuid:provider_id>",
+            methods=["POST"],
+            view_func=self.api_tool_handler.update_api_tool_provider,
         )
 
         # 6. 在应用上注册蓝图
