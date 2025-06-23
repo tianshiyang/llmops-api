@@ -5,14 +5,13 @@
 @Author  : tianshiyang
 @File    : api_tool_handler.py
 """
-import json
 from dataclasses import dataclass
 
 from flask import request
 from injector import inject
 
 from internal.schema.api_tool_schema import CreateApiToolReq, GetApiToolProvidersWithPageReq, \
-    GetApiToolProvidersWithPageResp
+    GetApiToolProvidersWithPageResp, GetAPIToolProviderById, GetApiToolProviderResp
 from internal.service.api_tool_service import ApiToolService
 from pkg.paginator.paginator import PageModel
 from pkg.response import validate_error_json, success_message, success_json
@@ -47,3 +46,12 @@ class ApiToolHandler:
         api_tool_providers, paginator = self.api_tool_service.get_api_tool_providers_with_page(req)
         resp = GetApiToolProvidersWithPageResp(many=True)
         return success_json(PageModel(list=resp.dump(api_tool_providers), paginator=paginator))
+
+    def get_api_tool_provider(self, provider_id: str):
+        """根据传递的provider_id获取工具提供者的原始信息"""
+        req = GetAPIToolProviderById(provider_id)
+        if req.validate():
+            return validate_error_json(req.errors)
+        api_tool_provider = self.api_tool_service.get_api_tool_provider(provider_id)
+        resp = GetApiToolProviderResp()
+        return success_json(resp.dump(api_tool_provider))

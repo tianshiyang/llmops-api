@@ -11,7 +11,7 @@ from injector import inject
 from sqlalchemy import desc
 
 from internal.core.tools.api_tools.openapi_schema import OpenAPISchema
-from internal.exception import ValidateErrorException
+from internal.exception import ValidateErrorException, NotFoundException
 from internal.model import ApiToolProvider, ApiTool
 from internal.schema.api_tool_schema import CreateApiToolReq, GetApiToolProvidersWithPageReq
 import json
@@ -79,6 +79,15 @@ class ApiToolService(BaseService):
             self.db.session.query(ApiToolProvider).filter(*filters).order_by(desc("created_at")))
 
         return api_tool_providers, paginator
+
+    def get_api_tool_provider(self, provider_id: str):
+        """根据传递的provider_id获取工具提供者的原始信息"""
+        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
+        filters = [ApiToolProvider.account_id == account_id, ApiToolProvider.id == provider_id]
+        result = self.db.session.query(ApiToolProvider).filter(*filters).one_or_none()
+        if result is None or str(result.account_id) != account_id:
+            raise NotFoundException("该工具提供者不存在")
+        return result
 
     @classmethod
     def parse_openapi_schema(cls, openapi_schema_str: str) -> OpenAPISchema:

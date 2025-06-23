@@ -75,3 +75,30 @@ class GetApiToolProvidersWithPageResp(Schema):
             } for tool in tools],
             "created_at": int(data.created_at.timestamp())
         }
+
+
+class GetApiToolProviderResp(Schema):
+    id: str = fields.UUID()
+    name: str = fields.String()
+    icon: str = fields.String()
+    openapi_schema: str = fields.String()
+    headers: list = fields.List(fields.Dict, default=[])
+    created_at = fields.Integer(default=0)
+
+    @pre_dump
+    def process_data(self, data: ApiToolProvider, **kwargs):
+        return {
+            "id": data.id,
+            "name": data.name,
+            "icon": data.icon,
+            "description": data.description,
+            "openapi_schema": data.openapi_schema,
+            "headers": data.headers,
+            "created_at": int(data.created_at.timestamp())
+        }
+
+
+class GetAPIToolProviderById(FlaskForm):
+    provider_id = StringField("provider_id", validators=[
+        DataRequired(message="provider_id必填")
+    ])
