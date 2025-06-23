@@ -98,6 +98,31 @@ class GetApiToolProviderResp(Schema):
         }
 
 
+class GetApiToolResp(Schema):
+    id: str = fields.UUID()
+    name: str = fields.String()
+    description: str = fields.String()
+    inputs: list = fields.List(fields.Dict, default=[])
+    provider: dict = fields.Dict()
+
+    @pre_dump
+    def process_data(self, data: ApiToolProvider, **kwargs):
+        provider = data.provider
+        return {
+            "id": data.id,
+            "name": data.name,
+            "description": data.description,
+            "inputs": [{k: v for k, v in parameter.items() if k != "in"} for parameter in data.parameters],
+            "provider": {
+                "id": provider.id,
+                "name": provider.name,
+                "icon": provider.icon,
+                "description": provider.description,
+                "headers": provider.headers,
+            }
+        }
+
+
 class GetAPIToolProviderById(FlaskForm):
     provider_id = StringField("provider_id", validators=[
         DataRequired(message="provider_id必填")

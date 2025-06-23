@@ -11,7 +11,7 @@ from flask import request
 from injector import inject
 
 from internal.schema.api_tool_schema import CreateApiToolReq, GetApiToolProvidersWithPageReq, \
-    GetApiToolProvidersWithPageResp, GetAPIToolProviderById, GetApiToolProviderResp
+    GetApiToolProvidersWithPageResp, GetAPIToolProviderById, GetApiToolProviderResp, GetApiToolResp
 from internal.service.api_tool_service import ApiToolService
 from pkg.paginator.paginator import PageModel
 from pkg.response import validate_error_json, success_message, success_json
@@ -55,3 +55,9 @@ class ApiToolHandler:
         api_tool_provider = self.api_tool_service.get_api_tool_provider(provider_id)
         resp = GetApiToolProviderResp()
         return success_json(resp.dump(api_tool_provider))
+
+    def get_api_tool(self, provider_id: str, tool_name: str):
+        """根据传递的provider_id + tool_name获取对应工具的参数详情信息"""
+        api_tool = self.api_tool_service.get_api_tool(provider_id, tool_name)
+        resp = GetApiToolResp()
+        return success_json(resp.dump(api_tool))

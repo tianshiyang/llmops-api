@@ -89,6 +89,14 @@ class ApiToolService(BaseService):
             raise NotFoundException("该工具提供者不存在")
         return result
 
+    def get_api_tool(self, provider_id: str, tool_name: str) -> ApiTool:
+        """根据传递的provider_id + tool_name获取对应工具的参数详情信息"""
+        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
+        api_tool = self.db.session.query(ApiTool).filter_by(provider_id=provider_id, name=tool_name).one_or_none()
+        if api_tool is None or str(api_tool.account_id) != account_id:
+            raise NotFoundException("该工具不存在")
+        return api_tool
+
     @classmethod
     def parse_openapi_schema(cls, openapi_schema_str: str) -> OpenAPISchema:
         """解析传递的openapi_schema字符串，如果出错则抛出错误"""
