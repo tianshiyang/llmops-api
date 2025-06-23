@@ -72,3 +72,10 @@ class ApiToolHandler:
         self.api_tool_service.update_api_tool_provider(provider_id, req)
 
         return success_message("更新自定义API插件成功")
+
+    def delete_api_tool_provider(self, provider_id: str):
+        """删除服务提供商"""
+        """根据传递的provider_id删除对应的工具提供者信息"""
+        self.api_tool_service.delete_api_tool_provider(provider_id)
+
+        return success_message("删除自定义API插件成功")

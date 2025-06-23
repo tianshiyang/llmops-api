@@ -145,6 +145,19 @@ class ApiToolService(BaseService):
                     parameters=method_item.get("parameters", []),
                 )
 
+    def delete_api_tool_provider(self, provider_id: str):
+        """根据传递的provider_id删除对应的工具提供商+工具的所有信息"""
+        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
+        api_tool_provider = self.get(ApiToolProvider, provider_id)
+        if api_tool_provider is None or str(api_tool_provider.account_id) != account_id:
+            raise NotFoundException("该工具提供者不存在")
+        with self.db.auto_commit():
+            self.db.session.query(ApiTool).filter(
+                ApiTool.provider_id == provider_id,
+                ApiTool.account_id == account_id
+            ).delete()
+            self.db.session.delete(api_tool_provider)
+
     @classmethod
     def parse_openapi_schema(cls, openapi_schema_str: str) -> OpenAPISchema:
         """解析传递的openapi_schema字符串，如果出错则抛出错误"""

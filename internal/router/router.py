@@ -86,6 +86,12 @@ class Router:
             methods=["POST"],
             view_func=self.api_tool_handler.update_api_tool_provider,
         )
+        # 4.7删除服务提供商
+        bp.add_url_rule(
+            "/api-tools/<uuid:provider_id>/delete",
+            methods=["POST"],
+            view_func=self.api_tool_handler.delete_api_tool_provider,
+        )
 
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)
