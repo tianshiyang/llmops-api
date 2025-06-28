@@ -104,6 +104,8 @@ class Router:
         bp.add_url_rule("/datasets", methods=["POST"], view_func=self.dataset_handler.create_dataset)
         # 6.3 分页查询知识库
         bp.add_url_rule("/datasets", view_func=self.dataset_handler.get_datasets_with_page)
+        # 6.3 查询知识库详情
+        bp.add_url_rule("/datasets/<uuid:dataset_id>", view_func=self.dataset_handler.get_dataset)
 
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)

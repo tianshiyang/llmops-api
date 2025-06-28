@@ -6,11 +6,12 @@
 @File    : dataset_service.py
 """
 from typing import List
+from uuid import UUID
 
 from sqlalchemy import desc
 
 from internal.entity.dataset_entity import DEFAULT_DATASET_DESCRIPTION_FORMATTER
-from internal.exception import ValidateErrorException
+from internal.exception import ValidateErrorException, NotFoundException
 from internal.extension.database_extension import db
 from internal.model.dataset import Dataset
 from internal.schema.dataset_schema import CreateDataSetReq, GetDatasetWithPageReq
@@ -63,3 +64,13 @@ class DatasetService(BaseService):
             self.db.session.query(Dataset).filter(*filters).order_by(desc("created_at"))
         )
         return datasets, paginator
+
+    def get_dataset(self, dataset_id: UUID) -> Dataset:
+        """根据传递的信息获取知识库列表分页数据"""
+        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
+
+        dataset = self.get(Dataset, dataset_id)
+        print(dataset, '-----')
+        if dataset is None or str(dataset.account_id) != account_id:
+            raise NotFoundException("该知识库不存在")
+        return dataset

@@ -9,8 +9,11 @@ from flask import request
 from injector import inject
 from dataclasses import dataclass
 
+from wtforms.validators import UUID
+
 from internal.exception import ValidateErrorException
-from internal.schema.dataset_schema import CreateDataSetReq, GetDatasetWithPageReq, GetDatasetsWithPageResp
+from internal.schema.dataset_schema import CreateDataSetReq, GetDatasetWithPageReq, GetDatasetsWithPageResp, \
+    GetDatasetResp
 from internal.service.dataset_service import DatasetService
 from pkg.paginator.paginator import PageModel
 from pkg.response import success_message, success_json
@@ -44,3 +47,9 @@ class DatasetHandler:
         resp = GetDatasetsWithPageResp(many=True)
 
         return success_json(PageModel(list=resp.dump(datasets), paginator=paginator))
+
+    def get_dataset(self, dataset_id: UUID):
+        dataset = self.dataset_service.get_dataset(dataset_id)
+
+        resp = GetDatasetResp()
+        return success_json(resp.dump(dataset))

@@ -62,3 +62,32 @@ class GetDatasetsWithPageResp(Schema):
             "updated_at": int(data.updated_at.timestamp()),
             "created_at": int(data.created_at.timestamp()),
         }
+
+
+class GetDatasetResp(Schema):
+    """获取知识库详情响应结构"""
+    id = fields.UUID(dump_default="")
+    name = fields.String(dump_default="")
+    icon = fields.String(dump_default="")
+    description = fields.String(dump_default="")
+    document_count = fields.Integer(dump_default=0)
+    hit_count = fields.Integer(dump_default=0)
+    related_app_count = fields.Integer(dump_default=0)
+    character_count = fields.Integer(dump_default=0)
+    updated_at = fields.Integer(dump_default=0)
+    created_at = fields.Integer(dump_default=0)
+
+    @pre_dump
+    def process_data(self, data: Dataset, **kwargs):
+        return {
+            "id": data.id,
+            "name": data.name,
+            "icon": data.icon,
+            "description": data.description,
+            "document_count": data.document_count,
+            "hit_count": data.hit_count,
+            "related_app_count": data.related_app_count,
+            "character_count": data.character_count,
+            "updated_at": int(data.updated_at.timestamp()),
+            "created_at": int(data.created_at.timestamp()),
+        }
