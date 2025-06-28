@@ -96,7 +96,7 @@ class Router:
 
         # 5.上传文件模块
         bp.add_url_rule("/upload-files/file", methods=["POST"], view_func=self.upload_file_handler.upload_file)
-        # bp.add_url_rule("/upload-files/image", methods=["POST"], view_func=self.upload_file_handler.upload_image)
+        bp.add_url_rule("/upload-files/image", methods=["POST"], view_func=self.upload_file_handler.upload_image)
 
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)

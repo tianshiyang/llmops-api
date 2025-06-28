@@ -72,6 +72,15 @@ class CosService:
             hash=hashlib.sha3_256(file_content).hexdigest(),
         )
 
+    def get_file_url(self, key: str) -> str:
+        cos_domain = os.getenv("COS_DOMAIN")
+        if not cos_domain:
+            bucket = os.getenv("COS_BUCKET")
+            scheme = os.getenv("COS_SCHEME")
+            region = os.getenv("COS_REGION")
+            cos_domain = f"{scheme}://{bucket}.cos.{region}.myqcloud.com"
+        return f"{cos_domain}/{key}"
+
     @classmethod
     def _get_client(cls):
         region = os.getenv("COS_REGION")
