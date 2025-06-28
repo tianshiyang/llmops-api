@@ -5,15 +5,20 @@
 @Author  : tianshiyang
 @File    : dataset_service.py
 """
+from typing import List
+
+from sqlalchemy import desc
+
 from internal.entity.dataset_entity import DEFAULT_DATASET_DESCRIPTION_FORMATTER
 from internal.exception import ValidateErrorException
 from internal.extension.database_extension import db
 from internal.model.dataset import Dataset
-from internal.schema.dataset_schema import CreateDataSetReq
+from internal.schema.dataset_schema import CreateDataSetReq, GetDatasetWithPageReq
 from internal.service.base_service import BaseService
 from injector import inject
 from dataclasses import dataclass
 
+from pkg.paginator.paginator import Paginator
 from pkg.sqlalchemy import SQLAlchemy
 
 
@@ -42,3 +47,19 @@ class DatasetService(BaseService):
             icon=req.icon.data,
             description=req.description.name,
         )
+
+    def get_datasets_with_page(self, req: GetDatasetWithPageReq) -> tuple[List[Dataset], Paginator]:
+        """根据传递的信息获取知识库列表分页数据"""
+        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
+        # 构建分页器查询器
+        paginator = Paginator(db=self.db, req=req)
+        # 构建筛选器
+        filters = [Dataset.account_id == account_id]
+
+        if req.search_word.data:
+            filters.append(Dataset.name.ilike(f"%{req.search_word.data}%"))
+        # 执行分页器查询结果
+        datasets = paginator.paginate(
+            self.db.session.query(Dataset).filter(*filters).order_by(desc("created_at"))
+        )
+        return datasets, paginator
