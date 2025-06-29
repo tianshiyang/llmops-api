@@ -9,6 +9,8 @@ import os
 
 from flask_cors import CORS
 from flask import Flask
+
+from internal.extension import logging_extension
 from pkg.sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
@@ -46,6 +48,7 @@ class Http(Flask):
         #     _ = App()
         #     db.create_all()
         migrate.init_app(self, db, directory="internal/migration")
+        logging_extension.init_app(self)
 
         # 5.解决前后端跨域问题
         CORS(self, resources={

@@ -5,6 +5,8 @@
 @Author  : tianshiyang
 @File    : dataset_handler.py
 """
+import logging
+
 from flask import request
 from injector import inject
 from dataclasses import dataclass
@@ -17,6 +19,7 @@ from internal.schema.dataset_schema import CreateDataSetReq, GetDatasetWithPageR
 from internal.service.dataset_service import DatasetService
 from pkg.paginator.paginator import PageModel
 from pkg.response import success_message, success_json
+from pkg.sqlalchemy import SQLAlchemy
 
 
 @inject
@@ -24,6 +27,7 @@ from pkg.response import success_message, success_json
 class DatasetHandler:
     # 知识库处理模块
     dataset_service: DatasetService
+    db: SQLAlchemy
 
     def create_dataset(self):
         # 创建知识库
