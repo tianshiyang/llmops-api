@@ -13,7 +13,7 @@ from wtforms.validators import UUID
 
 from internal.exception import ValidateErrorException
 from internal.schema.dataset_schema import CreateDataSetReq, GetDatasetWithPageReq, GetDatasetsWithPageResp, \
-    GetDatasetResp
+    GetDatasetResp, UpdateDatasetReq
 from internal.service.dataset_service import DatasetService
 from pkg.paginator.paginator import PageModel
 from pkg.response import success_message, success_json
@@ -49,7 +49,19 @@ class DatasetHandler:
         return success_json(PageModel(list=resp.dump(datasets), paginator=paginator))
 
     def get_dataset(self, dataset_id: UUID):
+        # 获取知识库详情
         dataset = self.dataset_service.get_dataset(dataset_id)
 
         resp = GetDatasetResp()
         return success_json(resp.dump(dataset))
+
+    def update_dataset(self, dataset_id: UUID):
+        # 更新知识库详情
+        req = UpdateDatasetReq()
+        if not req.validate():
+            raise ValidateErrorException(req.errors)
+
+        self.dataset_service.update_dataset(dataset_id, req)
+
+        # 3.返回成功调用提示
+        return success_message("更新知识库成功")

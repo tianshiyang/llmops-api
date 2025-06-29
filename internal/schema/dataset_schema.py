@@ -11,7 +11,7 @@ from wtforms.fields.simple import StringField
 from wtforms.validators import DataRequired, Length, URL, Optional
 
 from internal.model.dataset import Dataset
-from pkg.paginator.paginator import PaginatorReq, PageModel
+from pkg.paginator.paginator import PaginatorReq
 
 
 class CreateDataSetReq(FlaskForm):
@@ -91,3 +91,18 @@ class GetDatasetResp(Schema):
             "updated_at": int(data.updated_at.timestamp()),
             "created_at": int(data.created_at.timestamp()),
         }
+
+
+class UpdateDatasetReq(FlaskForm):
+    name = StringField("name", validators=[
+        DataRequired("知识库名称必填"),
+        Length(max=100, message="知识库名称最多100字符"),
+    ])
+    icon = StringField("icon", validators=[
+        DataRequired("知识库图标必填"),
+        URL(True)
+    ])
+    description = StringField("description", validators=[
+        Optional(),
+        Length(max=2000, message="知识库描述长度不能超过2000字符")
+    ])
