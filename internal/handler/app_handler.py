@@ -19,6 +19,7 @@ from langchain_core.prompts import ChatPromptTemplate, SystemMessagePromptTempla
     MessagesPlaceholder
 from langchain_core.runnables import RunnablePassthrough, RunnableLambda
 from langchain_openai import ChatOpenAI
+from redis import Redis
 
 from internal.schema.app_schema import CompletionReq
 from internal.service import AppService
@@ -31,6 +32,7 @@ class AppHandler:
     """应用控制器"""
 
     app_service: AppService
+    redis_client: Redis
 
     def debug(self, app_id):
         req = CompletionReq()
@@ -114,4 +116,6 @@ class AppHandler:
         return success_json({"content": content.invoke(json_data['query'])})
 
     def ping(self):
-        return success_json({"ping": "pong"})
+        self.redis_client.set('name', 'zhangsan')
+        print(self.redis_client.get("name"))
+        return success_json({"ping": "111"})
