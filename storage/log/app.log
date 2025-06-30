@@ -11,3 +11,7 @@
 [2025-06-30 22:25:00,287.287] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
 [2025-06-30 22:25:00,298.298] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
 [2025-06-30 22:25:22,115.115] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [30/Jun/2025 22:25:22] "GET /ping HTTP/1.1" 200 -
+[2025-06-30 22:26:02,947.947] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/handler/app_handler.py', reloading
+[2025-06-30 22:26:03,217.217] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-06-30 22:26:04,981.981] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-06-30 22:26:04,993.993] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
