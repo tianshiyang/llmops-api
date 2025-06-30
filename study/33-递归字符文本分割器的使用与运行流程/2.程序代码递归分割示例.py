@@ -8,7 +8,7 @@
 from langchain_text_splitters import CharacterTextSplitter, RecursiveCharacterTextSplitter, Language
 from langchain_unstructured import UnstructuredLoader
 
-documents = UnstructuredLoader("./demo.py").load()
+documents = UnstructuredLoader("./demo_task.py").load()
 
 text_splitter = RecursiveCharacterTextSplitter.from_language(
     language=Language.PYTHON,

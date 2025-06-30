@@ -33,6 +33,8 @@ app = Http(
     conf=conf,
 )
 
+celery = app.extensions["celery"]
+
 CORS(app, resources={
     r"/*": {
         "origins": "*",

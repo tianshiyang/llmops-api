@@ -5,7 +5,6 @@
 @Author  : 1685821150@qq.com
 @File    : app_handler.py
 """
-import os
 import uuid
 from dataclasses import dataclass
 from operator import itemgetter
@@ -23,6 +22,7 @@ from redis import Redis
 
 from internal.schema.app_schema import CompletionReq
 from internal.service import AppService
+from internal.task.demo_task import demo_task
 from pkg.response import success_json, validate_error_json, success_message
 
 
@@ -116,6 +116,8 @@ class AppHandler:
         return success_json({"content": content.invoke(json_data['query'])})
 
     def ping(self):
-        self.redis_client.set('name', 'zhangsan')
-        print(self.redis_client.get("name"))
-        return success_json({"ping": "111"})
+        # self.redis_client.set('name', 'zhangsan')
+        # print(self.redis_client.get("name"))
+        result = demo_task.delay('lajsddajdlj')
+        print(result)
+        return success_json({"ping": '----'})
