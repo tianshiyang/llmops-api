@@ -6,7 +6,7 @@
 @File    : logging_extension.py
 """
 import logging
-import os
+import os.path
 from logging.handlers import TimedRotatingFileHandler
 
 from flask import Flask
@@ -17,24 +17,22 @@ def init_app(app: Flask):
     # 1.设置日志存储的文件夹，如果不存在则创建
     log_folder = os.path.join(os.getcwd(), "storage", "log")
     if not os.path.exists(log_folder):
-        os.mkdir(log_folder)
+        os.makedirs(log_folder)
 
-    # 2. 定义文件日志名
+    # 2.定义日志的文件名
     log_file = os.path.join(log_folder, "app.log")
 
     # 3.设置日志的格式，并且让日志每天更新一次
     handler = TimedRotatingFileHandler(
         log_file,
-        when="midnight",  # 晚上
-        interval=1,  # 每天
-        backupCount=30,  # 保留30天
+        when="midnight",
+        interval=1,
+        backupCount=30,
         encoding="utf-8",
     )
-
     formatter = logging.Formatter(
         "[%(asctime)s.%(msecs)03d] %(filename)s -> %(funcName)s line:%(lineno)d [%(levelname)s]: %(message)s"
     )
-
     handler.setLevel(logging.DEBUG)
     handler.setFormatter(formatter)
     logging.getLogger().addHandler(handler)

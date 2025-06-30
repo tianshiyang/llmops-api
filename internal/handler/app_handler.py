@@ -118,6 +118,5 @@ class AppHandler:
     def ping(self):
         # self.redis_client.set('name', 'zhangsan')
         # print(self.redis_client.get("name"))
-        result = demo_task.delay('lajsddajdlj')
-        print(result)
+        result = demo_task.delay(uuid.uuid4())
         return success_json({"ping": '----'})

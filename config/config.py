@@ -50,5 +50,3 @@ class Config:
             "result_expires": int(_get_env("CELERY_RESULT_EXPIRES")),  # 结果过期时间（秒）
             "broker_connection_retry_on_startup": _get_bool_env("CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP"),
         }
-
-        print(self.CELERY, 'p-----')
