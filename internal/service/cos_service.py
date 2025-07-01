@@ -81,6 +81,12 @@ class CosService:
             cos_domain = f"{scheme}://{bucket}.cos.{region}.myqcloud.com"
         return f"{cos_domain}/{key}"
 
+    def download_file(self, key: str, target_file_path: str):
+        # 下载文件
+        client = self._get_client()
+        bucket = self._get_bucket()
+        client.download_file(bucket, key, target_file_path)
+
     @classmethod
     def _get_client(cls):
         region = os.getenv("COS_REGION")
