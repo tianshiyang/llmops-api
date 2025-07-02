@@ -1,0 +1,24 @@
+[2025-07-01 23:18:45,692.692] _internal.py -> _log line:97 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[2025-07-01 23:18:45,692.692] _internal.py -> _log line:97 [INFO]: [33mPress CTRL+C to quit[0m
+[2025-07-01 23:18:45,693.693] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-01 23:18:47,553.553] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-01 23:18:47,568.568] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 222-154-992
+[2025-07-01 23:19:09,486.486] __init__.py -> initialize line:113 [DEBUG]: Building prefix dict from the default dictionary ...
+[2025-07-01 23:19:09,984.984] __init__.py -> initialize line:146 [DEBUG]: Dumping model to file cache /var/folders/8n/sf82vkjs4fj6k504_cf8pw000000gp/T/jieba.cache
+[2025-07-01 23:19:10,026.026] __init__.py -> initialize line:164 [DEBUG]: Loading model cost 0.540 seconds.
+[2025-07-01 23:19:10,027.027] __init__.py -> initialize line:166 [DEBUG]: Prefix dict has been built successfully.
+[2025-07-01 23:19:10,077.077] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [01/Jul/2025 23:19:10] "GET /ping/坤哥%20你这有问题%20第一次调用新加的接口%20第二次%20调用的是原来的接口%0A HTTP/1.1" 200 -
+[2025-07-01 23:19:30,110.110] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/router/router.py', reloading
+[2025-07-01 23:19:30,410.410] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-01 23:19:32,525.525] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-01 23:19:32,537.537] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 222-154-992
+[2025-07-01 23:19:45,980.980] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/handler/app_handler.py', reloading
+[2025-07-01 23:19:46,338.338] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-01 23:19:47,791.791] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-01 23:19:47,801.801] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 222-154-992
+[2025-07-01 23:19:48,882.882] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/handler/app_handler.py', reloading
+[2025-07-01 23:19:49,121.121] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-01 23:19:50,451.451] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-01 23:19:50,461.461] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 222-154-992
+[2025-07-01 23:21:16,040.040] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [01/Jul/2025 23:21:16] "GET /ping HTTP/1.1" 200 -
