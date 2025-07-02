@@ -22,6 +22,7 @@ from redis import Redis
 
 from internal.schema.app_schema import CompletionReq
 from internal.service import AppService
+from internal.service.embeddings_service import EmbeddingsService
 from internal.task.demo_task import demo_task
 from pkg.response import success_json, validate_error_json, success_message
 
@@ -33,6 +34,7 @@ class AppHandler:
 
     app_service: AppService
     redis_client: Redis
+    embeddings_service: EmbeddingsService
 
     def debug(self, app_id):
         req = CompletionReq()
@@ -119,4 +121,8 @@ class AppHandler:
         # self.redis_client.set('name', 'zhangsan')
         # print(self.redis_client.get("name"))
         result = demo_task.delay(uuid.uuid4())
-        return success_json({"ping": '----'})
+        value = {
+            "token_count": self.embeddings_service.calculate_token_count("你好，你是谁"),
+            # "embedding_value": self.embeddings_service.embeddings.embed_query("你好，你是谁")
+        }
+        return success_json({"ping": value})
