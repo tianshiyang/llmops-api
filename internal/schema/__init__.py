@@ -5,6 +5,6 @@
 @Author  : 1685821150@qq.com
 @File    : __init__.py.py
 """
-from .schema import ListField
+from .schema import ListField, DictField
 
-__all__ = ["ListField"]
+__all__ = ["ListField", "DictField"]
