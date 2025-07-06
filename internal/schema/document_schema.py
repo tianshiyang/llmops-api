@@ -8,6 +8,8 @@
 import uuid
 
 from flask_wtf import FlaskForm
+from langchain_core.documents import Document
+from marshmallow import Schema, fields, pre_dump
 from wtforms import StringField
 from wtforms.validators import DataRequired, AnyOf, ValidationError
 
@@ -78,14 +80,14 @@ class CreateDocumentReq(FlaskForm):
             if "segment" not in field.data or not isinstance(field.data["segment"], dict):
                 raise ValidationError('分段设置不能为空且为字典')
             # 11.校验分隔符separators，涵盖：非空、列表、子元素为字符串
-            if "separators" not in field.data["segment"] or not isinstance(field.data["separators"], list):
+            if "separators" not in field.data["segment"] or not isinstance(field.data["segment"]["separators"], list):
                 raise ValidationError("分割符列表不能为空且为列表")
             for separator in field.data["segment"]["separators"]:
                 if not isinstance(separator, str):
                     raise ValidationError("分隔符列表元素类型错误")
             if len(field.data["segment"]["separators"]) == 0:
                 raise ValidationError("分隔符列表不能为空列表")
-            
+
             # 12.校验分块大小chunk_size，涵盖了：非空、数字、范围
             if "chunk_size" not in field.data["segment"] or not isinstance(field.data["segment"]["chunk_size"],
                                                                            int):
@@ -110,3 +112,21 @@ class CreateDocumentReq(FlaskForm):
                     "chunk_overlap": field.data["segment"]["chunk_overlap"],
                 }
             }
+
+
+class CreateDocumentResp(Schema):
+    """创建文档列表响应结构"""
+    documents = fields.List(fields.Dict, dump_default=[])
+    batch = fields.String(dump_default="")
+
+    @pre_dump
+    def process_data(self, data: tuple[list[Document], str], **kwargs):
+        return {
+            "documents": [{
+                'id': document.id,
+                "name": document.name,
+                "status": document.status,
+                "created_at": int(document.created_at.timestamp()),
+            } for document in data[0]],
+            "batch": data[1]
+        }

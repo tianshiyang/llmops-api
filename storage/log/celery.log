@@ -7,3 +7,1081 @@
 [2025-06-30 22:25:27,120: ERROR/ForkPoolWorker-8] id的值:abc071fb-1171-448a-8ea3-852ffb6718cf
 [2025-06-30 22:25:27,124: ERROR/ForkPoolWorker-8] 配置信息:<Config {'DEBUG': True, 'TESTING': False, 'PROPAGATE_EXCEPTIONS': None, 'SECRET_KEY': None, 'SECRET_KEY_FALLBACKS': None, 'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=31), 'USE_X_SENDFILE': False, 'TRUSTED_HOSTS': None, 'SERVER_NAME': None, 'APPLICATION_ROOT': '/', 'SESSION_COOKIE_NAME': 'session', 'SESSION_COOKIE_DOMAIN': None, 'SESSION_COOKIE_PATH': None, 'SESSION_COOKIE_HTTPONLY': True, 'SESSION_COOKIE_SECURE': False, 'SESSION_COOKIE_PARTITIONED': False, 'SESSION_COOKIE_SAMESITE': None, 'SESSION_REFRESH_EACH_REQUEST': True, 'MAX_CONTENT_LENGTH': None, 'MAX_FORM_MEMORY_SIZE': 500000, 'MAX_FORM_PARTS': 1000, 'SEND_FILE_MAX_AGE_DEFAULT': None, 'TRAP_BAD_REQUEST_ERRORS': None, 'TRAP_HTTP_EXCEPTIONS': False, 'EXPLAIN_TEMPLATE_LOADING': False, 'PREFERRED_URL_SCHEME': 'http', 'TEMPLATES_AUTO_RELOAD': None, 'MAX_COOKIE_SIZE': 4093, 'PROVIDE_AUTOMATIC_OPTIONS': True, 'CELERY': {'broker_url': 'redis://localhost:6379/1', 'result_backend': 'redis://localhost:6379/1', 'task_ignore_result': False, 'result_expires': 3600, 'broker_connection_retry_on_startup': True}, 'REDIS_DB': '0', 'REDIS_HOST': 'localhost', 'REDIS_PASSWORD': '', 'REDIS_PORT': '6379', 'REDIS_USERNAME': '', 'REDIS_USE_SSL': False, 'SQLALCHEMY_DATABASE_URI': 'postgresql://postgres:postgres@127.0.0.1:5432/llmops?client_encoding=utf8', 'SQLALCHEMY_ECHO': True, 'SQLALCHEMY_ENGINE_OPTIONS': {'pool_size': 30, 'pool_recycle': 3600}, 'WTF_CSRF_ENABLED': False, 'SQLALCHEMY_BINDS': {}, 'SQLALCHEMY_RECORD_QUERIES': False, 'SQLALCHEMY_TRACK_MODIFICATIONS': False}>
 [2025-06-30 22:25:27,139: INFO/ForkPoolWorker-8] Task internal.task.demo_task.demo_task[9ca52066-7a53-431a-a63e-2dedba35d092] succeeded in 5.0219500419989345s: '慕小课'
+[2025-07-06 16:00:23,826: INFO/MainProcess] Connected to redis://localhost:6379/1
+[2025-07-06 16:00:23,829: INFO/MainProcess] mingle: searching for neighbors
+[2025-07-06 16:00:24,846: INFO/MainProcess] mingle: all alone
+[2025-07-06 16:00:24,863: INFO/MainProcess] celery@icourtdeMacBook-Pro.local ready.
+[2025-07-06 16:00:24,867: INFO/MainProcess] Task internal.task.demo_task.demo_task[0a55b407-2e4e-4857-bae1-b6666aaca841] received
+[2025-07-06 16:00:24,869: INFO/MainProcess] Task internal.task.demo_task.demo_task[1de322b5-4644-4669-87b6-7f94cc4f83f1] received
+[2025-07-06 16:00:24,869: ERROR/ForkPoolWorker-8] 睡眠5秒
+[2025-07-06 16:00:24,870: INFO/MainProcess] Task internal.task.demo_task.demo_task[ed03593f-723a-4822-9eab-6e10bc66c0ea] received
+[2025-07-06 16:00:24,871: ERROR/ForkPoolWorker-1] 睡眠5秒
+[2025-07-06 16:00:24,871: INFO/MainProcess] Task internal.task.demo_task.demo_task[a8b85978-d967-49cf-923c-c2716fef4c36] received
+[2025-07-06 16:00:24,873: INFO/MainProcess] Task internal.task.demo_task.demo_task[a5185a51-994b-4211-a29d-114dfb902f1b] received
+[2025-07-06 16:00:24,873: ERROR/ForkPoolWorker-2] 睡眠5秒
+[2025-07-06 16:00:24,874: ERROR/ForkPoolWorker-3] 睡眠5秒
+[2025-07-06 16:00:24,875: ERROR/ForkPoolWorker-4] 睡眠5秒
+[2025-07-06 16:00:24,879: INFO/MainProcess] Task internal.task.demo_task.demo_task[f56747a8-054a-4029-bf38-b85a8d4662b7] received
+[2025-07-06 16:00:24,880: INFO/MainProcess] Task internal.task.document_task.build_documents[8a9b7f10-b5d0-4e5d-b2b9-cee39c5abc46] received
+[2025-07-06 16:00:24,881: INFO/MainProcess] Task internal.task.document_task.build_documents[e2fae2ec-bc46-475d-8946-dd7d9a9fdadb] received
+[2025-07-06 16:00:24,881: ERROR/ForkPoolWorker-5] 睡眠5秒
+[2025-07-06 16:00:24,882: INFO/MainProcess] Task internal.task.document_task.build_documents[b9151e3a-5e66-4419-9aa2-8b5a303723ee] received
+[2025-07-06 16:00:24,882: ERROR/ForkPoolWorker-6] 执行了卡咔咔咔咔咔咔
+[2025-07-06 16:00:24,883: INFO/MainProcess] Task internal.task.document_task.build_documents[4781ca6a-8dd5-40c7-bded-b432b70e1835] received
+[2025-07-06 16:00:24,883: ERROR/ForkPoolWorker-7] 执行了卡咔咔咔咔咔咔
+[2025-07-06 16:00:24,884: INFO/MainProcess] Task internal.task.document_task.build_documents[e77b9615-373a-4804-a6bb-ce9a8dcf013e] received
+[2025-07-06 16:00:24,885: INFO/MainProcess] Task internal.task.document_task.build_documents[14753a5d-dbda-4fa7-b045-a91402fe8900] received
+[2025-07-06 16:00:24,885: INFO/MainProcess] Task internal.task.document_task.build_documents[7d8f1daa-66fa-4a3b-81e9-e12764204a8c] received
+[2025-07-06 16:00:24,886: INFO/MainProcess] Task internal.task.document_task.build_documents[e69de0f4-428c-4223-b60d-54ac63fba3d5] received
+[2025-07-06 16:00:24,886: INFO/MainProcess] Task internal.task.document_task.build_documents[c7d746b7-2e46-4b64-bc7d-b06fe716894b] received
+[2025-07-06 16:00:24,887: INFO/MainProcess] Task internal.task.document_task.build_documents[ccce9018-a362-45af-b66c-a3f3e46eecfd] received
+[2025-07-06 16:00:24,887: INFO/MainProcess] Task internal.task.document_task.build_documents[46b953ec-2063-43a6-91b7-7bc78e133e35] received
+[2025-07-06 16:00:28,211: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+[2025-07-06 16:00:28,211: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+[2025-07-06 16:00:28,223: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2025-07-06 16:00:28,223: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2025-07-06 16:00:28,240: ERROR/ForkPoolWorker-7] Task internal.task.document_task.build_documents[e2fae2ec-bc46-475d-8946-dd7d9a9fdadb] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
+    res = self._grpc_channel.unary_unary(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)", grpc_status:14}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
+    return self.run(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
+    indexing_service = injector.get(IndexingService)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
+    dependencies = self.args_to_inject(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
+    instance: Any = self.get(interface)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
+    return callable(*full_args, **dependencies)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
+    self.client = weaviate.connect_to_local(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
+    return __connect(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
+    client.connect()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
+    executor.result(self._ping_grpc("sync"))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
+    self.__handle_ping_exception(e)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
+    raise WeaviateGRPCUnavailableError(
+weaviate.exceptions.WeaviateGRPCUnavailableError: 
+Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
+Unfortunately, the gRPC health check against Weaviate could not be completed.
+
+This error could be due to one of several reasons:
+- The gRPC traffic at the specified port is blocked by a firewall.
+- gRPC is not enabled or incorrectly configured on the server or the client.
+    - Please check that the server address and port (localhost:50051) are correct.
+- your connection is unstable or has a high latency. In this case you can:
+    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
+    - disable startup checks by connecting using `skip_init_checks=True`
+
+[2025-07-06 16:00:28,240: ERROR/ForkPoolWorker-6] Task internal.task.document_task.build_documents[8a9b7f10-b5d0-4e5d-b2b9-cee39c5abc46] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
+    res = self._grpc_channel.unary_unary(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)", grpc_status:14}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
+    return self.run(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
+    indexing_service = injector.get(IndexingService)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
+    dependencies = self.args_to_inject(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
+    instance: Any = self.get(interface)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
+    return callable(*full_args, **dependencies)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
+    self.client = weaviate.connect_to_local(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
+    return __connect(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
+    client.connect()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
+    executor.result(self._ping_grpc("sync"))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
+    self.__handle_ping_exception(e)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
+    raise WeaviateGRPCUnavailableError(
+weaviate.exceptions.WeaviateGRPCUnavailableError: 
+Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
+Unfortunately, the gRPC health check against Weaviate could not be completed.
+
+This error could be due to one of several reasons:
+- The gRPC traffic at the specified port is blocked by a firewall.
+- gRPC is not enabled or incorrectly configured on the server or the client.
+    - Please check that the server address and port (localhost:50051) are correct.
+- your connection is unstable or has a high latency. In this case you can:
+    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
+    - disable startup checks by connecting using `skip_init_checks=True`
+
+[2025-07-06 16:00:28,572: ERROR/ForkPoolWorker-6] 执行了卡咔咔咔咔咔咔
+[2025-07-06 16:00:28,572: ERROR/ForkPoolWorker-7] 执行了卡咔咔咔咔咔咔
+[2025-07-06 16:00:28,584: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+[2025-07-06 16:00:28,584: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+[2025-07-06 16:00:28,597: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2025-07-06 16:00:28,597: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2025-07-06 16:00:28,602: ERROR/ForkPoolWorker-7] Task internal.task.document_task.build_documents[4781ca6a-8dd5-40c7-bded-b432b70e1835] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
+    res = self._grpc_channel.unary_unary(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_status:14, grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
+    return self.run(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
+    indexing_service = injector.get(IndexingService)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
+    dependencies = self.args_to_inject(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
+    instance: Any = self.get(interface)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
+    return callable(*full_args, **dependencies)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
+    self.client = weaviate.connect_to_local(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
+    return __connect(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
+    client.connect()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
+    executor.result(self._ping_grpc("sync"))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
+    self.__handle_ping_exception(e)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
+    raise WeaviateGRPCUnavailableError(
+weaviate.exceptions.WeaviateGRPCUnavailableError: 
+Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
+Unfortunately, the gRPC health check against Weaviate could not be completed.
+
+This error could be due to one of several reasons:
+- The gRPC traffic at the specified port is blocked by a firewall.
+- gRPC is not enabled or incorrectly configured on the server or the client.
+    - Please check that the server address and port (localhost:50051) are correct.
+- your connection is unstable or has a high latency. In this case you can:
+    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
+    - disable startup checks by connecting using `skip_init_checks=True`
+
+[2025-07-06 16:00:28,602: ERROR/ForkPoolWorker-6] Task internal.task.document_task.build_documents[b9151e3a-5e66-4419-9aa2-8b5a303723ee] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
+    res = self._grpc_channel.unary_unary(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)", grpc_status:14}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
+    return self.run(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
+    indexing_service = injector.get(IndexingService)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
+    dependencies = self.args_to_inject(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
+    instance: Any = self.get(interface)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
+    return callable(*full_args, **dependencies)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
+    self.client = weaviate.connect_to_local(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
+    return __connect(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
+    client.connect()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
+    executor.result(self._ping_grpc("sync"))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
+    self.__handle_ping_exception(e)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
+    raise WeaviateGRPCUnavailableError(
+weaviate.exceptions.WeaviateGRPCUnavailableError: 
+Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
+Unfortunately, the gRPC health check against Weaviate could not be completed.
+
+This error could be due to one of several reasons:
+- The gRPC traffic at the specified port is blocked by a firewall.
+- gRPC is not enabled or incorrectly configured on the server or the client.
+    - Please check that the server address and port (localhost:50051) are correct.
+- your connection is unstable or has a high latency. In this case you can:
+    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
+    - disable startup checks by connecting using `skip_init_checks=True`
+
+[2025-07-06 16:00:28,604: ERROR/ForkPoolWorker-6] 执行了卡咔咔咔咔咔咔
+[2025-07-06 16:00:28,604: ERROR/ForkPoolWorker-7] 执行了卡咔咔咔咔咔咔
+[2025-07-06 16:00:28,618: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+[2025-07-06 16:00:28,618: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+[2025-07-06 16:00:28,629: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2025-07-06 16:00:28,629: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2025-07-06 16:00:28,635: ERROR/ForkPoolWorker-6] Task internal.task.document_task.build_documents[e77b9615-373a-4804-a6bb-ce9a8dcf013e] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
+    res = self._grpc_channel.unary_unary(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_status:14, grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
+    return self.run(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
+    indexing_service = injector.get(IndexingService)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
+    dependencies = self.args_to_inject(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
+    instance: Any = self.get(interface)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
+    return callable(*full_args, **dependencies)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
+    self.client = weaviate.connect_to_local(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
+    return __connect(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
+    client.connect()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
+    executor.result(self._ping_grpc("sync"))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
+    self.__handle_ping_exception(e)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
+    raise WeaviateGRPCUnavailableError(
+weaviate.exceptions.WeaviateGRPCUnavailableError: 
+Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
+Unfortunately, the gRPC health check against Weaviate could not be completed.
+
+This error could be due to one of several reasons:
+- The gRPC traffic at the specified port is blocked by a firewall.
+- gRPC is not enabled or incorrectly configured on the server or the client.
+    - Please check that the server address and port (localhost:50051) are correct.
+- your connection is unstable or has a high latency. In this case you can:
+    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
+    - disable startup checks by connecting using `skip_init_checks=True`
+
+[2025-07-06 16:00:28,635: ERROR/ForkPoolWorker-7] Task internal.task.document_task.build_documents[14753a5d-dbda-4fa7-b045-a91402fe8900] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
+    res = self._grpc_channel.unary_unary(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)", grpc_status:14}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
+    return self.run(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
+    indexing_service = injector.get(IndexingService)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
+    dependencies = self.args_to_inject(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
+    instance: Any = self.get(interface)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
+    return callable(*full_args, **dependencies)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
+    self.client = weaviate.connect_to_local(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
+    return __connect(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
+    client.connect()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
+    executor.result(self._ping_grpc("sync"))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
+    self.__handle_ping_exception(e)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
+    raise WeaviateGRPCUnavailableError(
+weaviate.exceptions.WeaviateGRPCUnavailableError: 
+Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
+Unfortunately, the gRPC health check against Weaviate could not be completed.
+
+This error could be due to one of several reasons:
+- The gRPC traffic at the specified port is blocked by a firewall.
+- gRPC is not enabled or incorrectly configured on the server or the client.
+    - Please check that the server address and port (localhost:50051) are correct.
+- your connection is unstable or has a high latency. In this case you can:
+    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
+    - disable startup checks by connecting using `skip_init_checks=True`
+
+[2025-07-06 16:00:28,636: ERROR/ForkPoolWorker-6] 执行了卡咔咔咔咔咔咔
+[2025-07-06 16:00:28,636: ERROR/ForkPoolWorker-7] 执行了卡咔咔咔咔咔咔
+[2025-07-06 16:00:28,649: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+[2025-07-06 16:00:28,649: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+[2025-07-06 16:00:28,664: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2025-07-06 16:00:28,664: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2025-07-06 16:00:28,681: ERROR/ForkPoolWorker-6] Task internal.task.document_task.build_documents[7d8f1daa-66fa-4a3b-81e9-e12764204a8c] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
+    res = self._grpc_channel.unary_unary(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)", grpc_status:14}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
+    return self.run(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
+    indexing_service = injector.get(IndexingService)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
+    dependencies = self.args_to_inject(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
+    instance: Any = self.get(interface)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
+    return callable(*full_args, **dependencies)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
+    self.client = weaviate.connect_to_local(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
+    return __connect(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
+    client.connect()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
+    executor.result(self._ping_grpc("sync"))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
+    self.__handle_ping_exception(e)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
+    raise WeaviateGRPCUnavailableError(
+weaviate.exceptions.WeaviateGRPCUnavailableError: 
+Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
+Unfortunately, the gRPC health check against Weaviate could not be completed.
+
+This error could be due to one of several reasons:
+- The gRPC traffic at the specified port is blocked by a firewall.
+- gRPC is not enabled or incorrectly configured on the server or the client.
+    - Please check that the server address and port (localhost:50051) are correct.
+- your connection is unstable or has a high latency. In this case you can:
+    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
+    - disable startup checks by connecting using `skip_init_checks=True`
+
+[2025-07-06 16:00:28,681: ERROR/ForkPoolWorker-7] Task internal.task.document_task.build_documents[e69de0f4-428c-4223-b60d-54ac63fba3d5] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
+    res = self._grpc_channel.unary_unary(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_status:14, grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
+    return self.run(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
+    indexing_service = injector.get(IndexingService)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
+    dependencies = self.args_to_inject(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
+    instance: Any = self.get(interface)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
+    return callable(*full_args, **dependencies)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
+    self.client = weaviate.connect_to_local(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
+    return __connect(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
+    client.connect()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
+    executor.result(self._ping_grpc("sync"))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
+    self.__handle_ping_exception(e)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
+    raise WeaviateGRPCUnavailableError(
+weaviate.exceptions.WeaviateGRPCUnavailableError: 
+Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
+Unfortunately, the gRPC health check against Weaviate could not be completed.
+
+This error could be due to one of several reasons:
+- The gRPC traffic at the specified port is blocked by a firewall.
+- gRPC is not enabled or incorrectly configured on the server or the client.
+    - Please check that the server address and port (localhost:50051) are correct.
+- your connection is unstable or has a high latency. In this case you can:
+    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
+    - disable startup checks by connecting using `skip_init_checks=True`
+
+[2025-07-06 16:00:28,683: ERROR/ForkPoolWorker-6] 执行了卡咔咔咔咔咔咔
+[2025-07-06 16:00:28,683: ERROR/ForkPoolWorker-7] 执行了卡咔咔咔咔咔咔
+[2025-07-06 16:00:28,698: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+[2025-07-06 16:00:28,698: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+[2025-07-06 16:00:28,709: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2025-07-06 16:00:28,709: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2025-07-06 16:00:28,712: ERROR/ForkPoolWorker-7] Task internal.task.document_task.build_documents[ccce9018-a362-45af-b66c-a3f3e46eecfd] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
+    res = self._grpc_channel.unary_unary(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)", grpc_status:14}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
+    return self.run(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
+    indexing_service = injector.get(IndexingService)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
+    dependencies = self.args_to_inject(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
+    instance: Any = self.get(interface)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
+    return callable(*full_args, **dependencies)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
+    self.client = weaviate.connect_to_local(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
+    return __connect(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
+    client.connect()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
+    executor.result(self._ping_grpc("sync"))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
+    self.__handle_ping_exception(e)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
+    raise WeaviateGRPCUnavailableError(
+weaviate.exceptions.WeaviateGRPCUnavailableError: 
+Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
+Unfortunately, the gRPC health check against Weaviate could not be completed.
+
+This error could be due to one of several reasons:
+- The gRPC traffic at the specified port is blocked by a firewall.
+- gRPC is not enabled or incorrectly configured on the server or the client.
+    - Please check that the server address and port (localhost:50051) are correct.
+- your connection is unstable or has a high latency. In this case you can:
+    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
+    - disable startup checks by connecting using `skip_init_checks=True`
+
+[2025-07-06 16:00:28,712: ERROR/ForkPoolWorker-6] Task internal.task.document_task.build_documents[c7d746b7-2e46-4b64-bc7d-b06fe716894b] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
+    res = self._grpc_channel.unary_unary(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)", grpc_status:14}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
+    return self.run(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
+    indexing_service = injector.get(IndexingService)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
+    dependencies = self.args_to_inject(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
+    instance: Any = self.get(interface)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
+    return callable(*full_args, **dependencies)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
+    self.client = weaviate.connect_to_local(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
+    return __connect(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
+    client.connect()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
+    executor.result(self._ping_grpc("sync"))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
+    self.__handle_ping_exception(e)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
+    raise WeaviateGRPCUnavailableError(
+weaviate.exceptions.WeaviateGRPCUnavailableError: 
+Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
+Unfortunately, the gRPC health check against Weaviate could not be completed.
+
+This error could be due to one of several reasons:
+- The gRPC traffic at the specified port is blocked by a firewall.
+- gRPC is not enabled or incorrectly configured on the server or the client.
+    - Please check that the server address and port (localhost:50051) are correct.
+- your connection is unstable or has a high latency. In this case you can:
+    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
+    - disable startup checks by connecting using `skip_init_checks=True`
+
+[2025-07-06 16:00:28,713: ERROR/ForkPoolWorker-6] 执行了卡咔咔咔咔咔咔
+[2025-07-06 16:00:28,727: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+[2025-07-06 16:00:28,738: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2025-07-06 16:00:28,740: ERROR/ForkPoolWorker-6] Task internal.task.document_task.build_documents[46b953ec-2063-43a6-91b7-7bc78e133e35] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
+    res = self._grpc_channel.unary_unary(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)", grpc_status:14}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
+    return self.run(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
+    indexing_service = injector.get(IndexingService)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
+    dependencies = self.args_to_inject(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
+    instance: Any = self.get(interface)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
+    return callable(*full_args, **dependencies)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
+    self.client = weaviate.connect_to_local(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
+    return __connect(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
+    client.connect()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
+    executor.result(self._ping_grpc("sync"))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
+    self.__handle_ping_exception(e)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
+    raise WeaviateGRPCUnavailableError(
+weaviate.exceptions.WeaviateGRPCUnavailableError: 
+Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
+Unfortunately, the gRPC health check against Weaviate could not be completed.
+
+This error could be due to one of several reasons:
+- The gRPC traffic at the specified port is blocked by a firewall.
+- gRPC is not enabled or incorrectly configured on the server or the client.
+    - Please check that the server address and port (localhost:50051) are correct.
+- your connection is unstable or has a high latency. In this case you can:
+    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
+    - disable startup checks by connecting using `skip_init_checks=True`
+
+[2025-07-06 16:00:29,870: ERROR/ForkPoolWorker-8] id的值:3c471b22-2dd0-4cb0-8463-ebde691d8df1
+[2025-07-06 16:00:29,871: ERROR/ForkPoolWorker-8] 配置信息:<Config {'DEBUG': True, 'TESTING': False, 'PROPAGATE_EXCEPTIONS': None, 'SECRET_KEY': None, 'SECRET_KEY_FALLBACKS': None, 'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=31), 'USE_X_SENDFILE': False, 'TRUSTED_HOSTS': None, 'SERVER_NAME': None, 'APPLICATION_ROOT': '/', 'SESSION_COOKIE_NAME': 'session', 'SESSION_COOKIE_DOMAIN': None, 'SESSION_COOKIE_PATH': None, 'SESSION_COOKIE_HTTPONLY': True, 'SESSION_COOKIE_SECURE': False, 'SESSION_COOKIE_PARTITIONED': False, 'SESSION_COOKIE_SAMESITE': None, 'SESSION_REFRESH_EACH_REQUEST': True, 'MAX_CONTENT_LENGTH': None, 'MAX_FORM_MEMORY_SIZE': 500000, 'MAX_FORM_PARTS': 1000, 'SEND_FILE_MAX_AGE_DEFAULT': None, 'TRAP_BAD_REQUEST_ERRORS': None, 'TRAP_HTTP_EXCEPTIONS': False, 'EXPLAIN_TEMPLATE_LOADING': False, 'PREFERRED_URL_SCHEME': 'http', 'TEMPLATES_AUTO_RELOAD': None, 'MAX_COOKIE_SIZE': 4093, 'PROVIDE_AUTOMATIC_OPTIONS': True, 'CELERY': {'broker_url': 'redis://localhost:6379/1', 'result_backend': 'redis://localhost:6379/1', 'task_ignore_result': False, 'result_expires': 3600, 'broker_connection_retry_on_startup': True}, 'REDIS_DB': '0', 'REDIS_HOST': 'localhost', 'REDIS_PASSWORD': '', 'REDIS_PORT': '6379', 'REDIS_USERNAME': '', 'REDIS_USE_SSL': False, 'SQLALCHEMY_DATABASE_URI': 'postgresql://postgres:postgres@127.0.0.1:5432/llmops?client_encoding=utf8', 'SQLALCHEMY_ECHO': True, 'SQLALCHEMY_ENGINE_OPTIONS': {'pool_size': 30, 'pool_recycle': 3600}, 'WTF_CSRF_ENABLED': False, 'SQLALCHEMY_BINDS': {}, 'SQLALCHEMY_RECORD_QUERIES': False, 'SQLALCHEMY_TRACK_MODIFICATIONS': False}>
+[2025-07-06 16:00:29,872: ERROR/ForkPoolWorker-1] id的值:c92e2b3f-0d31-41f4-b101-9b6bd485063e
+[2025-07-06 16:00:29,873: ERROR/ForkPoolWorker-1] 配置信息:<Config {'DEBUG': True, 'TESTING': False, 'PROPAGATE_EXCEPTIONS': None, 'SECRET_KEY': None, 'SECRET_KEY_FALLBACKS': None, 'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=31), 'USE_X_SENDFILE': False, 'TRUSTED_HOSTS': None, 'SERVER_NAME': None, 'APPLICATION_ROOT': '/', 'SESSION_COOKIE_NAME': 'session', 'SESSION_COOKIE_DOMAIN': None, 'SESSION_COOKIE_PATH': None, 'SESSION_COOKIE_HTTPONLY': True, 'SESSION_COOKIE_SECURE': False, 'SESSION_COOKIE_PARTITIONED': False, 'SESSION_COOKIE_SAMESITE': None, 'SESSION_REFRESH_EACH_REQUEST': True, 'MAX_CONTENT_LENGTH': None, 'MAX_FORM_MEMORY_SIZE': 500000, 'MAX_FORM_PARTS': 1000, 'SEND_FILE_MAX_AGE_DEFAULT': None, 'TRAP_BAD_REQUEST_ERRORS': None, 'TRAP_HTTP_EXCEPTIONS': False, 'EXPLAIN_TEMPLATE_LOADING': False, 'PREFERRED_URL_SCHEME': 'http', 'TEMPLATES_AUTO_RELOAD': None, 'MAX_COOKIE_SIZE': 4093, 'PROVIDE_AUTOMATIC_OPTIONS': True, 'CELERY': {'broker_url': 'redis://localhost:6379/1', 'result_backend': 'redis://localhost:6379/1', 'task_ignore_result': False, 'result_expires': 3600, 'broker_connection_retry_on_startup': True}, 'REDIS_DB': '0', 'REDIS_HOST': 'localhost', 'REDIS_PASSWORD': '', 'REDIS_PORT': '6379', 'REDIS_USERNAME': '', 'REDIS_USE_SSL': False, 'SQLALCHEMY_DATABASE_URI': 'postgresql://postgres:postgres@127.0.0.1:5432/llmops?client_encoding=utf8', 'SQLALCHEMY_ECHO': True, 'SQLALCHEMY_ENGINE_OPTIONS': {'pool_size': 30, 'pool_recycle': 3600}, 'WTF_CSRF_ENABLED': False, 'SQLALCHEMY_BINDS': {}, 'SQLALCHEMY_RECORD_QUERIES': False, 'SQLALCHEMY_TRACK_MODIFICATIONS': False}>
+[2025-07-06 16:00:29,874: ERROR/ForkPoolWorker-2] id的值:6743af9f-3b31-47ee-aab0-68e6fd228cbf
+[2025-07-06 16:00:29,879: ERROR/ForkPoolWorker-4] id的值:ab39d031-5b7d-4545-82df-a0928e94a3a9
+[2025-07-06 16:00:29,879: ERROR/ForkPoolWorker-2] 配置信息:<Config {'DEBUG': True, 'TESTING': False, 'PROPAGATE_EXCEPTIONS': None, 'SECRET_KEY': None, 'SECRET_KEY_FALLBACKS': None, 'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=31), 'USE_X_SENDFILE': False, 'TRUSTED_HOSTS': None, 'SERVER_NAME': None, 'APPLICATION_ROOT': '/', 'SESSION_COOKIE_NAME': 'session', 'SESSION_COOKIE_DOMAIN': None, 'SESSION_COOKIE_PATH': None, 'SESSION_COOKIE_HTTPONLY': True, 'SESSION_COOKIE_SECURE': False, 'SESSION_COOKIE_PARTITIONED': False, 'SESSION_COOKIE_SAMESITE': None, 'SESSION_REFRESH_EACH_REQUEST': True, 'MAX_CONTENT_LENGTH': None, 'MAX_FORM_MEMORY_SIZE': 500000, 'MAX_FORM_PARTS': 1000, 'SEND_FILE_MAX_AGE_DEFAULT': None, 'TRAP_BAD_REQUEST_ERRORS': None, 'TRAP_HTTP_EXCEPTIONS': False, 'EXPLAIN_TEMPLATE_LOADING': False, 'PREFERRED_URL_SCHEME': 'http', 'TEMPLATES_AUTO_RELOAD': None, 'MAX_COOKIE_SIZE': 4093, 'PROVIDE_AUTOMATIC_OPTIONS': True, 'CELERY': {'broker_url': 'redis://localhost:6379/1', 'result_backend': 'redis://localhost:6379/1', 'task_ignore_result': False, 'result_expires': 3600, 'broker_connection_retry_on_startup': True}, 'REDIS_DB': '0', 'REDIS_HOST': 'localhost', 'REDIS_PASSWORD': '', 'REDIS_PORT': '6379', 'REDIS_USERNAME': '', 'REDIS_USE_SSL': False, 'SQLALCHEMY_DATABASE_URI': 'postgresql://postgres:postgres@127.0.0.1:5432/llmops?client_encoding=utf8', 'SQLALCHEMY_ECHO': True, 'SQLALCHEMY_ENGINE_OPTIONS': {'pool_size': 30, 'pool_recycle': 3600}, 'WTF_CSRF_ENABLED': False, 'SQLALCHEMY_BINDS': {}, 'SQLALCHEMY_RECORD_QUERIES': False, 'SQLALCHEMY_TRACK_MODIFICATIONS': False}>
+[2025-07-06 16:00:29,879: ERROR/ForkPoolWorker-3] id的值:45cadb76-50c8-46df-a7b0-49e22b24a08f
+[2025-07-06 16:00:29,880: ERROR/ForkPoolWorker-4] 配置信息:<Config {'DEBUG': True, 'TESTING': False, 'PROPAGATE_EXCEPTIONS': None, 'SECRET_KEY': None, 'SECRET_KEY_FALLBACKS': None, 'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=31), 'USE_X_SENDFILE': False, 'TRUSTED_HOSTS': None, 'SERVER_NAME': None, 'APPLICATION_ROOT': '/', 'SESSION_COOKIE_NAME': 'session', 'SESSION_COOKIE_DOMAIN': None, 'SESSION_COOKIE_PATH': None, 'SESSION_COOKIE_HTTPONLY': True, 'SESSION_COOKIE_SECURE': False, 'SESSION_COOKIE_PARTITIONED': False, 'SESSION_COOKIE_SAMESITE': None, 'SESSION_REFRESH_EACH_REQUEST': True, 'MAX_CONTENT_LENGTH': None, 'MAX_FORM_MEMORY_SIZE': 500000, 'MAX_FORM_PARTS': 1000, 'SEND_FILE_MAX_AGE_DEFAULT': None, 'TRAP_BAD_REQUEST_ERRORS': None, 'TRAP_HTTP_EXCEPTIONS': False, 'EXPLAIN_TEMPLATE_LOADING': False, 'PREFERRED_URL_SCHEME': 'http', 'TEMPLATES_AUTO_RELOAD': None, 'MAX_COOKIE_SIZE': 4093, 'PROVIDE_AUTOMATIC_OPTIONS': True, 'CELERY': {'broker_url': 'redis://localhost:6379/1', 'result_backend': 'redis://localhost:6379/1', 'task_ignore_result': False, 'result_expires': 3600, 'broker_connection_retry_on_startup': True}, 'REDIS_DB': '0', 'REDIS_HOST': 'localhost', 'REDIS_PASSWORD': '', 'REDIS_PORT': '6379', 'REDIS_USERNAME': '', 'REDIS_USE_SSL': False, 'SQLALCHEMY_DATABASE_URI': 'postgresql://postgres:postgres@127.0.0.1:5432/llmops?client_encoding=utf8', 'SQLALCHEMY_ECHO': True, 'SQLALCHEMY_ENGINE_OPTIONS': {'pool_size': 30, 'pool_recycle': 3600}, 'WTF_CSRF_ENABLED': False, 'SQLALCHEMY_BINDS': {}, 'SQLALCHEMY_RECORD_QUERIES': False, 'SQLALCHEMY_TRACK_MODIFICATIONS': False}>
+[2025-07-06 16:00:29,880: ERROR/ForkPoolWorker-3] 配置信息:<Config {'DEBUG': True, 'TESTING': False, 'PROPAGATE_EXCEPTIONS': None, 'SECRET_KEY': None, 'SECRET_KEY_FALLBACKS': None, 'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=31), 'USE_X_SENDFILE': False, 'TRUSTED_HOSTS': None, 'SERVER_NAME': None, 'APPLICATION_ROOT': '/', 'SESSION_COOKIE_NAME': 'session', 'SESSION_COOKIE_DOMAIN': None, 'SESSION_COOKIE_PATH': None, 'SESSION_COOKIE_HTTPONLY': True, 'SESSION_COOKIE_SECURE': False, 'SESSION_COOKIE_PARTITIONED': False, 'SESSION_COOKIE_SAMESITE': None, 'SESSION_REFRESH_EACH_REQUEST': True, 'MAX_CONTENT_LENGTH': None, 'MAX_FORM_MEMORY_SIZE': 500000, 'MAX_FORM_PARTS': 1000, 'SEND_FILE_MAX_AGE_DEFAULT': None, 'TRAP_BAD_REQUEST_ERRORS': None, 'TRAP_HTTP_EXCEPTIONS': False, 'EXPLAIN_TEMPLATE_LOADING': False, 'PREFERRED_URL_SCHEME': 'http', 'TEMPLATES_AUTO_RELOAD': None, 'MAX_COOKIE_SIZE': 4093, 'PROVIDE_AUTOMATIC_OPTIONS': True, 'CELERY': {'broker_url': 'redis://localhost:6379/1', 'result_backend': 'redis://localhost:6379/1', 'task_ignore_result': False, 'result_expires': 3600, 'broker_connection_retry_on_startup': True}, 'REDIS_DB': '0', 'REDIS_HOST': 'localhost', 'REDIS_PASSWORD': '', 'REDIS_PORT': '6379', 'REDIS_USERNAME': '', 'REDIS_USE_SSL': False, 'SQLALCHEMY_DATABASE_URI': 'postgresql://postgres:postgres@127.0.0.1:5432/llmops?client_encoding=utf8', 'SQLALCHEMY_ECHO': True, 'SQLALCHEMY_ENGINE_OPTIONS': {'pool_size': 30, 'pool_recycle': 3600}, 'WTF_CSRF_ENABLED': False, 'SQLALCHEMY_BINDS': {}, 'SQLALCHEMY_RECORD_QUERIES': False, 'SQLALCHEMY_TRACK_MODIFICATIONS': False}>
+[2025-07-06 16:00:29,883: ERROR/ForkPoolWorker-5] id的值:d5b313fd-858b-4151-82a8-962a0b1cdea6
+[2025-07-06 16:00:29,883: ERROR/ForkPoolWorker-5] 配置信息:<Config {'DEBUG': True, 'TESTING': False, 'PROPAGATE_EXCEPTIONS': None, 'SECRET_KEY': None, 'SECRET_KEY_FALLBACKS': None, 'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=31), 'USE_X_SENDFILE': False, 'TRUSTED_HOSTS': None, 'SERVER_NAME': None, 'APPLICATION_ROOT': '/', 'SESSION_COOKIE_NAME': 'session', 'SESSION_COOKIE_DOMAIN': None, 'SESSION_COOKIE_PATH': None, 'SESSION_COOKIE_HTTPONLY': True, 'SESSION_COOKIE_SECURE': False, 'SESSION_COOKIE_PARTITIONED': False, 'SESSION_COOKIE_SAMESITE': None, 'SESSION_REFRESH_EACH_REQUEST': True, 'MAX_CONTENT_LENGTH': None, 'MAX_FORM_MEMORY_SIZE': 500000, 'MAX_FORM_PARTS': 1000, 'SEND_FILE_MAX_AGE_DEFAULT': None, 'TRAP_BAD_REQUEST_ERRORS': None, 'TRAP_HTTP_EXCEPTIONS': False, 'EXPLAIN_TEMPLATE_LOADING': False, 'PREFERRED_URL_SCHEME': 'http', 'TEMPLATES_AUTO_RELOAD': None, 'MAX_COOKIE_SIZE': 4093, 'PROVIDE_AUTOMATIC_OPTIONS': True, 'CELERY': {'broker_url': 'redis://localhost:6379/1', 'result_backend': 'redis://localhost:6379/1', 'task_ignore_result': False, 'result_expires': 3600, 'broker_connection_retry_on_startup': True}, 'REDIS_DB': '0', 'REDIS_HOST': 'localhost', 'REDIS_PASSWORD': '', 'REDIS_PORT': '6379', 'REDIS_USERNAME': '', 'REDIS_USE_SSL': False, 'SQLALCHEMY_DATABASE_URI': 'postgresql://postgres:postgres@127.0.0.1:5432/llmops?client_encoding=utf8', 'SQLALCHEMY_ECHO': True, 'SQLALCHEMY_ENGINE_OPTIONS': {'pool_size': 30, 'pool_recycle': 3600}, 'WTF_CSRF_ENABLED': False, 'SQLALCHEMY_BINDS': {}, 'SQLALCHEMY_RECORD_QUERIES': False, 'SQLALCHEMY_TRACK_MODIFICATIONS': False}>
+[2025-07-06 16:00:29,885: INFO/ForkPoolWorker-8] Task internal.task.demo_task.demo_task[0a55b407-2e4e-4857-bae1-b6666aaca841] succeeded in 5.016954333994363s: '慕小课'
+[2025-07-06 16:00:29,885: INFO/ForkPoolWorker-2] Task internal.task.demo_task.demo_task[ed03593f-723a-4822-9eab-6e10bc66c0ea] succeeded in 5.013501500005077s: '慕小课'
+[2025-07-06 16:00:29,886: INFO/ForkPoolWorker-1] Task internal.task.demo_task.demo_task[1de322b5-4644-4669-87b6-7f94cc4f83f1] succeeded in 5.0158308329992s: '慕小课'
+[2025-07-06 16:00:29,886: INFO/ForkPoolWorker-3] Task internal.task.demo_task.demo_task[a8b85978-d967-49cf-923c-c2716fef4c36] succeeded in 5.012965458998224s: '慕小课'
+[2025-07-06 16:00:29,886: INFO/ForkPoolWorker-4] Task internal.task.demo_task.demo_task[a5185a51-994b-4211-a29d-114dfb902f1b] succeeded in 5.011919374999707s: '慕小课'
+[2025-07-06 16:00:29,893: INFO/ForkPoolWorker-5] Task internal.task.demo_task.demo_task[f56747a8-054a-4029-bf38-b85a8d4662b7] succeeded in 5.012579499998537s: '慕小课'
+[2025-07-06 16:00:47,598: INFO/MainProcess] Task internal.task.document_task.build_documents[57b9c8c2-e165-456c-8d69-f96b54f65097] received
+[2025-07-06 16:00:47,601: ERROR/ForkPoolWorker-8] 执行了卡咔咔咔咔咔咔
+[2025-07-06 16:00:48,661: INFO/ForkPoolWorker-8] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+[2025-07-06 16:00:48,672: INFO/ForkPoolWorker-8] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2025-07-06 16:00:48,685: ERROR/ForkPoolWorker-8] Task internal.task.document_task.build_documents[57b9c8c2-e165-456c-8d69-f96b54f65097] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
+    res = self._grpc_channel.unary_unary(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_status:14, grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
+    return self.run(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
+    indexing_service = injector.get(IndexingService)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
+    dependencies = self.args_to_inject(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
+    instance: Any = self.get(interface)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
+    return callable(*full_args, **dependencies)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
+    self.client = weaviate.connect_to_local(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
+    return __connect(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
+    client.connect()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
+    executor.result(self._ping_grpc("sync"))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
+    self.__handle_ping_exception(e)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
+    raise WeaviateGRPCUnavailableError(
+weaviate.exceptions.WeaviateGRPCUnavailableError: 
+Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
+Unfortunately, the gRPC health check against Weaviate could not be completed.
+
+This error could be due to one of several reasons:
+- The gRPC traffic at the specified port is blocked by a firewall.
+- gRPC is not enabled or incorrectly configured on the server or the client.
+    - Please check that the server address and port (localhost:50051) are correct.
+- your connection is unstable or has a high latency. In this case you can:
+    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
+    - disable startup checks by connecting using `skip_init_checks=True`
+

@@ -88,7 +88,6 @@ class AppHandler:
         json_data = request.get_json()
         req = CompletionReq(data=json_data)
         if not req.validate():
-            print(req.errors)
             return validate_error_json(req.errors)
 
         # 2.构建OpenAI客户端，并发起请求

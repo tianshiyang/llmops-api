@@ -7,9 +7,11 @@
 """
 from sqlalchemy import PrimaryKeyConstraint, UUID, Column, text, Text, String, DateTime, Integer, Boolean, func
 from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy.sql.functions import count
 
 from internal.extension.database_extension import db
 from internal.model.app import AppDatasetJoin
+from internal.model.upload_file import UploadFile
 
 
 class Dataset(db.Model):
@@ -125,6 +127,31 @@ class Document(db.Model):
         server_onupdate=text('CURRENT_TIMESTAMP(0)'),
     )
     created_at = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP(0)'))
+
+    @property
+    def upload_file(self) -> "UploadFile":
+        return db.session.query(UploadFile).filter(
+            UploadFile.id == self.upload_file_id
+        ).one_or_none()
+
+    @property
+    def process_rule(self) -> "ProcessRule":
+        return db.session.query(ProcessRule).filter(
+            ProcessRule.id == self.process_rule_id
+        ).one_or_none()
+
+    @property
+    def segment_count(self):
+        return db.session.query(func(count(Segment.id))).filter(
+            Segment.document_id == self.id
+        ).scalar()
+
+    @property
+    def hit_count(self) -> int:
+        """命中次数"""
+        return db.session.query(func.coalesce(func.sum(Segment.hit_count), 0)).filter(
+            Segment.document_id == self.id,
+        ).scalar()
 
 
 class Segment(db.Model):

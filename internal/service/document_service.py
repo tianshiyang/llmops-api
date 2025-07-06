@@ -46,8 +46,8 @@ class DocumentService(BaseService):
             raise ForbiddenException("当前用户无知识库权限或知识库不存在")
         # 2.提取文件并校验权限与文档扩展
         upload_files = self.db.session.query(UploadFile).filter(
-            UploadFile.dataset_id == dataset_id,
-            UploadFile.id.in_(upload_file_ids)
+            UploadFile.account_id == account_id,
+            UploadFile.id.in_(upload_file_ids),
         ).all()
 
         upload_files = [
