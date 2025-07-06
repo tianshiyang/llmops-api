@@ -17,7 +17,6 @@ from flask_migrate import Migrate
 
 from config import Config
 from internal.exception import CustomException
-from internal.model import App
 from internal.router import Router
 from pkg.response import HttpCode, json, Response
 

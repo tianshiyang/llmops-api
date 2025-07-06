@@ -37,6 +37,7 @@ class VectorDatabaseService:
         self.client = weaviate.connect_to_local(
             host=os.getenv("WEAVIATE_HOST"),
             port=int(os.getenv("WEAVIATE_PORT")),
+            skip_init_checks=True,
         )
 
         # 3.创建langchain向量数据库

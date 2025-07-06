@@ -7,7 +7,6 @@
 """
 from sqlalchemy import PrimaryKeyConstraint, UUID, Column, text, Text, String, DateTime, Integer, Boolean, func
 from sqlalchemy.dialects.postgresql import JSONB
-from sqlalchemy.sql.functions import count
 
 from internal.extension.database_extension import db
 from internal.model.app import AppDatasetJoin
@@ -142,7 +141,7 @@ class Document(db.Model):
 
     @property
     def segment_count(self):
-        return db.session.query(func(count(Segment.id))).filter(
+        return db.session.query(func.count(Segment.id)).filter(
             Segment.document_id == self.id
         ).scalar()
 

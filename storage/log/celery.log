@@ -1,1087 +1,332 @@
-[2025-06-30 22:24:55,322: INFO/MainProcess] Connected to redis://localhost:6379/1
-[2025-06-30 22:24:55,324: INFO/MainProcess] mingle: searching for neighbors
-[2025-06-30 22:24:56,342: INFO/MainProcess] mingle: all alone
-[2025-06-30 22:24:56,389: INFO/MainProcess] celery@icourtdeMacBook-Pro.local ready.
-[2025-06-30 22:25:22,115: INFO/MainProcess] Task internal.task.demo_task.demo_task[9ca52066-7a53-431a-a63e-2dedba35d092] received
-[2025-06-30 22:25:22,118: ERROR/ForkPoolWorker-8] 睡眠5秒
-[2025-06-30 22:25:27,120: ERROR/ForkPoolWorker-8] id的值:abc071fb-1171-448a-8ea3-852ffb6718cf
-[2025-06-30 22:25:27,124: ERROR/ForkPoolWorker-8] 配置信息:<Config {'DEBUG': True, 'TESTING': False, 'PROPAGATE_EXCEPTIONS': None, 'SECRET_KEY': None, 'SECRET_KEY_FALLBACKS': None, 'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=31), 'USE_X_SENDFILE': False, 'TRUSTED_HOSTS': None, 'SERVER_NAME': None, 'APPLICATION_ROOT': '/', 'SESSION_COOKIE_NAME': 'session', 'SESSION_COOKIE_DOMAIN': None, 'SESSION_COOKIE_PATH': None, 'SESSION_COOKIE_HTTPONLY': True, 'SESSION_COOKIE_SECURE': False, 'SESSION_COOKIE_PARTITIONED': False, 'SESSION_COOKIE_SAMESITE': None, 'SESSION_REFRESH_EACH_REQUEST': True, 'MAX_CONTENT_LENGTH': None, 'MAX_FORM_MEMORY_SIZE': 500000, 'MAX_FORM_PARTS': 1000, 'SEND_FILE_MAX_AGE_DEFAULT': None, 'TRAP_BAD_REQUEST_ERRORS': None, 'TRAP_HTTP_EXCEPTIONS': False, 'EXPLAIN_TEMPLATE_LOADING': False, 'PREFERRED_URL_SCHEME': 'http', 'TEMPLATES_AUTO_RELOAD': None, 'MAX_COOKIE_SIZE': 4093, 'PROVIDE_AUTOMATIC_OPTIONS': True, 'CELERY': {'broker_url': 'redis://localhost:6379/1', 'result_backend': 'redis://localhost:6379/1', 'task_ignore_result': False, 'result_expires': 3600, 'broker_connection_retry_on_startup': True}, 'REDIS_DB': '0', 'REDIS_HOST': 'localhost', 'REDIS_PASSWORD': '', 'REDIS_PORT': '6379', 'REDIS_USERNAME': '', 'REDIS_USE_SSL': False, 'SQLALCHEMY_DATABASE_URI': 'postgresql://postgres:postgres@127.0.0.1:5432/llmops?client_encoding=utf8', 'SQLALCHEMY_ECHO': True, 'SQLALCHEMY_ENGINE_OPTIONS': {'pool_size': 30, 'pool_recycle': 3600}, 'WTF_CSRF_ENABLED': False, 'SQLALCHEMY_BINDS': {}, 'SQLALCHEMY_RECORD_QUERIES': False, 'SQLALCHEMY_TRACK_MODIFICATIONS': False}>
-[2025-06-30 22:25:27,139: INFO/ForkPoolWorker-8] Task internal.task.demo_task.demo_task[9ca52066-7a53-431a-a63e-2dedba35d092] succeeded in 5.0219500419989345s: '慕小课'
-[2025-07-06 16:00:23,826: INFO/MainProcess] Connected to redis://localhost:6379/1
-[2025-07-06 16:00:23,829: INFO/MainProcess] mingle: searching for neighbors
-[2025-07-06 16:00:24,846: INFO/MainProcess] mingle: all alone
-[2025-07-06 16:00:24,863: INFO/MainProcess] celery@icourtdeMacBook-Pro.local ready.
-[2025-07-06 16:00:24,867: INFO/MainProcess] Task internal.task.demo_task.demo_task[0a55b407-2e4e-4857-bae1-b6666aaca841] received
-[2025-07-06 16:00:24,869: INFO/MainProcess] Task internal.task.demo_task.demo_task[1de322b5-4644-4669-87b6-7f94cc4f83f1] received
-[2025-07-06 16:00:24,869: ERROR/ForkPoolWorker-8] 睡眠5秒
-[2025-07-06 16:00:24,870: INFO/MainProcess] Task internal.task.demo_task.demo_task[ed03593f-723a-4822-9eab-6e10bc66c0ea] received
-[2025-07-06 16:00:24,871: ERROR/ForkPoolWorker-1] 睡眠5秒
-[2025-07-06 16:00:24,871: INFO/MainProcess] Task internal.task.demo_task.demo_task[a8b85978-d967-49cf-923c-c2716fef4c36] received
-[2025-07-06 16:00:24,873: INFO/MainProcess] Task internal.task.demo_task.demo_task[a5185a51-994b-4211-a29d-114dfb902f1b] received
-[2025-07-06 16:00:24,873: ERROR/ForkPoolWorker-2] 睡眠5秒
-[2025-07-06 16:00:24,874: ERROR/ForkPoolWorker-3] 睡眠5秒
-[2025-07-06 16:00:24,875: ERROR/ForkPoolWorker-4] 睡眠5秒
-[2025-07-06 16:00:24,879: INFO/MainProcess] Task internal.task.demo_task.demo_task[f56747a8-054a-4029-bf38-b85a8d4662b7] received
-[2025-07-06 16:00:24,880: INFO/MainProcess] Task internal.task.document_task.build_documents[8a9b7f10-b5d0-4e5d-b2b9-cee39c5abc46] received
-[2025-07-06 16:00:24,881: INFO/MainProcess] Task internal.task.document_task.build_documents[e2fae2ec-bc46-475d-8946-dd7d9a9fdadb] received
-[2025-07-06 16:00:24,881: ERROR/ForkPoolWorker-5] 睡眠5秒
-[2025-07-06 16:00:24,882: INFO/MainProcess] Task internal.task.document_task.build_documents[b9151e3a-5e66-4419-9aa2-8b5a303723ee] received
-[2025-07-06 16:00:24,882: ERROR/ForkPoolWorker-6] 执行了卡咔咔咔咔咔咔
-[2025-07-06 16:00:24,883: INFO/MainProcess] Task internal.task.document_task.build_documents[4781ca6a-8dd5-40c7-bded-b432b70e1835] received
-[2025-07-06 16:00:24,883: ERROR/ForkPoolWorker-7] 执行了卡咔咔咔咔咔咔
-[2025-07-06 16:00:24,884: INFO/MainProcess] Task internal.task.document_task.build_documents[e77b9615-373a-4804-a6bb-ce9a8dcf013e] received
-[2025-07-06 16:00:24,885: INFO/MainProcess] Task internal.task.document_task.build_documents[14753a5d-dbda-4fa7-b045-a91402fe8900] received
-[2025-07-06 16:00:24,885: INFO/MainProcess] Task internal.task.document_task.build_documents[7d8f1daa-66fa-4a3b-81e9-e12764204a8c] received
-[2025-07-06 16:00:24,886: INFO/MainProcess] Task internal.task.document_task.build_documents[e69de0f4-428c-4223-b60d-54ac63fba3d5] received
-[2025-07-06 16:00:24,886: INFO/MainProcess] Task internal.task.document_task.build_documents[c7d746b7-2e46-4b64-bc7d-b06fe716894b] received
-[2025-07-06 16:00:24,887: INFO/MainProcess] Task internal.task.document_task.build_documents[ccce9018-a362-45af-b66c-a3f3e46eecfd] received
-[2025-07-06 16:00:24,887: INFO/MainProcess] Task internal.task.document_task.build_documents[46b953ec-2063-43a6-91b7-7bc78e133e35] received
-[2025-07-06 16:00:28,211: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
-[2025-07-06 16:00:28,211: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
-[2025-07-06 16:00:28,223: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
-[2025-07-06 16:00:28,223: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
-[2025-07-06 16:00:28,240: ERROR/ForkPoolWorker-7] Task internal.task.document_task.build_documents[e2fae2ec-bc46-475d-8946-dd7d9a9fdadb] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
-    res = self._grpc_channel.unary_unary(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
-    return _end_unary_response_blocking(state, call, False, None)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
-    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
-grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
-	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)", grpc_status:14}"
->
+[2025-07-06 22:21:46,471: INFO/MainProcess] Task internal.task.document_task.build_documents[c99d2fd7-827f-485f-aea4-57580099b179] received
+[2025-07-06 22:21:47,673: INFO/MainProcess] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2025-07-06 22:21:47,684: INFO/MainProcess] HTTP Request: GET http://localhost:8080/v1/schema/Dataset "HTTP/1.1 200 OK"
+[2025-07-06 22:21:47,685: INFO/MainProcess] HTTP Request: GET http://localhost:8080/v1/schema/Dataset "HTTP/1.1 200 OK"
+[2025-07-06 22:21:47,706: INFO/MainProcess] select pg_catalog.version()
+[2025-07-06 22:21:47,706: INFO/MainProcess] [raw sql] {}
+[2025-07-06 22:21:47,707: INFO/MainProcess] select current_schema()
+[2025-07-06 22:21:47,707: INFO/MainProcess] [raw sql] {}
+[2025-07-06 22:21:47,707: INFO/MainProcess] show standard_conforming_strings
+[2025-07-06 22:21:47,708: INFO/MainProcess] [raw sql] {}
+[2025-07-06 22:21:47,708: INFO/MainProcess] BEGIN (implicit)
+[2025-07-06 22:21:47,711: INFO/MainProcess] SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id IN (%(id_1_1)s::UUID)
+[2025-07-06 22:21:47,711: INFO/MainProcess] [generated in 0.00022s] {'id_1_1': UUID('ed4cfcd2-73b5-48ea-b404-3b7833b1a257')}
+[2025-07-06 22:21:47,714: INFO/MainProcess] UPDATE document SET processing_started_at=%(processing_started_at)s, status=%(status)s WHERE document.id = %(document_id)s::UUID
+[2025-07-06 22:21:47,714: INFO/MainProcess] [generated in 0.00011s] {'processing_started_at': datetime.datetime(2025, 7, 6, 22, 21, 47, 713192), 'status': <DocumentStatus.PARSING: 'parsing'>, 'document_id': UUID('ed4cfcd2-73b5-48ea-b404-3b7833b1a257')}
+[2025-07-06 22:21:47,714: INFO/MainProcess] COMMIT
+[2025-07-06 22:21:47,717: INFO/MainProcess] BEGIN (implicit)
+[2025-07-06 22:21:47,717: INFO/MainProcess] SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-06 22:21:47,717: INFO/MainProcess] [generated in 0.00012s] {'pk_1': UUID('ed4cfcd2-73b5-48ea-b404-3b7833b1a257')}
+[2025-07-06 22:21:47,719: INFO/MainProcess] SELECT upload_file.id AS upload_file_id, upload_file.account_id AS upload_file_account_id, upload_file.name AS upload_file_name, upload_file.key AS upload_file_key, upload_file.size AS upload_file_size, upload_file.extension AS upload_file_extension, upload_file.mime_type AS upload_file_mime_type, upload_file.hash AS upload_file_hash, upload_file.updated_at AS upload_file_updated_at, upload_file.created_at AS upload_file_created_at 
+FROM upload_file 
+WHERE upload_file.id = %(id_1)s::UUID
+[2025-07-06 22:21:47,719: INFO/MainProcess] [generated in 0.00011s] {'id_1': UUID('252b8261-f973-4ec7-9349-aaa716646deb')}
+[2025-07-06 22:21:47,721: INFO/MainProcess] generate built-in connection pool success. maxsize=10,10
+[2025-07-06 22:21:47,721: INFO/MainProcess] bound built-in connection pool when new client. maxsize=10,10
+[2025-07-06 22:21:47,721: INFO/MainProcess] head object, url=:https://llmops-1309470436.cos.ap-beijing.myqcloud.com/2025/06/28/efb1d876-2c85-4a84-8437-709652853a64.docx ,headers=:{}
+[2025-07-06 22:21:47,898: INFO/MainProcess] get object, url=:https://llmops-1309470436.cos.ap-beijing.myqcloud.com/2025/06/28/efb1d876-2c85-4a84-8437-709652853a64.docx ,headers=:{}, params=:{}
+[2025-07-06 22:21:47,967: ERROR/MainProcess] 这个执行了.docx
+[2025-07-06 22:21:47,993: ERROR/MainProcess] 执行到这里了3
+[2025-07-06 22:21:52,531: ERROR/MainProcess] 构建文档发生错误，错误信息：sequence item 0: expected str instance, Document found
+[2025-07-06 22:21:52,532: INFO/MainProcess] UPDATE document SET stopped_at=%(stopped_at)s, error=%(error)s, status=%(status)s WHERE document.id = %(document_id)s::UUID
+[2025-07-06 22:21:52,532: INFO/MainProcess] [generated in 0.00016s] {'stopped_at': datetime.datetime(2025, 7, 6, 22, 21, 52, 531865), 'error': 'sequence item 0: expected str instance, Document found', 'status': <DocumentStatus.ERROR: 'error'>, 'document_id': UUID('ed4cfcd2-73b5-48ea-b404-3b7833b1a257')}
+[2025-07-06 22:21:52,534: INFO/MainProcess] COMMIT
+[2025-07-06 22:21:52,536: WARNING/MainProcess] /Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/warnings.py:232: ResourceWarning: Con004: The connection to Weaviate was not closed properly. This can lead to memory leaks.
+            Please make sure to close the connection using `client.close()`.
+  warnings.warn(
 
-The above exception was the direct cause of the following exception:
+[2025-07-06 22:21:52,537: WARNING/MainProcess] /Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py:20: ResourceWarning: unclosed <socket.socket fd=18, family=AddressFamily.AF_INET6, type=SocketKind.SOCK_STREAM, proto=6, laddr=('::1', 57114, 0, 0), raddr=('::1', 8080, 0, 0)>
+  return self.run(*args, **kwargs)
 
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
-    R = retval = fun(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
-    return self.run(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
-    indexing_service = injector.get(IndexingService)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
-    dependencies = self.args_to_inject(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
-    instance: Any = self.get(interface)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
-    return callable(*full_args, **dependencies)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
-    self.client = weaviate.connect_to_local(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
-    return __connect(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
-    client.connect()
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
-    return executor.execute(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
-    return cast(T, exception_callback(e))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
-    call = method(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
-    executor.result(self._ping_grpc("sync"))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
-    self.__handle_ping_exception(e)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
-    raise WeaviateGRPCUnavailableError(
-weaviate.exceptions.WeaviateGRPCUnavailableError: 
-Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
-Unfortunately, the gRPC health check against Weaviate could not be completed.
+[2025-07-06 22:21:52,542: INFO/MainProcess] Task internal.task.document_task.build_documents[c99d2fd7-827f-485f-aea4-57580099b179] succeeded in 6.070273583999551s: None
+[2025-07-06 22:23:50,747: INFO/MainProcess] Connected to redis://localhost:6379/1
+[2025-07-06 22:23:50,750: INFO/MainProcess] mingle: searching for neighbors
+[2025-07-06 22:23:51,762: INFO/MainProcess] mingle: all alone
+[2025-07-06 22:23:51,790: INFO/MainProcess] celery@icourtdeMacBook-Pro.local ready.
+[2025-07-06 22:24:06,128: INFO/MainProcess] Task internal.task.document_task.build_documents[417d53ae-a360-42d4-a009-accd203c596f] received
+[2025-07-06 22:24:07,228: INFO/MainProcess] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2025-07-06 22:24:07,238: INFO/MainProcess] HTTP Request: GET http://localhost:8080/v1/schema/Dataset "HTTP/1.1 200 OK"
+[2025-07-06 22:24:07,241: INFO/MainProcess] HTTP Request: GET http://localhost:8080/v1/schema/Dataset "HTTP/1.1 200 OK"
+[2025-07-06 22:24:07,273: INFO/MainProcess] select pg_catalog.version()
+[2025-07-06 22:24:07,273: INFO/MainProcess] [raw sql] {}
+[2025-07-06 22:24:07,275: INFO/MainProcess] select current_schema()
+[2025-07-06 22:24:07,275: INFO/MainProcess] [raw sql] {}
+[2025-07-06 22:24:07,276: INFO/MainProcess] show standard_conforming_strings
+[2025-07-06 22:24:07,276: INFO/MainProcess] [raw sql] {}
+[2025-07-06 22:24:07,277: INFO/MainProcess] BEGIN (implicit)
+[2025-07-06 22:24:07,280: INFO/MainProcess] SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id IN (%(id_1_1)s::UUID)
+[2025-07-06 22:24:07,280: INFO/MainProcess] [generated in 0.00031s] {'id_1_1': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:07,285: INFO/MainProcess] UPDATE document SET processing_started_at=%(processing_started_at)s, status=%(status)s WHERE document.id = %(document_id)s::UUID
+[2025-07-06 22:24:07,285: INFO/MainProcess] [generated in 0.00015s] {'processing_started_at': datetime.datetime(2025, 7, 6, 22, 24, 7, 284136), 'status': <DocumentStatus.PARSING: 'parsing'>, 'document_id': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:07,286: INFO/MainProcess] COMMIT
+[2025-07-06 22:24:07,287: INFO/MainProcess] BEGIN (implicit)
+[2025-07-06 22:24:07,288: INFO/MainProcess] SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-06 22:24:07,288: INFO/MainProcess] [generated in 0.00016s] {'pk_1': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:07,290: INFO/MainProcess] SELECT upload_file.id AS upload_file_id, upload_file.account_id AS upload_file_account_id, upload_file.name AS upload_file_name, upload_file.key AS upload_file_key, upload_file.size AS upload_file_size, upload_file.extension AS upload_file_extension, upload_file.mime_type AS upload_file_mime_type, upload_file.hash AS upload_file_hash, upload_file.updated_at AS upload_file_updated_at, upload_file.created_at AS upload_file_created_at 
+FROM upload_file 
+WHERE upload_file.id = %(id_1)s::UUID
+[2025-07-06 22:24:07,290: INFO/MainProcess] [generated in 0.00011s] {'id_1': UUID('252b8261-f973-4ec7-9349-aaa716646deb')}
+[2025-07-06 22:24:07,292: INFO/MainProcess] generate built-in connection pool success. maxsize=10,10
+[2025-07-06 22:24:07,293: INFO/MainProcess] bound built-in connection pool when new client. maxsize=10,10
+[2025-07-06 22:24:07,293: INFO/MainProcess] head object, url=:https://llmops-1309470436.cos.ap-beijing.myqcloud.com/2025/06/28/efb1d876-2c85-4a84-8437-709652853a64.docx ,headers=:{}
+[2025-07-06 22:24:07,460: INFO/MainProcess] get object, url=:https://llmops-1309470436.cos.ap-beijing.myqcloud.com/2025/06/28/efb1d876-2c85-4a84-8437-709652853a64.docx ,headers=:{}, params=:{}
+[2025-07-06 22:24:07,527: ERROR/MainProcess] 这个执行了.docx
+[2025-07-06 22:24:07,547: ERROR/MainProcess] 执行到这里了3
+[2025-07-06 22:24:10,931: INFO/MainProcess] UPDATE document SET character_count=%(character_count)s, parsing_completed_at=%(parsing_completed_at)s, status=%(status)s WHERE document.id = %(document_id)s::UUID
+[2025-07-06 22:24:10,931: INFO/MainProcess] [generated in 0.00025s] {'character_count': 1051, 'parsing_completed_at': datetime.datetime(2025, 7, 6, 22, 24, 10, 930685), 'status': <DocumentStatus.SPLITTING: 'splitting'>, 'document_id': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:10,933: INFO/MainProcess] COMMIT
+[2025-07-06 22:24:10,934: ERROR/MainProcess] 执行了3
+[2025-07-06 22:24:10,934: INFO/MainProcess] BEGIN (implicit)
+[2025-07-06 22:24:10,934: INFO/MainProcess] SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-06 22:24:10,934: INFO/MainProcess] [cached since 3.646s ago] {'pk_1': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:10,936: INFO/MainProcess] SELECT process_rule.id AS process_rule_id, process_rule.account_id AS process_rule_account_id, process_rule.dataset_id AS process_rule_dataset_id, process_rule.mode AS process_rule_mode, process_rule.rule AS process_rule_rule, process_rule.updated_at AS process_rule_updated_at, process_rule.created_at AS process_rule_created_at 
+FROM process_rule 
+WHERE process_rule.id = %(id_1)s::UUID
+[2025-07-06 22:24:10,936: INFO/MainProcess] [generated in 0.00010s] {'id_1': UUID('884144dd-e76d-41dc-b008-f6690e56a4bd')}
+[2025-07-06 22:24:14,078: INFO/MainProcess] SELECT coalesce(max(segment.position), %(coalesce_2)s) AS coalesce_1 
+FROM segment 
+WHERE segment.document_id = %(document_id_1)s::UUID
+[2025-07-06 22:24:14,079: INFO/MainProcess] [generated in 0.00025s] {'coalesce_2': 0, 'document_id_1': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:14,085: INFO/MainProcess] INSERT INTO segment (account_id, dataset_id, document_id, node_id, position, content, character_count, token_count, hash, disabled_at, processing_started_at, indexing_completed_at, completed_at, stopped_at, status) VALUES (%(account_id)s::UUID, %(dataset_id)s::UUID, %(document_id)s::UUID, %(node_id)s::UUID, %(position)s, %(content)s, %(character_count)s, %(token_count)s, %(hash)s, %(disabled_at)s, %(processing_started_at)s, %(indexing_completed_at)s, %(completed_at)s, %(stopped_at)s, %(status)s) RETURNING segment.id, segment.keywords, segment.hit_count, segment.enabled, segment.error, segment.updated_at, segment.created_at
+[2025-07-06 22:24:14,085: INFO/MainProcess] [generated in 0.00014s] {'account_id': UUID('12a2956f-b51c-4d9b-bf65-336c5acfc4f3'), 'dataset_id': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'document_id': UUID('690130a1-d01a-4914-81ad-73804e22c1dc'), 'node_id': UUID('665ecabd-bef1-4524-98f8-a7bdec9c09cc'), 'position': 1, 'content': '民事答辩状（二审）', 'character_count': 9, 'token_count': 12, 'hash': '63a384747e679d617e594d307be56f98ccf4fa8f1f9a3767a7bd7ad89409d762', 'disabled_at': None, 'processing_started_at': None, 'indexing_completed_at': None, 'completed_at': None, 'stopped_at': None, 'status': <SegmentStatus.WAITING: 'waiting'>}
+[2025-07-06 22:24:14,087: INFO/MainProcess] COMMIT
+[2025-07-06 22:24:14,088: INFO/MainProcess] BEGIN (implicit)
+[2025-07-06 22:24:14,090: INFO/MainProcess] SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,090: INFO/MainProcess] [cached since 6.802s ago] {'pk_1': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:14,092: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,092: INFO/MainProcess] [generated in 0.00017s] {'pk_1': UUID('2fc63d0a-47d4-4a7d-97f4-8bd406733000')}
+[2025-07-06 22:24:14,093: INFO/MainProcess] INSERT INTO segment (account_id, dataset_id, document_id, node_id, position, content, character_count, token_count, hash, disabled_at, processing_started_at, indexing_completed_at, completed_at, stopped_at, status) VALUES (%(account_id)s::UUID, %(dataset_id)s::UUID, %(document_id)s::UUID, %(node_id)s::UUID, %(position)s, %(content)s, %(character_count)s, %(token_count)s, %(hash)s, %(disabled_at)s, %(processing_started_at)s, %(indexing_completed_at)s, %(completed_at)s, %(stopped_at)s, %(status)s) RETURNING segment.id, segment.keywords, segment.hit_count, segment.enabled, segment.error, segment.updated_at, segment.created_at
+[2025-07-06 22:24:14,093: INFO/MainProcess] [cached since 0.008452s ago] {'account_id': UUID('12a2956f-b51c-4d9b-bf65-336c5acfc4f3'), 'dataset_id': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'document_id': UUID('690130a1-d01a-4914-81ad-73804e22c1dc'), 'node_id': UUID('70dd67cf-9f46-4310-999c-66500e634818'), 'position': 2, 'content': '民事起诉状2222', 'character_count': 9, 'token_count': 9, 'hash': 'cdfae9ea5ee8628c628c42b074c9eb7ef55e9fa22021a7fb96111842f95e5f9e', 'disabled_at': None, 'processing_started_at': None, 'indexing_completed_at': None, 'completed_at': None, 'stopped_at': None, 'status': <SegmentStatus.WAITING: 'waiting'>}
+[2025-07-06 22:24:14,094: INFO/MainProcess] COMMIT
+[2025-07-06 22:24:14,094: INFO/MainProcess] BEGIN (implicit)
+[2025-07-06 22:24:14,095: INFO/MainProcess] SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,095: INFO/MainProcess] [cached since 6.807s ago] {'pk_1': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:14,096: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,096: INFO/MainProcess] [cached since 0.00441s ago] {'pk_1': UUID('eca03daa-6772-40eb-b83d-21c1ee74998a')}
+[2025-07-06 22:24:14,097: INFO/MainProcess] INSERT INTO segment (account_id, dataset_id, document_id, node_id, position, content, character_count, token_count, hash, disabled_at, processing_started_at, indexing_completed_at, completed_at, stopped_at, status) VALUES (%(account_id)s::UUID, %(dataset_id)s::UUID, %(document_id)s::UUID, %(node_id)s::UUID, %(position)s, %(content)s, %(character_count)s, %(token_count)s, %(hash)s, %(disabled_at)s, %(processing_started_at)s, %(indexing_completed_at)s, %(completed_at)s, %(stopped_at)s, %(status)s) RETURNING segment.id, segment.keywords, segment.hit_count, segment.enabled, segment.error, segment.updated_at, segment.created_at
+[2025-07-06 22:24:14,097: INFO/MainProcess] [cached since 0.01246s ago] {'account_id': UUID('12a2956f-b51c-4d9b-bf65-336c5acfc4f3'), 'dataset_id': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'document_id': UUID('690130a1-d01a-4914-81ad-73804e22c1dc'), 'node_id': UUID('dd30bcfe-2105-4380-af64-2174f1a5ab8e'), 'position': 3, 'content': '原告：d，性别X，民族X，XXXX年X月X日出生，住XX省XX市XX区XX路XX号，身份证号码：XXXXXXXXXX，联系电话：XXXXXXXXXXX。', 'character_count': 76, 'token_count': 50, 'hash': '24eb69023f1f618ff5936b25294b104fc21b6c7460ccb39cc9aaf1aef2c4bfc6', 'disabled_at': None, 'processing_started_at': None, 'indexing_completed_at': None, 'completed_at': None, 'stopped_at': None, 'status': <SegmentStatus.WAITING: 'waiting'>}
+[2025-07-06 22:24:14,099: INFO/MainProcess] COMMIT
+[2025-07-06 22:24:14,099: INFO/MainProcess] BEGIN (implicit)
+[2025-07-06 22:24:14,100: INFO/MainProcess] SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,100: INFO/MainProcess] [cached since 6.812s ago] {'pk_1': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:14,101: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,102: INFO/MainProcess] [cached since 0.009663s ago] {'pk_1': UUID('99385814-bb9f-4969-a93b-4058fb4e2349')}
+[2025-07-06 22:24:14,102: INFO/MainProcess] INSERT INTO segment (account_id, dataset_id, document_id, node_id, position, content, character_count, token_count, hash, disabled_at, processing_started_at, indexing_completed_at, completed_at, stopped_at, status) VALUES (%(account_id)s::UUID, %(dataset_id)s::UUID, %(document_id)s::UUID, %(node_id)s::UUID, %(position)s, %(content)s, %(character_count)s, %(token_count)s, %(hash)s, %(disabled_at)s, %(processing_started_at)s, %(indexing_completed_at)s, %(completed_at)s, %(stopped_at)s, %(status)s) RETURNING segment.id, segment.keywords, segment.hit_count, segment.enabled, segment.error, segment.updated_at, segment.created_at
+[2025-07-06 22:24:14,103: INFO/MainProcess] [cached since 0.01782s ago] {'account_id': UUID('12a2956f-b51c-4d9b-bf65-336c5acfc4f3'), 'dataset_id': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'document_id': UUID('690130a1-d01a-4914-81ad-73804e22c1dc'), 'node_id': UUID('9725dbe5-2cb9-4bf6-a9b3-0a80befc0da4'), 'position': 4, 'content': '被告：X（名称/姓名），性别X，民族X，XXXX年X月X日出生（或统一社会信用代码：XXXXXXXXXX），住XX省XX市XX区XX路XX号（或注册地址：XX省XX市XX区XX路XX号），联系电话：XXXXXXXXXXX。', 'character_count': 111, 'token_count': 73, 'hash': 'be6f1feb7d46cdaf9c25b0f7416ac636c61819025c46809221cc5bfeddf1d70a', 'disabled_at': None, 'processing_started_at': None, 'indexing_completed_at': None, 'completed_at': None, 'stopped_at': None, 'status': <SegmentStatus.WAITING: 'waiting'>}
+[2025-07-06 22:24:14,103: INFO/MainProcess] COMMIT
+[2025-07-06 22:24:14,104: INFO/MainProcess] BEGIN (implicit)
+[2025-07-06 22:24:14,104: INFO/MainProcess] SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,104: INFO/MainProcess] [cached since 6.816s ago] {'pk_1': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:14,105: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,105: INFO/MainProcess] [cached since 0.01309s ago] {'pk_1': UUID('287c966e-fe48-4b20-803c-481b5bc82a2e')}
+[2025-07-06 22:24:14,106: INFO/MainProcess] INSERT INTO segment (account_id, dataset_id, document_id, node_id, position, content, character_count, token_count, hash, disabled_at, processing_started_at, indexing_completed_at, completed_at, stopped_at, status) VALUES (%(account_id)s::UUID, %(dataset_id)s::UUID, %(document_id)s::UUID, %(node_id)s::UUID, %(position)s, %(content)s, %(character_count)s, %(token_count)s, %(hash)s, %(disabled_at)s, %(processing_started_at)s, %(indexing_completed_at)s, %(completed_at)s, %(stopped_at)s, %(status)s) RETURNING segment.id, segment.keywords, segment.hit_count, segment.enabled, segment.error, segment.updated_at, segment.created_at
+[2025-07-06 22:24:14,106: INFO/MainProcess] [cached since 0.02098s ago] {'account_id': UUID('12a2956f-b51c-4d9b-bf65-336c5acfc4f3'), 'dataset_id': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'document_id': UUID('690130a1-d01a-4914-81ad-73804e22c1dc'), 'node_id': UUID('9633e12c-2d54-461f-a24c-146354851051'), 'position': 5, 'content': '一、诉讼请求', 'character_count': 6, 'token_count': 7, 'hash': '8892f63f04faf0b46a3c29ac61749a66fc88f3cd32cf52997ba9a27784af4b9c', 'disabled_at': None, 'processing_started_at': None, 'indexing_completed_at': None, 'completed_at': None, 'stopped_at': None, 'status': <SegmentStatus.WAITING: 'waiting'>}
+[2025-07-06 22:24:14,106: INFO/MainProcess] COMMIT
+[2025-07-06 22:24:14,107: INFO/MainProcess] BEGIN (implicit)
+[2025-07-06 22:24:14,107: INFO/MainProcess] SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,107: INFO/MainProcess] [cached since 6.819s ago] {'pk_1': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:14,107: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,108: INFO/MainProcess] [cached since 0.01568s ago] {'pk_1': UUID('5bee6c02-9661-4885-90bd-7e4f05edf8f5')}
+[2025-07-06 22:24:14,108: INFO/MainProcess] INSERT INTO segment (account_id, dataset_id, document_id, node_id, position, content, character_count, token_count, hash, disabled_at, processing_started_at, indexing_completed_at, completed_at, stopped_at, status) VALUES (%(account_id)s::UUID, %(dataset_id)s::UUID, %(document_id)s::UUID, %(node_id)s::UUID, %(position)s, %(content)s, %(character_count)s, %(token_count)s, %(hash)s, %(disabled_at)s, %(processing_started_at)s, %(indexing_completed_at)s, %(completed_at)s, %(stopped_at)s, %(status)s) RETURNING segment.id, segment.keywords, segment.hit_count, segment.enabled, segment.error, segment.updated_at, segment.created_at
+[2025-07-06 22:24:14,108: INFO/MainProcess] [cached since 0.02375s ago] {'account_id': UUID('12a2956f-b51c-4d9b-bf65-336c5acfc4f3'), 'dataset_id': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'document_id': UUID('690130a1-d01a-4914-81ad-73804e22c1dc'), 'node_id': UUID('f706388b-b93b-43f5-bc28-6cd7466be1fa'), 'position': 6, 'content': '确认原告对XX（具体不动产/动产，如XX市XX区XX路XX号房屋）享有完整所有权；判令被告立即向原告返还XX（具体财产）；判令被告赔偿原告因无权占有/妨害物权行为导致的损失XXX元（人民币XXX元整）；本案诉讼费用由被告承担。', 'character_count': 113, 'token_count': 125, 'hash': '3288f2a7b014a2c376569a727a2d8b31626e58519556c09de40af8803f0eae1c', 'disabled_at': None, 'processing_started_at': None, 'indexing_completed_at': None, 'completed_at': None, 'stopped_at': None, 'status': <SegmentStatus.WAITING: 'waiting'>}
+[2025-07-06 22:24:14,109: INFO/MainProcess] COMMIT
+[2025-07-06 22:24:14,110: INFO/MainProcess] BEGIN (implicit)
+[2025-07-06 22:24:14,110: INFO/MainProcess] SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,110: INFO/MainProcess] [cached since 6.822s ago] {'pk_1': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:14,112: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,112: INFO/MainProcess] [cached since 0.02011s ago] {'pk_1': UUID('235330df-5d22-49ad-9fe0-ddbdabec9132')}
+[2025-07-06 22:24:14,113: INFO/MainProcess] INSERT INTO segment (account_id, dataset_id, document_id, node_id, position, content, character_count, token_count, hash, disabled_at, processing_started_at, indexing_completed_at, completed_at, stopped_at, status) VALUES (%(account_id)s::UUID, %(dataset_id)s::UUID, %(document_id)s::UUID, %(node_id)s::UUID, %(position)s, %(content)s, %(character_count)s, %(token_count)s, %(hash)s, %(disabled_at)s, %(processing_started_at)s, %(indexing_completed_at)s, %(completed_at)s, %(stopped_at)s, %(status)s) RETURNING segment.id, segment.keywords, segment.hit_count, segment.enabled, segment.error, segment.updated_at, segment.created_at
+[2025-07-06 22:24:14,113: INFO/MainProcess] [cached since 0.02807s ago] {'account_id': UUID('12a2956f-b51c-4d9b-bf65-336c5acfc4f3'), 'dataset_id': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'document_id': UUID('690130a1-d01a-4914-81ad-73804e22c1dc'), 'node_id': UUID('9a905b90-7568-462c-96b2-ba4ed2693136'), 'position': 7, 'content': '二、事实与理由', 'character_count': 7, 'token_count': 7, 'hash': '0fd6238732dc6da7293f91ffb941edc9c874ba0d81efd55a4b6a607bc5eed46d', 'disabled_at': None, 'processing_started_at': None, 'indexing_completed_at': None, 'completed_at': None, 'stopped_at': None, 'status': <SegmentStatus.WAITING: 'waiting'>}
+[2025-07-06 22:24:14,114: INFO/MainProcess] COMMIT
+[2025-07-06 22:24:14,114: INFO/MainProcess] BEGIN (implicit)
+[2025-07-06 22:24:14,114: INFO/MainProcess] SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,114: INFO/MainProcess] [cached since 6.826s ago] {'pk_1': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:14,115: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,115: INFO/MainProcess] [cached since 0.02313s ago] {'pk_1': UUID('cefca410-6fc4-44b2-b094-5260904fae7d')}
+[2025-07-06 22:24:14,116: INFO/MainProcess] INSERT INTO segment (account_id, dataset_id, document_id, node_id, position, content, character_count, token_count, hash, disabled_at, processing_started_at, indexing_completed_at, completed_at, stopped_at, status) VALUES (%(account_id)s::UUID, %(dataset_id)s::UUID, %(document_id)s::UUID, %(node_id)s::UUID, %(position)s, %(content)s, %(character_count)s, %(token_count)s, %(hash)s, %(disabled_at)s, %(processing_started_at)s, %(indexing_completed_at)s, %(completed_at)s, %(stopped_at)s, %(status)s) RETURNING segment.id, segment.keywords, segment.hit_count, segment.enabled, segment.error, segment.updated_at, segment.created_at
+[2025-07-06 22:24:14,116: INFO/MainProcess] [cached since 0.03108s ago] {'account_id': UUID('12a2956f-b51c-4d9b-bf65-336c5acfc4f3'), 'dataset_id': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'document_id': UUID('690130a1-d01a-4914-81ad-73804e22c1dc'), 'node_id': UUID('0daae502-16e1-45f7-9b7d-a3b9c25d41fa'), 'position': 8, 'content': '原告系XX（具体财产）的合法权利人。根据《中华人民共和国民法典》第二百零九条规定，不动产物权的设立、变更、转让和消灭，经依法登记发生效力；第二百一十七条进一步明确，不动产权属证书是权利人享有该不动产物权的证明，若与不动产登记簿记载不一致，以不动产登记簿为准。本案中，原告持有XX（具体财产）的不动产权属证书（编号：XXX），且该证书与不动产登记簿记载一致，足以证明原告对XX（具体财产）享有合法物权。', 'character_count': 200, 'token_count': 220, 'hash': 'a15713ed0e641064f67b99138301c236f126214014689e786a09223624867d22', 'disabled_at': None, 'processing_started_at': None, 'indexing_completed_at': None, 'completed_at': None, 'stopped_at': None, 'status': <SegmentStatus.WAITING: 'waiting'>}
+[2025-07-06 22:24:14,116: INFO/MainProcess] COMMIT
+[2025-07-06 22:24:14,117: INFO/MainProcess] BEGIN (implicit)
+[2025-07-06 22:24:14,117: INFO/MainProcess] SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,117: INFO/MainProcess] [cached since 6.829s ago] {'pk_1': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:14,118: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,118: INFO/MainProcess] [cached since 0.02597s ago] {'pk_1': UUID('6c8b755a-b91f-4514-97c2-2062d20be00f')}
+[2025-07-06 22:24:14,119: INFO/MainProcess] INSERT INTO segment (account_id, dataset_id, document_id, node_id, position, content, character_count, token_count, hash, disabled_at, processing_started_at, indexing_completed_at, completed_at, stopped_at, status) VALUES (%(account_id)s::UUID, %(dataset_id)s::UUID, %(document_id)s::UUID, %(node_id)s::UUID, %(position)s, %(content)s, %(character_count)s, %(token_count)s, %(hash)s, %(disabled_at)s, %(processing_started_at)s, %(indexing_completed_at)s, %(completed_at)s, %(stopped_at)s, %(status)s) RETURNING segment.id, segment.keywords, segment.hit_count, segment.enabled, segment.error, segment.updated_at, segment.created_at
+[2025-07-06 22:24:14,119: INFO/MainProcess] [cached since 0.03393s ago] {'account_id': UUID('12a2956f-b51c-4d9b-bf65-336c5acfc4f3'), 'dataset_id': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'document_id': UUID('690130a1-d01a-4914-81ad-73804e22c1dc'), 'node_id': UUID('e4452240-ce0a-45ff-bf46-bac5e387dc80'), 'position': 9, 'content': '被告自XXXX年X月起，以XXX（具体行为，如强行占用、擅自处置）方式非法妨害原告对XX（具体财产）的占有、使用、收益权能，导致原告无法正常行使物权。根据《中华人民共和国民法典》第二百三十五条规定，无权占有不动产或动产的，权利人有权请求返还原物；第二百三十六条规定，妨害物权的，权利人有权请求排除妨害；第二百三十八条规定，侵害物权造成损害的，权利人有权请求损害赔偿。被告的行为已构成对原告物权的侵害，依法应承担返还原物、赔偿损失等责任。', 'character_count': 218, 'token_count': 252, 'hash': 'd81a1c9cfb00de975799237e82e58da9f03ab275e8295e45b4eff693664bb70f', 'disabled_at': None, 'processing_started_at': None, 'indexing_completed_at': None, 'completed_at': None, 'stopped_at': None, 'status': <SegmentStatus.WAITING: 'waiting'>}
+[2025-07-06 22:24:14,129: INFO/MainProcess] COMMIT
+[2025-07-06 22:24:14,133: INFO/MainProcess] BEGIN (implicit)
+[2025-07-06 22:24:14,134: INFO/MainProcess] SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,134: INFO/MainProcess] [cached since 6.846s ago] {'pk_1': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:14,135: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,135: INFO/MainProcess] [cached since 0.04311s ago] {'pk_1': UUID('5012d982-8322-4b02-b439-83fd6ac64696')}
+[2025-07-06 22:24:14,136: INFO/MainProcess] INSERT INTO segment (account_id, dataset_id, document_id, node_id, position, content, character_count, token_count, hash, disabled_at, processing_started_at, indexing_completed_at, completed_at, stopped_at, status) VALUES (%(account_id)s::UUID, %(dataset_id)s::UUID, %(document_id)s::UUID, %(node_id)s::UUID, %(position)s, %(content)s, %(character_count)s, %(token_count)s, %(hash)s, %(disabled_at)s, %(processing_started_at)s, %(indexing_completed_at)s, %(completed_at)s, %(stopped_at)s, %(status)s) RETURNING segment.id, segment.keywords, segment.hit_count, segment.enabled, segment.error, segment.updated_at, segment.created_at
+[2025-07-06 22:24:14,136: INFO/MainProcess] [cached since 0.0513s ago] {'account_id': UUID('12a2956f-b51c-4d9b-bf65-336c5acfc4f3'), 'dataset_id': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'document_id': UUID('690130a1-d01a-4914-81ad-73804e22c1dc'), 'node_id': UUID('665375b3-e7d9-4dd4-a7b8-4f5cde088f1f'), 'position': 10, 'content': '另需说明，本案虽涉及刑事案件线索（如被告通过非法手段侵害物权的行为），但根据《最高人民法院关于在审理经济纠纷案件中涉及经济犯罪嫌疑若干问题的规定（2020修正）》第一条，同一主体因不同法律事实分别涉及经济纠纷与经济犯罪的，应分开审理。因此，本案物权纠纷与可能的刑事犯罪分属不同法律关系，不影响本案民事部分的独立审理。', 'character_count': 158, 'token_count': 193, 'hash': 'a8bb94a88cabba0ca7fbf2e69a400bec8293d0c63a7a837951bd5477be11cb43', 'disabled_at': None, 'processing_started_at': None, 'indexing_completed_at': None, 'completed_at': None, 'stopped_at': None, 'status': <SegmentStatus.WAITING: 'waiting'>}
+[2025-07-06 22:24:14,137: INFO/MainProcess] COMMIT
+[2025-07-06 22:24:14,137: INFO/MainProcess] BEGIN (implicit)
+[2025-07-06 22:24:14,138: INFO/MainProcess] SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,138: INFO/MainProcess] [cached since 6.85s ago] {'pk_1': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:14,138: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,138: INFO/MainProcess] [cached since 0.04656s ago] {'pk_1': UUID('387c3a51-daa4-4308-9397-36f543a39588')}
+[2025-07-06 22:24:14,139: INFO/MainProcess] INSERT INTO segment (account_id, dataset_id, document_id, node_id, position, content, character_count, token_count, hash, disabled_at, processing_started_at, indexing_completed_at, completed_at, stopped_at, status) VALUES (%(account_id)s::UUID, %(dataset_id)s::UUID, %(document_id)s::UUID, %(node_id)s::UUID, %(position)s, %(content)s, %(character_count)s, %(token_count)s, %(hash)s, %(disabled_at)s, %(processing_started_at)s, %(indexing_completed_at)s, %(completed_at)s, %(stopped_at)s, %(status)s) RETURNING segment.id, segment.keywords, segment.hit_count, segment.enabled, segment.error, segment.updated_at, segment.created_at
+[2025-07-06 22:24:14,139: INFO/MainProcess] [cached since 0.0546s ago] {'account_id': UUID('12a2956f-b51c-4d9b-bf65-336c5acfc4f3'), 'dataset_id': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'document_id': UUID('690130a1-d01a-4914-81ad-73804e22c1dc'), 'node_id': UUID('d6f95537-638a-44d4-bc88-daeab1cdbf66'), 'position': 11, 'content': '综上，原告作为合法物权人，其权利应受法律保护；被告的侵权行为事实清楚，证据充分（具体证据详见提交的证据材料）。为维护自身合法权益，现依据《中华人民共和国民事诉讼法（2023修正）》第一百二十二条之规定，向贵院提起诉讼，恳请判如所请。', 'character_count': 116, 'token_count': 133, 'hash': '333babd831c1a69ca4cbbd080287d158f38e7bed8af93c14b03f3c80fbc2576e', 'disabled_at': None, 'processing_started_at': None, 'indexing_completed_at': None, 'completed_at': None, 'stopped_at': None, 'status': <SegmentStatus.WAITING: 'waiting'>}
+[2025-07-06 22:24:14,145: INFO/MainProcess] COMMIT
+[2025-07-06 22:24:14,146: INFO/MainProcess] BEGIN (implicit)
+[2025-07-06 22:24:14,146: INFO/MainProcess] SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,146: INFO/MainProcess] [cached since 6.858s ago] {'pk_1': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:14,149: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,149: INFO/MainProcess] [cached since 0.05672s ago] {'pk_1': UUID('4c0d5bcc-fdb6-4797-8742-b15b9ec25ef6')}
+[2025-07-06 22:24:14,149: INFO/MainProcess] INSERT INTO segment (account_id, dataset_id, document_id, node_id, position, content, character_count, token_count, hash, disabled_at, processing_started_at, indexing_completed_at, completed_at, stopped_at, status) VALUES (%(account_id)s::UUID, %(dataset_id)s::UUID, %(document_id)s::UUID, %(node_id)s::UUID, %(position)s, %(content)s, %(character_count)s, %(token_count)s, %(hash)s, %(disabled_at)s, %(processing_started_at)s, %(indexing_completed_at)s, %(completed_at)s, %(stopped_at)s, %(status)s) RETURNING segment.id, segment.keywords, segment.hit_count, segment.enabled, segment.error, segment.updated_at, segment.created_at
+[2025-07-06 22:24:14,150: INFO/MainProcess] [cached since 0.06484s ago] {'account_id': UUID('12a2956f-b51c-4d9b-bf65-336c5acfc4f3'), 'dataset_id': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'document_id': UUID('690130a1-d01a-4914-81ad-73804e22c1dc'), 'node_id': UUID('8530e9d0-ce74-46bf-bcd3-88c794922b69'), 'position': 12, 'content': '此致\nXX人民法院', 'character_count': 9, 'token_count': 9, 'hash': 'e0e9a9cf2c33be89867672bb19868f57c9ad3ad856cbf6bf0aa8b197a3c5c1ee', 'disabled_at': None, 'processing_started_at': None, 'indexing_completed_at': None, 'completed_at': None, 'stopped_at': None, 'status': <SegmentStatus.WAITING: 'waiting'>}
+[2025-07-06 22:24:14,150: INFO/MainProcess] COMMIT
+[2025-07-06 22:24:14,151: INFO/MainProcess] BEGIN (implicit)
+[2025-07-06 22:24:14,151: INFO/MainProcess] SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,151: INFO/MainProcess] [cached since 6.863s ago] {'pk_1': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:14,152: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,152: INFO/MainProcess] [cached since 0.05992s ago] {'pk_1': UUID('a2bcbe3d-a45e-4ece-9344-95fe925403ce')}
+[2025-07-06 22:24:14,153: INFO/MainProcess] INSERT INTO segment (account_id, dataset_id, document_id, node_id, position, content, character_count, token_count, hash, disabled_at, processing_started_at, indexing_completed_at, completed_at, stopped_at, status) VALUES (%(account_id)s::UUID, %(dataset_id)s::UUID, %(document_id)s::UUID, %(node_id)s::UUID, %(position)s, %(content)s, %(character_count)s, %(token_count)s, %(hash)s, %(disabled_at)s, %(processing_started_at)s, %(indexing_completed_at)s, %(completed_at)s, %(stopped_at)s, %(status)s) RETURNING segment.id, segment.keywords, segment.hit_count, segment.enabled, segment.error, segment.updated_at, segment.created_at
+[2025-07-06 22:24:14,153: INFO/MainProcess] [cached since 0.06786s ago] {'account_id': UUID('12a2956f-b51c-4d9b-bf65-336c5acfc4f3'), 'dataset_id': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'document_id': UUID('690130a1-d01a-4914-81ad-73804e22c1dc'), 'node_id': UUID('036d9f9c-a3c5-45e3-8fe2-1ac73f9bbc0c'), 'position': 13, 'content': '起诉人（签名）：d\nXXXX年X月X日', 'character_count': 19, 'token_count': 17, 'hash': '2f196639be0592a093c5dcbd65fdb8162efd7f5a7bd91a97334357a92c7a656c', 'disabled_at': None, 'processing_started_at': None, 'indexing_completed_at': None, 'completed_at': None, 'stopped_at': None, 'status': <SegmentStatus.WAITING: 'waiting'>}
+[2025-07-06 22:24:14,153: INFO/MainProcess] COMMIT
+[2025-07-06 22:24:14,154: INFO/MainProcess] BEGIN (implicit)
+[2025-07-06 22:24:14,154: INFO/MainProcess] SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,154: INFO/MainProcess] [cached since 6.866s ago] {'pk_1': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:14,154: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,154: INFO/MainProcess] [cached since 0.06253s ago] {'pk_1': UUID('57556693-c6ad-4251-84cb-0a4f218ca587')}
+[2025-07-06 22:24:14,155: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,155: INFO/MainProcess] [cached since 0.0632s ago] {'pk_1': UUID('2fc63d0a-47d4-4a7d-97f4-8bd406733000')}
+[2025-07-06 22:24:14,156: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,156: INFO/MainProcess] [cached since 0.06374s ago] {'pk_1': UUID('eca03daa-6772-40eb-b83d-21c1ee74998a')}
+[2025-07-06 22:24:14,156: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,156: INFO/MainProcess] [cached since 0.06431s ago] {'pk_1': UUID('99385814-bb9f-4969-a93b-4058fb4e2349')}
+[2025-07-06 22:24:14,157: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,157: INFO/MainProcess] [cached since 0.06489s ago] {'pk_1': UUID('287c966e-fe48-4b20-803c-481b5bc82a2e')}
+[2025-07-06 22:24:14,157: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,158: INFO/MainProcess] [cached since 0.06561s ago] {'pk_1': UUID('5bee6c02-9661-4885-90bd-7e4f05edf8f5')}
+[2025-07-06 22:24:14,158: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,158: INFO/MainProcess] [cached since 0.06627s ago] {'pk_1': UUID('235330df-5d22-49ad-9fe0-ddbdabec9132')}
+[2025-07-06 22:24:14,159: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,160: INFO/MainProcess] [cached since 0.06845s ago] {'pk_1': UUID('cefca410-6fc4-44b2-b094-5260904fae7d')}
+[2025-07-06 22:24:14,161: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,161: INFO/MainProcess] [cached since 0.0693s ago] {'pk_1': UUID('6c8b755a-b91f-4514-97c2-2062d20be00f')}
+[2025-07-06 22:24:14,162: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,162: INFO/MainProcess] [cached since 0.06998s ago] {'pk_1': UUID('5012d982-8322-4b02-b439-83fd6ac64696')}
+[2025-07-06 22:24:14,162: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,162: INFO/MainProcess] [cached since 0.07055s ago] {'pk_1': UUID('387c3a51-daa4-4308-9397-36f543a39588')}
+[2025-07-06 22:24:14,163: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,163: INFO/MainProcess] [cached since 0.0714s ago] {'pk_1': UUID('4c0d5bcc-fdb6-4797-8742-b15b9ec25ef6')}
+[2025-07-06 22:24:14,164: INFO/MainProcess] SELECT segment.id AS segment_id, segment.account_id AS segment_account_id, segment.dataset_id AS segment_dataset_id, segment.document_id AS segment_document_id, segment.node_id AS segment_node_id, segment.position AS segment_position, segment.content AS segment_content, segment.character_count AS segment_character_count, segment.token_count AS segment_token_count, segment.keywords AS segment_keywords, segment.hash AS segment_hash, segment.hit_count AS segment_hit_count, segment.enabled AS segment_enabled, segment.disabled_at AS segment_disabled_at, segment.processing_started_at AS segment_processing_started_at, segment.indexing_completed_at AS segment_indexing_completed_at, segment.completed_at AS segment_completed_at, segment.stopped_at AS segment_stopped_at, segment.error AS segment_error, segment.status AS segment_status, segment.updated_at AS segment_updated_at, segment.created_at AS segment_created_at 
+FROM segment 
+WHERE segment.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,164: INFO/MainProcess] [cached since 0.07222s ago] {'pk_1': UUID('a2bcbe3d-a45e-4ece-9344-95fe925403ce')}
+[2025-07-06 22:24:14,167: INFO/MainProcess] UPDATE document SET token_count=%(token_count)s, splitting_completed_at=%(splitting_completed_at)s, status=%(status)s WHERE document.id = %(document_id)s::UUID
+[2025-07-06 22:24:14,167: INFO/MainProcess] [generated in 0.00012s] {'token_count': 1107, 'splitting_completed_at': datetime.datetime(2025, 7, 6, 22, 24, 14, 166569), 'status': <DocumentStatus.INDEXING: 'indexing'>, 'document_id': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:14,167: INFO/MainProcess] COMMIT
+[2025-07-06 22:24:14,168: ERROR/MainProcess] 执行了4
+[2025-07-06 22:24:14,168: WARNING/MainProcess] Building prefix dict from the default dictionary ...
+[2025-07-06 22:24:14,168: DEBUG/MainProcess] Building prefix dict from the default dictionary ...
+[2025-07-06 22:24:14,610: WARNING/MainProcess] Dumping model to file cache /var/folders/8n/sf82vkjs4fj6k504_cf8pw000000gp/T/jieba.cache
+[2025-07-06 22:24:14,610: DEBUG/MainProcess] Dumping model to file cache /var/folders/8n/sf82vkjs4fj6k504_cf8pw000000gp/T/jieba.cache
+[2025-07-06 22:24:14,652: WARNING/MainProcess] Loading model cost 0.484 seconds.
+[2025-07-06 22:24:14,652: DEBUG/MainProcess] Loading model cost 0.484 seconds.
+[2025-07-06 22:24:14,652: WARNING/MainProcess] Prefix dict has been built successfully.
+[2025-07-06 22:24:14,652: DEBUG/MainProcess] Prefix dict has been built successfully.
+[2025-07-06 22:24:14,653: ERROR/MainProcess] 构建文档发生错误，错误信息：'segment_id'
+[2025-07-06 22:24:14,653: INFO/MainProcess] BEGIN (implicit)
+[2025-07-06 22:24:14,653: INFO/MainProcess] SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-06 22:24:14,653: INFO/MainProcess] [cached since 7.365s ago] {'pk_1': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:14,655: INFO/MainProcess] UPDATE document SET stopped_at=%(stopped_at)s, error=%(error)s, status=%(status)s WHERE document.id = %(document_id)s::UUID
+[2025-07-06 22:24:14,655: INFO/MainProcess] [generated in 0.00010s] {'stopped_at': datetime.datetime(2025, 7, 6, 22, 24, 14, 653050), 'error': "'segment_id'", 'status': <DocumentStatus.ERROR: 'error'>, 'document_id': UUID('690130a1-d01a-4914-81ad-73804e22c1dc')}
+[2025-07-06 22:24:14,655: INFO/MainProcess] COMMIT
+[2025-07-06 22:24:14,656: WARNING/MainProcess] /Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/warnings.py:232: ResourceWarning: Con004: The connection to Weaviate was not closed properly. This can lead to memory leaks.
+            Please make sure to close the connection using `client.close()`.
+  warnings.warn(
 
-This error could be due to one of several reasons:
-- The gRPC traffic at the specified port is blocked by a firewall.
-- gRPC is not enabled or incorrectly configured on the server or the client.
-    - Please check that the server address and port (localhost:50051) are correct.
-- your connection is unstable or has a high latency. In this case you can:
-    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
-    - disable startup checks by connecting using `skip_init_checks=True`
+[2025-07-06 22:24:14,657: WARNING/MainProcess] /Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py:20: ResourceWarning: unclosed <socket.socket fd=18, family=AddressFamily.AF_INET6, type=SocketKind.SOCK_STREAM, proto=6, laddr=('::1', 57301, 0, 0), raddr=('::1', 8080, 0, 0)>
+  return self.run(*args, **kwargs)
 
-[2025-07-06 16:00:28,240: ERROR/ForkPoolWorker-6] Task internal.task.document_task.build_documents[8a9b7f10-b5d0-4e5d-b2b9-cee39c5abc46] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
-    res = self._grpc_channel.unary_unary(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
-    return _end_unary_response_blocking(state, call, False, None)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
-    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
-grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
-	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)", grpc_status:14}"
->
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
-    R = retval = fun(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
-    return self.run(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
-    indexing_service = injector.get(IndexingService)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
-    dependencies = self.args_to_inject(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
-    instance: Any = self.get(interface)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
-    return callable(*full_args, **dependencies)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
-    self.client = weaviate.connect_to_local(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
-    return __connect(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
-    client.connect()
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
-    return executor.execute(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
-    return cast(T, exception_callback(e))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
-    call = method(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
-    executor.result(self._ping_grpc("sync"))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
-    self.__handle_ping_exception(e)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
-    raise WeaviateGRPCUnavailableError(
-weaviate.exceptions.WeaviateGRPCUnavailableError: 
-Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
-Unfortunately, the gRPC health check against Weaviate could not be completed.
-
-This error could be due to one of several reasons:
-- The gRPC traffic at the specified port is blocked by a firewall.
-- gRPC is not enabled or incorrectly configured on the server or the client.
-    - Please check that the server address and port (localhost:50051) are correct.
-- your connection is unstable or has a high latency. In this case you can:
-    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
-    - disable startup checks by connecting using `skip_init_checks=True`
-
-[2025-07-06 16:00:28,572: ERROR/ForkPoolWorker-6] 执行了卡咔咔咔咔咔咔
-[2025-07-06 16:00:28,572: ERROR/ForkPoolWorker-7] 执行了卡咔咔咔咔咔咔
-[2025-07-06 16:00:28,584: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
-[2025-07-06 16:00:28,584: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
-[2025-07-06 16:00:28,597: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
-[2025-07-06 16:00:28,597: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
-[2025-07-06 16:00:28,602: ERROR/ForkPoolWorker-7] Task internal.task.document_task.build_documents[4781ca6a-8dd5-40c7-bded-b432b70e1835] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
-    res = self._grpc_channel.unary_unary(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
-    return _end_unary_response_blocking(state, call, False, None)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
-    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
-grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
-	debug_error_string = "UNKNOWN:Error received from peer  {grpc_status:14, grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"}"
->
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
-    R = retval = fun(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
-    return self.run(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
-    indexing_service = injector.get(IndexingService)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
-    dependencies = self.args_to_inject(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
-    instance: Any = self.get(interface)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
-    return callable(*full_args, **dependencies)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
-    self.client = weaviate.connect_to_local(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
-    return __connect(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
-    client.connect()
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
-    return executor.execute(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
-    return cast(T, exception_callback(e))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
-    call = method(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
-    executor.result(self._ping_grpc("sync"))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
-    self.__handle_ping_exception(e)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
-    raise WeaviateGRPCUnavailableError(
-weaviate.exceptions.WeaviateGRPCUnavailableError: 
-Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
-Unfortunately, the gRPC health check against Weaviate could not be completed.
-
-This error could be due to one of several reasons:
-- The gRPC traffic at the specified port is blocked by a firewall.
-- gRPC is not enabled or incorrectly configured on the server or the client.
-    - Please check that the server address and port (localhost:50051) are correct.
-- your connection is unstable or has a high latency. In this case you can:
-    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
-    - disable startup checks by connecting using `skip_init_checks=True`
-
-[2025-07-06 16:00:28,602: ERROR/ForkPoolWorker-6] Task internal.task.document_task.build_documents[b9151e3a-5e66-4419-9aa2-8b5a303723ee] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
-    res = self._grpc_channel.unary_unary(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
-    return _end_unary_response_blocking(state, call, False, None)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
-    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
-grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
-	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)", grpc_status:14}"
->
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
-    R = retval = fun(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
-    return self.run(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
-    indexing_service = injector.get(IndexingService)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
-    dependencies = self.args_to_inject(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
-    instance: Any = self.get(interface)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
-    return callable(*full_args, **dependencies)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
-    self.client = weaviate.connect_to_local(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
-    return __connect(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
-    client.connect()
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
-    return executor.execute(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
-    return cast(T, exception_callback(e))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
-    call = method(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
-    executor.result(self._ping_grpc("sync"))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
-    self.__handle_ping_exception(e)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
-    raise WeaviateGRPCUnavailableError(
-weaviate.exceptions.WeaviateGRPCUnavailableError: 
-Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
-Unfortunately, the gRPC health check against Weaviate could not be completed.
-
-This error could be due to one of several reasons:
-- The gRPC traffic at the specified port is blocked by a firewall.
-- gRPC is not enabled or incorrectly configured on the server or the client.
-    - Please check that the server address and port (localhost:50051) are correct.
-- your connection is unstable or has a high latency. In this case you can:
-    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
-    - disable startup checks by connecting using `skip_init_checks=True`
-
-[2025-07-06 16:00:28,604: ERROR/ForkPoolWorker-6] 执行了卡咔咔咔咔咔咔
-[2025-07-06 16:00:28,604: ERROR/ForkPoolWorker-7] 执行了卡咔咔咔咔咔咔
-[2025-07-06 16:00:28,618: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
-[2025-07-06 16:00:28,618: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
-[2025-07-06 16:00:28,629: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
-[2025-07-06 16:00:28,629: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
-[2025-07-06 16:00:28,635: ERROR/ForkPoolWorker-6] Task internal.task.document_task.build_documents[e77b9615-373a-4804-a6bb-ce9a8dcf013e] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
-    res = self._grpc_channel.unary_unary(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
-    return _end_unary_response_blocking(state, call, False, None)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
-    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
-grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
-	debug_error_string = "UNKNOWN:Error received from peer  {grpc_status:14, grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"}"
->
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
-    R = retval = fun(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
-    return self.run(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
-    indexing_service = injector.get(IndexingService)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
-    dependencies = self.args_to_inject(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
-    instance: Any = self.get(interface)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
-    return callable(*full_args, **dependencies)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
-    self.client = weaviate.connect_to_local(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
-    return __connect(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
-    client.connect()
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
-    return executor.execute(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
-    return cast(T, exception_callback(e))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
-    call = method(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
-    executor.result(self._ping_grpc("sync"))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
-    self.__handle_ping_exception(e)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
-    raise WeaviateGRPCUnavailableError(
-weaviate.exceptions.WeaviateGRPCUnavailableError: 
-Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
-Unfortunately, the gRPC health check against Weaviate could not be completed.
-
-This error could be due to one of several reasons:
-- The gRPC traffic at the specified port is blocked by a firewall.
-- gRPC is not enabled or incorrectly configured on the server or the client.
-    - Please check that the server address and port (localhost:50051) are correct.
-- your connection is unstable or has a high latency. In this case you can:
-    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
-    - disable startup checks by connecting using `skip_init_checks=True`
-
-[2025-07-06 16:00:28,635: ERROR/ForkPoolWorker-7] Task internal.task.document_task.build_documents[14753a5d-dbda-4fa7-b045-a91402fe8900] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
-    res = self._grpc_channel.unary_unary(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
-    return _end_unary_response_blocking(state, call, False, None)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
-    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
-grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
-	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)", grpc_status:14}"
->
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
-    R = retval = fun(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
-    return self.run(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
-    indexing_service = injector.get(IndexingService)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
-    dependencies = self.args_to_inject(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
-    instance: Any = self.get(interface)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
-    return callable(*full_args, **dependencies)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
-    self.client = weaviate.connect_to_local(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
-    return __connect(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
-    client.connect()
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
-    return executor.execute(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
-    return cast(T, exception_callback(e))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
-    call = method(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
-    executor.result(self._ping_grpc("sync"))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
-    self.__handle_ping_exception(e)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
-    raise WeaviateGRPCUnavailableError(
-weaviate.exceptions.WeaviateGRPCUnavailableError: 
-Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
-Unfortunately, the gRPC health check against Weaviate could not be completed.
-
-This error could be due to one of several reasons:
-- The gRPC traffic at the specified port is blocked by a firewall.
-- gRPC is not enabled or incorrectly configured on the server or the client.
-    - Please check that the server address and port (localhost:50051) are correct.
-- your connection is unstable or has a high latency. In this case you can:
-    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
-    - disable startup checks by connecting using `skip_init_checks=True`
-
-[2025-07-06 16:00:28,636: ERROR/ForkPoolWorker-6] 执行了卡咔咔咔咔咔咔
-[2025-07-06 16:00:28,636: ERROR/ForkPoolWorker-7] 执行了卡咔咔咔咔咔咔
-[2025-07-06 16:00:28,649: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
-[2025-07-06 16:00:28,649: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
-[2025-07-06 16:00:28,664: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
-[2025-07-06 16:00:28,664: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
-[2025-07-06 16:00:28,681: ERROR/ForkPoolWorker-6] Task internal.task.document_task.build_documents[7d8f1daa-66fa-4a3b-81e9-e12764204a8c] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
-    res = self._grpc_channel.unary_unary(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
-    return _end_unary_response_blocking(state, call, False, None)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
-    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
-grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
-	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)", grpc_status:14}"
->
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
-    R = retval = fun(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
-    return self.run(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
-    indexing_service = injector.get(IndexingService)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
-    dependencies = self.args_to_inject(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
-    instance: Any = self.get(interface)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
-    return callable(*full_args, **dependencies)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
-    self.client = weaviate.connect_to_local(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
-    return __connect(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
-    client.connect()
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
-    return executor.execute(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
-    return cast(T, exception_callback(e))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
-    call = method(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
-    executor.result(self._ping_grpc("sync"))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
-    self.__handle_ping_exception(e)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
-    raise WeaviateGRPCUnavailableError(
-weaviate.exceptions.WeaviateGRPCUnavailableError: 
-Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
-Unfortunately, the gRPC health check against Weaviate could not be completed.
-
-This error could be due to one of several reasons:
-- The gRPC traffic at the specified port is blocked by a firewall.
-- gRPC is not enabled or incorrectly configured on the server or the client.
-    - Please check that the server address and port (localhost:50051) are correct.
-- your connection is unstable or has a high latency. In this case you can:
-    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
-    - disable startup checks by connecting using `skip_init_checks=True`
-
-[2025-07-06 16:00:28,681: ERROR/ForkPoolWorker-7] Task internal.task.document_task.build_documents[e69de0f4-428c-4223-b60d-54ac63fba3d5] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
-    res = self._grpc_channel.unary_unary(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
-    return _end_unary_response_blocking(state, call, False, None)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
-    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
-grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
-	debug_error_string = "UNKNOWN:Error received from peer  {grpc_status:14, grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"}"
->
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
-    R = retval = fun(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
-    return self.run(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
-    indexing_service = injector.get(IndexingService)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
-    dependencies = self.args_to_inject(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
-    instance: Any = self.get(interface)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
-    return callable(*full_args, **dependencies)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
-    self.client = weaviate.connect_to_local(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
-    return __connect(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
-    client.connect()
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
-    return executor.execute(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
-    return cast(T, exception_callback(e))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
-    call = method(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
-    executor.result(self._ping_grpc("sync"))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
-    self.__handle_ping_exception(e)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
-    raise WeaviateGRPCUnavailableError(
-weaviate.exceptions.WeaviateGRPCUnavailableError: 
-Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
-Unfortunately, the gRPC health check against Weaviate could not be completed.
-
-This error could be due to one of several reasons:
-- The gRPC traffic at the specified port is blocked by a firewall.
-- gRPC is not enabled or incorrectly configured on the server or the client.
-    - Please check that the server address and port (localhost:50051) are correct.
-- your connection is unstable or has a high latency. In this case you can:
-    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
-    - disable startup checks by connecting using `skip_init_checks=True`
-
-[2025-07-06 16:00:28,683: ERROR/ForkPoolWorker-6] 执行了卡咔咔咔咔咔咔
-[2025-07-06 16:00:28,683: ERROR/ForkPoolWorker-7] 执行了卡咔咔咔咔咔咔
-[2025-07-06 16:00:28,698: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
-[2025-07-06 16:00:28,698: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
-[2025-07-06 16:00:28,709: INFO/ForkPoolWorker-7] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
-[2025-07-06 16:00:28,709: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
-[2025-07-06 16:00:28,712: ERROR/ForkPoolWorker-7] Task internal.task.document_task.build_documents[ccce9018-a362-45af-b66c-a3f3e46eecfd] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
-    res = self._grpc_channel.unary_unary(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
-    return _end_unary_response_blocking(state, call, False, None)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
-    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
-grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
-	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)", grpc_status:14}"
->
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
-    R = retval = fun(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
-    return self.run(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
-    indexing_service = injector.get(IndexingService)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
-    dependencies = self.args_to_inject(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
-    instance: Any = self.get(interface)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
-    return callable(*full_args, **dependencies)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
-    self.client = weaviate.connect_to_local(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
-    return __connect(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
-    client.connect()
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
-    return executor.execute(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
-    return cast(T, exception_callback(e))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
-    call = method(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
-    executor.result(self._ping_grpc("sync"))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
-    self.__handle_ping_exception(e)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
-    raise WeaviateGRPCUnavailableError(
-weaviate.exceptions.WeaviateGRPCUnavailableError: 
-Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
-Unfortunately, the gRPC health check against Weaviate could not be completed.
-
-This error could be due to one of several reasons:
-- The gRPC traffic at the specified port is blocked by a firewall.
-- gRPC is not enabled or incorrectly configured on the server or the client.
-    - Please check that the server address and port (localhost:50051) are correct.
-- your connection is unstable or has a high latency. In this case you can:
-    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
-    - disable startup checks by connecting using `skip_init_checks=True`
-
-[2025-07-06 16:00:28,712: ERROR/ForkPoolWorker-6] Task internal.task.document_task.build_documents[c7d746b7-2e46-4b64-bc7d-b06fe716894b] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
-    res = self._grpc_channel.unary_unary(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
-    return _end_unary_response_blocking(state, call, False, None)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
-    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
-grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
-	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)", grpc_status:14}"
->
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
-    R = retval = fun(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
-    return self.run(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
-    indexing_service = injector.get(IndexingService)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
-    dependencies = self.args_to_inject(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
-    instance: Any = self.get(interface)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
-    return callable(*full_args, **dependencies)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
-    self.client = weaviate.connect_to_local(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
-    return __connect(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
-    client.connect()
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
-    return executor.execute(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
-    return cast(T, exception_callback(e))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
-    call = method(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
-    executor.result(self._ping_grpc("sync"))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
-    self.__handle_ping_exception(e)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
-    raise WeaviateGRPCUnavailableError(
-weaviate.exceptions.WeaviateGRPCUnavailableError: 
-Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
-Unfortunately, the gRPC health check against Weaviate could not be completed.
-
-This error could be due to one of several reasons:
-- The gRPC traffic at the specified port is blocked by a firewall.
-- gRPC is not enabled or incorrectly configured on the server or the client.
-    - Please check that the server address and port (localhost:50051) are correct.
-- your connection is unstable or has a high latency. In this case you can:
-    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
-    - disable startup checks by connecting using `skip_init_checks=True`
-
-[2025-07-06 16:00:28,713: ERROR/ForkPoolWorker-6] 执行了卡咔咔咔咔咔咔
-[2025-07-06 16:00:28,727: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
-[2025-07-06 16:00:28,738: INFO/ForkPoolWorker-6] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
-[2025-07-06 16:00:28,740: ERROR/ForkPoolWorker-6] Task internal.task.document_task.build_documents[46b953ec-2063-43a6-91b7-7bc78e133e35] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
-    res = self._grpc_channel.unary_unary(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
-    return _end_unary_response_blocking(state, call, False, None)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
-    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
-grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
-	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)", grpc_status:14}"
->
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
-    R = retval = fun(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
-    return self.run(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
-    indexing_service = injector.get(IndexingService)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
-    dependencies = self.args_to_inject(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
-    instance: Any = self.get(interface)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
-    return callable(*full_args, **dependencies)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
-    self.client = weaviate.connect_to_local(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
-    return __connect(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
-    client.connect()
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
-    return executor.execute(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
-    return cast(T, exception_callback(e))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
-    call = method(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
-    executor.result(self._ping_grpc("sync"))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
-    self.__handle_ping_exception(e)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
-    raise WeaviateGRPCUnavailableError(
-weaviate.exceptions.WeaviateGRPCUnavailableError: 
-Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
-Unfortunately, the gRPC health check against Weaviate could not be completed.
-
-This error could be due to one of several reasons:
-- The gRPC traffic at the specified port is blocked by a firewall.
-- gRPC is not enabled or incorrectly configured on the server or the client.
-    - Please check that the server address and port (localhost:50051) are correct.
-- your connection is unstable or has a high latency. In this case you can:
-    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
-    - disable startup checks by connecting using `skip_init_checks=True`
-
-[2025-07-06 16:00:29,870: ERROR/ForkPoolWorker-8] id的值:3c471b22-2dd0-4cb0-8463-ebde691d8df1
-[2025-07-06 16:00:29,871: ERROR/ForkPoolWorker-8] 配置信息:<Config {'DEBUG': True, 'TESTING': False, 'PROPAGATE_EXCEPTIONS': None, 'SECRET_KEY': None, 'SECRET_KEY_FALLBACKS': None, 'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=31), 'USE_X_SENDFILE': False, 'TRUSTED_HOSTS': None, 'SERVER_NAME': None, 'APPLICATION_ROOT': '/', 'SESSION_COOKIE_NAME': 'session', 'SESSION_COOKIE_DOMAIN': None, 'SESSION_COOKIE_PATH': None, 'SESSION_COOKIE_HTTPONLY': True, 'SESSION_COOKIE_SECURE': False, 'SESSION_COOKIE_PARTITIONED': False, 'SESSION_COOKIE_SAMESITE': None, 'SESSION_REFRESH_EACH_REQUEST': True, 'MAX_CONTENT_LENGTH': None, 'MAX_FORM_MEMORY_SIZE': 500000, 'MAX_FORM_PARTS': 1000, 'SEND_FILE_MAX_AGE_DEFAULT': None, 'TRAP_BAD_REQUEST_ERRORS': None, 'TRAP_HTTP_EXCEPTIONS': False, 'EXPLAIN_TEMPLATE_LOADING': False, 'PREFERRED_URL_SCHEME': 'http', 'TEMPLATES_AUTO_RELOAD': None, 'MAX_COOKIE_SIZE': 4093, 'PROVIDE_AUTOMATIC_OPTIONS': True, 'CELERY': {'broker_url': 'redis://localhost:6379/1', 'result_backend': 'redis://localhost:6379/1', 'task_ignore_result': False, 'result_expires': 3600, 'broker_connection_retry_on_startup': True}, 'REDIS_DB': '0', 'REDIS_HOST': 'localhost', 'REDIS_PASSWORD': '', 'REDIS_PORT': '6379', 'REDIS_USERNAME': '', 'REDIS_USE_SSL': False, 'SQLALCHEMY_DATABASE_URI': 'postgresql://postgres:postgres@127.0.0.1:5432/llmops?client_encoding=utf8', 'SQLALCHEMY_ECHO': True, 'SQLALCHEMY_ENGINE_OPTIONS': {'pool_size': 30, 'pool_recycle': 3600}, 'WTF_CSRF_ENABLED': False, 'SQLALCHEMY_BINDS': {}, 'SQLALCHEMY_RECORD_QUERIES': False, 'SQLALCHEMY_TRACK_MODIFICATIONS': False}>
-[2025-07-06 16:00:29,872: ERROR/ForkPoolWorker-1] id的值:c92e2b3f-0d31-41f4-b101-9b6bd485063e
-[2025-07-06 16:00:29,873: ERROR/ForkPoolWorker-1] 配置信息:<Config {'DEBUG': True, 'TESTING': False, 'PROPAGATE_EXCEPTIONS': None, 'SECRET_KEY': None, 'SECRET_KEY_FALLBACKS': None, 'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=31), 'USE_X_SENDFILE': False, 'TRUSTED_HOSTS': None, 'SERVER_NAME': None, 'APPLICATION_ROOT': '/', 'SESSION_COOKIE_NAME': 'session', 'SESSION_COOKIE_DOMAIN': None, 'SESSION_COOKIE_PATH': None, 'SESSION_COOKIE_HTTPONLY': True, 'SESSION_COOKIE_SECURE': False, 'SESSION_COOKIE_PARTITIONED': False, 'SESSION_COOKIE_SAMESITE': None, 'SESSION_REFRESH_EACH_REQUEST': True, 'MAX_CONTENT_LENGTH': None, 'MAX_FORM_MEMORY_SIZE': 500000, 'MAX_FORM_PARTS': 1000, 'SEND_FILE_MAX_AGE_DEFAULT': None, 'TRAP_BAD_REQUEST_ERRORS': None, 'TRAP_HTTP_EXCEPTIONS': False, 'EXPLAIN_TEMPLATE_LOADING': False, 'PREFERRED_URL_SCHEME': 'http', 'TEMPLATES_AUTO_RELOAD': None, 'MAX_COOKIE_SIZE': 4093, 'PROVIDE_AUTOMATIC_OPTIONS': True, 'CELERY': {'broker_url': 'redis://localhost:6379/1', 'result_backend': 'redis://localhost:6379/1', 'task_ignore_result': False, 'result_expires': 3600, 'broker_connection_retry_on_startup': True}, 'REDIS_DB': '0', 'REDIS_HOST': 'localhost', 'REDIS_PASSWORD': '', 'REDIS_PORT': '6379', 'REDIS_USERNAME': '', 'REDIS_USE_SSL': False, 'SQLALCHEMY_DATABASE_URI': 'postgresql://postgres:postgres@127.0.0.1:5432/llmops?client_encoding=utf8', 'SQLALCHEMY_ECHO': True, 'SQLALCHEMY_ENGINE_OPTIONS': {'pool_size': 30, 'pool_recycle': 3600}, 'WTF_CSRF_ENABLED': False, 'SQLALCHEMY_BINDS': {}, 'SQLALCHEMY_RECORD_QUERIES': False, 'SQLALCHEMY_TRACK_MODIFICATIONS': False}>
-[2025-07-06 16:00:29,874: ERROR/ForkPoolWorker-2] id的值:6743af9f-3b31-47ee-aab0-68e6fd228cbf
-[2025-07-06 16:00:29,879: ERROR/ForkPoolWorker-4] id的值:ab39d031-5b7d-4545-82df-a0928e94a3a9
-[2025-07-06 16:00:29,879: ERROR/ForkPoolWorker-2] 配置信息:<Config {'DEBUG': True, 'TESTING': False, 'PROPAGATE_EXCEPTIONS': None, 'SECRET_KEY': None, 'SECRET_KEY_FALLBACKS': None, 'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=31), 'USE_X_SENDFILE': False, 'TRUSTED_HOSTS': None, 'SERVER_NAME': None, 'APPLICATION_ROOT': '/', 'SESSION_COOKIE_NAME': 'session', 'SESSION_COOKIE_DOMAIN': None, 'SESSION_COOKIE_PATH': None, 'SESSION_COOKIE_HTTPONLY': True, 'SESSION_COOKIE_SECURE': False, 'SESSION_COOKIE_PARTITIONED': False, 'SESSION_COOKIE_SAMESITE': None, 'SESSION_REFRESH_EACH_REQUEST': True, 'MAX_CONTENT_LENGTH': None, 'MAX_FORM_MEMORY_SIZE': 500000, 'MAX_FORM_PARTS': 1000, 'SEND_FILE_MAX_AGE_DEFAULT': None, 'TRAP_BAD_REQUEST_ERRORS': None, 'TRAP_HTTP_EXCEPTIONS': False, 'EXPLAIN_TEMPLATE_LOADING': False, 'PREFERRED_URL_SCHEME': 'http', 'TEMPLATES_AUTO_RELOAD': None, 'MAX_COOKIE_SIZE': 4093, 'PROVIDE_AUTOMATIC_OPTIONS': True, 'CELERY': {'broker_url': 'redis://localhost:6379/1', 'result_backend': 'redis://localhost:6379/1', 'task_ignore_result': False, 'result_expires': 3600, 'broker_connection_retry_on_startup': True}, 'REDIS_DB': '0', 'REDIS_HOST': 'localhost', 'REDIS_PASSWORD': '', 'REDIS_PORT': '6379', 'REDIS_USERNAME': '', 'REDIS_USE_SSL': False, 'SQLALCHEMY_DATABASE_URI': 'postgresql://postgres:postgres@127.0.0.1:5432/llmops?client_encoding=utf8', 'SQLALCHEMY_ECHO': True, 'SQLALCHEMY_ENGINE_OPTIONS': {'pool_size': 30, 'pool_recycle': 3600}, 'WTF_CSRF_ENABLED': False, 'SQLALCHEMY_BINDS': {}, 'SQLALCHEMY_RECORD_QUERIES': False, 'SQLALCHEMY_TRACK_MODIFICATIONS': False}>
-[2025-07-06 16:00:29,879: ERROR/ForkPoolWorker-3] id的值:45cadb76-50c8-46df-a7b0-49e22b24a08f
-[2025-07-06 16:00:29,880: ERROR/ForkPoolWorker-4] 配置信息:<Config {'DEBUG': True, 'TESTING': False, 'PROPAGATE_EXCEPTIONS': None, 'SECRET_KEY': None, 'SECRET_KEY_FALLBACKS': None, 'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=31), 'USE_X_SENDFILE': False, 'TRUSTED_HOSTS': None, 'SERVER_NAME': None, 'APPLICATION_ROOT': '/', 'SESSION_COOKIE_NAME': 'session', 'SESSION_COOKIE_DOMAIN': None, 'SESSION_COOKIE_PATH': None, 'SESSION_COOKIE_HTTPONLY': True, 'SESSION_COOKIE_SECURE': False, 'SESSION_COOKIE_PARTITIONED': False, 'SESSION_COOKIE_SAMESITE': None, 'SESSION_REFRESH_EACH_REQUEST': True, 'MAX_CONTENT_LENGTH': None, 'MAX_FORM_MEMORY_SIZE': 500000, 'MAX_FORM_PARTS': 1000, 'SEND_FILE_MAX_AGE_DEFAULT': None, 'TRAP_BAD_REQUEST_ERRORS': None, 'TRAP_HTTP_EXCEPTIONS': False, 'EXPLAIN_TEMPLATE_LOADING': False, 'PREFERRED_URL_SCHEME': 'http', 'TEMPLATES_AUTO_RELOAD': None, 'MAX_COOKIE_SIZE': 4093, 'PROVIDE_AUTOMATIC_OPTIONS': True, 'CELERY': {'broker_url': 'redis://localhost:6379/1', 'result_backend': 'redis://localhost:6379/1', 'task_ignore_result': False, 'result_expires': 3600, 'broker_connection_retry_on_startup': True}, 'REDIS_DB': '0', 'REDIS_HOST': 'localhost', 'REDIS_PASSWORD': '', 'REDIS_PORT': '6379', 'REDIS_USERNAME': '', 'REDIS_USE_SSL': False, 'SQLALCHEMY_DATABASE_URI': 'postgresql://postgres:postgres@127.0.0.1:5432/llmops?client_encoding=utf8', 'SQLALCHEMY_ECHO': True, 'SQLALCHEMY_ENGINE_OPTIONS': {'pool_size': 30, 'pool_recycle': 3600}, 'WTF_CSRF_ENABLED': False, 'SQLALCHEMY_BINDS': {}, 'SQLALCHEMY_RECORD_QUERIES': False, 'SQLALCHEMY_TRACK_MODIFICATIONS': False}>
-[2025-07-06 16:00:29,880: ERROR/ForkPoolWorker-3] 配置信息:<Config {'DEBUG': True, 'TESTING': False, 'PROPAGATE_EXCEPTIONS': None, 'SECRET_KEY': None, 'SECRET_KEY_FALLBACKS': None, 'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=31), 'USE_X_SENDFILE': False, 'TRUSTED_HOSTS': None, 'SERVER_NAME': None, 'APPLICATION_ROOT': '/', 'SESSION_COOKIE_NAME': 'session', 'SESSION_COOKIE_DOMAIN': None, 'SESSION_COOKIE_PATH': None, 'SESSION_COOKIE_HTTPONLY': True, 'SESSION_COOKIE_SECURE': False, 'SESSION_COOKIE_PARTITIONED': False, 'SESSION_COOKIE_SAMESITE': None, 'SESSION_REFRESH_EACH_REQUEST': True, 'MAX_CONTENT_LENGTH': None, 'MAX_FORM_MEMORY_SIZE': 500000, 'MAX_FORM_PARTS': 1000, 'SEND_FILE_MAX_AGE_DEFAULT': None, 'TRAP_BAD_REQUEST_ERRORS': None, 'TRAP_HTTP_EXCEPTIONS': False, 'EXPLAIN_TEMPLATE_LOADING': False, 'PREFERRED_URL_SCHEME': 'http', 'TEMPLATES_AUTO_RELOAD': None, 'MAX_COOKIE_SIZE': 4093, 'PROVIDE_AUTOMATIC_OPTIONS': True, 'CELERY': {'broker_url': 'redis://localhost:6379/1', 'result_backend': 'redis://localhost:6379/1', 'task_ignore_result': False, 'result_expires': 3600, 'broker_connection_retry_on_startup': True}, 'REDIS_DB': '0', 'REDIS_HOST': 'localhost', 'REDIS_PASSWORD': '', 'REDIS_PORT': '6379', 'REDIS_USERNAME': '', 'REDIS_USE_SSL': False, 'SQLALCHEMY_DATABASE_URI': 'postgresql://postgres:postgres@127.0.0.1:5432/llmops?client_encoding=utf8', 'SQLALCHEMY_ECHO': True, 'SQLALCHEMY_ENGINE_OPTIONS': {'pool_size': 30, 'pool_recycle': 3600}, 'WTF_CSRF_ENABLED': False, 'SQLALCHEMY_BINDS': {}, 'SQLALCHEMY_RECORD_QUERIES': False, 'SQLALCHEMY_TRACK_MODIFICATIONS': False}>
-[2025-07-06 16:00:29,883: ERROR/ForkPoolWorker-5] id的值:d5b313fd-858b-4151-82a8-962a0b1cdea6
-[2025-07-06 16:00:29,883: ERROR/ForkPoolWorker-5] 配置信息:<Config {'DEBUG': True, 'TESTING': False, 'PROPAGATE_EXCEPTIONS': None, 'SECRET_KEY': None, 'SECRET_KEY_FALLBACKS': None, 'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=31), 'USE_X_SENDFILE': False, 'TRUSTED_HOSTS': None, 'SERVER_NAME': None, 'APPLICATION_ROOT': '/', 'SESSION_COOKIE_NAME': 'session', 'SESSION_COOKIE_DOMAIN': None, 'SESSION_COOKIE_PATH': None, 'SESSION_COOKIE_HTTPONLY': True, 'SESSION_COOKIE_SECURE': False, 'SESSION_COOKIE_PARTITIONED': False, 'SESSION_COOKIE_SAMESITE': None, 'SESSION_REFRESH_EACH_REQUEST': True, 'MAX_CONTENT_LENGTH': None, 'MAX_FORM_MEMORY_SIZE': 500000, 'MAX_FORM_PARTS': 1000, 'SEND_FILE_MAX_AGE_DEFAULT': None, 'TRAP_BAD_REQUEST_ERRORS': None, 'TRAP_HTTP_EXCEPTIONS': False, 'EXPLAIN_TEMPLATE_LOADING': False, 'PREFERRED_URL_SCHEME': 'http', 'TEMPLATES_AUTO_RELOAD': None, 'MAX_COOKIE_SIZE': 4093, 'PROVIDE_AUTOMATIC_OPTIONS': True, 'CELERY': {'broker_url': 'redis://localhost:6379/1', 'result_backend': 'redis://localhost:6379/1', 'task_ignore_result': False, 'result_expires': 3600, 'broker_connection_retry_on_startup': True}, 'REDIS_DB': '0', 'REDIS_HOST': 'localhost', 'REDIS_PASSWORD': '', 'REDIS_PORT': '6379', 'REDIS_USERNAME': '', 'REDIS_USE_SSL': False, 'SQLALCHEMY_DATABASE_URI': 'postgresql://postgres:postgres@127.0.0.1:5432/llmops?client_encoding=utf8', 'SQLALCHEMY_ECHO': True, 'SQLALCHEMY_ENGINE_OPTIONS': {'pool_size': 30, 'pool_recycle': 3600}, 'WTF_CSRF_ENABLED': False, 'SQLALCHEMY_BINDS': {}, 'SQLALCHEMY_RECORD_QUERIES': False, 'SQLALCHEMY_TRACK_MODIFICATIONS': False}>
-[2025-07-06 16:00:29,885: INFO/ForkPoolWorker-8] Task internal.task.demo_task.demo_task[0a55b407-2e4e-4857-bae1-b6666aaca841] succeeded in 5.016954333994363s: '慕小课'
-[2025-07-06 16:00:29,885: INFO/ForkPoolWorker-2] Task internal.task.demo_task.demo_task[ed03593f-723a-4822-9eab-6e10bc66c0ea] succeeded in 5.013501500005077s: '慕小课'
-[2025-07-06 16:00:29,886: INFO/ForkPoolWorker-1] Task internal.task.demo_task.demo_task[1de322b5-4644-4669-87b6-7f94cc4f83f1] succeeded in 5.0158308329992s: '慕小课'
-[2025-07-06 16:00:29,886: INFO/ForkPoolWorker-3] Task internal.task.demo_task.demo_task[a8b85978-d967-49cf-923c-c2716fef4c36] succeeded in 5.012965458998224s: '慕小课'
-[2025-07-06 16:00:29,886: INFO/ForkPoolWorker-4] Task internal.task.demo_task.demo_task[a5185a51-994b-4211-a29d-114dfb902f1b] succeeded in 5.011919374999707s: '慕小课'
-[2025-07-06 16:00:29,893: INFO/ForkPoolWorker-5] Task internal.task.demo_task.demo_task[f56747a8-054a-4029-bf38-b85a8d4662b7] succeeded in 5.012579499998537s: '慕小课'
-[2025-07-06 16:00:47,598: INFO/MainProcess] Task internal.task.document_task.build_documents[57b9c8c2-e165-456c-8d69-f96b54f65097] received
-[2025-07-06 16:00:47,601: ERROR/ForkPoolWorker-8] 执行了卡咔咔咔咔咔咔
-[2025-07-06 16:00:48,661: INFO/ForkPoolWorker-8] HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
-[2025-07-06 16:00:48,672: INFO/ForkPoolWorker-8] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
-[2025-07-06 16:00:48,685: ERROR/ForkPoolWorker-8] Task internal.task.document_task.build_documents[57b9c8c2-e165-456c-8d69-f96b54f65097] raised unexpected: WeaviateGRPCUnavailableError('\nWeaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.\nUnfortunately, the gRPC health check against Weaviate could not be completed.\n\nThis error could be due to one of several reasons:\n- The gRPC traffic at the specified port is blocked by a firewall.\n- gRPC is not enabled or incorrectly configured on the server or the client.\n    - Please check that the server address and port (localhost:50051) are correct.\n- your connection is unstable or has a high latency. In this case you can:\n    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`\n    - disable startup checks by connecting using `skip_init_checks=True`\n')
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 322, in _ping_grpc
-    res = self._grpc_channel.unary_unary(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1181, in __call__
-    return _end_unary_response_blocking(state, call, False, None)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
-    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
-grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"
-	debug_error_string = "UNKNOWN:Error received from peer  {grpc_status:14, grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:0.0.0.0:50051: Failed to connect to remote host: connect: Connection refused (61)"}"
->
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
-    R = retval = fun(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
-    return self.run(*args, **kwargs)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 21, in build_documents
-    indexing_service = injector.get(IndexingService)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
-    dependencies = self.args_to_inject(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
-    instance: Any = self.get(interface)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
-    return function(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
-    result = provider_instance.get(self)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
-    return injector.create_object(self._cls)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
-    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
-    return callable(*full_args, **dependencies)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
-    self.client = weaviate.connect_to_local(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
-    return __connect(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
-    client.connect()
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
-    return executor.execute(
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
-    return cast(T, exception_callback(e))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
-    call = method(*args, **kwargs)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 958, in connect
-    raise e
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 954, in connect
-    executor.result(self._ping_grpc("sync"))
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 342, in _ping_grpc
-    self.__handle_ping_exception(e)
-  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 353, in __handle_ping_exception
-    raise WeaviateGRPCUnavailableError(
-weaviate.exceptions.WeaviateGRPCUnavailableError: 
-Weaviate v1.31.5 makes use of a high-speed gRPC API as well as a REST API.
-Unfortunately, the gRPC health check against Weaviate could not be completed.
-
-This error could be due to one of several reasons:
-- The gRPC traffic at the specified port is blocked by a firewall.
-- gRPC is not enabled or incorrectly configured on the server or the client.
-    - Please check that the server address and port (localhost:50051) are correct.
-- your connection is unstable or has a high latency. In this case you can:
-    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
-    - disable startup checks by connecting using `skip_init_checks=True`
-
+[2025-07-06 22:24:14,660: INFO/MainProcess] Task internal.task.document_task.build_documents[417d53ae-a360-42d4-a009-accd203c596f] succeeded in 8.531289750000724s: None

@@ -5,15 +5,13 @@
 @Author  : tianshiyang
 @File    : document_task.py
 """
-import logging
-from typing import List
 from uuid import UUID
 
 from celery import shared_task
 
 
 @shared_task
-def build_documents(document_ids: List[UUID]):
+def build_documents(document_ids: list[UUID]):
     """根据传递的文档id列表，构建文档"""
     from internal.service.indexing_service import IndexingService
     from app.http.moudle import injector
