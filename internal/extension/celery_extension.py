@@ -21,7 +21,6 @@ def init_app(app: Flask):
 
     # 1.创建Celery应用并配置
     celery_app = Celery(app.name, task_cls=FlaskTask)
-    print(app.config["CELERY"])
     celery_app.config_from_object(app.config["CELERY"])
     celery_app.set_default()
 

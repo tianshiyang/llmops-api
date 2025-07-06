@@ -5,6 +5,7 @@
 @Author  : tianshiyang
 @File    : file_extractor.py
 """
+import logging
 import os.path
 import tempfile
 from pathlib import Path
@@ -16,7 +17,8 @@ from dataclasses import dataclass
 
 from langchain_community.document_loaders import UnstructuredExcelLoader, UnstructuredPDFLoader, \
     UnstructuredMarkdownLoader, UnstructuredHTMLLoader, UnstructuredCSVLoader, UnstructuredXMLLoader, \
-    UnstructuredPowerPointLoader, UnstructuredFileLoader, TextLoader
+    UnstructuredPowerPointLoader, TextLoader
+from langchain_unstructured import UnstructuredLoader
 
 from internal.model.upload_file import UploadFile
 from internal.service.cos_service import CosService
@@ -56,7 +58,6 @@ class FileExtractor:
         # 获取文件扩展名
         delimiter = "\n\n"
         file_extension = Path(file_path).suffix.lower()
-
         # 根据不同的文件加载不同的加载器
         if file_extension in [".xlsx", ".xls"]:
             loader = UnstructuredExcelLoader(file_path)
@@ -73,6 +74,6 @@ class FileExtractor:
         elif file_extension in [".ppt", ".pptx"]:
             loader = UnstructuredPowerPointLoader(file_path)
         else:
-            loader = UnstructuredFileLoader(file_path) if is_unstructured else TextLoader(file_path)
+            loader = UnstructuredLoader(file_path) if is_unstructured else TextLoader(file_path)
         # 3.返回加载的文档列表或文本
-        return delimiter.join([document.page_content for document in loader.load()] if return_text else loader.load())
+        return delimiter.join([document.page_content for document in loader.load()]) if return_text else loader.load()
