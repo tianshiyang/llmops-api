@@ -23,7 +23,7 @@ from sqlalchemy import func
 from internal.entity.dataset_entity import DocumentStatus, SegmentStatus
 from internal.lib.helper import generate_text_hash
 from internal.model.dataset import Document, Segment
-from internal.service.ProcessRuleService import ProcessRuleService
+from internal.service.process_rule_service import ProcessRuleService
 from internal.service.base_service import BaseService
 from internal.service.embeddings_service import EmbeddingsService
 from internal.service.jieba_service import JiebaService
@@ -49,8 +49,9 @@ class IndexingService(BaseService):
     def build_documents(self, document_ids: List[UUID]) -> None:
         """根据传递的文档id列表构建知识库文档，涵盖了加载、分割、索引构建、数据存储等内容"""
         # 1.根据传递的文档id获取所有文档
-        documents = self.db.session(Document).filter(Document.id.in_(document_ids)).all()
-
+        documents = self.db.session.query(Document).filter(
+            Document.id.in_(document_ids)
+        ).all()
         # 2.执行循环遍历所有文档完成对每个文档的构建
         for document in documents:
             try:
@@ -148,7 +149,7 @@ class IndexingService(BaseService):
             status=DocumentStatus.INDEXING,
             splitting_completed_at=datetime.now(),
         )
-        return lc_documents
+        return lc_segments
 
     def _indexing(self, document: Document, lc_segments: List[LCDocument]) -> None:
         """根据传递的信息构建索引，覆盖关键词提取、词表构建"""
@@ -158,7 +159,7 @@ class IndexingService(BaseService):
 
             # 2. 逐条更新文档片段的关键词
             self.db.session.query(Segment).filter(
-                Segment.id == lc_segment.metadata["segment_id"],
+                Segment.id == lc_segment.metadata["segment_id"]
             ).update({
                 "keywords": keywords,
                 "status": SegmentStatus.INDEXING,
