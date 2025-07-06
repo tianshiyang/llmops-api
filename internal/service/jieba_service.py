@@ -23,7 +23,7 @@ class JiebaService:
         default_tfidf.stop_words = STOPWORD_SET
 
     @classmethod
-    def extract_stopwords(cls, text: str, max_keyword_pre_chunk: int = 10):
+    def extract_keywords(cls, text: str, max_keyword_pre_chunk: int = 10):
         """根据输入的文本，提取对应文本的关键词列表"""
         return jieba.analyse.extract_tags(
             sentence=text,
