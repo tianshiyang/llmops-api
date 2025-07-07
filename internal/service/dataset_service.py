@@ -5,19 +5,22 @@
 @Author  : tianshiyang
 @File    : dataset_service.py
 """
+import logging
 from typing import List
 from uuid import UUID
 
 from sqlalchemy import desc
 
 from internal.entity.dataset_entity import DEFAULT_DATASET_DESCRIPTION_FORMATTER
-from internal.exception import ValidateErrorException, NotFoundException
+from internal.exception import ValidateErrorException, NotFoundException, FailException
 from internal.extension.database_extension import db
+from internal.model.app import AppDatasetJoin
 from internal.model.dataset import Dataset, DatasetQuery
 from internal.schema.dataset_schema import CreateDataSetReq, GetDatasetWithPageReq, UpdateDatasetReq
 from internal.service.base_service import BaseService
 from injector import inject
 from dataclasses import dataclass
+from internal.task.dataset_task import delete_dataset
 
 from pkg.paginator.paginator import Paginator
 from pkg.sqlalchemy import SQLAlchemy
@@ -112,3 +115,24 @@ class DatasetService(BaseService):
         ).order_by(desc("created_at")).limit(10).all()
 
         return dataset_queries
+
+    def delete_dataset(self, dataset_id: UUID):
+        """根据传递的知识库id删除知识库信息，涵盖知识库底下的所有文档、片段、关键词，以及向量数据库里存储的数据"""
+        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
+        dataset = self.get(Dataset, dataset_id)
+        if dataset is None or str(dataset.account_id) != account_id:
+            raise NotFoundException("该知识库不存在")
+
+        try:
+            # 删除知识库基础记录以及知识库和应用关联的记录
+            self.delete(dataset)
+            with self.db.auto_commit():
+                self.db.session.query(AppDatasetJoin).filter(
+                    AppDatasetJoin.dataset_id == dataset_id,
+                ).delete()
+
+            # 调用异步任务执行后续操作
+            delete_dataset.delay(dataset_id)
+        except Exception as e:
+            logging.exception(f"删除知识库失败, dataset_id: {dataset_id}, 错误信息: {str(e)}")
+            raise FailException(f"删除知识库失败，请稍后重试{e}")
