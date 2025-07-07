@@ -10,7 +10,7 @@ from injector import inject
 from uuid import UUID
 
 from internal.schema.document_schema import CreateDocumentReq, CreateDocumentResp, GetDocumentWithPageReq, \
-    GetDocumentsWithPageResp
+    GetDocumentsWithPageResp, GetDocumentResp
 from internal.service.document_service import DocumentService
 from pkg.paginator.paginator import PageModel
 from pkg.response import validate_error_json, success_json
@@ -44,3 +44,9 @@ class DocumentHandler:
         # 构建响应结构并映射
         resp = GetDocumentsWithPageResp(many=True)
         return success_json(PageModel(list=resp.dump(documents), paginator=paginator))
+
+    def get_document(self, dataset_id: UUID, document_id: UUID):
+        """根据传递的知识库id+文档id获取文档详情信息"""
+        document = self.document_service.get_document(dataset_id, document_id)
+        resp = GetDocumentResp()
+        return success_json(resp.dump(document))
