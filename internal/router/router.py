@@ -112,6 +112,12 @@ class Router:
         bp.add_url_rule("/datasets/<uuid:dataset_id>", methods=["POST"], view_func=self.dataset_handler.update_dataset)
         # 6.5 获取指定知识库最近的查询列表
         bp.add_url_rule("/datasets/<uuid:dataset_id>/queries", view_func=self.dataset_handler.get_dataset_queries)
+        # 6.6 删除数据库 -> TODO这接口有问题，报错subject table for an INSERT, UPDATE or DELETE expected, got <Dataset dcaf5254-6ebe-4fae-9d95-38a3d3a27b9c>.
+        bp.add_url_rule(
+            "/datasets/<uuid:dataset_id>/delete",
+            methods=["POST"],
+            view_func=self.dataset_handler.delete_dataset,
+        )
 
         # 7. 知识库文档模块
         # 7.1 创建文档
