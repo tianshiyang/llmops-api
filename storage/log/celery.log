@@ -594,3 +594,7 @@ WHERE document.id = %(pk_1)s::UUID
 [2025-07-06 23:41:28,414: INFO/MainProcess] HTTP Request: GET http://localhost:8080/v1/nodes "HTTP/1.1 200 OK"
 [2025-07-06 23:41:29,422: INFO/MainProcess] HTTP Request: GET http://localhost:8080/v1/nodes "HTTP/1.1 200 OK"
 [2025-07-06 23:41:29,423: INFO/MainProcess] HTTP Request: GET http://localhost:8080/v1/nodes "HTTP/1.1 200 OK"
+[2025-07-07 22:23:34,026: INFO/MainProcess] Connected to redis://localhost:6379/1
+[2025-07-07 22:23:34,032: INFO/MainProcess] mingle: searching for neighbors
+[2025-07-07 22:23:35,090: INFO/MainProcess] mingle: all alone
+[2025-07-07 22:23:35,113: INFO/MainProcess] celery@icourtdeMacBook-Pro.local ready.

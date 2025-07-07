@@ -17,10 +17,12 @@ from sqlalchemy import desc
 
 from internal.entity.dataset_entity import ProcessType
 from internal.entity.upload_file_entity import ALLOWED_DOCUMENT_EXTENSION
-from internal.exception import ForbiddenException, FailException
+from internal.exception import ForbiddenException, FailException, NotFoundException
 from internal.model.dataset import Document, Dataset, ProcessRule
 from internal.model.upload_file import UploadFile
+from internal.schema.dataset_schema import GetDatasetWithPageReq
 from internal.service.base_service import BaseService
+from pkg.paginator.paginator import Paginator
 from pkg.sqlalchemy import SQLAlchemy
 from internal.task.document_task import build_documents
 
@@ -99,3 +101,27 @@ class DocumentService(BaseService):
         document = self.db.session.query(Document).filter(Document.dataset_id == dataset_id).order_by(
             desc("position")).first()
         return document.position if document else 0
+
+    def get_documents_with_page(self, dataset_id: UUID, req: GetDatasetWithPageReq) -> tuple[list[Document], Paginator]:
+        """根据传递的知识库id+请求数据获取文档分页列表数据"""
+        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
+        dataset = self.get(Dataset, dataset_id)
+        if dataset is None or str(dataset.account_id) != account_id:
+            raise NotFoundException("该知识库不存在，或无权限")
+
+        # 2.构建分页查询器
+        paginator = Paginator(db=self.db, req=req)
+
+        # 3. 构建筛选器
+        filters = [
+            Document.dataset_id == dataset_id,
+            Document.account_id == account_id
+        ]
+        if req.search_word.data:
+            filters.append(Document.name.ilike(f"%{req.search_word.data}%"))
+
+        # 4.执行分页并获取数据
+        documents = paginator.paginate(
+            self.db.session.query(Document).filter(*filters).order_by(desc("created_at"))
+        )
+        return documents, paginator

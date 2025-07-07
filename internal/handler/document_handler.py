@@ -6,14 +6,15 @@
 @File    : document_handler.py
 """
 from dataclasses import dataclass
-
-from flask import request
 from injector import inject
 from uuid import UUID
 
-from internal.schema.document_schema import CreateDocumentReq, CreateDocumentResp
+from internal.schema.document_schema import CreateDocumentReq, CreateDocumentResp, GetDocumentWithPageReq, \
+    GetDocumentsWithPageResp
 from internal.service.document_service import DocumentService
+from pkg.paginator.paginator import PageModel
 from pkg.response import validate_error_json, success_json
+from flask import request
 
 
 @inject
@@ -23,6 +24,7 @@ class DocumentHandler:
     document_service: DocumentService
 
     def create_documents(self, dataset_id: UUID):
+        # 创建文档
         req = CreateDocumentReq()
         if not req.validate():
             return validate_error_json(req.errors)
@@ -31,3 +33,14 @@ class DocumentHandler:
         # 3. 生成响应结构并返回
         resp = CreateDocumentResp()
         return success_json(resp.dump((documents, batch)))
+
+    def get_documents_with_page(self, dataset_id: UUID):
+        """根据传递的知识库id获取文档分页列表数据"""
+        print(request.args, '-a--a-aa-')
+        req = GetDocumentWithPageReq(request.args)
+        if not req.validate():
+            return validate_error_json(req.errors)
+        documents, paginator = self.document_service.get_documents_with_page(dataset_id, req)
+        # 构建响应结构并映射
+        resp = GetDocumentsWithPageResp(many=True)
+        return success_json(PageModel(list=resp.dump(documents), paginator=paginator))

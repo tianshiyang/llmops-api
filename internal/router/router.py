@@ -110,9 +110,16 @@ class Router:
         bp.add_url_rule("/datasets/<uuid:dataset_id>", view_func=self.dataset_handler.get_dataset)
         # 6.4 更新知识库
         bp.add_url_rule("/datasets/<uuid:dataset_id>", methods=["POST"], view_func=self.dataset_handler.update_dataset)
-        # 6.5 创建文档
+
+        # 7. 知识库文档模块
+        # 7.1 创建文档
         bp.add_url_rule("/datasets/<uuid:dataset_id>/documents", methods=["POST"],
                         view_func=self.document_handler.create_documents)
+        # 7.2获取指定知识库的文档列表
+        bp.add_url_rule(
+            "/datasets/<uuid:dataset_id>/documents",
+            view_func=self.document_handler.get_documents_with_page,
+        )
 
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)
