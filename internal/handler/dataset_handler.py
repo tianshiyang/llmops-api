@@ -15,7 +15,7 @@ from wtforms.validators import UUID
 
 from internal.exception import ValidateErrorException
 from internal.schema.dataset_schema import CreateDataSetReq, GetDatasetWithPageReq, GetDatasetsWithPageResp, \
-    GetDatasetResp, UpdateDatasetReq
+    GetDatasetResp, UpdateDatasetReq, GetDatasetQueriesResp
 from internal.service.dataset_service import DatasetService
 from pkg.paginator.paginator import PageModel
 from pkg.response import success_message, success_json
@@ -69,3 +69,9 @@ class DatasetHandler:
 
         # 3.返回成功调用提示
         return success_message("更新知识库成功")
+
+    def get_dataset_queries(self, dataset_id: UUID):
+        """根据传递的知识库id获取最近的10条查询记录"""
+        dataset_queries = self.dataset_service.get_dataset_queries(dataset_id)
+        resp = GetDatasetQueriesResp(many=True)
+        return success_json(resp.dump(dataset_queries))

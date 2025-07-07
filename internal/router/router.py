@@ -110,6 +110,8 @@ class Router:
         bp.add_url_rule("/datasets/<uuid:dataset_id>", view_func=self.dataset_handler.get_dataset)
         # 6.4 更新知识库
         bp.add_url_rule("/datasets/<uuid:dataset_id>", methods=["POST"], view_func=self.dataset_handler.update_dataset)
+        # 6.5 获取指定知识库最近的查询列表
+        bp.add_url_rule("/datasets/<uuid:dataset_id>/queries", view_func=self.dataset_handler.get_dataset_queries)
 
         # 7. 知识库文档模块
         # 7.1 创建文档

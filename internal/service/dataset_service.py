@@ -13,7 +13,7 @@ from sqlalchemy import desc
 from internal.entity.dataset_entity import DEFAULT_DATASET_DESCRIPTION_FORMATTER
 from internal.exception import ValidateErrorException, NotFoundException
 from internal.extension.database_extension import db
-from internal.model.dataset import Dataset
+from internal.model.dataset import Dataset, DatasetQuery
 from internal.schema.dataset_schema import CreateDataSetReq, GetDatasetWithPageReq, UpdateDatasetReq
 from internal.service.base_service import BaseService
 from injector import inject
@@ -70,7 +70,6 @@ class DatasetService(BaseService):
         account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
 
         dataset = self.get(Dataset, dataset_id)
-        print(dataset, '-----')
         if dataset is None or str(dataset.account_id) != account_id:
             raise NotFoundException("该知识库不存在")
         return dataset
@@ -98,3 +97,18 @@ class DatasetService(BaseService):
 
         self.update(dataset, name=req.name.data, icon=req.icon.data, description=req.description.data)
         return dataset
+
+    def get_dataset_queries(self, dataset_id: UUID) -> list[DatasetQuery]:
+        """根据传递的知识库id获取最近的10条查询记录"""
+        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
+        # 1.获取知识库并校验权限
+        dataset = self.get(Dataset, dataset_id)
+        if dataset is None or str(dataset.account_id) != account_id:
+            raise NotFoundException("该知识库不存在")
+
+        # 2.调用知识库查询模型查找最近的10条记录
+        dataset_queries = self.db.session.query(DatasetQuery).filter(
+            DatasetQuery.dataset_id == dataset_id,
+        ).order_by(desc("created_at")).limit(10).all()
+
+        return dataset_queries
