@@ -11,7 +11,7 @@ from flask_wtf import FlaskForm
 from internal.model.dataset import Document
 from marshmallow import Schema, fields, pre_dump
 from wtforms import StringField
-from wtforms.validators import DataRequired, AnyOf, ValidationError, Optional
+from wtforms.validators import DataRequired, AnyOf, ValidationError, Optional, Length
 
 from internal.entity.dataset_entity import ProcessType, DEFAULT_PROCESS_RULE
 from internal.schema import ListField, DictField
@@ -204,3 +204,11 @@ class GetDocumentResp(Schema):
             "updated_at": datetime_to_timestamp(data.updated_at),
             "created_at": datetime_to_timestamp(data.created_at),
         }
+
+
+class UpdateDocumentNameReq(FlaskForm):
+    """更新文档名称/基础信息请求"""
+    name = StringField("name", validators=[
+        DataRequired("文档名称不能为空"),
+        Length(max=100, message="文档的名称长度不能超过100")
+    ])

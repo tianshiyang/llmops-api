@@ -135,3 +135,13 @@ class DocumentService(BaseService):
         if document.dataset_id != dataset_id or str(document.account_id) != account_id:
             raise ForbiddenException("当前用户获取该文档，请核实后重试")
         return document
+
+    def update_document(self, dataset_id: UUID, document_id: UUID, **kwargs) -> Document:
+        """根据传递的知识库id+文档id，更新文档信息"""
+        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
+        document = self.get(Document, document_id)
+        if document is None:
+            raise NotFoundException("该文档不存在，请核实后重试")
+        if document.dataset_id != dataset_id or str(document.account_id) != account_id:
+            raise ForbiddenException("当前用户无权限修改该文档，请核实后重试")
+        return self.update(document, **kwargs)
