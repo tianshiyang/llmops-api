@@ -343,3 +343,67 @@ WHERE segment.document_id = %(document_id_1)s::UUID
 [2025-07-07 22:32:30,857.857] base.py -> _exec_single_context line:1901 [INFO]: [cached since 0.1143s ago] {'coalesce_2': 0, 'document_id_1': UUID('ed4cfcd2-73b5-48ea-b404-3b7833b1a257')}
 [2025-07-07 22:32:30,859.859] base.py -> _rollback_impl line:1123 [INFO]: ROLLBACK
 [2025-07-07 22:32:30,860.860] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [07/Jul/2025 22:32:30] "GET /datasets/6c5e3fd6-6307-4eb5-b017-895b25ce4a1c/documents?page_size=20&current_page=1 HTTP/1.1" 200 -
+[2025-07-07 22:51:13,437.437] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/router/router.py', reloading
+[2025-07-07 22:51:13,792.792] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-07 22:51:15,718.718] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-07 22:51:15,731.731] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 440-876-723
+[2025-07-07 22:52:04,321.321] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/router/router.py', reloading
+[2025-07-07 22:52:04,561.561] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-07 22:52:06,419.419] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-07 22:52:06,431.431] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 440-876-723
+[2025-07-07 22:53:26,457.457] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/handler/dataset_handler.py', reloading
+[2025-07-07 22:53:26,703.703] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-07 22:53:28,482.482] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-07 22:53:28,494.494] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
+[2025-07-07 22:59:31,646.646] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/handler/dataset_handler.py', reloading
+[2025-07-07 22:59:31,896.896] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-07 22:59:33,722.722] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-07 22:59:33,733.733] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
+[2025-07-07 23:00:20,312.312] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/dataset_service.py', reloading
+[2025-07-07 23:00:20,563.563] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-07 23:00:51,926.926] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-07 23:00:53,676.676] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-07 23:00:53,687.687] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
+[2025-07-07 23:01:23,956.956] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/dataset_service.py', reloading
+[2025-07-07 23:01:24,213.213] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-07 23:01:26,055.055] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-07 23:01:26,067.067] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
+[2025-07-07 23:01:32,339.339] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/dataset_service.py', reloading
+[2025-07-07 23:01:32,598.598] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-07 23:01:34,346.346] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-07 23:01:34,356.356] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
+[2025-07-07 23:02:05,525.525] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/dataset_service.py', reloading
+[2025-07-07 23:02:05,791.791] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-07 23:02:59,013.013] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-07 23:03:00,783.783] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-07 23:03:00,794.794] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
+[2025-07-07 23:06:00,827.827] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/dataset_service.py', reloading
+[2025-07-07 23:06:01,101.101] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-07 23:06:02,984.984] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-07 23:06:02,995.995] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
+[2025-07-07 23:07:34,025.025] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/dataset_service.py', reloading
+[2025-07-07 23:07:34,270.270] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-07 23:07:36,050.050] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-07 23:07:36,061.061] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
+[2025-07-07 23:10:03,158.158] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/handler/dataset_handler.py', reloading
+[2025-07-07 23:10:03,414.414] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-07 23:10:05,225.225] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-07 23:10:05,240.240] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
+[2025-07-07 23:12:41,693.693] base.py -> _exec_single_context line:1896 [INFO]: select pg_catalog.version()
+[2025-07-07 23:12:41,693.693] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
+[2025-07-07 23:12:41,695.695] base.py -> _exec_single_context line:1896 [INFO]: select current_schema()
+[2025-07-07 23:12:41,695.695] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
+[2025-07-07 23:12:41,695.695] base.py -> _exec_single_context line:1896 [INFO]: show standard_conforming_strings
+[2025-07-07 23:12:41,695.695] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
+[2025-07-07 23:12:41,696.696] base.py -> _begin_impl line:1097 [INFO]: BEGIN (implicit)
+[2025-07-07 23:12:41,698.698] base.py -> _exec_single_context line:1896 [INFO]: SELECT dataset.id AS dataset_id, dataset.account_id AS dataset_account_id, dataset.name AS dataset_name, dataset.icon AS dataset_icon, dataset.description AS dataset_description, dataset.updated_at AS dataset_updated_at, dataset.created_at AS dataset_created_at 
+FROM dataset 
+WHERE dataset.id = %(pk_1)s::UUID
+[2025-07-07 23:12:41,698.698] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00022s] {'pk_1': UUID('dcaf5254-6ebe-4fae-9d95-38a3d3a27b9c')}
+[2025-07-07 23:12:41,702.702] base.py -> _exec_single_context line:1896 [INFO]: SELECT dataset_query.id AS dataset_query_id, dataset_query.dataset_id AS dataset_query_dataset_id, dataset_query.query AS dataset_query_query, dataset_query.source AS dataset_query_source, dataset_query.source_app_id AS dataset_query_source_app_id, dataset_query.created_by AS dataset_query_created_by, dataset_query.updated_at AS dataset_query_updated_at, dataset_query.created_at AS dataset_query_created_at 
+FROM dataset_query 
+WHERE dataset_query.dataset_id = %(dataset_id_1)s::UUID ORDER BY dataset_query.created_at DESC 
+ LIMIT %(param_1)s
+[2025-07-07 23:12:41,702.702] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00013s] {'dataset_id_1': UUID('dcaf5254-6ebe-4fae-9d95-38a3d3a27b9c'), 'param_1': 10}
+[2025-07-07 23:12:41,705.705] base.py -> _rollback_impl line:1123 [INFO]: ROLLBACK
+[2025-07-07 23:12:41,705.705] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [07/Jul/2025 23:12:41] "GET /datasets/dcaf5254-6ebe-4fae-9d95-38a3d3a27b9c/queries HTTP/1.1" 200 -

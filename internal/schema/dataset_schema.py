@@ -10,7 +10,8 @@ from marshmallow import Schema, fields, pre_dump
 from wtforms.fields.simple import StringField
 from wtforms.validators import DataRequired, Length, URL, Optional
 
-from internal.model.dataset import Dataset
+from internal.lib.helper import datetime_to_timestamp
+from internal.model.dataset import Dataset, DatasetQuery
 from pkg.paginator.paginator import PaginatorReq
 
 
@@ -106,3 +107,22 @@ class UpdateDatasetReq(FlaskForm):
         Optional(),
         Length(max=2000, message="知识库描述长度不能超过2000字符")
     ])
+
+
+class GetDatasetQueriesResp(Schema):
+    """获取知识库最近查询响应结构"""
+    id = fields.UUID(dump_default="")
+    dataset_id = fields.UUID(dump_default="")
+    query = fields.String(dump_default="")
+    source = fields.String(dump_default="")
+    created_at = fields.Integer(dump_default=0)
+
+    @pre_dump
+    def process_data(self, data: DatasetQuery, **kwargs):
+        return {
+            "id": data.id,
+            "dataset_id": data.dataset_id,
+            "query": data.query,
+            "source": data.source,
+            "created_at": datetime_to_timestamp(data.created_at),
+        }
