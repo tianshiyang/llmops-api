@@ -133,6 +133,12 @@ class Router:
             "/datasets/<uuid:dataset_id>/documents/<uuid:document_id>",
             view_func=self.document_handler.get_document,
         )
+        # 7.4更新文档名称
+        bp.add_url_rule(
+            "/datasets/<uuid:dataset_id>/documents/<uuid:document_id>/name",
+            methods=["POST"],
+            view_func=self.document_handler.update_document_name,
+        )
 
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)

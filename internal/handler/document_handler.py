@@ -10,10 +10,10 @@ from injector import inject
 from uuid import UUID
 
 from internal.schema.document_schema import CreateDocumentReq, CreateDocumentResp, GetDocumentWithPageReq, \
-    GetDocumentsWithPageResp, GetDocumentResp
+    GetDocumentsWithPageResp, GetDocumentResp, UpdateDocumentNameReq
 from internal.service.document_service import DocumentService
 from pkg.paginator.paginator import PageModel
-from pkg.response import validate_error_json, success_json
+from pkg.response import validate_error_json, success_json, success_message
 from flask import request
 
 
@@ -50,3 +50,12 @@ class DocumentHandler:
         document = self.document_service.get_document(dataset_id, document_id)
         resp = GetDocumentResp()
         return success_json(resp.dump(document))
+
+    def update_document_name(self, dataset_id: UUID, document_id: UUID):
+        """根据传递的知识库id+文档id更新对应文档的名称信息"""
+        req = UpdateDocumentNameReq()
+        if not req.validate():
+            return validate_error_json(req.errors)
+        # 调用服务更新文档的名称信息
+        self.document_service.update_document(dataset_id, document_id, name=req.name.data)
+        return success_message("更新文档名称成功")
