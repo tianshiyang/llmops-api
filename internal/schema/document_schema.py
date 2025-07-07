@@ -8,13 +8,15 @@
 import uuid
 
 from flask_wtf import FlaskForm
-from langchain_core.documents import Document
+from internal.model.dataset import Document
 from marshmallow import Schema, fields, pre_dump
 from wtforms import StringField
-from wtforms.validators import DataRequired, AnyOf, ValidationError
+from wtforms.validators import DataRequired, AnyOf, ValidationError, Optional
 
 from internal.entity.dataset_entity import ProcessType, DEFAULT_PROCESS_RULE
 from internal.schema import ListField, DictField
+from internal.lib.helper import datetime_to_timestamp
+from pkg.paginator.paginator import PaginatorReq
 
 
 class CreateDocumentReq(FlaskForm):
@@ -129,4 +131,41 @@ class CreateDocumentResp(Schema):
                 "created_at": int(document.created_at.timestamp()),
             } for document in data[0]],
             "batch": data[1]
+        }
+
+
+class GetDocumentWithPageReq(PaginatorReq):
+    search_word = StringField("search_word", validators=[
+        Optional()
+    ])
+
+
+class GetDocumentsWithPageResp(Schema):
+    """获取文档分页列表响应结构"""
+    id = fields.String(dump_default="")
+    name = fields.String(dump_default="")
+    character_count = fields.Integer(dump_default=0)
+    hit_count = fields.Integer(dump_default=0)
+    position = fields.Integer(dump_default=0)
+    enabled = fields.Bool(dump_default=False)
+    disabled_at = fields.Integer(dump_default=0)
+    status = fields.String(dump_default="")
+    error = fields.String(dump_default="")
+    updated_at = fields.Integer(dump_default=0)
+    created_at = fields.Integer(dump_default=0)
+
+    @pre_dump()
+    def process_data(self, data: Document, **kwargs):
+        return {
+            "id": data.id,
+            "name": data.name,
+            "character_count": data.character_count,
+            "hit_count": data.hit_count,
+            "position": data.position,
+            "enabled": data.enabled,
+            "disabled_at": datetime_to_timestamp(data.disabled_at),
+            "status": data.status,
+            "error": data.error,
+            "updated_at": datetime_to_timestamp(data.updated_at),
+            "created_at": datetime_to_timestamp(data.created_at),
         }
