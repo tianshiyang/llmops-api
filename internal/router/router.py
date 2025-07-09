@@ -139,6 +139,12 @@ class Router:
             methods=["POST"],
             view_func=self.document_handler.update_document_name,
         )
+        # 7.5 更新文档开启状态
+        bp.add_url_rule(
+            "/datasets/<uuid:dataset_id>/documents/<uuid:document_id>/enabled",
+            methods=["POST"],
+            view_func=self.document_handler.update_document_enabled,
+        )
 
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)
