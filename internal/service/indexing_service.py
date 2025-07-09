@@ -137,6 +137,30 @@ class IndexingService(BaseService):
             # 清空缓存键表示异步操作已经执行完成，无论是成功还是失败都清除
             self.redis_client.delete(cache_key)
 
+    def delete_document(self, dataset_id: UUID, document_id: UUID) -> None:
+        """根据传递的知识库id+文档id删除文档信息"""
+        # 1.查找该文档下的所有片段id列表
+        segment_ids = [
+            str(id) for id, in self.db.session.query(Segment).with_entities(Segment.id).filter(
+                Segment.document_id == document_id,
+            ).all()
+        ]
+
+        # 2.调用向量数据库删除其关联记录
+        collection = self.vector_database_service.collection
+        collection.data.delete_many(
+            where=Filter.by_property("document_id").equal(document_id)
+        )
+
+        # 3.删除postgres关联的segment记录
+        with self.db.auto_commit():
+            self.db.session.query(Segment).filter(
+                Segment.document_id == document_id
+            ).delete()
+
+        # 4.删除片段id对应的关键词记录
+        self.keyword_table_service.delete_keyword_table_from_ids(dataset_id, segment_ids)
+
     def delete_dataset(self, dataset_id: UUID) -> None:
         """根据传递的知识库id执行相应的删除操作"""
         try:

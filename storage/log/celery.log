@@ -2,3 +2,472 @@
 [2025-07-08 00:15:19,465: INFO/MainProcess] mingle: searching for neighbors
 [2025-07-08 00:15:20,474: INFO/MainProcess] mingle: all alone
 [2025-07-08 00:15:20,499: INFO/MainProcess] celery@icourtdeMacBook-Pro.local ready.
+[2025-07-09 23:19:04,245: INFO/MainProcess] Connected to redis://localhost:6379/1
+[2025-07-09 23:19:04,248: INFO/MainProcess] mingle: searching for neighbors
+[2025-07-09 23:19:05,263: INFO/MainProcess] mingle: all alone
+[2025-07-09 23:19:05,294: INFO/MainProcess] celery@icourtdeMacBook-Pro.local ready.
+[2025-07-09 23:22:37,227: INFO/MainProcess] Task internal.task.document_task.build_documents[7ffe8e8a-e709-4e90-9a88-75a344d9c2a2] received
+[2025-07-09 23:22:38,734: WARNING/MainProcess] /Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/jieba/analyse/tfidf.py:47: ResourceWarning: unclosed file <_io.BufferedReader name='/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/jieba/analyse/idf.txt'>
+  content = open(new_idf_path, 'rb').read().decode('utf-8')
+
+[2025-07-09 23:22:39,051: ERROR/MainProcess] Task internal.task.document_task.build_documents[7ffe8e8a-e709-4e90-9a88-75a344d9c2a2] raised unexpected: WeaviateStartUpError('Could not connect to Weaviate:Connection to Weaviate failed. Details: .')
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/Users/icourt1/.pyenv/versions/3.10.16/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 920, in connect
+    meta = executor.result(self.get_meta(False))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 887, in get_meta
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 857, in get
+    return self._send(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 716, in _send
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 714, in exc
+    self.__handle_exceptions(e, error_msg)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 667, in __handle_exceptions
+    raise WeaviateConnectionError(error_msg) from e
+weaviate.exceptions.WeaviateConnectionError: Connection to Weaviate failed. Details: 
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
+    return self.run(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 18, in build_documents
+    indexing_service = injector.get(IndexingService)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
+    dependencies = self.args_to_inject(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
+    instance: Any = self.get(interface)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
+    return callable(*full_args, **dependencies)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
+    self.client = weaviate.connect_to_local(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
+    return __connect(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
+    client.connect()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 934, in connect
+    raise WeaviateStartUpError(f"Could not connect to Weaviate:{e}.") from e
+weaviate.exceptions.WeaviateStartUpError: Could not connect to Weaviate:Connection to Weaviate failed. Details: .
+[2025-07-09 23:23:38,720: INFO/MainProcess] Task internal.task.document_task.build_documents[e54d7b15-4e4a-4e50-9b44-bc79749e1df3] received
+[2025-07-09 23:23:38,733: ERROR/MainProcess] Task internal.task.document_task.build_documents[e54d7b15-4e4a-4e50-9b44-bc79749e1df3] raised unexpected: WeaviateStartUpError('Could not connect to Weaviate:Connection to Weaviate failed. Details: .')
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/Users/icourt1/.pyenv/versions/3.10.16/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 920, in connect
+    meta = executor.result(self.get_meta(False))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 887, in get_meta
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 857, in get
+    return self._send(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 716, in _send
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 714, in exc
+    self.__handle_exceptions(e, error_msg)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 667, in __handle_exceptions
+    raise WeaviateConnectionError(error_msg) from e
+weaviate.exceptions.WeaviateConnectionError: Connection to Weaviate failed. Details: 
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
+    return self.run(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 18, in build_documents
+    indexing_service = injector.get(IndexingService)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
+    dependencies = self.args_to_inject(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
+    instance: Any = self.get(interface)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
+    return callable(*full_args, **dependencies)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
+    self.client = weaviate.connect_to_local(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
+    return __connect(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
+    client.connect()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 934, in connect
+    raise WeaviateStartUpError(f"Could not connect to Weaviate:{e}.") from e
+weaviate.exceptions.WeaviateStartUpError: Could not connect to Weaviate:Connection to Weaviate failed. Details: .
+[2025-07-09 23:25:21,222: INFO/MainProcess] Connected to redis://localhost:6379/1
+[2025-07-09 23:25:21,226: INFO/MainProcess] mingle: searching for neighbors
+[2025-07-09 23:25:22,238: INFO/MainProcess] mingle: all alone
+[2025-07-09 23:25:22,270: INFO/MainProcess] celery@icourtdeMacBook-Pro.local ready.
+[2025-07-09 23:25:28,512: INFO/MainProcess] Task internal.task.document_task.build_documents[d4731ef7-3ee3-407c-a9fd-8e1855a03014] received
+[2025-07-09 23:25:29,348: WARNING/MainProcess] /Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/jieba/analyse/tfidf.py:47: ResourceWarning: unclosed file <_io.BufferedReader name='/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/jieba/analyse/idf.txt'>
+  content = open(new_idf_path, 'rb').read().decode('utf-8')
+
+[2025-07-09 23:25:29,619: ERROR/MainProcess] Task internal.task.document_task.build_documents[d4731ef7-3ee3-407c-a9fd-8e1855a03014] raised unexpected: WeaviateStartUpError('Could not connect to Weaviate:Connection to Weaviate failed. Details: .')
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/Users/icourt1/.pyenv/versions/3.10.16/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 920, in connect
+    meta = executor.result(self.get_meta(False))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 887, in get_meta
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 857, in get
+    return self._send(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 716, in _send
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 714, in exc
+    self.__handle_exceptions(e, error_msg)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 667, in __handle_exceptions
+    raise WeaviateConnectionError(error_msg) from e
+weaviate.exceptions.WeaviateConnectionError: Connection to Weaviate failed. Details: 
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/app/trace.py", line 453, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/extension/celery_extension.py", line 20, in __call__
+    return self.run(*args, **kwargs)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/task/document_task.py", line 18, in build_documents
+    indexing_service = injector.get(IndexingService)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1041, in call_with_injection
+    dependencies = self.args_to_inject(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1089, in args_to_inject
+    instance: Any = self.get(interface)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 91, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 977, in get
+    result = provider_instance.get(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 264, in get
+    return injector.create_object(self._cls)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1000, in create_object
+    self.call_with_injection(init, self_=instance, kwargs=additional_kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/injector/__init__.py", line 1050, in call_with_injection
+    return callable(*full_args, **dependencies)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/vector_database_service.py", line 37, in __init__
+    self.client = weaviate.connect_to_local(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 193, in connect_to_local
+    return __connect(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 371, in __connect
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/helpers.py", line 367, in __connect
+    client.connect()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/client_executor.py", line 149, in connect
+    return executor.execute(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 99, in execute
+    return cast(T, exception_callback(e))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 38, in raise_exception
+    raise e
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/executor.py", line 80, in execute
+    call = method(*args, **kwargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/weaviate/connect/v4.py", line 934, in connect
+    raise WeaviateStartUpError(f"Could not connect to Weaviate:{e}.") from e
+weaviate.exceptions.WeaviateStartUpError: Could not connect to Weaviate:Connection to Weaviate failed. Details: .
+[2025-07-09 23:26:49,568: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/retry.py", line 87, in call_with_retry
+    return do()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/client.py", line 919, in <lambda>
+    lambda: command(*args, **kwargs),
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/client.py", line 940, in try_read
+    return conn.read_response(disconnect_on_error=False, push_request=True)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/connection.py", line 644, in read_response
+    response = self._parser.read_response(disable_decoding=disable_decoding)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/_parsers/resp2.py", line 15, in read_response
+    result = self._read_response(disable_decoding=disable_decoding)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/_parsers/resp2.py", line 25, in _read_response
+    raw = self._buffer.readline()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/_parsers/socket.py", line 115, in readline
+    self._read_from_socket()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/_parsers/socket.py", line 68, in _read_from_socket
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/connection.py", line 385, in connect_check_health
+    sock = self.retry.call_with_retry(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/retry.py", line 87, in call_with_retry
+    return do()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/connection.py", line 386, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/connection.py", line 797, in _connect
+    raise err
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/connection.py", line 781, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/worker/consumer/consumer.py", line 341, in start
+    blueprint.start(self)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/worker/consumer/consumer.py", line 772, in start
+    c.loop(*c.loop_args())
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/kombu/transport/redis.py", line 1359, in on_readable
+    self.cycle.on_readable(fileno)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/kombu/transport/redis.py", line 576, in on_readable
+    chan.handlers[type]()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/kombu/transport/redis.py", line 925, in _receive
+    ret.append(self._receive_one(c))
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/kombu/transport/redis.py", line 935, in _receive_one
+    response = c.parse_response()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/client.py", line 942, in parse_response
+    response = self._execute(conn, try_read)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/client.py", line 918, in _execute
+    return conn.retry.call_with_retry(
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/retry.py", line 90, in call_with_retry
+    fail(error)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/client.py", line 920, in <lambda>
+    lambda _: self._reconnect(conn),
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/client.py", line 908, in _reconnect
+    conn.connect()
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/connection.py", line 379, in connect
+    self.connect_check_health(check_health=True)
+  File "/Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/redis/connection.py", line 391, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 61 connecting to localhost:6379. Connection refused.
+[2025-07-09 23:26:49,575: WARNING/MainProcess] /Users/icourt1/.pyenv/versions/3.10.16/envs/llmops-env/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:392: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2025-07-09 23:26:49,580: ERROR/MainProcess] consumer: Cannot connect to redis://localhost:6379/1: Error 61 connecting to localhost:6379. Connection refused..
+Trying again in 2.00 seconds... (1/100)
+
+[2025-07-09 23:26:51,601: INFO/MainProcess] Connected to redis://localhost:6379/1
+[2025-07-09 23:26:51,608: INFO/MainProcess] mingle: searching for neighbors
+[2025-07-09 23:26:52,615: INFO/MainProcess] mingle: all alone

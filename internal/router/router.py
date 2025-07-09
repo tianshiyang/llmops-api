@@ -145,6 +145,12 @@ class Router:
             methods=["POST"],
             view_func=self.document_handler.update_document_enabled,
         )
+        # 7.6 删除文档
+        bp.add_url_rule(
+            "/datasets/<uuid:dataset_id>/documents/<uuid:document_id>/delete",
+            methods=["POST"],
+            view_func=self.document_handler.delete_document,
+        )
 
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)

@@ -26,7 +26,7 @@ from internal.schema.dataset_schema import GetDatasetWithPageReq
 from internal.service.base_service import BaseService
 from pkg.paginator.paginator import Paginator
 from pkg.sqlalchemy import SQLAlchemy
-from internal.task.document_task import build_documents, update_document_enabled
+from internal.task.document_task import build_documents, update_document_enabled, delete_document
 from datetime import datetime
 
 
@@ -180,4 +180,26 @@ class DocumentService(BaseService):
 
         # 6.启用异步任务完成后续操作
         update_document_enabled.delay(document.id)
+        return document
+
+    def delete_document(self, dataset_id: UUID, document_id: UUID) -> Document:
+        """根据传递的知识库id+文档id删除文档信息，涵盖：文档片段删除、关键词表更新、weaviate向量数据库记录删除"""
+        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
+        # 1.获取文档并校验权限
+        document = self.get(Document, document_id)
+        if document is None:
+            raise NotFoundException("该文档不存在，请核实后重试")
+        if document.dataset_id != dataset_id or str(document.account_id) != account_id:
+            raise ForbiddenException("当前用户无权限删除该知识库下的文档，请核实后重试")
+
+        # 2.判断文档是否处于可删除状态，只有构建完成/出错的时候才可以删除，其他情况需要等待构建完成
+        if document.status not in [DocumentStatus.COMPLETED, DocumentStatus.ERROR]:
+            raise FailException("当前文档处于不可删除状态，请稍后重试")
+
+        # 3.删除postgres中的文档基础信息
+        self.delete(document)
+
+        # 4.调用异步任务执行后续操作，涵盖：关键词表更新、片段数据删除、weaviate记录删除等
+        delete_document.delay(dataset_id, document_id)
+
         return document
