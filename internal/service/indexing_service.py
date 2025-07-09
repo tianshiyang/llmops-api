@@ -21,7 +21,9 @@ from uuid import UUID
 from sqlalchemy import func
 from weaviate.classes.query import Filter
 
+from internal.entity.cache_entity import LOCK_DOCUMENT_UPDATE_ENABLED
 from internal.entity.dataset_entity import DocumentStatus, SegmentStatus
+from internal.exception import NotFoundException
 from internal.lib.helper import generate_text_hash
 from internal.model.dataset import Document, Segment, KeywordTable, DatasetQuery
 from internal.service.process_rule_service import ProcessRuleService
@@ -75,6 +77,65 @@ class IndexingService(BaseService):
                     error=str(e),
                     stopped_at=datetime.now()
                 )
+
+    def update_document_enabled(self, document_id: UUID) -> None:
+        """根据传递的文档id更新文档状态，同时修改weaviate向量数据库中的记录"""
+        # 1.构建缓存键
+        cache_key = LOCK_DOCUMENT_UPDATE_ENABLED.format(document_id=document_id)
+        # 2. 根据传递的document_id获取文档记录
+        document = self.get(Document, document_id)
+        if document is None:
+            logging.error(f"当前文档不存在，文档id:{document_id}")
+            raise NotFoundException("当前文档不存在")
+        # 3.查询归属于当前文档的所有片段的节点id
+        segments = self.db.session.query(Segment).with_entities(
+            Segment.id,
+            Segment.node_id,
+            Segment.enabled
+        ).filter(
+            Segment.document_id == document_id,
+            Segment.status == SegmentStatus.COMPLETED
+        ).all()
+
+        segment_ids = [id for id, _, _ in segments]
+        node_ids = [node_id for _, node_id, _ in segments]
+        try:
+            # 执行循环遍历所有的node_ids并更新向量数据
+            collection = self.vector_database_service.collection
+            for node_id in node_ids:
+                try:
+                    collection.data.update(
+                        uuid=node_id,
+                        properties={
+                            "document_enabled": document.enabled,
+                        }
+                    )
+                except Exception as e:
+                    with self.db.auto_commit():
+                        self.db.session.query(Segment).filter(Segment.id == node_id).update({
+                            "error": str(e),
+                            "status": SegmentStatus.ERROR,
+                            "enabled": False,
+                            "disabled_at": datetime.now(),
+                            "stopped_at": datetime.now(),
+                        })
+            # 更新关键词对应的数据（enabled为false表示从关键词表中删除数据，enabled为true表示在关键词表中新增数据）
+            if document.enabled:
+                # 从禁用改为启用，需要新增关键词
+                enabled_segment_ids = [id for id, _, enabled in segment_ids if enabled is True]
+                self.keyword_table_service.add_keyword_table_from_ids(document.dataset_id, enabled_segment_ids)
+            else:
+                # 从启用改为禁用，则需要剔除关键词
+                self.keyword_table_service.delete_keyword_table_from_ids(document.dataset_id, segment_ids)
+
+        except Exception as e:
+            # 记录日志并将状态修改为原来的状态
+            logging.exception(f"修改向量库文档启用状态失败，文档id:{document_id}, 错误信息{e}")
+            origin_enabled = not document.enabled
+            self.update(document, enabled=origin_enabled, disabled_at=None if origin_enabled else datetime.now())
+        finally:
+            # 清空缓存键表示异步操作已经执行完成，无论是成功还是失败都清除
+            self.redis_client.delete(cache_key)
 
     def delete_dataset(self, dataset_id: UUID) -> None:
         """根据传递的知识库id执行相应的删除操作"""
@@ -257,6 +318,13 @@ class IndexingService(BaseService):
 
             for future in futures:
                 future.result()
+        # 6.更新文档的状态数据
+        self.update(
+            document,
+            status=DocumentStatus.COMPLETED,
+            completed_at=datetime.now(),
+            enabled=True,
+        )
 
     @classmethod
     def _clean_extra_text(cls, text: str) -> str:

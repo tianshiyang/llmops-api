@@ -8,6 +8,8 @@
 import uuid
 
 from flask_wtf import FlaskForm
+from wtforms.fields.simple import BooleanField
+
 from internal.model.dataset import Document
 from marshmallow import Schema, fields, pre_dump
 from wtforms import StringField
@@ -212,3 +214,12 @@ class UpdateDocumentNameReq(FlaskForm):
         DataRequired("文档名称不能为空"),
         Length(max=100, message="文档的名称长度不能超过100")
     ])
+
+
+class UpdateDocumentEnabledReq(FlaskForm):
+    """更新文档开启状态、"""
+    enabled = BooleanField("enabled")
+
+    def validate_enabled(self, field: BooleanField):
+        if not isinstance(field.data, bool):
+            raise ValidationError("enabled状态不能为空且必须为布尔值")
