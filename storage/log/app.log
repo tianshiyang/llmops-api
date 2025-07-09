@@ -1,199 +1,124 @@
-[2025-07-08 00:00:58,693.693] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
-[2025-07-08 00:01:00,403.403] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
-[2025-07-08 00:01:00,414.414] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
-[2025-07-08 00:01:08,770.770] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/dataset_service.py', reloading
-[2025-07-08 00:01:09,009.009] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
-[2025-07-08 00:01:10,684.684] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
-[2025-07-08 00:01:10,695.695] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
-[2025-07-08 00:01:12,353.353] base.py -> _exec_single_context line:1896 [INFO]: select pg_catalog.version()
-[2025-07-08 00:01:12,353.353] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
-[2025-07-08 00:01:12,354.354] base.py -> _exec_single_context line:1896 [INFO]: select current_schema()
-[2025-07-08 00:01:12,354.354] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
-[2025-07-08 00:01:12,354.354] base.py -> _exec_single_context line:1896 [INFO]: show standard_conforming_strings
-[2025-07-08 00:01:12,354.354] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
-[2025-07-08 00:01:12,355.355] base.py -> _begin_impl line:1097 [INFO]: BEGIN (implicit)
-[2025-07-08 00:01:12,357.357] base.py -> _exec_single_context line:1896 [INFO]: SELECT dataset.id AS dataset_id, dataset.account_id AS dataset_account_id, dataset.name AS dataset_name, dataset.icon AS dataset_icon, dataset.description AS dataset_description, dataset.updated_at AS dataset_updated_at, dataset.created_at AS dataset_created_at 
+[2025-07-09 23:18:49,718.718] _internal.py -> _log line:97 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[2025-07-09 23:18:49,718.718] _internal.py -> _log line:97 [INFO]: [33mPress CTRL+C to quit[0m
+[2025-07-09 23:18:49,719.719] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-09 23:18:51,294.294] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-09 23:18:51,309.309] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
+[2025-07-09 23:22:37,066.066] base.py -> _exec_single_context line:1896 [INFO]: select pg_catalog.version()
+[2025-07-09 23:22:37,067.067] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
+[2025-07-09 23:22:37,069.069] base.py -> _exec_single_context line:1896 [INFO]: select current_schema()
+[2025-07-09 23:22:37,069.069] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
+[2025-07-09 23:22:37,070.070] base.py -> _exec_single_context line:1896 [INFO]: show standard_conforming_strings
+[2025-07-09 23:22:37,070.070] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
+[2025-07-09 23:22:37,071.071] base.py -> _begin_impl line:1097 [INFO]: BEGIN (implicit)
+[2025-07-09 23:22:37,076.076] base.py -> _exec_single_context line:1896 [INFO]: SELECT dataset.id AS dataset_id, dataset.account_id AS dataset_account_id, dataset.name AS dataset_name, dataset.icon AS dataset_icon, dataset.description AS dataset_description, dataset.updated_at AS dataset_updated_at, dataset.created_at AS dataset_created_at 
 FROM dataset 
 WHERE dataset.id = %(pk_1)s::UUID
-[2025-07-08 00:01:12,357.357] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00014s] {'pk_1': UUID('dcaf5254-6ebe-4fae-9d95-38a3d3a27b9c')}
-[2025-07-08 00:01:12,358.358] base.py -> _rollback_impl line:1123 [INFO]: ROLLBACK
-[2025-07-08 00:01:12,359.359] dataset_service.py -> delete_dataset line:137 [ERROR]: 删除知识库失败, dataset_id: dcaf5254-6ebe-4fae-9d95-38a3d3a27b9c, 错误信息: subject table for an INSERT, UPDATE or DELETE expected, got <Dataset dcaf5254-6ebe-4fae-9d95-38a3d3a27b9c>.
-Traceback (most recent call last):
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/dataset_service.py", line 128, in delete_dataset
-    self.delete(dataset)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/base_service.py", line 27, in delete
-    self.db.delete(model_instance)
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/_dml_constructors.py", line 132, in delete
-    return Delete(table)
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/dml.py", line 1734, in __init__
-    self.table = coercions.expect(
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 392, in expect
-    impl._raise_for_expected(original_element, argname)
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 695, in _raise_for_expected
-    super()._raise_for_expected(
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 518, in _raise_for_expected
-    raise exc.ArgumentError(msg, code=code) from err
-sqlalchemy.exc.ArgumentError: subject table for an INSERT, UPDATE or DELETE expected, got <Dataset dcaf5254-6ebe-4fae-9d95-38a3d3a27b9c>.
-[2025-07-08 00:01:12,361.361] http.py -> _register_error_handler line:70 [ERROR]: An error occurred: 
-Traceback (most recent call last):
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/dataset_service.py", line 128, in delete_dataset
-    self.delete(dataset)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/base_service.py", line 27, in delete
-    self.db.delete(model_instance)
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/_dml_constructors.py", line 132, in delete
-    return Delete(table)
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/dml.py", line 1734, in __init__
-    self.table = coercions.expect(
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 392, in expect
-    impl._raise_for_expected(original_element, argname)
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 695, in _raise_for_expected
-    super()._raise_for_expected(
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 518, in _raise_for_expected
-    raise exc.ArgumentError(msg, code=code) from err
-sqlalchemy.exc.ArgumentError: subject table for an INSERT, UPDATE or DELETE expected, got <Dataset dcaf5254-6ebe-4fae-9d95-38a3d3a27b9c>.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/handler/dataset_handler.py", line 81, in delete_dataset
-    self.dataset_service.delete_dataset(dataset_id)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/dataset_service.py", line 138, in delete_dataset
-    raise FailException(f"删除知识库失败，请稍后重试{e}")
-internal.exception.exception.FailException
-[2025-07-08 00:01:12,363.363] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [08/Jul/2025 00:01:12] "POST /datasets/dcaf5254-6ebe-4fae-9d95-38a3d3a27b9c/delete HTTP/1.1" 200 -
-[2025-07-08 00:01:59,883.883] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/dataset_service.py', reloading
-[2025-07-08 00:02:00,193.193] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
-[2025-07-08 00:02:02,024.024] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
-[2025-07-08 00:02:02,034.034] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
-[2025-07-08 00:02:08,123.123] base.py -> _exec_single_context line:1896 [INFO]: select pg_catalog.version()
-[2025-07-08 00:02:08,124.124] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
-[2025-07-08 00:02:08,126.126] base.py -> _exec_single_context line:1896 [INFO]: select current_schema()
-[2025-07-08 00:02:08,126.126] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
-[2025-07-08 00:02:08,127.127] base.py -> _exec_single_context line:1896 [INFO]: show standard_conforming_strings
-[2025-07-08 00:02:08,127.127] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
-[2025-07-08 00:02:08,128.128] base.py -> _begin_impl line:1097 [INFO]: BEGIN (implicit)
-[2025-07-08 00:02:08,132.132] base.py -> _exec_single_context line:1896 [INFO]: SELECT dataset.id AS dataset_id, dataset.account_id AS dataset_account_id, dataset.name AS dataset_name, dataset.icon AS dataset_icon, dataset.description AS dataset_description, dataset.updated_at AS dataset_updated_at, dataset.created_at AS dataset_created_at 
+[2025-07-09 23:22:37,076.076] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00022s] {'pk_1': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c')}
+[2025-07-09 23:22:37,090.090] base.py -> _exec_single_context line:1896 [INFO]: SELECT upload_file.id AS upload_file_id, upload_file.account_id AS upload_file_account_id, upload_file.name AS upload_file_name, upload_file.key AS upload_file_key, upload_file.size AS upload_file_size, upload_file.extension AS upload_file_extension, upload_file.mime_type AS upload_file_mime_type, upload_file.hash AS upload_file_hash, upload_file.updated_at AS upload_file_updated_at, upload_file.created_at AS upload_file_created_at 
+FROM upload_file 
+WHERE upload_file.account_id = %(account_id_1)s::UUID AND upload_file.id IN (%(id_1_1)s::UUID)
+[2025-07-09 23:22:37,091.091] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00041s] {'account_id_1': '12a2956f-b51c-4d9b-bf65-336c5acfc4f3', 'id_1_1': '252b8261-f973-4ec7-9349-aaa716646deb'}
+[2025-07-09 23:22:37,099.099] base.py -> _exec_single_context line:1896 [INFO]: INSERT INTO process_rule (account_id, dataset_id, mode, rule) VALUES (%(account_id)s::UUID, %(dataset_id)s::UUID, %(mode)s, %(rule)s::JSONB) RETURNING process_rule.id, process_rule.updated_at, process_rule.created_at
+[2025-07-09 23:22:37,099.099] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00073s] {'account_id': '12a2956f-b51c-4d9b-bf65-336c5acfc4f3', 'dataset_id': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'mode': 'custom', 'rule': '{"pre_process_rules": [{"id": "remove_extra_space", "enabled": true}, {"id": "remove_url_and_email", "enabled": false}], "segment": {"separators": ["\\n"], "chunk_size": 500, "chunk_overlap": 50}}'}
+[2025-07-09 23:22:37,142.142] base.py -> _commit_impl line:1140 [INFO]: COMMIT
+[2025-07-09 23:22:37,143.143] base.py -> _begin_impl line:1097 [INFO]: BEGIN (implicit)
+[2025-07-09 23:22:37,145.145] base.py -> _exec_single_context line:1896 [INFO]: SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.dataset_id = %(dataset_id_1)s::UUID ORDER BY document.position DESC 
+ LIMIT %(param_1)s
+[2025-07-09 23:22:37,145.145] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00015s] {'dataset_id_1': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'param_1': 1}
+[2025-07-09 23:22:37,151.151] base.py -> _exec_single_context line:1896 [INFO]: SELECT upload_file.id AS upload_file_id, upload_file.account_id AS upload_file_account_id, upload_file.name AS upload_file_name, upload_file.key AS upload_file_key, upload_file.size AS upload_file_size, upload_file.extension AS upload_file_extension, upload_file.mime_type AS upload_file_mime_type, upload_file.hash AS upload_file_hash, upload_file.updated_at AS upload_file_updated_at, upload_file.created_at AS upload_file_created_at 
+FROM upload_file 
+WHERE upload_file.id = %(pk_1)s::UUID
+[2025-07-09 23:22:37,151.151] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00012s] {'pk_1': UUID('252b8261-f973-4ec7-9349-aaa716646deb')}
+[2025-07-09 23:22:37,154.154] base.py -> _exec_single_context line:1896 [INFO]: SELECT process_rule.id AS process_rule_id, process_rule.account_id AS process_rule_account_id, process_rule.dataset_id AS process_rule_dataset_id, process_rule.mode AS process_rule_mode, process_rule.rule AS process_rule_rule, process_rule.updated_at AS process_rule_updated_at, process_rule.created_at AS process_rule_created_at 
+FROM process_rule 
+WHERE process_rule.id = %(pk_1)s::UUID
+[2025-07-09 23:22:37,155.155] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00039s] {'pk_1': UUID('4c6ce489-c83b-423e-b49c-8923a97f175f')}
+[2025-07-09 23:22:37,160.160] base.py -> _exec_single_context line:1896 [INFO]: INSERT INTO document (account_id, dataset_id, upload_file_id, process_rule_id, batch, name, position, processing_started_at, parsing_completed_at, splitting_completed_at, indexing_completed_at, completed_at, stopped_at, disabled_at) VALUES (%(account_id)s::UUID, %(dataset_id)s::UUID, %(upload_file_id)s::UUID, %(process_rule_id)s::UUID, %(batch)s, %(name)s, %(position)s, %(processing_started_at)s, %(parsing_completed_at)s, %(splitting_completed_at)s, %(indexing_completed_at)s, %(completed_at)s, %(stopped_at)s, %(disabled_at)s) RETURNING document.id, document.character_count, document.token_count, document.error, document.enabled, document.status, document.updated_at, document.created_at
+[2025-07-09 23:22:37,160.160] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00023s] {'account_id': '12a2956f-b51c-4d9b-bf65-336c5acfc4f3', 'dataset_id': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'upload_file_id': UUID('252b8261-f973-4ec7-9349-aaa716646deb'), 'process_rule_id': UUID('4c6ce489-c83b-423e-b49c-8923a97f175f'), 'batch': '20250709232237161874', 'name': '民事答辩状（二审）20250624165842.docx', 'position': 113, 'processing_started_at': None, 'parsing_completed_at': None, 'splitting_completed_at': None, 'indexing_completed_at': None, 'completed_at': None, 'stopped_at': None, 'disabled_at': None}
+[2025-07-09 23:22:37,164.164] base.py -> _commit_impl line:1140 [INFO]: COMMIT
+[2025-07-09 23:22:37,173.173] base.py -> _begin_impl line:1097 [INFO]: BEGIN (implicit)
+[2025-07-09 23:22:37,174.174] base.py -> _exec_single_context line:1896 [INFO]: SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-09 23:22:37,174.174] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00015s] {'pk_1': UUID('eda7cf94-0c6c-4a62-bfe3-4deec3a82250')}
+[2025-07-09 23:22:37,226.226] base.py -> _rollback_impl line:1123 [INFO]: ROLLBACK
+[2025-07-09 23:22:37,226.226] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [09/Jul/2025 23:22:37] "POST /datasets/6c5e3fd6-6307-4eb5-b017-895b25ce4a1c/documents HTTP/1.1" 200 -
+[2025-07-09 23:23:38,681.681] base.py -> _begin_impl line:1097 [INFO]: BEGIN (implicit)
+[2025-07-09 23:23:38,681.681] base.py -> _exec_single_context line:1896 [INFO]: SELECT dataset.id AS dataset_id, dataset.account_id AS dataset_account_id, dataset.name AS dataset_name, dataset.icon AS dataset_icon, dataset.description AS dataset_description, dataset.updated_at AS dataset_updated_at, dataset.created_at AS dataset_created_at 
 FROM dataset 
 WHERE dataset.id = %(pk_1)s::UUID
-[2025-07-08 00:02:08,132.132] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00030s] {'pk_1': UUID('dcaf5254-6ebe-4fae-9d95-38a3d3a27b9c')}
-[2025-07-08 00:02:08,134.134] base.py -> _rollback_impl line:1123 [INFO]: ROLLBACK
-[2025-07-08 00:02:08,135.135] dataset_service.py -> delete_dataset line:137 [ERROR]: 删除知识库失败, dataset_id: dcaf5254-6ebe-4fae-9d95-38a3d3a27b9c, 错误信息: subject table for an INSERT, UPDATE or DELETE expected, got <Dataset dcaf5254-6ebe-4fae-9d95-38a3d3a27b9c>.
-Traceback (most recent call last):
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/dataset_service.py", line 128, in delete_dataset
-    self.delete(dataset)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/base_service.py", line 27, in delete
-    self.db.delete(model_instance)
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/_dml_constructors.py", line 132, in delete
-    return Delete(table)
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/dml.py", line 1734, in __init__
-    self.table = coercions.expect(
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 392, in expect
-    impl._raise_for_expected(original_element, argname)
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 695, in _raise_for_expected
-    super()._raise_for_expected(
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 518, in _raise_for_expected
-    raise exc.ArgumentError(msg, code=code) from err
-sqlalchemy.exc.ArgumentError: subject table for an INSERT, UPDATE or DELETE expected, got <Dataset dcaf5254-6ebe-4fae-9d95-38a3d3a27b9c>.
-[2025-07-08 00:02:08,139.139] http.py -> _register_error_handler line:70 [ERROR]: An error occurred: 
-Traceback (most recent call last):
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/dataset_service.py", line 128, in delete_dataset
-    self.delete(dataset)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/base_service.py", line 27, in delete
-    self.db.delete(model_instance)
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/_dml_constructors.py", line 132, in delete
-    return Delete(table)
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/dml.py", line 1734, in __init__
-    self.table = coercions.expect(
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 392, in expect
-    impl._raise_for_expected(original_element, argname)
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 695, in _raise_for_expected
-    super()._raise_for_expected(
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 518, in _raise_for_expected
-    raise exc.ArgumentError(msg, code=code) from err
-sqlalchemy.exc.ArgumentError: subject table for an INSERT, UPDATE or DELETE expected, got <Dataset dcaf5254-6ebe-4fae-9d95-38a3d3a27b9c>.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/handler/dataset_handler.py", line 81, in delete_dataset
-    self.dataset_service.delete_dataset(dataset_id)
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/dataset_service.py", line 138, in delete_dataset
-    raise FailException(f"删除知识库失败，请稍后重试{e}")
-internal.exception.exception.FailException
-[2025-07-08 00:02:08,141.141] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [08/Jul/2025 00:02:08] "POST /datasets/dcaf5254-6ebe-4fae-9d95-38a3d3a27b9c/delete HTTP/1.1" 200 -
-[2025-07-08 00:03:59,067.067] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/router/router.py', reloading
-[2025-07-08 00:03:59,451.451] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
-[2025-07-08 00:04:01,260.260] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
-[2025-07-08 00:04:01,270.270] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
-[2025-07-08 00:15:22,138.138] _internal.py -> _log line:97 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-[2025-07-08 00:15:22,139.139] _internal.py -> _log line:97 [INFO]: [33mPress CTRL+C to quit[0m
-[2025-07-08 00:15:22,140.140] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
-[2025-07-08 00:15:23,788.788] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
-[2025-07-08 00:15:23,806.806] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
-[2025-07-08 00:16:56,889.889] base.py -> _exec_single_context line:1896 [INFO]: select pg_catalog.version()
-[2025-07-08 00:16:56,890.890] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
-[2025-07-08 00:16:56,891.891] base.py -> _exec_single_context line:1896 [INFO]: select current_schema()
-[2025-07-08 00:16:56,891.891] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
-[2025-07-08 00:16:56,891.891] base.py -> _exec_single_context line:1896 [INFO]: show standard_conforming_strings
-[2025-07-08 00:16:56,891.891] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
-[2025-07-08 00:16:56,892.892] base.py -> _begin_impl line:1097 [INFO]: BEGIN (implicit)
-[2025-07-08 00:16:56,896.896] base.py -> _exec_single_context line:1896 [INFO]: SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+[2025-07-09 23:23:38,681.681] base.py -> _exec_single_context line:1901 [INFO]: [cached since 61.61s ago] {'pk_1': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c')}
+[2025-07-09 23:23:38,683.683] base.py -> _exec_single_context line:1896 [INFO]: SELECT upload_file.id AS upload_file_id, upload_file.account_id AS upload_file_account_id, upload_file.name AS upload_file_name, upload_file.key AS upload_file_key, upload_file.size AS upload_file_size, upload_file.extension AS upload_file_extension, upload_file.mime_type AS upload_file_mime_type, upload_file.hash AS upload_file_hash, upload_file.updated_at AS upload_file_updated_at, upload_file.created_at AS upload_file_created_at 
+FROM upload_file 
+WHERE upload_file.account_id = %(account_id_1)s::UUID AND upload_file.id IN (%(id_1_1)s::UUID)
+[2025-07-09 23:23:38,683.683] base.py -> _exec_single_context line:1901 [INFO]: [cached since 61.59s ago] {'account_id_1': '12a2956f-b51c-4d9b-bf65-336c5acfc4f3', 'id_1_1': '252b8261-f973-4ec7-9349-aaa716646deb'}
+[2025-07-09 23:23:38,684.684] base.py -> _exec_single_context line:1896 [INFO]: INSERT INTO process_rule (account_id, dataset_id, mode, rule) VALUES (%(account_id)s::UUID, %(dataset_id)s::UUID, %(mode)s, %(rule)s::JSONB) RETURNING process_rule.id, process_rule.updated_at, process_rule.created_at
+[2025-07-09 23:23:38,684.684] base.py -> _exec_single_context line:1901 [INFO]: [cached since 61.59s ago] {'account_id': '12a2956f-b51c-4d9b-bf65-336c5acfc4f3', 'dataset_id': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'mode': 'custom', 'rule': '{"pre_process_rules": [{"id": "remove_extra_space", "enabled": true}, {"id": "remove_url_and_email", "enabled": false}], "segment": {"separators": ["\\n"], "chunk_size": 500, "chunk_overlap": 50}}'}
+[2025-07-09 23:23:38,691.691] base.py -> _commit_impl line:1140 [INFO]: COMMIT
+[2025-07-09 23:23:38,692.692] base.py -> _begin_impl line:1097 [INFO]: BEGIN (implicit)
+[2025-07-09 23:23:38,692.692] base.py -> _exec_single_context line:1896 [INFO]: SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.dataset_id = %(dataset_id_1)s::UUID ORDER BY document.position DESC 
+ LIMIT %(param_1)s
+[2025-07-09 23:23:38,692.692] base.py -> _exec_single_context line:1901 [INFO]: [cached since 61.55s ago] {'dataset_id_1': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'param_1': 1}
+[2025-07-09 23:23:38,693.693] base.py -> _exec_single_context line:1896 [INFO]: SELECT upload_file.id AS upload_file_id, upload_file.account_id AS upload_file_account_id, upload_file.name AS upload_file_name, upload_file.key AS upload_file_key, upload_file.size AS upload_file_size, upload_file.extension AS upload_file_extension, upload_file.mime_type AS upload_file_mime_type, upload_file.hash AS upload_file_hash, upload_file.updated_at AS upload_file_updated_at, upload_file.created_at AS upload_file_created_at 
+FROM upload_file 
+WHERE upload_file.id = %(pk_1)s::UUID
+[2025-07-09 23:23:38,693.693] base.py -> _exec_single_context line:1901 [INFO]: [cached since 61.54s ago] {'pk_1': UUID('252b8261-f973-4ec7-9349-aaa716646deb')}
+[2025-07-09 23:23:38,694.694] base.py -> _exec_single_context line:1896 [INFO]: SELECT process_rule.id AS process_rule_id, process_rule.account_id AS process_rule_account_id, process_rule.dataset_id AS process_rule_dataset_id, process_rule.mode AS process_rule_mode, process_rule.rule AS process_rule_rule, process_rule.updated_at AS process_rule_updated_at, process_rule.created_at AS process_rule_created_at 
+FROM process_rule 
+WHERE process_rule.id = %(pk_1)s::UUID
+[2025-07-09 23:23:38,694.694] base.py -> _exec_single_context line:1901 [INFO]: [cached since 61.54s ago] {'pk_1': UUID('cb91fb20-4dc3-45f0-9e84-99fb56817b6d')}
+[2025-07-09 23:23:38,695.695] base.py -> _exec_single_context line:1896 [INFO]: INSERT INTO document (account_id, dataset_id, upload_file_id, process_rule_id, batch, name, position, processing_started_at, parsing_completed_at, splitting_completed_at, indexing_completed_at, completed_at, stopped_at, disabled_at) VALUES (%(account_id)s::UUID, %(dataset_id)s::UUID, %(upload_file_id)s::UUID, %(process_rule_id)s::UUID, %(batch)s, %(name)s, %(position)s, %(processing_started_at)s, %(parsing_completed_at)s, %(splitting_completed_at)s, %(indexing_completed_at)s, %(completed_at)s, %(stopped_at)s, %(disabled_at)s) RETURNING document.id, document.character_count, document.token_count, document.error, document.enabled, document.status, document.updated_at, document.created_at
+[2025-07-09 23:23:38,695.695] base.py -> _exec_single_context line:1901 [INFO]: [cached since 61.54s ago] {'account_id': '12a2956f-b51c-4d9b-bf65-336c5acfc4f3', 'dataset_id': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'upload_file_id': UUID('252b8261-f973-4ec7-9349-aaa716646deb'), 'process_rule_id': UUID('cb91fb20-4dc3-45f0-9e84-99fb56817b6d'), 'batch': '20250709232338120963', 'name': '民事答辩状（二审）20250624165842.docx', 'position': 114, 'processing_started_at': None, 'parsing_completed_at': None, 'splitting_completed_at': None, 'indexing_completed_at': None, 'completed_at': None, 'stopped_at': None, 'disabled_at': None}
+[2025-07-09 23:23:38,695.695] base.py -> _commit_impl line:1140 [INFO]: COMMIT
+[2025-07-09 23:23:38,696.696] base.py -> _begin_impl line:1097 [INFO]: BEGIN (implicit)
+[2025-07-09 23:23:38,696.696] base.py -> _exec_single_context line:1896 [INFO]: SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
 FROM document 
 WHERE document.id = %(pk_1)s::UUID
-[2025-07-08 00:16:56,896.896] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00030s] {'pk_1': UUID('d0e590d7-9b3d-4cff-ad61-608535d25885')}
-[2025-07-08 00:16:56,900.900] base.py -> _exec_single_context line:1896 [INFO]: SELECT count(segment.id) AS count_1 
-FROM segment 
-WHERE segment.document_id = %(document_id_1)s::UUID
-[2025-07-08 00:16:56,900.900] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00018s] {'document_id_1': UUID('d0e590d7-9b3d-4cff-ad61-608535d25885')}
-[2025-07-08 00:16:56,905.905] base.py -> _exec_single_context line:1896 [INFO]: SELECT coalesce(sum(segment.hit_count), %(coalesce_2)s) AS coalesce_1 
-FROM segment 
-WHERE segment.document_id = %(document_id_1)s::UUID
-[2025-07-08 00:16:56,905.905] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00021s] {'coalesce_2': 0, 'document_id_1': UUID('d0e590d7-9b3d-4cff-ad61-608535d25885')}
-[2025-07-08 00:16:56,908.908] base.py -> _rollback_impl line:1123 [INFO]: ROLLBACK
-[2025-07-08 00:16:56,908.908] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [08/Jul/2025 00:16:56] "GET /datasets/6c5e3fd6-6307-4eb5-b017-895b25ce4a1c/documents/d0e590d7-9b3d-4cff-ad61-608535d25885 HTTP/1.1" 200 -
-[2025-07-08 00:21:01,328.328] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/router/router.py', reloading
-[2025-07-08 00:21:01,586.586] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
-[2025-07-08 00:25:11,479.479] _internal.py -> _log line:97 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-[2025-07-08 00:25:11,481.481] _internal.py -> _log line:97 [INFO]: [33mPress CTRL+C to quit[0m
-[2025-07-08 00:25:11,483.483] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
-[2025-07-08 00:25:13,018.018] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
-[2025-07-08 00:25:13,030.030] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
-[2025-07-08 00:27:04,439.439] http.py -> _register_error_handler line:70 [ERROR]: An error occurred: DocumentService.update_document() takes 3 positional arguments but 4 were given
-Traceback (most recent call last):
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/handler/document_handler.py", line 60, in update_document_name
-    self.document_service.update_document(dataset_id, document_id, req.name.data)
-TypeError: DocumentService.update_document() takes 3 positional arguments but 4 were given
-[2025-07-08 00:27:04,460.460] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [08/Jul/2025 00:27:04] "[35m[1mPOST /datasets/6c5e3fd6-6307-4eb5-b017-895b25ce4a1c/documents/c7a6bfe3-901b-4862-b22d-8f7b019b7b3a/name HTTP/1.1[0m" 500 -
-[2025-07-08 00:27:30,238.238] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/handler/document_handler.py', reloading
-[2025-07-08 00:27:30,588.588] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
-[2025-07-08 00:27:32,673.673] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
-[2025-07-08 00:27:32,688.688] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
-[2025-07-08 00:27:32,923.923] base.py -> _exec_single_context line:1896 [INFO]: select pg_catalog.version()
-[2025-07-08 00:27:32,923.923] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
-[2025-07-08 00:27:32,925.925] base.py -> _exec_single_context line:1896 [INFO]: select current_schema()
-[2025-07-08 00:27:32,925.925] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
-[2025-07-08 00:27:32,926.926] base.py -> _exec_single_context line:1896 [INFO]: show standard_conforming_strings
-[2025-07-08 00:27:32,928.928] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
-[2025-07-08 00:27:32,929.929] base.py -> _begin_impl line:1097 [INFO]: BEGIN (implicit)
-[2025-07-08 00:27:32,934.934] base.py -> _exec_single_context line:1896 [INFO]: SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+[2025-07-09 23:23:38,696.696] base.py -> _exec_single_context line:1901 [INFO]: [cached since 61.52s ago] {'pk_1': UUID('02e45bb3-4326-43b4-a839-05d3f685a2cd')}
+[2025-07-09 23:23:38,720.720] base.py -> _rollback_impl line:1123 [INFO]: ROLLBACK
+[2025-07-09 23:23:38,720.720] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [09/Jul/2025 23:23:38] "POST /datasets/6c5e3fd6-6307-4eb5-b017-895b25ce4a1c/documents HTTP/1.1" 200 -
+[2025-07-09 23:25:28,489.489] base.py -> _begin_impl line:1097 [INFO]: BEGIN (implicit)
+[2025-07-09 23:25:28,490.490] base.py -> _exec_single_context line:1896 [INFO]: SELECT dataset.id AS dataset_id, dataset.account_id AS dataset_account_id, dataset.name AS dataset_name, dataset.icon AS dataset_icon, dataset.description AS dataset_description, dataset.updated_at AS dataset_updated_at, dataset.created_at AS dataset_created_at 
+FROM dataset 
+WHERE dataset.id = %(pk_1)s::UUID
+[2025-07-09 23:25:28,490.490] base.py -> _exec_single_context line:1901 [INFO]: [cached since 171.4s ago] {'pk_1': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c')}
+[2025-07-09 23:25:28,492.492] base.py -> _exec_single_context line:1896 [INFO]: SELECT upload_file.id AS upload_file_id, upload_file.account_id AS upload_file_account_id, upload_file.name AS upload_file_name, upload_file.key AS upload_file_key, upload_file.size AS upload_file_size, upload_file.extension AS upload_file_extension, upload_file.mime_type AS upload_file_mime_type, upload_file.hash AS upload_file_hash, upload_file.updated_at AS upload_file_updated_at, upload_file.created_at AS upload_file_created_at 
+FROM upload_file 
+WHERE upload_file.account_id = %(account_id_1)s::UUID AND upload_file.id IN (%(id_1_1)s::UUID)
+[2025-07-09 23:25:28,492.492] base.py -> _exec_single_context line:1901 [INFO]: [cached since 171.4s ago] {'account_id_1': '12a2956f-b51c-4d9b-bf65-336c5acfc4f3', 'id_1_1': 'a11040c0-0de1-45c8-8803-d0ed52c24979'}
+[2025-07-09 23:25:28,493.493] base.py -> _exec_single_context line:1896 [INFO]: INSERT INTO process_rule (account_id, dataset_id, mode, rule) VALUES (%(account_id)s::UUID, %(dataset_id)s::UUID, %(mode)s, %(rule)s::JSONB) RETURNING process_rule.id, process_rule.updated_at, process_rule.created_at
+[2025-07-09 23:25:28,493.493] base.py -> _exec_single_context line:1901 [INFO]: [cached since 171.4s ago] {'account_id': '12a2956f-b51c-4d9b-bf65-336c5acfc4f3', 'dataset_id': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'mode': 'custom', 'rule': '{"pre_process_rules": [{"id": "remove_extra_space", "enabled": true}, {"id": "remove_url_and_email", "enabled": false}], "segment": {"separators": ["\\n"], "chunk_size": 500, "chunk_overlap": 50}}'}
+[2025-07-09 23:25:28,494.494] base.py -> _commit_impl line:1140 [INFO]: COMMIT
+[2025-07-09 23:25:28,495.495] base.py -> _begin_impl line:1097 [INFO]: BEGIN (implicit)
+[2025-07-09 23:25:28,496.496] base.py -> _exec_single_context line:1896 [INFO]: SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.dataset_id = %(dataset_id_1)s::UUID ORDER BY document.position DESC 
+ LIMIT %(param_1)s
+[2025-07-09 23:25:28,496.496] base.py -> _exec_single_context line:1901 [INFO]: [cached since 171.4s ago] {'dataset_id_1': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'param_1': 1}
+[2025-07-09 23:25:28,496.496] base.py -> _exec_single_context line:1896 [INFO]: SELECT upload_file.id AS upload_file_id, upload_file.account_id AS upload_file_account_id, upload_file.name AS upload_file_name, upload_file.key AS upload_file_key, upload_file.size AS upload_file_size, upload_file.extension AS upload_file_extension, upload_file.mime_type AS upload_file_mime_type, upload_file.hash AS upload_file_hash, upload_file.updated_at AS upload_file_updated_at, upload_file.created_at AS upload_file_created_at 
+FROM upload_file 
+WHERE upload_file.id = %(pk_1)s::UUID
+[2025-07-09 23:25:28,497.497] base.py -> _exec_single_context line:1901 [INFO]: [cached since 171.3s ago] {'pk_1': UUID('a11040c0-0de1-45c8-8803-d0ed52c24979')}
+[2025-07-09 23:25:28,497.497] base.py -> _exec_single_context line:1896 [INFO]: SELECT process_rule.id AS process_rule_id, process_rule.account_id AS process_rule_account_id, process_rule.dataset_id AS process_rule_dataset_id, process_rule.mode AS process_rule_mode, process_rule.rule AS process_rule_rule, process_rule.updated_at AS process_rule_updated_at, process_rule.created_at AS process_rule_created_at 
+FROM process_rule 
+WHERE process_rule.id = %(pk_1)s::UUID
+[2025-07-09 23:25:28,497.497] base.py -> _exec_single_context line:1901 [INFO]: [cached since 171.3s ago] {'pk_1': UUID('bcb3dc6d-44b4-4b7f-b7da-267302af9218')}
+[2025-07-09 23:25:28,498.498] base.py -> _exec_single_context line:1896 [INFO]: INSERT INTO document (account_id, dataset_id, upload_file_id, process_rule_id, batch, name, position, processing_started_at, parsing_completed_at, splitting_completed_at, indexing_completed_at, completed_at, stopped_at, disabled_at) VALUES (%(account_id)s::UUID, %(dataset_id)s::UUID, %(upload_file_id)s::UUID, %(process_rule_id)s::UUID, %(batch)s, %(name)s, %(position)s, %(processing_started_at)s, %(parsing_completed_at)s, %(splitting_completed_at)s, %(indexing_completed_at)s, %(completed_at)s, %(stopped_at)s, %(disabled_at)s) RETURNING document.id, document.character_count, document.token_count, document.error, document.enabled, document.status, document.updated_at, document.created_at
+[2025-07-09 23:25:28,498.498] base.py -> _exec_single_context line:1901 [INFO]: [cached since 171.3s ago] {'account_id': '12a2956f-b51c-4d9b-bf65-336c5acfc4f3', 'dataset_id': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c'), 'upload_file_id': UUID('a11040c0-0de1-45c8-8803-d0ed52c24979'), 'process_rule_id': UUID('bcb3dc6d-44b4-4b7f-b7da-267302af9218'), 'batch': '20250709232528315795', 'name': '民事答辩状（二审）20250624165842.docx', 'position': 115, 'processing_started_at': None, 'parsing_completed_at': None, 'splitting_completed_at': None, 'indexing_completed_at': None, 'completed_at': None, 'stopped_at': None, 'disabled_at': None}
+[2025-07-09 23:25:28,499.499] base.py -> _commit_impl line:1140 [INFO]: COMMIT
+[2025-07-09 23:25:28,499.499] base.py -> _begin_impl line:1097 [INFO]: BEGIN (implicit)
+[2025-07-09 23:25:28,499.499] base.py -> _exec_single_context line:1896 [INFO]: SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
 FROM document 
 WHERE document.id = %(pk_1)s::UUID
-[2025-07-08 00:27:32,935.935] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00040s] {'pk_1': UUID('c7a6bfe3-901b-4862-b22d-8f7b019b7b3a')}
-[2025-07-08 00:27:32,942.942] base.py -> _exec_single_context line:1896 [INFO]: UPDATE document SET name=%(name)s WHERE document.id = %(document_id)s::UUID
-[2025-07-08 00:27:32,942.942] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00034s] {'name': '更新后的文档名称', 'document_id': UUID('c7a6bfe3-901b-4862-b22d-8f7b019b7b3a')}
-[2025-07-08 00:27:32,948.948] base.py -> _commit_impl line:1140 [INFO]: COMMIT
-[2025-07-08 00:27:32,951.951] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [08/Jul/2025 00:27:32] "POST /datasets/6c5e3fd6-6307-4eb5-b017-895b25ce4a1c/documents/c7a6bfe3-901b-4862-b22d-8f7b019b7b3a/name HTTP/1.1" 200 -
+[2025-07-09 23:25:28,499.499] base.py -> _exec_single_context line:1901 [INFO]: [cached since 171.3s ago] {'pk_1': UUID('2d5237ea-8383-43f7-8108-b4cd312cb242')}
+[2025-07-09 23:25:28,512.512] base.py -> _rollback_impl line:1123 [INFO]: ROLLBACK
+[2025-07-09 23:25:28,512.512] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [09/Jul/2025 23:25:28] "POST /datasets/6c5e3fd6-6307-4eb5-b017-895b25ce4a1c/documents HTTP/1.1" 200 -
+[2025-07-09 23:27:33,996.996] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/indexing_service.py', reloading
+[2025-07-09 23:27:34,342.342] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-09 23:27:36,089.089] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-09 23:27:36,100.100] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 136-451-464
