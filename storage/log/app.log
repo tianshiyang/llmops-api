@@ -258,3 +258,172 @@ WHERE document.id = %(pk_1)s::UUID
 [2025-07-10 22:53:20,505.505] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00028s] {'pk_1': UUID('49d0d18b-db08-436f-b31f-4371a638d2d7')}
 [2025-07-10 22:53:20,535.535] base.py -> _rollback_impl line:1123 [INFO]: ROLLBACK
 [2025-07-10 22:53:20,535.535] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [10/Jul/2025 22:53:20] "POST /datasets/6c5e3fd6-6307-4eb5-b017-895b25ce4a1c/documents/49d0d18b-db08-436f-b31f-4371a638d2d7/enabled HTTP/1.1" 200 -
+[2025-07-10 23:03:05,755.755] base.py -> _begin_impl line:1097 [INFO]: BEGIN (implicit)
+[2025-07-10 23:03:05,757.757] base.py -> _exec_single_context line:1896 [INFO]: SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-10 23:03:05,758.758] base.py -> _exec_single_context line:1901 [INFO]: [cached since 585.3s ago] {'pk_1': UUID('49d0d18b-db08-436f-b31f-4371a638d2d7')}
+[2025-07-10 23:03:05,760.760] base.py -> _rollback_impl line:1123 [INFO]: ROLLBACK
+[2025-07-10 23:03:05,762.762] http.py -> _register_error_handler line:70 [ERROR]: An error occurred: subject table for an INSERT, UPDATE or DELETE expected, got <Document 49d0d18b-db08-436f-b31f-4371a638d2d7>.
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/handler/document_handler.py", line 74, in delete_document
+    self.document_service.delete_document(dataset_id, document_id)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/document_service.py", line 200, in delete_document
+    self.delete(document)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/base_service.py", line 27, in delete
+    self.db.delete(model_instance)
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/_dml_constructors.py", line 132, in delete
+    return Delete(table)
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/dml.py", line 1734, in __init__
+    self.table = coercions.expect(
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 392, in expect
+    impl._raise_for_expected(original_element, argname)
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 695, in _raise_for_expected
+    super()._raise_for_expected(
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 518, in _raise_for_expected
+    raise exc.ArgumentError(msg, code=code) from err
+sqlalchemy.exc.ArgumentError: subject table for an INSERT, UPDATE or DELETE expected, got <Document 49d0d18b-db08-436f-b31f-4371a638d2d7>.
+[2025-07-10 23:03:05,786.786] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [10/Jul/2025 23:03:05] "[35m[1mPOST /datasets/6c5e3fd6-6307-4eb5-b017-895b25ce4a1c/documents/49d0d18b-db08-436f-b31f-4371a638d2d7/delete HTTP/1.1[0m" 500 -
+[2025-07-10 23:15:09,179.179] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/document_service.py', reloading
+[2025-07-10 23:15:09,491.491] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-10 23:15:11,292.292] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-10 23:15:11,307.307] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 133-334-152
+[2025-07-10 23:15:14,698.698] base.py -> _exec_single_context line:1896 [INFO]: select pg_catalog.version()
+[2025-07-10 23:15:14,698.698] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
+[2025-07-10 23:15:14,699.699] base.py -> _exec_single_context line:1896 [INFO]: select current_schema()
+[2025-07-10 23:15:14,699.699] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
+[2025-07-10 23:15:14,700.700] base.py -> _exec_single_context line:1896 [INFO]: show standard_conforming_strings
+[2025-07-10 23:15:14,700.700] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
+[2025-07-10 23:15:14,700.700] base.py -> _begin_impl line:1097 [INFO]: BEGIN (implicit)
+[2025-07-10 23:15:14,702.702] base.py -> _exec_single_context line:1896 [INFO]: SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-10 23:15:14,703.703] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00013s] {'pk_1': UUID('49d0d18b-db08-436f-b31f-4371a638d2d7')}
+[2025-07-10 23:15:14,704.704] base.py -> _rollback_impl line:1123 [INFO]: ROLLBACK
+[2025-07-10 23:15:14,705.705] http.py -> _register_error_handler line:70 [ERROR]: An error occurred: subject table for an INSERT, UPDATE or DELETE expected, got <Document 49d0d18b-db08-436f-b31f-4371a638d2d7>.
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/handler/document_handler.py", line 74, in delete_document
+    self.document_service.delete_document(dataset_id, document_id)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/document_service.py", line 201, in delete_document
+    self.delete(document)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/base_service.py", line 27, in delete
+    self.db.delete(model_instance)
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/_dml_constructors.py", line 132, in delete
+    return Delete(table)
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/dml.py", line 1734, in __init__
+    self.table = coercions.expect(
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 392, in expect
+    impl._raise_for_expected(original_element, argname)
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 695, in _raise_for_expected
+    super()._raise_for_expected(
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 518, in _raise_for_expected
+    raise exc.ArgumentError(msg, code=code) from err
+sqlalchemy.exc.ArgumentError: subject table for an INSERT, UPDATE or DELETE expected, got <Document 49d0d18b-db08-436f-b31f-4371a638d2d7>.
+[2025-07-10 23:15:14,720.720] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [10/Jul/2025 23:15:14] "[35m[1mPOST /datasets/6c5e3fd6-6307-4eb5-b017-895b25ce4a1c/documents/49d0d18b-db08-436f-b31f-4371a638d2d7/delete HTTP/1.1[0m" 500 -
+[2025-07-10 23:16:18,772.772] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/document_service.py', reloading
+[2025-07-10 23:16:19,060.060] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-10 23:16:20,914.914] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-10 23:16:20,925.925] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 133-334-152
+[2025-07-10 23:16:23,568.568] base.py -> _exec_single_context line:1896 [INFO]: select pg_catalog.version()
+[2025-07-10 23:16:23,568.568] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
+[2025-07-10 23:16:23,569.569] base.py -> _exec_single_context line:1896 [INFO]: select current_schema()
+[2025-07-10 23:16:23,569.569] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
+[2025-07-10 23:16:23,574.574] base.py -> _exec_single_context line:1896 [INFO]: show standard_conforming_strings
+[2025-07-10 23:16:23,577.577] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
+[2025-07-10 23:16:23,579.579] base.py -> _begin_impl line:1097 [INFO]: BEGIN (implicit)
+[2025-07-10 23:16:23,584.584] base.py -> _exec_single_context line:1896 [INFO]: SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-10 23:16:23,584.584] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00028s] {'pk_1': UUID('49d0d18b-db08-436f-b31f-4371a638d2d7')}
+[2025-07-10 23:16:23,587.587] base.py -> _rollback_impl line:1123 [INFO]: ROLLBACK
+[2025-07-10 23:16:23,588.588] http.py -> _register_error_handler line:70 [ERROR]: An error occurred: subject table for an INSERT, UPDATE or DELETE expected, got <Document 49d0d18b-db08-436f-b31f-4371a638d2d7>.
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/handler/document_handler.py", line 74, in delete_document
+    self.document_service.delete_document(dataset_id, document_id)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/document_service.py", line 202, in delete_document
+    self.delete(document)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/base_service.py", line 27, in delete
+    self.db.delete(model_instance)
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/_dml_constructors.py", line 132, in delete
+    return Delete(table)
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/dml.py", line 1734, in __init__
+    self.table = coercions.expect(
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 392, in expect
+    impl._raise_for_expected(original_element, argname)
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 695, in _raise_for_expected
+    super()._raise_for_expected(
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 518, in _raise_for_expected
+    raise exc.ArgumentError(msg, code=code) from err
+sqlalchemy.exc.ArgumentError: subject table for an INSERT, UPDATE or DELETE expected, got <Document 49d0d18b-db08-436f-b31f-4371a638d2d7>.
+[2025-07-10 23:16:23,603.603] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [10/Jul/2025 23:16:23] "[35m[1mPOST /datasets/6c5e3fd6-6307-4eb5-b017-895b25ce4a1c/documents/49d0d18b-db08-436f-b31f-4371a638d2d7/delete HTTP/1.1[0m" 500 -
+[2025-07-10 23:17:05,653.653] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/document_service.py', reloading
+[2025-07-10 23:17:05,917.917] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-10 23:17:07,733.733] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-10 23:17:07,746.746] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 133-334-152
+[2025-07-10 23:17:09,508.508] base.py -> _exec_single_context line:1896 [INFO]: select pg_catalog.version()
+[2025-07-10 23:17:09,508.508] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
+[2025-07-10 23:17:09,509.509] base.py -> _exec_single_context line:1896 [INFO]: select current_schema()
+[2025-07-10 23:17:09,509.509] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
+[2025-07-10 23:17:09,509.509] base.py -> _exec_single_context line:1896 [INFO]: show standard_conforming_strings
+[2025-07-10 23:17:09,509.509] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
+[2025-07-10 23:17:09,510.510] base.py -> _begin_impl line:1097 [INFO]: BEGIN (implicit)
+[2025-07-10 23:17:09,514.514] base.py -> _exec_single_context line:1896 [INFO]: SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-10 23:17:09,515.515] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00024s] {'pk_1': UUID('49d0d18b-db08-436f-b31f-4371a638d2d7')}
+[2025-07-10 23:17:09,518.518] base.py -> _rollback_impl line:1123 [INFO]: ROLLBACK
+[2025-07-10 23:17:09,518.518] http.py -> _register_error_handler line:70 [ERROR]: An error occurred: subject table for an INSERT, UPDATE or DELETE expected, got <Document 49d0d18b-db08-436f-b31f-4371a638d2d7>.
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/handler/document_handler.py", line 74, in delete_document
+    self.document_service.delete_document(dataset_id, document_id)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/document_service.py", line 202, in delete_document
+    self.delete(document)
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/base_service.py", line 27, in delete
+    self.db.delete(model_instance)
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/_dml_constructors.py", line 132, in delete
+    return Delete(table)
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/dml.py", line 1734, in __init__
+    self.table = coercions.expect(
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 392, in expect
+    impl._raise_for_expected(original_element, argname)
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 695, in _raise_for_expected
+    super()._raise_for_expected(
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 518, in _raise_for_expected
+    raise exc.ArgumentError(msg, code=code) from err
+sqlalchemy.exc.ArgumentError: subject table for an INSERT, UPDATE or DELETE expected, got <Document 49d0d18b-db08-436f-b31f-4371a638d2d7>.
+[2025-07-10 23:17:09,533.533] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [10/Jul/2025 23:17:09] "[35m[1mPOST /datasets/6c5e3fd6-6307-4eb5-b017-895b25ce4a1c/documents/49d0d18b-db08-436f-b31f-4371a638d2d7/delete HTTP/1.1[0m" 500 -
+[2025-07-10 23:19:18,637.637] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/base_service.py', reloading
+[2025-07-10 23:19:18,911.911] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-10 23:19:21,008.008] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-10 23:19:21,018.018] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 133-334-152
+[2025-07-10 23:19:36,243.243] base.py -> _exec_single_context line:1896 [INFO]: select pg_catalog.version()
+[2025-07-10 23:19:36,243.243] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
+[2025-07-10 23:19:36,245.245] base.py -> _exec_single_context line:1896 [INFO]: select current_schema()
+[2025-07-10 23:19:36,245.245] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
+[2025-07-10 23:19:36,245.245] base.py -> _exec_single_context line:1896 [INFO]: show standard_conforming_strings
+[2025-07-10 23:19:36,245.245] base.py -> _exec_single_context line:1901 [INFO]: [raw sql] {}
+[2025-07-10 23:19:36,246.246] base.py -> _begin_impl line:1097 [INFO]: BEGIN (implicit)
+[2025-07-10 23:19:36,250.250] base.py -> _exec_single_context line:1896 [INFO]: SELECT document.id AS document_id, document.account_id AS document_account_id, document.dataset_id AS document_dataset_id, document.upload_file_id AS document_upload_file_id, document.process_rule_id AS document_process_rule_id, document.batch AS document_batch, document.name AS document_name, document.position AS document_position, document.character_count AS document_character_count, document.token_count AS document_token_count, document.processing_started_at AS document_processing_started_at, document.parsing_completed_at AS document_parsing_completed_at, document.splitting_completed_at AS document_splitting_completed_at, document.indexing_completed_at AS document_indexing_completed_at, document.completed_at AS document_completed_at, document.stopped_at AS document_stopped_at, document.error AS document_error, document.enabled AS document_enabled, document.disabled_at AS document_disabled_at, document.status AS document_status, document.updated_at AS document_updated_at, document.created_at AS document_created_at 
+FROM document 
+WHERE document.id = %(pk_1)s::UUID
+[2025-07-10 23:19:36,250.250] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00023s] {'pk_1': UUID('49d0d18b-db08-436f-b31f-4371a638d2d7')}
+[2025-07-10 23:19:36,254.254] base.py -> _exec_single_context line:1896 [INFO]: DELETE FROM document WHERE document.id = %(id)s::UUID
+[2025-07-10 23:19:36,254.254] base.py -> _exec_single_context line:1901 [INFO]: [generated in 0.00014s] {'id': UUID('49d0d18b-db08-436f-b31f-4371a638d2d7')}
+[2025-07-10 23:19:36,256.256] base.py -> _commit_impl line:1140 [INFO]: COMMIT
+[2025-07-10 23:19:36,303.303] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [10/Jul/2025 23:19:36] "POST /datasets/6c5e3fd6-6307-4eb5-b017-895b25ce4a1c/documents/49d0d18b-db08-436f-b31f-4371a638d2d7/delete HTTP/1.1" 200 -

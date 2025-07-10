@@ -102,3 +102,24 @@ WHERE segment.id IN (%(id_1_1)s::UUID, %(id_1_2)s::UUID, %(id_1_3)s::UUID, %(id_
   return self.run(*args, **kwargs)
 
 [2025-07-10 22:53:21,781: INFO/MainProcess] Task internal.task.document_task.update_document_enabled[57427e57-120e-429d-a488-f886a93bf2f8] succeeded in 1.2456227500006207s: None
+[2025-07-10 23:19:36,304: INFO/MainProcess] Task internal.task.document_task.delete_document[8a09bd76-9bf8-41d8-8fcd-50d883d99109] received
+[2025-07-10 23:19:36,324: INFO/MainProcess] HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2025-07-10 23:19:36,329: INFO/MainProcess] HTTP Request: GET http://localhost:8080/v1/schema/Dataset "HTTP/1.1 200 OK"
+[2025-07-10 23:19:36,331: INFO/MainProcess] HTTP Request: GET http://localhost:8080/v1/schema/Dataset "HTTP/1.1 200 OK"
+[2025-07-10 23:19:36,334: INFO/MainProcess] BEGIN (implicit)
+[2025-07-10 23:19:36,337: INFO/MainProcess] SELECT segment.id AS segment_id 
+FROM segment 
+WHERE segment.document_id = %(document_id_1)s::UUID
+[2025-07-10 23:19:36,337: INFO/MainProcess] [generated in 0.00034s] {'document_id_1': UUID('49d0d18b-db08-436f-b31f-4371a638d2d7')}
+[2025-07-10 23:19:36,359: INFO/MainProcess] DELETE FROM segment WHERE segment.document_id = %(document_id_1)s::UUID
+[2025-07-10 23:19:36,359: INFO/MainProcess] [generated in 0.00024s] {'document_id_1': UUID('49d0d18b-db08-436f-b31f-4371a638d2d7')}
+[2025-07-10 23:19:36,360: INFO/MainProcess] COMMIT
+[2025-07-10 23:19:36,362: INFO/MainProcess] BEGIN (implicit)
+[2025-07-10 23:19:36,362: INFO/MainProcess] SELECT keyword_table.id AS keyword_table_id, keyword_table.dataset_id AS keyword_table_dataset_id, keyword_table.keyword_table AS keyword_table_keyword_table, keyword_table.updated_at AS keyword_table_updated_at, keyword_table.created_at AS keyword_table_created_at 
+FROM keyword_table 
+WHERE keyword_table.dataset_id = %(dataset_id_1)s::UUID
+[2025-07-10 23:19:36,362: INFO/MainProcess] [cached since 1575s ago] {'dataset_id_1': UUID('6c5e3fd6-6307-4eb5-b017-895b25ce4a1c')}
+[2025-07-10 23:19:36,364: INFO/MainProcess] UPDATE keyword_table SET keyword_table=%(keyword_table)s::JSONB WHERE keyword_table.id = %(keyword_table_id)s::UUID
+[2025-07-10 23:19:36,364: INFO/MainProcess] [cached since 1575s ago] {'keyword_table': '{"XX": ["76af4d2d-7df3-4cfb-9021-9b4489fa5615", "2660a8c8-c0f2-45d7-93c2-b9767291e307", "497e0f2d-3b9b-4c85-846f-429e3dbd8dbe", "64b9eb74-0fb3-4496-9 ... (18102 characters truncated) ... 55a-4566-a2bf-5d74036c650d", "3490d612-6fc5-49fa-addb-792196cc1c82", "1994e4e2-0be8-4c83-a14a-6effe48bd54c", "cf6f47d9-2c09-4115-9df9-625f51543688"]}', 'keyword_table_id': UUID('3b6aa958-2cff-40e0-9512-9c469e17cd5b')}
+[2025-07-10 23:19:36,366: INFO/MainProcess] COMMIT
+[2025-07-10 23:19:36,370: INFO/MainProcess] Task internal.task.document_task.delete_document[8a09bd76-9bf8-41d8-8fcd-50d883d99109] succeeded in 0.06459929199991166s: None

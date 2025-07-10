@@ -24,7 +24,7 @@ class BaseService:
 
     def delete(self, model_instance: Any) -> Any:
         with self.db.auto_commit():
-            self.db.delete(model_instance)
+            self.db.session.delete(model_instance)
         return model_instance
 
     def update(self, model_instance: Any, **kwargs) -> Any:
