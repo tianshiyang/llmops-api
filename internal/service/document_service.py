@@ -187,6 +187,7 @@ class DocumentService(BaseService):
         account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
         # 1.获取文档并校验权限
         document = self.get(Document, document_id)
+        print(document.id, document.name, 'p-----')
         if document is None:
             raise NotFoundException("该文档不存在，请核实后重试")
         if document.dataset_id != dataset_id or str(document.account_id) != account_id:
@@ -197,7 +198,9 @@ class DocumentService(BaseService):
             raise FailException("当前文档处于不可删除状态，请稍后重试")
 
         # 3.删除postgres中的文档基础信息
+        print("这个执行了")
         self.delete(document)
+        print("这个执行了2")
 
         # 4.调用异步任务执行后续操作，涵盖：关键词表更新、片段数据删除、weaviate记录删除等
         delete_document.delay(dataset_id, document_id)
