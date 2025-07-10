@@ -122,7 +122,7 @@ class IndexingService(BaseService):
             # 更新关键词对应的数据（enabled为false表示从关键词表中删除数据，enabled为true表示在关键词表中新增数据）
             if document.enabled:
                 # 从禁用改为启用，需要新增关键词
-                enabled_segment_ids = [id for id, _, enabled in segment_ids if enabled is True]
+                enabled_segment_ids = [id for id, _, enabled in segments if enabled is True]
                 self.keyword_table_service.add_keyword_table_from_ids(document.dataset_id, enabled_segment_ids)
             else:
                 # 从启用改为禁用，则需要剔除关键词
