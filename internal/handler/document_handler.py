@@ -73,3 +73,8 @@ class DocumentHandler:
         """根据传递的知识库id+文档id删除指定的文档信息"""
         self.document_service.delete_document(dataset_id, document_id)
         return success_message("删除文档成功")
+
+    def get_documents_status(self, dataset_id: UUID, batch: str):
+        """根据传递的知识库id+批处理标识获取文档的状态"""
+        document_status = self.document_service.get_documents_status(dataset_id, batch)
+        return success_json(document_status)

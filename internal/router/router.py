@@ -151,6 +151,11 @@ class Router:
             methods=["POST"],
             view_func=self.document_handler.delete_document,
         )
+        # 7.7根据批处理标识获取处理进度
+        bp.add_url_rule(
+            "/datasets/<uuid:dataset_id>/documents/batch/<string:batch>",
+            view_func=self.document_handler.get_documents_status,
+        )
 
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)
