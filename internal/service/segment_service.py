@@ -147,3 +147,16 @@ class SegmentService(BaseService):
                     stopped_at=datetime.now(),
                 )
             raise FailException("新增文档片段失败，请稍后尝试")
+
+    def get_segment(self, dataset_id: UUID, document_id: UUID, segment_id: UUID) -> Segment:
+        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
+        # 1.获取片段信息并校验权限
+        segment = self.get(Segment, segment_id)
+        if (
+                segment is None
+                or str(segment.account_id) != account_id
+                or segment.dataset_id != dataset_id
+                or segment.document_id != document_id
+        ):
+            raise NotFoundException("该文档片段不存在，或无查看权限，请核实后重试")
+        return segment
