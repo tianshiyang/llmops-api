@@ -616,3 +616,7 @@ WHERE document.id = %(pk_1)s::UUID
 [2025-07-11 17:22:17,617: INFO/MainProcess] mingle: searching for neighbors
 [2025-07-11 17:22:18,630: INFO/MainProcess] mingle: all alone
 [2025-07-11 17:22:18,648: INFO/MainProcess] celery@icourtdeMacBook-Pro.local ready.
+[2025-07-11 23:46:59,754: INFO/MainProcess] Connected to redis://localhost:6379/1
+[2025-07-11 23:46:59,759: INFO/MainProcess] mingle: searching for neighbors
+[2025-07-11 23:47:00,774: INFO/MainProcess] mingle: all alone
+[2025-07-11 23:47:00,794: INFO/MainProcess] celery@icourtdeMacBook-Pro.local ready.

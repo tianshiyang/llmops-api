@@ -10,10 +10,10 @@ from uuid import UUID
 from injector import inject
 from dataclasses import dataclass
 
-from internal.schema.segment_schema import GetSegmentsWithPageReq, GetSegmentsWithPageResp
+from internal.schema.segment_schema import GetSegmentsWithPageReq, GetSegmentsWithPageResp, CreateSegmentReq
 from internal.service.segment_service import SegmentService
 from pkg.paginator.paginator import PageModel
-from pkg.response import validate_error_json, success_json
+from pkg.response import validate_error_json, success_json, success_message
 
 
 @inject
@@ -29,3 +29,13 @@ class SegmentHandler:
         segments, paginator = self.segment_service.get_segments_with_page(dataset_id, document_id, req)
         resp = GetSegmentsWithPageResp(many=True)
         return success_json(PageModel(list=resp.dump(segments), paginator=paginator))
+
+    def create_segment(self, dataset_id: UUID, document_id: UUID):
+        """根据传递的信息创建知识库文档片段"""
+        req = CreateSegmentReq()
+        if not req.validate():
+            return validate_error_json(req.errors)
+
+        # 2. 调用服务创建片段记录
+        self.segment_service.create_segment(dataset_id, document_id, req)
+        return success_message("新增文档片段成功")
