@@ -10,7 +10,8 @@ from dataclasses import dataclass
 from flask import Flask, Blueprint
 from injector import inject
 
-from internal.handler import AppHandler, BuiltinToolHandler, ApiToolHandler, UploadFileHandler, DatasetHandler
+from internal.handler import AppHandler, BuiltinToolHandler, ApiToolHandler, UploadFileHandler, DatasetHandler, \
+    SegmentHandler
 from internal.handler.document_handler import DocumentHandler
 
 
@@ -26,6 +27,7 @@ class Router:
     upload_file_handler: UploadFileHandler
     dataset_handler: DatasetHandler
     document_handler: DocumentHandler
+    segment_handler: SegmentHandler
 
     def register_router(self, app: Flask):
         """注册路由"""
@@ -155,6 +157,13 @@ class Router:
         bp.add_url_rule(
             "/datasets/<uuid:dataset_id>/documents/batch/<string:batch>",
             view_func=self.document_handler.get_documents_status,
+        )
+
+        # 8.文档片段模块
+        # 8.1 获取指定文档的片段列表
+        bp.add_url_rule(
+            "/datasets/<uuid:dataset_id>/documents/<uuid:document_id>/segments",
+            view_func=self.segment_handler.get_segments_with_page,
         )
 
         # 6. 在应用上注册蓝图

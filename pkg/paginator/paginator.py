@@ -46,7 +46,9 @@ class Paginator:
         # 1.调用db.paginate进行数据分页
         p = self.db.paginate(select, page=self.current_page, per_page=self.page_size, error_out=False)
         self.total_record = p.total
-        self.total_record = math.ceil(p.total / self.page_size)
+        self.total_page = math.ceil(p.total / self.page_size)
+        print("total_record", self.total_record)
+        print("total_page", self.total_page)
         # 3.返回分页后的数据
         return p.items
 
