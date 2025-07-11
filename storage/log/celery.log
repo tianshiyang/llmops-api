@@ -612,3 +612,7 @@ WHERE document.id = %(pk_1)s::UUID
             Please make sure to close the connection using `client.close()`.
   warnings.warn(
 
+[2025-07-11 17:22:17,612: INFO/MainProcess] Connected to redis://localhost:6379/1
+[2025-07-11 17:22:17,617: INFO/MainProcess] mingle: searching for neighbors
+[2025-07-11 17:22:18,630: INFO/MainProcess] mingle: all alone
+[2025-07-11 17:22:18,648: INFO/MainProcess] celery@icourtdeMacBook-Pro.local ready.
