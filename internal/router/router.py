@@ -165,6 +165,12 @@ class Router:
             "/datasets/<uuid:dataset_id>/documents/<uuid:document_id>/segments",
             view_func=self.segment_handler.get_segments_with_page,
         )
+        # 8.2新增文档片段信息
+        bp.add_url_rule(
+            "/datasets/<uuid:dataset_id>/documents/<uuid:document_id>/segments",
+            methods=["POST"],
+            view_func=self.segment_handler.create_segment,
+        )
 
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)

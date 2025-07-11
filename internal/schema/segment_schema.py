@@ -5,12 +5,15 @@
 @Author  : tianshiyang
 @File    : segment_schema.py
 """
+from flask_wtf import FlaskForm
 from marshmallow import Schema, fields, pre_dump
 from wtforms.fields.simple import StringField
-from wtforms.validators import Optional
+from wtforms.validators import Optional, DataRequired, ValidationError
 
+from internal.exception import ValidateErrorException
 from internal.lib.helper import datetime_to_timestamp
 from internal.model.dataset import Segment
+from internal.schema import ListField
 from pkg.paginator.paginator import PaginatorReq
 
 
@@ -58,3 +61,30 @@ class GetSegmentsWithPageResp(Schema):
             "updated_at": datetime_to_timestamp(data.updated_at),
             "created_at": datetime_to_timestamp(data.created_at),
         }
+
+
+class CreateSegmentReq(FlaskForm):
+    """创建文档片段请求结构"""
+    content = StringField("content", validators=[
+        DataRequired("片段内容不能为空")
+    ])
+    keywords = ListField("keywords")
+
+    def validate_keywords(self, field: ListField):
+        """校验关键词列表"""
+        if field.data is None:
+            field.data = []
+        if not isinstance(field.data, list):
+            raise ValidationError("关键词列表格式必须是数组")
+
+        # 校验数据长度，最长不能超过10个关键词
+        if len(field.data) > 10:
+            raise ValidationError("关键词必须是字符串")
+
+        # 3. 循环关键词信息，关键词必须是字符串
+        for keyword in field.data:
+            if not isinstance(keyword, str):
+                raise ValidationError("关键词必须是字符串")
+
+        # 4.删除重复数据并更新
+        field.data = list(dict.fromkeys(field.data))
