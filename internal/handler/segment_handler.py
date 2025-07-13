@@ -11,7 +11,7 @@ from injector import inject
 from dataclasses import dataclass
 
 from internal.schema.segment_schema import GetSegmentsWithPageReq, GetSegmentsWithPageResp, CreateSegmentReq, \
-    GetSegmentResp
+    GetSegmentResp, UpdateSegmentReq
 from internal.service.segment_service import SegmentService
 from pkg.paginator.paginator import PageModel
 from pkg.response import validate_error_json, success_json, success_message
@@ -46,3 +46,10 @@ class SegmentHandler:
         segment = self.segment_service.get_segment(dataset_id, document_id, segment_id)
         resp = GetSegmentResp()
         return success_json(resp.dump(segment))
+
+    def update_segment(self, dataset_id: UUID, document_id: UUID, segment_id: UUID):
+        req = UpdateSegmentReq()
+        if not req.validate():
+            return validate_error_json(req.errors)
+        self.segment_service.update_segment(dataset_id, document_id, segment_id, req)
+        return success_message("更新文档成功")
