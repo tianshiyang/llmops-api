@@ -11,7 +11,7 @@ from injector import inject
 from dataclasses import dataclass
 
 from internal.schema.segment_schema import GetSegmentsWithPageReq, GetSegmentsWithPageResp, CreateSegmentReq, \
-    GetSegmentResp, UpdateSegmentReq
+    GetSegmentResp, UpdateSegmentReq, UpdateSegmentEnabledReq
 from internal.service.segment_service import SegmentService
 from pkg.paginator.paginator import PageModel
 from pkg.response import validate_error_json, success_json, success_message
@@ -53,3 +53,13 @@ class SegmentHandler:
             return validate_error_json(req.errors)
         self.segment_service.update_segment(dataset_id, document_id, segment_id, req)
         return success_message("更新文档成功")
+
+    def update_segment_enabled(self, dataset_id: UUID, document_id: UUID, segment_id: UUID):
+        """根据传递的信息更新指定的文档片段启用状态"""
+        # 1.提取请求并校验
+        req = UpdateSegmentEnabledReq()
+        if not req.validate():
+            return validate_error_json(req.errors)
+        # 2.调用服务更新文档片段的启用状态
+        self.segment_service.update_segment_enabled(dataset_id, document_id, segment_id, req.enabled.data)
+        return success_message("修改片段状态成功")

@@ -7,7 +7,7 @@
 """
 from flask_wtf import FlaskForm
 from marshmallow import Schema, fields, pre_dump
-from wtforms.fields.simple import StringField
+from wtforms.fields.simple import StringField, BooleanField
 from wtforms.validators import Optional, DataRequired, ValidationError
 
 from internal.exception import ValidateErrorException
@@ -149,3 +149,13 @@ class UpdateSegmentReq(FlaskForm):
                 raise ValidationError("关键词必须是字符串")
         # 4.删除重复数据并更新
         field.data = list(dict.fromkeys(field.data))
+
+
+class UpdateSegmentEnabledReq(FlaskForm):
+    """更新文档片段启用状态请求"""
+    enabled = BooleanField("enabled")
+
+    def validate_enabled(self, field: BooleanField):
+        """校验文档启用状态"""
+        if not isinstance(field.data, bool):
+            raise ValidationError("enabled状态不能为空且必须为布尔值")

@@ -182,11 +182,17 @@ class Router:
             methods=["POST"],
             view_func=self.segment_handler.update_segment,
         )
-
+        # 8.5更新文档片段
         bp.add_url_rule(
             "/datasets/<uuid:dataset_id>/documents/<uuid:document_id>/segments/<uuid:segment_id>",
             methods=["POST"],
             view_func=self.segment_handler.update_segment,
+        )
+        # 8.6
+        bp.add_url_rule(
+            "/datasets/<uuid:dataset_id>/documents/<uuid:document_id>/segments/<uuid:segment_id>/enabled",
+            methods=["POST"],
+            view_func=self.segment_handler.update_segment_enabled,
         )
 
         # 6. 在应用上注册蓝图
