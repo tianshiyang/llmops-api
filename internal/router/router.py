@@ -188,11 +188,17 @@ class Router:
             methods=["POST"],
             view_func=self.segment_handler.update_segment,
         )
-        # 8.6
+        # 8.6更新文档片段开启状态
         bp.add_url_rule(
             "/datasets/<uuid:dataset_id>/documents/<uuid:document_id>/segments/<uuid:segment_id>/enabled",
             methods=["POST"],
             view_func=self.segment_handler.update_segment_enabled,
+        )
+        # 8.7删除文档片段
+        bp.add_url_rule(
+            "/datasets/<uuid:dataset_id>/documents/<uuid:document_id>/segments/<uuid:segment_id>/delete",
+            methods=["POST"],
+            view_func=self.segment_handler.delete_segment,
         )
 
         # 6. 在应用上注册蓝图

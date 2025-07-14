@@ -122,3 +122,15 @@ WHERE segment.id = %(pk_1)s::UUID
 [2025-07-14 20:49:09,107.107] base.py -> _exec_single_context line:1901 [INFO]: [cached since 25.31s ago] {'pk_1': UUID('d5fed778-2d8f-4f31-bf63-a7a56cf6fee5')}
 [2025-07-14 20:49:09,116.116] base.py -> _rollback_impl line:1123 [INFO]: ROLLBACK
 [2025-07-14 20:49:09,117.117] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [14/Jul/2025 20:49:09] "POST /datasets/6c5e3fd6-6307-4eb5-b017-895b25ce4a1c/documents/89e077db-e708-4084-83ef-57e502d51987/segments/d5fed778-2d8f-4f31-bf63-a7a56cf6fee5/enabled HTTP/1.1" 200 -
+[2025-07-14 21:10:49,196.196] _internal.py -> _log line:97 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[2025-07-14 21:10:49,196.196] _internal.py -> _log line:97 [INFO]: [33mPress CTRL+C to quit[0m
+[2025-07-14 21:10:49,197.197] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-14 21:10:51,551.551] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-14 21:10:51,566.566] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 222-154-992
+[2025-07-14 21:17:35,497.497] _internal.py -> _log line:97 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[2025-07-14 21:17:35,498.498] _internal.py -> _log line:97 [INFO]: [33mPress CTRL+C to quit[0m
+[2025-07-14 21:17:35,498.498] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-14 21:17:37,930.930] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-14 21:17:37,946.946] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 222-154-992
