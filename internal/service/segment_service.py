@@ -12,6 +12,7 @@ from uuid import UUID
 from injector import inject
 from dataclasses import dataclass
 
+from redis import Redis
 from sqlalchemy import asc, func
 from .keyword_table_service import KeywordTableService
 
@@ -29,6 +30,8 @@ from pkg.sqlalchemy import SQLAlchemy
 from langchain_core.documents import Document as LCDocument
 from datetime import datetime
 
+from ..entity.cache_entity import LOCK_SEGMENT_UPDATE_ENABLED, LOCK_EXPIRE_TIME
+
 
 @inject
 @dataclass
@@ -38,6 +41,7 @@ class SegmentService(BaseService):
     embeddings_service: EmbeddingsService
     jieba_service: JiebaService
     keyword_table_service: KeywordTableService
+    redis_client: Redis
 
     def get_segments_with_page(self, dataset_id, document_id, req: GetSegmentsWithPageReq) -> tuple[
         list[Segment], Paginator]:
@@ -216,3 +220,62 @@ class SegmentService(BaseService):
             raise FailException("更新文档片段记录失败，请稍后尝试")
 
         return segment
+
+    def update_segment_enabled(self, dataset_id: UUID, document_id: UUID, segment_id: UUID, enabled: bool) -> Segment:
+        """根据传递的信息更新文档片段的启用状态信息"""
+        # todo:等待授权认证模块完成进行切换调整
+        account_id = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
+
+        # 1.获取片段信息并校验权限
+        segment = self.get(Segment, segment_id)
+        if (
+                segment is None
+                or str(segment.account_id) != account_id
+                or segment.dataset_id != dataset_id
+                or segment.document_id != document_id
+        ):
+            raise NotFoundException("该文档片段不存在，或无权限修改，请核实后重试")
+
+        # 2.判断文档片段是否处于可启用/禁用的环境
+        if segment.status != SegmentStatus.COMPLETED:
+            raise FailException("当前片段不可修改状态，请稍后尝试")
+
+        # 3.判断更新的片段启用状态和数据库的数据是否一致，如果是则抛出错误
+        if enabled == segment.enabled:
+            raise FailException(f"片段状态修改错误，当前已是{'启用' if enabled else '禁用'}")
+
+        # 4.获取更新片段启用状态，并加锁校验
+        cache_key = LOCK_SEGMENT_UPDATE_ENABLED.format(segment_id=segment_id)
+        cache_result = self.redis_client.get(cache_key)
+        if cache_result is not None:
+            raise FailException("当前文档片段正在修改状态，请稍后重新尝试")
+
+        # 5.上锁并更新对应的数据，涵盖postgres记录，weaviate、关键词表
+        with self.redis_client.lock(cache_key, LOCK_EXPIRE_TIME):
+            try:
+                # 6. 修改postgres数据库里的文档片段状态
+                self.update(segment, enabled=enabled, disabled_at=None if enabled else datetime.now())
+                # 7.更新关键词表对应的信息，有可能新增，也有可能删除
+                document = segment.document
+                if enabled is True and document.enabled is True:
+                    self.keyword_table_service.add_keyword_table_from_ids(dataset_id, [segment_id])
+                else:
+                    self.keyword_table_service.delete_keyword_table_from_ids(dataset_id, [segment_id])
+                # 8.同步处理weaviate向量数据库里的数据
+                self.vector_database_service.collection.data.update(
+                    uuid=segment.node_id,
+                    properties={
+                        "segment_enabled": enabled,
+                    }
+                )
+            except Exception as e:
+                logging.exception(f"更改文档片段启用状态出现异常，segment_id: {segment_id}, 错误信息: {str(e)}")
+                self.update(
+                    segment,
+                    error=str(e),
+                    status=SegmentStatus.ERROR,
+                    enabled=False,
+                    disabled_at=datetime.now(),
+                    stopped_at=datetime.now(),
+                )
+                raise FailException("更新文档片段启用状态失败，请稍后重新尝试")
