@@ -201,5 +201,12 @@ class Router:
             view_func=self.segment_handler.delete_segment,
         )
 
+        # 9.1指定知识库进行召回测试
+        bp.add_url_rule(
+            "/datasets/<uuid:dataset_id>/hit",
+            methods=["POST"],
+            view_func=self.dataset_handler.hit,
+        )
+
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)

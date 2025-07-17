@@ -6,5 +6,6 @@
 @File    : __init__.py.py
 """
 from .full_text_retrievers import FullTextRetriever
+from .semantic_retriever import SemanticRetriever
 
-__all__ = ['FullTextRetriever']
+__all__ = ['FullTextRetriever', "SemanticRetriever"]

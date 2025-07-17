@@ -15,8 +15,8 @@ from internal.entity.dataset_entity import DEFAULT_DATASET_DESCRIPTION_FORMATTER
 from internal.exception import ValidateErrorException, NotFoundException, FailException
 from internal.extension.database_extension import db
 from internal.model.app import AppDatasetJoin
-from internal.model.dataset import Dataset, DatasetQuery
-from internal.schema.dataset_schema import CreateDataSetReq, GetDatasetWithPageReq, UpdateDatasetReq
+from internal.model.dataset import Dataset, DatasetQuery, Segment
+from internal.schema.dataset_schema import CreateDataSetReq, GetDatasetWithPageReq, UpdateDatasetReq, HitReq
 from internal.service.base_service import BaseService
 from injector import inject
 from dataclasses import dataclass
@@ -24,12 +24,15 @@ from internal.task.dataset_task import delete_dataset
 
 from pkg.paginator.paginator import Paginator
 from pkg.sqlalchemy import SQLAlchemy
+from .retrieval_service import RetrievalService
+from ..lib.helper import datetime_to_timestamp
 
 
 @inject
 @dataclass
 class DatasetService(BaseService):
     db: SQLAlchemy
+    retrieval_service: RetrievalService
 
     def create_dataset(self, req: CreateDataSetReq) -> Dataset:
         # 创建知识库
@@ -136,3 +139,57 @@ class DatasetService(BaseService):
         except Exception as e:
             logging.exception(f"删除知识库失败, dataset_id: {dataset_id}, 错误信息: {str(e)}")
             raise FailException(f"删除知识库失败，请稍后重试{e}")
+
+    def hit(self, dataset_id: UUID, req: HitReq):
+        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
+        # 1.检测知识库是否存在并校验
+        dataset = self.get(Dataset, dataset_id)
+        if dataset is None or str(dataset.account_id) != account_id:
+            raise NotFoundException("该知识库不存在")
+
+        # 2. 调用检索服务执行检索
+        lc_documents = self.retrieval_service.search_in_datasets(dataset_ids=[dataset_id], **req.data)
+        lc_document_dict = {str(lc_document.metadata["segment_id"]): lc_document for lc_document in lc_documents}
+
+        # 3. 根据检索到的数据查询对应的片段信息
+        segments = self.db.session.query(Segment).filter(
+            Segment.id.in_([str(lc_document.metadata["segment_id"]) for lc_document in lc_documents])
+        ).all()
+        segment_dict = {str(segment.id): segment for segment in segments}
+        # 4.排序片段数据
+        sorted_segments = [
+            segment_dict[str(lc_document.metadata["segment_id"])]
+            for lc_document in lc_documents
+            if str(lc_document.metadata["segment_id"]) in segment_dict
+        ]
+
+        # 5.组装响应数据
+        hit_result = []
+        for segment in sorted_segments:
+            document = segment.document
+            upload_file = document.upload_file
+            hit_result.append({
+                "id": segment.id,
+                "document": {
+                    "id": document.id,
+                    "name": document.name,
+                    "extension": upload_file.extension,
+                    "mime_type": upload_file.mime_type,
+                },
+                "dataset_id": segment.dataset_id,
+                "score": lc_document_dict[str(segment.id)].metadata["score"],
+                "position": segment.position,
+                "content": segment.content,
+                "keywords": segment.keywords,
+                "character_count": segment.character_count,
+                "token_count": segment.token_count,
+                "hit_count": segment.hit_count,
+                "enabled": segment.enabled,
+                "disabled_at": datetime_to_timestamp(segment.disabled_at),
+                "status": segment.status,
+                "error": segment.error,
+                "updated_at": datetime_to_timestamp(segment.updated_at),
+                "created_at": datetime_to_timestamp(segment.created_at),
+            })
+
+        return hit_result

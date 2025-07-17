@@ -32,12 +32,11 @@ class FullTextRetriever(BaseRetriever):
 
         # 2.查找指定知识库的关键词表
         keyword_tables = [
-            keyword_table for keyword_table in
+            keyword_table for keyword_table, in
             self.db.session.query(KeywordTable).with_entities(KeywordTable.keyword_table).filter(
                 KeywordTable.dataset_id.in_(self.dataset_ids)
             ).all()
         ]
-        print(keyword_tables, "keyword_tables")
 
         # 3. 遍历知识库的关键词表，找到匹配query关键词的列表
         all_ids = []
