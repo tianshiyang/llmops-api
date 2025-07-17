@@ -5,7 +5,6 @@
 @Author  : tianshiyang
 @File    : dataset_handler.py
 """
-import logging
 
 from flask import request
 from injector import inject
@@ -15,10 +14,10 @@ from wtforms.validators import UUID
 
 from internal.exception import ValidateErrorException
 from internal.schema.dataset_schema import CreateDataSetReq, GetDatasetWithPageReq, GetDatasetsWithPageResp, \
-    GetDatasetResp, UpdateDatasetReq, GetDatasetQueriesResp
+    GetDatasetResp, UpdateDatasetReq, GetDatasetQueriesResp, HitReq
 from internal.service.dataset_service import DatasetService
 from pkg.paginator.paginator import PageModel
-from pkg.response import success_message, success_json
+from pkg.response import success_message, success_json, validate_error_json
 from pkg.sqlalchemy import SQLAlchemy
 
 
@@ -80,3 +79,13 @@ class DatasetHandler:
         """根据出传递的知识库id删除知识库"""
         self.dataset_service.delete_dataset(dataset_id)
         return success_message("删除知识库成功")
+
+    def hit(self, dataset_id: UUID):
+        """根据传递的知识库id+检索参数执行召回测试"""
+        # 1. 提取数据并校验
+        req = HitReq()
+        if not req.validate():
+            return validate_error_json(req.errors)
+
+        hit_result = self.dataset_service.hit(dataset_id, req)
+        return success_json(hit_result)
