@@ -1,5 +1,0 @@
-name='dalle'
-position=3
-provider_entity=ProviderEntity(name='dalle', label='DALLE', description='DALLE是一个文生图工具。', icon='icon.png', background='#E5E7EB', category='image', created_at=1722498386)
-tool_entity_map={'dalle3': ToolEntity(name='dalle3', label='DALLE-3绘图工具', description='DALLE-3是一个将文本转换成图片的绘图工具。', params=[ToolParams(name='size', label='图片尺寸', type=<ToolType.SELECT: 'select'>, required=True, default='1024x1024', min=None, max=None, options=[{'value': '1024x1024', 'label': '(方)1024x1024'}, {'value': '1792x1024', 'label': '(横屏)1792x1024'}, {'value': '1024x1792', 'label': '(竖屏)1024x1792'}]), ToolParams(name='style', label='图片风格', type=<ToolType.SELECT: 'select'>, required=True, default='vivid', min=None, max=None, options=[{'value': 'vivid', 'label': '生动'}, {'value': 'natural', 'label': '自然'}])])}
-tool_func_map={'dalle3': <function dalle3 at 0x12d34e050>}
