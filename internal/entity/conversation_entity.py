@@ -86,3 +86,13 @@ class ConversationInfo(BaseModel):
         "输出语言必须和输入语言保持一致，尽可能简单明了，"
         "尤其是用户问题针对模型本身时，可以通过适当的方式加入趣味性。"
     ))
+
+
+# 建议问题提示词模板
+SUGGESTED_QUESTIONS_TEMPLATE = "请根据传递的历史信息预测人类最后可能会问的三个问题"
+
+
+class SuggestedQuestions(BaseModel):
+    """请帮我预测人类最可能会问的三个问题，并且每个问题都保持在50个字符以内。
+    生成的内容必须是指定模式的JSON格式数组: ["问题1", "问题2", "问题3"]"""
+    questions: list[str] = Field(description="建议问题列表，类型为字符串数组")

@@ -137,7 +137,7 @@ class AppHandler:
         #     "token_count": self.embeddings_service.calculate_token_count("你好，你是谁"),
         #     # "embedding_value": self.embeddings_service.embeddings.embed_query("你好，你是谁")
         # }
-        value = self.conversation_service.generate_conversation_name("""
+        value = self.conversation_service.generate_suggested_questions("""
         LLM 就是一种通过训练大量文本数据、能理解和生成自然语言（甚至代码）的人工智能模型。你现在在用的 ChatGPT 就是基于 LLM 的产品之一。
 
         🧠 LLM 能做什么？
