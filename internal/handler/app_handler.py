@@ -31,6 +31,7 @@ from langgraph.constants import END
 from internal.core.tools.builtin_tools.providers.builtin_provider_manager import BuiltinProviderManager
 from internal.schema.app_schema import CompletionReq
 from internal.service import AppService
+from internal.service.conversation_service import ConversationService
 from internal.service.embeddings_service import EmbeddingsService
 from internal.task.demo_task import demo_task
 from pkg.response import success_json, validate_error_json, success_message
@@ -46,6 +47,7 @@ class AppHandler:
     redis_client: Redis
     embeddings_service: EmbeddingsService
     builtin_provider_manager: BuiltinProviderManager
+    conversation_service: ConversationService
 
     def debug(self, app_id):
         req = CompletionReq()
@@ -130,11 +132,35 @@ class AppHandler:
     def ping(self):
         # self.redis_client.set('name', 'zhangsan')
         # print(self.redis_client.get("name"))
-        result = demo_task.delay(uuid.uuid4())
-        value = {
-            "token_count": self.embeddings_service.calculate_token_count("你好，你是谁"),
-            # "embedding_value": self.embeddings_service.embeddings.embed_query("你好，你是谁")
-        }
+        # result = demo_task.delay(uuid.uuid4())
+        # value = {
+        #     "token_count": self.embeddings_service.calculate_token_count("你好，你是谁"),
+        #     # "embedding_value": self.embeddings_service.embeddings.embed_query("你好，你是谁")
+        # }
+        value = self.conversation_service.generate_conversation_name("""
+        LLM 就是一种通过训练大量文本数据、能理解和生成自然语言（甚至代码）的人工智能模型。你现在在用的 ChatGPT 就是基于 LLM 的产品之一。
+
+        🧠 LLM 能做什么？
+        它具备以下能力：
+        
+        自然语言理解与生成（写文章、摘要、改写、对话等）
+        
+        代码生成与调试（如 Python、JavaScript、Java 等）
+        
+        问答系统（像 ChatGPT、Claude、文心一言）
+        
+        翻译、多语言支持
+        
+        信息抽取（从文档中提取关键字段）
+        
+        多模态能力（图像 + 文本，如 GPT-4o）
+        
+        🔧 LLM 的工作原理（简略版）：
+        预训练（Pretraining）：在大量文本（如 Wikipedia、书籍、网页）上进行语言建模。
+        
+        微调（Fine-tuning）：根据具体任务（如问答、聊天）进一步训练。
+        
+        推理（Inference）：用户输入一句话，模型基于上下文预测下一个最合理的词，一步步生成回答。""")
         return success_json({"ping": value})
 
     def debug(self, app_id: uuid.UUID):
