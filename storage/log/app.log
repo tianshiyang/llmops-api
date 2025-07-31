@@ -1,28 +1,16 @@
-[2025-07-31 00:08:44,310.310] _internal.py -> _log line:97 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+[2025-08-01 00:03:48,876.876] _internal.py -> _log line:97 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-[2025-07-31 00:08:44,310.310] _internal.py -> _log line:97 [INFO]: [33mPress CTRL+C to quit[0m
-[2025-07-31 00:08:44,311.311] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
-[2025-07-31 00:08:45,976.976] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
-[2025-07-31 00:08:45,987.987] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
-[2025-07-31 00:08:48,218.218] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [31/Jul/2025 00:08:48] "GET /ping HTTP/1.1" 200 -
-[2025-07-31 00:09:29,923.923] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/entity/conversation_entity.py', reloading
-[2025-07-31 00:09:30,156.156] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
-[2025-07-31 00:09:31,886.886] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
-[2025-07-31 00:09:31,896.896] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
-[2025-07-31 00:09:37,236.236] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [31/Jul/2025 00:09:37] "GET /ping HTTP/1.1" 200 -
-[2025-07-31 00:09:46,909.909] _internal.py -> _log line:97 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+[2025-08-01 00:03:48,878.878] _internal.py -> _log line:97 [INFO]: [33mPress CTRL+C to quit[0m
+[2025-08-01 00:03:48,878.878] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-08-01 00:03:50,344.344] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-08-01 00:03:50,356.356] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
+[2025-08-01 00:07:28,050.050] _internal.py -> _log line:97 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-[2025-07-31 00:09:46,910.910] _internal.py -> _log line:97 [INFO]: [33mPress CTRL+C to quit[0m
-[2025-07-31 00:09:46,910.910] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
-[2025-07-31 00:09:48,671.671] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
-[2025-07-31 00:09:48,681.681] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
-[2025-07-31 00:10:08,566.566] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/entity/conversation_entity.py', reloading
-[2025-07-31 00:10:08,869.869] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
-[2025-07-31 00:10:10,543.543] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
-[2025-07-31 00:10:10,553.553] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
-[2025-07-31 00:10:14,628.628] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [31/Jul/2025 00:10:14] "GET /ping HTTP/1.1" 200 -
-[2025-07-31 00:10:39,923.923] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/conversation_service.py', reloading
-[2025-07-31 00:10:40,239.239] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
-[2025-07-31 00:10:41,891.891] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
-[2025-07-31 00:10:42,019.019] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
-[2025-07-31 00:10:45,629.629] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [31/Jul/2025 00:10:45] "GET /ping HTTP/1.1" 200 -
+[2025-08-01 00:07:28,051.051] _internal.py -> _log line:97 [INFO]: [33mPress CTRL+C to quit[0m
+[2025-08-01 00:07:28,051.051] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-08-01 00:07:29,541.541] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-08-01 00:07:29,598.598] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
+[2025-08-01 00:09:56,130.130] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/server/http.py', reloading
+[2025-08-01 00:09:56,472.472] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-08-01 00:09:58,250.250] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-08-01 00:09:58,259.259] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
