@@ -28,6 +28,8 @@ from langgraph.graph import StateGraph, MessagesState
 from redis import Redis
 from langgraph.constants import END
 
+from internal.core.agent.agents.function_call_agent import FunctionCallAgent
+from internal.core.agent.entities.agent_entity import AgentConfig
 from internal.core.tools.builtin_tools.providers.builtin_provider_manager import BuiltinProviderManager
 from internal.schema.app_schema import CompletionReq
 from internal.service import AppService
@@ -130,6 +132,15 @@ class AppHandler:
         return success_json({"content": content.invoke(json_data['query'])})
 
     def ping(self):
+        agent = FunctionCallAgent(AgentConfig(
+            llm=ChatOpenAI(model=os.getenv("BASE_CHAT_MODEL")),
+            preset_prompt="你是一个拥有20年经验的诗人，请根据用户提供的主题写一首诗"
+        ))
+        state = agent.run("程序员", [], "")
+        content = state['messages'][-1]['content']
+        return success_json({"content": content})
+
+    def _ping(self):
         # self.redis_client.set('name', 'zhangsan')
         # print(self.redis_client.get("name"))
         # result = demo_task.delay(uuid.uuid4())

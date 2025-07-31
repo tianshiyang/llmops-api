@@ -6,7 +6,9 @@
 @File    : agent_entity.py
 """
 from langchain_core.language_models import BaseLanguageModel
+from langchain_core.messages import AnyMessage
 from langchain_core.tools import BaseTool
+from langgraph.graph import MessagesState
 from pydantic import BaseModel, Field
 
 # Agent智能体系统预设提示词模版
@@ -50,3 +52,9 @@ class AgentConfig(BaseModel):
 
     # 智能体使用的工具列表
     tools: list[BaseTool] = Field(default_factory=list)
+
+
+class AgentState(MessagesState):
+    """智能体状态类"""
+    history: list[AnyMessage]  # 短期记忆（历史记录）
+    long_term_memory: str  # 长期记忆
