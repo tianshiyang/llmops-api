@@ -5,6 +5,8 @@
 @Author  : tianshiyang
 @File    : conversation_entity.py
 """
+from enum import Enum
+
 from pydantic import BaseModel, Field
 
 # 摘要汇总模版
@@ -96,3 +98,17 @@ class SuggestedQuestions(BaseModel):
     """请帮我预测人类最可能会问的三个问题，并且每个问题都保持在50个字符以内。
     生成的内容必须是指定模式的JSON格式数组: ["问题1", "问题2", "问题3"]"""
     questions: list[str] = Field(description="建议问题列表，类型为字符串数组")
+
+
+class InvokeForm(str, Enum):
+    """会话调用来源"""
+    SERVICE_API = "service_api"  # 开放api服务调用
+    WEB_APP = "web_app"  # web应用
+    DEBUGGER = "debugger"  # 调试页面
+
+
+class MessageStatus(str, Enum):
+    """会话状态"""
+    NORMAL = "normal"  # 正常
+    STOP = "stop"  # 停止
+    ERROR = "error"  # 出错
