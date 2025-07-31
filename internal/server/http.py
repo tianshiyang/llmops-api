@@ -12,6 +12,7 @@ from flask_cors import CORS
 from flask import Flask
 
 from internal.extension import logging_extension, redis_extension, celery_extension
+from internal.model import App
 from pkg.sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
