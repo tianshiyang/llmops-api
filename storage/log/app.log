@@ -1,16 +1,19 @@
-[2025-08-01 00:03:48,876.876] _internal.py -> _log line:97 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+[2025-08-03 00:38:58,400.400] _internal.py -> _log line:97 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-[2025-08-01 00:03:48,878.878] _internal.py -> _log line:97 [INFO]: [33mPress CTRL+C to quit[0m
-[2025-08-01 00:03:48,878.878] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
-[2025-08-01 00:03:50,344.344] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
-[2025-08-01 00:03:50,356.356] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
-[2025-08-01 00:07:28,050.050] _internal.py -> _log line:97 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-[2025-08-01 00:07:28,051.051] _internal.py -> _log line:97 [INFO]: [33mPress CTRL+C to quit[0m
-[2025-08-01 00:07:28,051.051] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
-[2025-08-01 00:07:29,541.541] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
-[2025-08-01 00:07:29,598.598] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
-[2025-08-01 00:09:56,130.130] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/server/http.py', reloading
-[2025-08-01 00:09:56,472.472] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
-[2025-08-01 00:09:58,250.250] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
-[2025-08-01 00:09:58,259.259] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
+[2025-08-03 00:38:58,401.401] _internal.py -> _log line:97 [INFO]: [33mPress CTRL+C to quit[0m
+[2025-08-03 00:38:58,402.402] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-08-03 00:38:59,850.850] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-08-03 00:38:59,861.861] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
+[2025-08-03 00:41:14,781.781] http.py -> _register_error_handler line:71 [ERROR]: An error occurred: BaseAgent.__init__() missing 1 required positional argument: 'agent_queue_manager'
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/handler/app_handler.py", line 135, in ping
+    agent = FunctionCallAgent(AgentConfig(
+TypeError: BaseAgent.__init__() missing 1 required positional argument: 'agent_queue_manager'
+[2025-08-03 00:41:14,785.785] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [03/Aug/2025 00:41:14] "[35m[1mGET /ping HTTP/1.1[0m" 500 -
+[2025-08-03 00:41:31,191.191] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [03/Aug/2025 00:41:31] "POST /apps/6c5e3fd6-6307-4eb5-b017-895b25ce4a1c/debug HTTP/1.1" 200 -
+[2025-08-03 00:45:41,785.785] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [03/Aug/2025 00:45:41] "POST /app/completion HTTP/1.1" 200 -
+[2025-08-03 00:46:25,018.018] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [03/Aug/2025 00:46:25] "POST /app/completion HTTP/1.1" 200 -
