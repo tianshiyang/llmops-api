@@ -35,13 +35,13 @@ app = Http(
 
 celery = app.extensions["celery"]
 
-CORS(app, resources={
-    r"/*": {
-        "origins": "*",
-        "supports_credentials": True,
-        # "methods": ["GET", "POST"],
-        # "allow_headers": ["Content-Type"],
-    }
-})
+# CORS(app, resources={
+#     r"/*": {
+#         "origins": "*",
+#         "supports_credentials": True,
+#         # "methods": ["GET", "POST"],
+#         # "allow_headers": ["Content-Type"],
+#     }
+# })
 if __name__ == '__main__':
     app.run(debug=True)

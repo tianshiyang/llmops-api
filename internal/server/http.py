@@ -45,9 +45,6 @@ class Http(Flask):
 
         # 4.初始化flask扩展
         db.init_app(self)
-        # with self.app_context():
-        #     _ = App()
-        #     db.create_all()
         migrate.init_app(self, db, directory="internal/migration")
         redis_extension.init_app(self)
         celery_extension.init_app(self)
