@@ -1,0 +1,52 @@
+[2025-07-31 00:08:44,310.310] _internal.py -> _log line:97 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[2025-07-31 00:08:44,310.310] _internal.py -> _log line:97 [INFO]: [33mPress CTRL+C to quit[0m
+[2025-07-31 00:08:44,311.311] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-31 00:08:45,976.976] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-31 00:08:45,987.987] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
+[2025-07-31 00:08:48,218.218] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [31/Jul/2025 00:08:48] "GET /ping HTTP/1.1" 200 -
+[2025-07-31 00:09:29,923.923] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/entity/conversation_entity.py', reloading
+[2025-07-31 00:09:30,156.156] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-31 00:09:31,886.886] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-31 00:09:31,896.896] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
+[2025-07-31 00:09:37,236.236] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [31/Jul/2025 00:09:37] "GET /ping HTTP/1.1" 200 -
+[2025-07-31 00:09:46,909.909] _internal.py -> _log line:97 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[2025-07-31 00:09:46,910.910] _internal.py -> _log line:97 [INFO]: [33mPress CTRL+C to quit[0m
+[2025-07-31 00:09:46,910.910] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-31 00:09:48,671.671] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-31 00:09:48,681.681] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
+[2025-07-31 00:10:08,566.566] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/entity/conversation_entity.py', reloading
+[2025-07-31 00:10:08,869.869] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-31 00:10:10,543.543] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-31 00:10:10,553.553] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
+[2025-07-31 00:10:14,628.628] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [31/Jul/2025 00:10:14] "GET /ping HTTP/1.1" 200 -
+[2025-07-31 00:10:39,923.923] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/service/conversation_service.py', reloading
+[2025-07-31 00:10:40,239.239] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-31 00:10:41,891.891] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-31 00:10:42,019.019] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
+[2025-07-31 00:10:45,629.629] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [31/Jul/2025 00:10:45] "GET /ping HTTP/1.1" 200 -
+[2025-07-31 23:03:05,927.927] _internal.py -> _log line:97 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[2025-07-31 23:03:05,927.927] _internal.py -> _log line:97 [INFO]: [33mPress CTRL+C to quit[0m
+[2025-07-31 23:03:05,928.928] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-31 23:03:07,424.424] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-31 23:03:07,437.437] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
+[2025-07-31 23:03:09,979.979] http.py -> _register_error_handler line:70 [ERROR]: An error occurred: BaseAgent.__init__() missing 1 required positional argument: 'agent_queue_manager'
+Traceback (most recent call last):
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/icourt1/.pyenv/versions/llmops-env/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/icourt1/Desktop/code/llmops/llmops-api/internal/handler/app_handler.py", line 135, in ping
+    agent = FunctionCallAgent(AgentConfig(
+TypeError: BaseAgent.__init__() missing 1 required positional argument: 'agent_queue_manager'
+[2025-07-31 23:03:09,983.983] _internal.py -> _log line:97 [INFO]: 127.0.0.1 - - [31/Jul/2025 23:03:09] "[35m[1mGET /ping HTTP/1.1[0m" 500 -
+[2025-07-31 23:27:00,997.997] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/model/conversation.py', reloading
+[2025-07-31 23:27:01,310.310] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-31 23:27:03,197.197] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-31 23:27:03,210.210] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
+[2025-07-31 23:28:25,528.528] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/model/conversation.py', reloading
+[2025-07-31 23:28:25,754.754] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-07-31 23:28:27,468.468] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-07-31 23:28:27,477.477] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 682-461-187
