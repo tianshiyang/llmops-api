@@ -10,6 +10,7 @@ from dataclasses import dataclass
 from typing import Any
 
 from flask import send_file
+from flask_login import login_required
 from injector import inject
 
 from internal.service import BuiltinToolService
@@ -22,19 +23,23 @@ class BuiltinToolHandler:
     # 内置工具处理类
     builtin_tool_service: BuiltinToolService
 
+    @login_required
     def get_categories(self) -> list[dict[str, Any]]:
         """获取所有内置提供商的分类信息"""
         categories = self.builtin_tool_service.get_categories()
         return success_json(categories)
 
+    @login_required
     def get_builtin_tools(self) -> list[dict[str, Any]]:
         tools = self.builtin_tool_service.get_builtin_tools()
         return success_json(tools)
 
+    @login_required
     def get_provider_icon(self, provider_name: str):
         icon, mimetype = self.builtin_tool_service.get_get_provider_icon(provider_name)
         return send_file(io.BytesIO(icon), mimetype=mimetype)
 
+    @login_required
     def get_provider_tool(self, provider_name: str, tool_name: str) -> dict[str, Any]:
         builtin_tool = self.builtin_tool_service.get_provider_tool(provider_name, tool_name)
         return success_json(builtin_tool)

@@ -15,6 +15,7 @@ from threading import Thread
 from typing import Literal, Annotated, Generator
 
 from flask import request
+from flask_login import login_required
 from injector import inject
 from langchain.memory import ConversationBufferWindowMemory
 from langchain_community.chat_message_histories import FileChatMessageHistory
@@ -35,7 +36,6 @@ from internal.schema.app_schema import CompletionReq
 from internal.service import AppService
 from internal.service.conversation_service import ConversationService
 from internal.service.embeddings_service import EmbeddingsService
-from internal.task.demo_task import demo_task
 from pkg.response import success_json, validate_error_json, success_message
 from pkg.response.response import compact_generate_response
 
@@ -81,18 +81,22 @@ class AppHandler:
         memory.save_context(chain_input, outputs={"output": content})
         return success_json({"content": content})
 
+    @login_required
     def create_app(self):
         app = self.app_service.create_app()
         return success_message(f"应用创建成功，id为{app.id}")
 
+    @login_required
     def get_app(self, id: uuid.UUID):
         app = self.app_service.get_app(id)
         return success_message(f"应用已经成功获取，名字是{app.name}")
 
+    @login_required
     def update_app(self, id: uuid.UUID):
         app = self.app_service.update_app(id)
         return success_message(f"应用名称修改成功，修改后的名字是{app.name}")
 
+    @login_required
     def delete_app(self, id: uuid.UUID):
         app = self.app_service.delete_app(id)
         return success_message(f"应用已经成功删除，id为:{app.id}")
