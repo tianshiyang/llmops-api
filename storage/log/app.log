@@ -139,3 +139,13 @@ internal.exception.exception.UnauthorizedException
 [2025-08-04 23:42:43,696.696] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
 [2025-08-04 23:42:45,406.406] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
 [2025-08-04 23:42:45,419.419] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 112-704-222
+[2025-08-04 23:53:02,289.289] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/handler/api_tool_handler.py', reloading
+[2025-08-04 23:53:02,567.567] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-08-04 23:53:39,241.241] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-08-04 23:53:41,092.092] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-08-04 23:53:41,101.101] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 112-704-222
+[2025-08-04 23:54:02,816.816] _internal.py -> _log line:97 [INFO]:  * Detected change in '/Users/icourt1/Desktop/code/llmops/llmops-api/internal/handler/app_handler.py', reloading
+[2025-08-04 23:54:03,197.197] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-08-04 23:55:52,257.257] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-08-04 23:55:54,256.256] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-08-04 23:55:54,268.268] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 112-704-222

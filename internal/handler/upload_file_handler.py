@@ -7,7 +7,7 @@
 """
 from dataclasses import dataclass
 
-from flask_login import login_required
+from flask_login import login_required, current_user
 from injector import inject
 
 from internal.schema.upload_file_schema import UploadFileReq, UploadFileResp, UploadImageReq
@@ -27,7 +27,7 @@ class UploadFileHandler:
             return validate_error_json(req.errors)
 
         # 2.调用服务上传文件并获取记录
-        upload_file = self.cos_service.upload_file(req.file.data)
+        upload_file = self.cos_service.upload_file(req.file.data, current_user)
 
         # 构建返回结果
         reps = UploadFileResp()
@@ -39,7 +39,7 @@ class UploadFileHandler:
         if not req.validate():
             return validate_error_json(req.errors)
 
-        upload_file = self.cos_service.upload_file(req.file.data, only_image=True)
+        upload_file = self.cos_service.upload_file(req.file.data, only_image=True, account=current_user)
 
         image_url = self.cos_service.get_file_url(upload_file.key)
         return {

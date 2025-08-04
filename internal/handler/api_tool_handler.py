@@ -8,7 +8,7 @@
 from dataclasses import dataclass
 
 from flask import request
-from flask_login import login_required
+from flask_login import login_required, current_user
 from injector import inject
 
 from internal.schema.api_tool_schema import CreateApiToolReq, GetApiToolProvidersWithPageReq, \
@@ -30,7 +30,7 @@ class ApiToolHandler:
         req = CreateApiToolReq()
         if not req.validate():
             return validate_error_json(req.errors)
-        self.api_tool_service.create_api_tool(req)
+        self.api_tool_service.create_api_tool(req, current_user)
         return success_message("创建自定义API插件成功")
 
     @login_required
@@ -39,7 +39,7 @@ class ApiToolHandler:
         req = CreateApiToolReq()
         if req.validate():
             return validate_error_json(req.errors)
-        self.api_tool_service.parse_openapi_schema(req.openapi_schema.data)
+        self.api_tool_service.parse_openapi_schema(req.openapi_schema.data, current_user)
         return success_message("校验成功")
 
     @login_required
@@ -48,7 +48,7 @@ class ApiToolHandler:
         req = GetApiToolProvidersWithPageReq(request.args)
         if not req.validate():
             return validate_error_json(req.errors)
-        api_tool_providers, paginator = self.api_tool_service.get_api_tool_providers_with_page(req)
+        api_tool_providers, paginator = self.api_tool_service.get_api_tool_providers_with_page(req, current_user)
         resp = GetApiToolProvidersWithPageResp(many=True)
         return success_json(PageModel(list=resp.dump(api_tool_providers), paginator=paginator))
 
@@ -58,14 +58,14 @@ class ApiToolHandler:
         req = GetAPIToolProviderById(provider_id)
         if req.validate():
             return validate_error_json(req.errors)
-        api_tool_provider = self.api_tool_service.get_api_tool_provider(provider_id)
+        api_tool_provider = self.api_tool_service.get_api_tool_provider(provider_id, current_user)
         resp = GetApiToolProviderResp()
         return success_json(resp.dump(api_tool_provider))
 
     @login_required
     def get_api_tool(self, provider_id: str, tool_name: str):
         """根据传递的provider_id + tool_name获取对应工具的参数详情信息"""
-        api_tool = self.api_tool_service.get_api_tool(provider_id, tool_name)
+        api_tool = self.api_tool_service.get_api_tool(provider_id, tool_name, current_user)
         resp = GetApiToolResp()
         return success_json(resp.dump(api_tool))
 
@@ -76,7 +76,7 @@ class ApiToolHandler:
         if not req.validate():
             return validate_error_json(req.errors)
 
-        self.api_tool_service.update_api_tool_provider(provider_id, req)
+        self.api_tool_service.update_api_tool_provider(provider_id, req, current_user)
 
         return success_message("更新自定义API插件成功")
 
@@ -84,6 +84,6 @@ class ApiToolHandler:
     def delete_api_tool_provider(self, provider_id: str):
         """删除服务提供商"""
         """根据传递的provider_id删除对应的工具提供者信息"""
-        self.api_tool_service.delete_api_tool_provider(provider_id)
+        self.api_tool_service.delete_api_tool_provider(provider_id, current_user)
 
         return success_message("删除自定义API插件成功")
