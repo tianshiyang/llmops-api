@@ -7,6 +7,7 @@
 """
 from uuid import UUID
 
+from flask_login import login_required
 from injector import inject
 from dataclasses import dataclass
 
@@ -22,6 +23,7 @@ from pkg.response import validate_error_json, success_json, success_message
 class SegmentHandler:
     segment_service: SegmentService
 
+    @login_required
     def get_segments_with_page(self, dataset_id: UUID, document_id: UUID):
         """获取指定知识库文档的片段列表信息"""
         req = GetSegmentsWithPageReq()
@@ -31,6 +33,7 @@ class SegmentHandler:
         resp = GetSegmentsWithPageResp(many=True)
         return success_json(PageModel(list=resp.dump(segments), paginator=paginator))
 
+    @login_required
     def create_segment(self, dataset_id: UUID, document_id: UUID):
         """根据传递的信息创建知识库文档片段"""
         req = CreateSegmentReq()
@@ -41,12 +44,14 @@ class SegmentHandler:
         self.segment_service.create_segment(dataset_id, document_id, req)
         return success_message("新增文档片段成功")
 
+    @login_required
     def get_segment(self, dataset_id: UUID, document_id: UUID, segment_id: UUID):
         """获取指定的文档片段信息详情"""
         segment = self.segment_service.get_segment(dataset_id, document_id, segment_id)
         resp = GetSegmentResp()
         return success_json(resp.dump(segment))
 
+    @login_required
     def update_segment(self, dataset_id: UUID, document_id: UUID, segment_id: UUID):
         req = UpdateSegmentReq()
         if not req.validate():
@@ -54,6 +59,7 @@ class SegmentHandler:
         self.segment_service.update_segment(dataset_id, document_id, segment_id, req)
         return success_message("更新文档成功")
 
+    @login_required
     def update_segment_enabled(self, dataset_id: UUID, document_id: UUID, segment_id: UUID):
         """根据传递的信息更新指定的文档片段启用状态"""
         # 1.提取请求并校验
@@ -64,6 +70,7 @@ class SegmentHandler:
         self.segment_service.update_segment_enabled(dataset_id, document_id, segment_id, req.enabled.data)
         return success_message("修改片段状态成功")
 
+    @login_required
     def delete_segment(self, dataset_id: UUID, document_id: UUID, segment_id: UUID):
         """根据传递的信息删除指定的文档片段信息"""
         print('执行了')

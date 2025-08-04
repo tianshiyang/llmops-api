@@ -7,6 +7,7 @@
 """
 from dataclasses import dataclass
 
+from flask_login import login_required
 from injector import inject
 
 from internal.schema.upload_file_schema import UploadFileReq, UploadFileResp, UploadImageReq
@@ -19,6 +20,7 @@ from pkg.response import validate_error_json, success_json
 class UploadFileHandler:
     cos_service: CosService
 
+    @login_required
     def upload_file(self):
         req = UploadFileReq()
         if not req.validate():
@@ -31,6 +33,7 @@ class UploadFileHandler:
         reps = UploadFileResp()
         return success_json(reps.dump(upload_file))
 
+    @login_required
     def upload_image(self):
         req = UploadImageReq()
         if not req.validate():

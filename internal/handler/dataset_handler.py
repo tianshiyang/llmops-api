@@ -7,6 +7,7 @@
 """
 
 from flask import request
+from flask_login import login_required
 from injector import inject
 from dataclasses import dataclass
 
@@ -28,6 +29,7 @@ class DatasetHandler:
     dataset_service: DatasetService
     db: SQLAlchemy
 
+    @login_required
     def create_dataset(self):
         # 创建知识库
         req = CreateDataSetReq()
@@ -39,6 +41,7 @@ class DatasetHandler:
         # 3.返回成功调用提示
         return success_message("创建知识库成功")
 
+    @login_required
     def get_datasets_with_page(self):
         req = GetDatasetWithPageReq(request.args)
         if not req.validate():
@@ -51,6 +54,7 @@ class DatasetHandler:
 
         return success_json(PageModel(list=resp.dump(datasets), paginator=paginator))
 
+    @login_required
     def get_dataset(self, dataset_id: UUID):
         # 获取知识库详情
         dataset = self.dataset_service.get_dataset(dataset_id)
@@ -58,6 +62,7 @@ class DatasetHandler:
         resp = GetDatasetResp()
         return success_json(resp.dump(dataset))
 
+    @login_required
     def update_dataset(self, dataset_id: UUID):
         # 更新知识库详情
         req = UpdateDatasetReq()
@@ -69,17 +74,20 @@ class DatasetHandler:
         # 3.返回成功调用提示
         return success_message("更新知识库成功")
 
+    @login_required
     def get_dataset_queries(self, dataset_id: UUID):
         """根据传递的知识库id获取最近的10条查询记录"""
         dataset_queries = self.dataset_service.get_dataset_queries(dataset_id)
         resp = GetDatasetQueriesResp(many=True)
         return success_json(resp.dump(dataset_queries))
 
+    @login_required
     def delete_dataset(self, dataset_id: UUID):
         """根据出传递的知识库id删除知识库"""
         self.dataset_service.delete_dataset(dataset_id)
         return success_message("删除知识库成功")
 
+    @login_required
     def hit(self, dataset_id: UUID):
         """根据传递的知识库id+检索参数执行召回测试"""
         # 1. 提取数据并校验
