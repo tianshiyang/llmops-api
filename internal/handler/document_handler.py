@@ -6,6 +6,8 @@
 @File    : document_handler.py
 """
 from dataclasses import dataclass
+
+from flask_login import login_required
 from injector import inject
 from uuid import UUID
 
@@ -23,6 +25,7 @@ class DocumentHandler:
     """知识库新增、上传文档列表"""
     document_service: DocumentService
 
+    @login_required
     def create_documents(self, dataset_id: UUID):
         # 创建文档
         req = CreateDocumentReq()
@@ -34,6 +37,7 @@ class DocumentHandler:
         resp = CreateDocumentResp()
         return success_json(resp.dump((documents, batch)))
 
+    @login_required
     def get_documents_with_page(self, dataset_id: UUID):
         """根据传递的知识库id获取文档分页列表数据"""
         print(request.args, '-a--a-aa-')
@@ -45,12 +49,14 @@ class DocumentHandler:
         resp = GetDocumentsWithPageResp(many=True)
         return success_json(PageModel(list=resp.dump(documents), paginator=paginator))
 
+    @login_required
     def get_document(self, dataset_id: UUID, document_id: UUID):
         """根据传递的知识库id+文档id获取文档详情信息"""
         document = self.document_service.get_document(dataset_id, document_id)
         resp = GetDocumentResp()
         return success_json(resp.dump(document))
 
+    @login_required
     def update_document_name(self, dataset_id: UUID, document_id: UUID):
         """根据传递的知识库id+文档id更新对应文档的名称信息"""
         req = UpdateDocumentNameReq()
@@ -60,6 +66,7 @@ class DocumentHandler:
         self.document_service.update_document(dataset_id, document_id, name=req.name.data)
         return success_message("更新文档名称成功")
 
+    @login_required
     def update_document_enabled(self, dataset_id: UUID, document_id: UUID):
         """根据传递的知识库id+文档id更新指定文档的启用状态"""
         # 1.提取请求并校验
@@ -69,11 +76,13 @@ class DocumentHandler:
         self.document_service.update_document_enabled(dataset_id, document_id, enabled=req.enabled.data)
         return success_message("更改文档启用状态成功")
 
+    @login_required
     def delete_document(self, dataset_id: UUID, document_id: UUID):
         """根据传递的知识库id+文档id删除指定的文档信息"""
         self.document_service.delete_document(dataset_id, document_id)
         return success_message("删除文档成功")
 
+    @login_required
     def get_documents_status(self, dataset_id: UUID, batch: str):
         """根据传递的知识库id+批处理标识获取文档的状态"""
         document_status = self.document_service.get_documents_status(dataset_id, batch)

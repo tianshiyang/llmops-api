@@ -1433,3 +1433,7 @@ WHERE document.id = %(pk_1)s::UUID
 [2025-08-03 02:01:35,627: INFO/MainProcess] [cached since 20.52s ago] {'completed_at': datetime.datetime(2025, 8, 3, 2, 1, 35, 624338), 'enabled': True, 'status': <DocumentStatus.COMPLETED: 'completed'>, 'document_id': UUID('1275b895-e66d-4258-b452-fb48a7820823')}
 [2025-08-03 02:01:35,628: INFO/MainProcess] COMMIT
 [2025-08-03 02:01:35,629: INFO/MainProcess] Task internal.task.document_task.build_documents[1501d069-b1b8-4f39-9496-c91c9d3ef073] succeeded in 4.844290667009773s: None
+[2025-08-03 16:09:43,589: INFO/MainProcess] Connected to redis://localhost:6379/1
+[2025-08-03 16:09:43,590: INFO/MainProcess] mingle: searching for neighbors
+[2025-08-03 16:09:44,602: INFO/MainProcess] mingle: all alone
+[2025-08-03 16:09:44,610: INFO/MainProcess] celery@MacBook-Pro.local ready.

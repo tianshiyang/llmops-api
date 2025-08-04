@@ -7,7 +7,10 @@
 """
 import dotenv
 from flask_cors import CORS
+from flask_login import LoginManager
 
+from internal.extension.login_extension import login_manager
+from internal.middleware.middleware import Middleware
 from pkg.sqlalchemy import SQLAlchemy
 from injector import Injector
 
@@ -31,17 +34,11 @@ app = Http(
     db=injector.get(SQLAlchemy),
     migrate=injector.get(Migrate),
     conf=conf,
+    login_manager=injector.get(LoginManager),
+    middleware=injector.get(Middleware)
 )
 
 celery = app.extensions["celery"]
 
-# CORS(app, resources={
-#     r"/*": {
-#         "origins": "*",
-#         "supports_credentials": True,
-#         # "methods": ["GET", "POST"],
-#         # "allow_headers": ["Content-Type"],
-#     }
-# })
 if __name__ == '__main__':
     app.run(debug=True)
