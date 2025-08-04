@@ -5,8 +5,10 @@
 @Author  : 1685821150@qq.com
 @File    : moudle.py
 """
+from flask_login import LoginManager
 from redis import Redis
 
+from internal.extension.login_extension import login_manager
 from internal.extension.redis_extension import redis_client
 from pkg.sqlalchemy import SQLAlchemy
 from injector import Module, Binder, Injector
@@ -23,6 +25,7 @@ class ExtensionModule(Module):
         binder.bind(SQLAlchemy, to=db)
         binder.bind(Migrate, to=migrate)
         binder.bind(Redis, to=redis_client)
+        binder.bind(LoginManager, to=login_manager)
 
 
 injector = Injector([ExtensionModule])

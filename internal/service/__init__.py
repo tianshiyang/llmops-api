@@ -7,8 +7,10 @@
 """
 from .app_service import AppService
 from .builtin_tool_service import BuiltinToolService
+from .jwt_service import JwtService
 
 __all__ = [
     "AppService",
-    "BuiltinToolService"
+    "BuiltinToolService",
+    "JwtService"
 ]
