@@ -9,6 +9,7 @@ import logging
 from typing import List
 from uuid import UUID
 
+from flask_login import current_user
 from sqlalchemy import desc
 
 from internal.entity.dataset_entity import DEFAULT_DATASET_DESCRIPTION_FORMATTER
@@ -26,6 +27,7 @@ from pkg.paginator.paginator import Paginator
 from pkg.sqlalchemy import SQLAlchemy
 from .retrieval_service import RetrievalService
 from ..lib.helper import datetime_to_timestamp
+from ..model import Account
 
 
 @inject
@@ -34,11 +36,10 @@ class DatasetService(BaseService):
     db: SQLAlchemy
     retrieval_service: RetrievalService
 
-    def create_dataset(self, req: CreateDataSetReq) -> Dataset:
+    def create_dataset(self, req: CreateDataSetReq, account: Account) -> Dataset:
         # 创建知识库
-        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
         dataset = db.session.query(Dataset).filter_by(
-            account_id=account_id,
+            account_id=account.id,
             name=req.name.data,
         ).one_or_none()
         if dataset:
@@ -49,19 +50,18 @@ class DatasetService(BaseService):
 
         return self.create(
             Dataset,
-            account_id=account_id,
+            account_id=account.id,
             name=req.name.data,
             icon=req.icon.data,
             description=req.description.name,
         )
 
-    def get_datasets_with_page(self, req: GetDatasetWithPageReq) -> tuple[List[Dataset], Paginator]:
+    def get_datasets_with_page(self, req: GetDatasetWithPageReq, account: Account) -> tuple[List[Dataset], Paginator]:
         """根据传递的信息获取知识库列表分页数据"""
-        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
         # 构建分页器查询器
         paginator = Paginator(db=self.db, req=req)
         # 构建筛选器
-        filters = [Dataset.account_id == account_id]
+        filters = [Dataset.account_id == account.id]
 
         if req.search_word.data:
             filters.append(Dataset.name.ilike(f"%{req.search_word.data}%"))
@@ -71,26 +71,24 @@ class DatasetService(BaseService):
         )
         return datasets, paginator
 
-    def get_dataset(self, dataset_id: UUID) -> Dataset:
+    def get_dataset(self, dataset_id: UUID, account: Account) -> Dataset:
         """根据传递的信息获取知识库列表分页数据"""
-        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
 
         dataset = self.get(Dataset, dataset_id)
-        if dataset is None or str(dataset.account_id) != account_id:
+        if dataset is None or str(dataset.account_id) != account.id:
             raise NotFoundException("该知识库不存在")
         return dataset
 
-    def update_dataset(self, dataset_id: UUID, req: UpdateDatasetReq):
+    def update_dataset(self, dataset_id: UUID, req: UpdateDatasetReq, account: Account):
         """根据传递的信息获取知识库列表分页数据"""
-        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
         dataset = self.get(Dataset, dataset_id)
-        if str(dataset.account_id) != account_id or dataset is None:
+        if str(dataset.account_id) != account.id or dataset is None:
             raise NotFoundException("知识库不存在")
 
         # 校验名称是否重名
         check_dataset = self.db.session.query(Dataset).filter(
             Dataset.name == req.name.data,
-            Dataset.account_id == account_id,
+            Dataset.account_id == account.id,
             Dataset.id != dataset_id
         ).one_or_none()
 
@@ -104,12 +102,11 @@ class DatasetService(BaseService):
         self.update(dataset, name=req.name.data, icon=req.icon.data, description=req.description.data)
         return dataset
 
-    def get_dataset_queries(self, dataset_id: UUID) -> list[DatasetQuery]:
+    def get_dataset_queries(self, dataset_id: UUID, account: Account) -> list[DatasetQuery]:
         """根据传递的知识库id获取最近的10条查询记录"""
-        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
         # 1.获取知识库并校验权限
         dataset = self.get(Dataset, dataset_id)
-        if dataset is None or str(dataset.account_id) != account_id:
+        if dataset is None or str(dataset.account_id) != account.id:
             raise NotFoundException("该知识库不存在")
 
         # 2.调用知识库查询模型查找最近的10条记录
@@ -119,11 +116,10 @@ class DatasetService(BaseService):
 
         return dataset_queries
 
-    def delete_dataset(self, dataset_id: UUID):
+    def delete_dataset(self, dataset_id: UUID, account: Account):
         """根据传递的知识库id删除知识库信息，涵盖知识库底下的所有文档、片段、关键词，以及向量数据库里存储的数据"""
-        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
         dataset = self.get(Dataset, dataset_id)
-        if dataset is None or str(dataset.account_id) != account_id:
+        if dataset is None or str(dataset.account_id) != account.id:
             raise NotFoundException("该知识库不存在")
 
         try:
@@ -140,15 +136,15 @@ class DatasetService(BaseService):
             logging.exception(f"删除知识库失败, dataset_id: {dataset_id}, 错误信息: {str(e)}")
             raise FailException(f"删除知识库失败，请稍后重试{e}")
 
-    def hit(self, dataset_id: UUID, req: HitReq):
-        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
+    def hit(self, dataset_id: UUID, req: HitReq, account: Account):
         # 1.检测知识库是否存在并校验
         dataset = self.get(Dataset, dataset_id)
-        if dataset is None or str(dataset.account_id) != account_id:
+        if dataset is None or str(dataset.account_id) != account.id:
             raise NotFoundException("该知识库不存在")
 
         # 2. 调用检索服务执行检索
-        lc_documents = self.retrieval_service.search_in_datasets(dataset_ids=[dataset_id], **req.data)
+        lc_documents = self.retrieval_service.search_in_datasets(dataset_ids=[dataset_id], **req.data,
+                                                                 account=current_user)
         lc_document_dict = {str(lc_document.metadata["segment_id"]): lc_document for lc_document in lc_documents}
 
         # 3. 根据检索到的数据查询对应的片段信息

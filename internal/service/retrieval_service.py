@@ -13,6 +13,7 @@ from langchain_core.documents import Document as LCDocument
 
 from internal.entity.dataset_entity import RetrievalStrategy, RetrievalSource
 from internal.exception import NotFoundException
+from internal.model import Account
 from internal.model.dataset import Dataset, DatasetQuery, Segment
 from sqlalchemy import update
 from internal.service.base_service import BaseService
@@ -36,14 +37,14 @@ class RetrievalService(BaseService):
             retrieval_strategy: RetrievalStrategy.SEMANTIC,
             k: int = 4,
             score: float = 0,
-            retrival_source: str = RetrievalSource.HIT_TESTING
+            retrival_source: str = RetrievalSource.HIT_TESTING,
+            account: Account = None
     ) -> list[LCDocument]:
         """根据传递的query+知识库列表执行检索，并返回检索的文档+得分数据（如果检索策略为全文检索，则得分为0）"""
-        account_id: str = "12a2956f-b51c-4d9b-bf65-336c5acfc4f3"
         # 1.提取知识库列表并校验权限同时更新知识库id
         datasets = self.db.session.query(Dataset).filter(
             Dataset.id.in_(dataset_ids),
-            Dataset.account_id == account_id,
+            Dataset.account_id == account.id,
         ).all()
         if datasets is None or len(datasets) == 0:
             raise NotFoundException("当前无知识库可执行检索")
@@ -79,7 +80,7 @@ class RetrievalService(BaseService):
             lc_documents = full_text_retriever.invoke(query)[:k]
         else:
             lc_documents = hybrid_retriever.invoke(query)[:k]
-            
+
         # 4.添加知识库查询记录（只存储唯一记录，也就是一个知识库如果检索了多篇文档，也只存储一条）
         unique_dataset_ids = list(set(str(lc_document.metadata["dataset_id"]) for lc_document in lc_documents))
 
@@ -91,7 +92,7 @@ class RetrievalService(BaseService):
                 source=retrival_source,
                 # todo:等待APP配置模块完成后进行调整
                 source_app_id=None,
-                created_by=account_id,
+                created_by=account.id,
             )
 
         # 5.批量更新片段的命中次数，召回次数，涵盖了构建+执行语句
