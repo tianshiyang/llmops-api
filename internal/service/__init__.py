@@ -16,5 +16,5 @@ __all__ = [
     "BuiltinToolService",
     "JwtService",
     "OAuthService",
-    "AccountService"
+    "AccountService",
 ]
