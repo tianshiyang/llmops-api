@@ -11,7 +11,7 @@ from flask import Flask, Blueprint
 from injector import inject
 
 from internal.handler import AppHandler, BuiltinToolHandler, ApiToolHandler, UploadFileHandler, DatasetHandler, \
-    SegmentHandler
+    SegmentHandler, OAuthHandler
 from internal.handler.document_handler import DocumentHandler
 
 
@@ -28,6 +28,7 @@ class Router:
     dataset_handler: DatasetHandler
     document_handler: DocumentHandler
     segment_handler: SegmentHandler
+    oauth_handler: OAuthHandler
 
     def register_router(self, app: Flask):
         """注册路由"""
@@ -207,6 +208,10 @@ class Router:
             methods=["POST"],
             view_func=self.dataset_handler.hit,
         )
+
+        # 10.授权认证模块
+        # 10.1获取服务提供商跳转链接
+        bp.add_url_rule("/oauth/<string:provider_name>", view_func=self.oauth_handler.provider)
 
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)

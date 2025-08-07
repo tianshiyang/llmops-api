@@ -1,0 +1,6 @@
+[2025-08-05 23:10:28,915.915] _internal.py -> _log line:97 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[2025-08-05 23:10:28,916.916] _internal.py -> _log line:97 [INFO]: [33mPress CTRL+C to quit[0m
+[2025-08-05 23:10:28,917.917] _internal.py -> _log line:97 [INFO]:  * Restarting with stat
+[2025-08-05 23:10:30,339.339] _internal.py -> _log line:97 [WARNING]:  * Debugger is active!
+[2025-08-05 23:10:30,353.353] _internal.py -> _log line:97 [INFO]:  * Debugger PIN: 112-704-222

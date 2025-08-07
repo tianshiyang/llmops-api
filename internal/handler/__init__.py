@@ -11,6 +11,7 @@ from .api_tool_handler import ApiToolHandler
 from .upload_file_handler import UploadFileHandler
 from .dataset_handler import DatasetHandler
 from .segment_handler import SegmentHandler
+from .oauth_handler import OAuthHandler
 
 __all__ = ["AppHandler", "BuiltinToolHandler", "ApiToolHandler", "UploadFileHandler", "DatasetHandler",
-           "SegmentHandler"]
+           "SegmentHandler", "OAuthHandler"]
