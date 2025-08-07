@@ -6,10 +6,8 @@
 @File    : app.py
 """
 import dotenv
-from flask_cors import CORS
 from flask_login import LoginManager
 
-from internal.extension.login_extension import login_manager
 from internal.middleware.middleware import Middleware
 from pkg.sqlalchemy import SQLAlchemy
 from injector import Injector

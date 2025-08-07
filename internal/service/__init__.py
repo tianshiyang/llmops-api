@@ -8,9 +8,13 @@
 from .app_service import AppService
 from .builtin_tool_service import BuiltinToolService
 from .jwt_service import JwtService
+from .oauth_service import OAuthService
+from .account_service import AccountService
 
 __all__ = [
     "AppService",
     "BuiltinToolService",
-    "JwtService"
+    "JwtService",
+    "OAuthService",
+    "AccountService"
 ]
