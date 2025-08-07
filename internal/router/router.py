@@ -212,6 +212,12 @@ class Router:
         # 10.授权认证模块
         # 10.1获取服务提供商跳转链接
         bp.add_url_rule("/oauth/<string:provider_name>", view_func=self.oauth_handler.provider)
+        # 10.2根据传递的提供商名字+code获取第三方授权信息
+        bp.add_url_rule(
+            "/oauth/authorize/<string:provider_name>",
+            methods=["POST"],
+            view_func=self.oauth_handler.authorize,
+        )
 
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)

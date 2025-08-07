@@ -8,8 +8,9 @@
 from injector import inject
 from dataclasses import dataclass
 
+from internal.schema.oauth_schema import AuthorizeReq, AuthorizeResp
 from internal.service import OAuthService
-from pkg.response import success_json
+from pkg.response import success_json, validate_error_json
 
 
 @inject
@@ -27,3 +28,15 @@ class OAuthHandler:
         redirect_uri = oauth.get_authorization_url()
 
         return success_json({"redirect_uri": redirect_uri})
+
+    def authorize(self, provider_name: str):
+        """根据传递的提供商名字+code获取第三方授权信息"""
+        # 1. 提取请求数据并校验
+        req = AuthorizeReq()
+        if not req.validate():
+            return validate_error_json(req.errors)
+
+        # 2.调用服务登录账号
+        credential = self.oauth_service.oauth_login(provider_name, req.code.data)
+
+        return success_json(AuthorizeResp().dump(credential))
