@@ -11,7 +11,7 @@ from flask import Flask, Blueprint
 from injector import inject
 
 from internal.handler import AppHandler, BuiltinToolHandler, ApiToolHandler, UploadFileHandler, DatasetHandler, \
-    SegmentHandler, OAuthHandler, AuthHandler
+    SegmentHandler, OAuthHandler, AuthHandler, AccountHandler
 from internal.handler.document_handler import DocumentHandler
 
 
@@ -30,6 +30,7 @@ class Router:
     segment_handler: SegmentHandler
     oauth_handler: OAuthHandler
     auth_handler: AuthHandler
+    account_handler: AccountHandler
 
     def register_router(self, app: Flask):
         """注册路由"""
@@ -231,6 +232,9 @@ class Router:
             methods=["POST"],
             view_func=self.auth_handler.logout,
         )
+
+        # 11.1 账号设置模块
+        bp.add_url_rule("/account", view_func=self.account_handler.get_current_user)
 
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)

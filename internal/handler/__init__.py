@@ -13,6 +13,7 @@ from .dataset_handler import DatasetHandler
 from .segment_handler import SegmentHandler
 from .oauth_handler import OAuthHandler
 from .auth_handler import AuthHandler
+from .account_handler import AccountHandler
 
 __all__ = ["AppHandler", "BuiltinToolHandler", "ApiToolHandler", "UploadFileHandler", "DatasetHandler",
            "SegmentHandler", "OAuthHandler", "AuthHandler"]
