@@ -5,6 +5,8 @@
 @Author  : tianshiyang
 @File    : account_service.py
 """
+import base64
+import secrets
 from typing import Any
 from uuid import UUID
 
@@ -13,7 +15,7 @@ from injector import inject
 from dataclasses import dataclass
 
 from internal.model import Account, AccountOAuth
-from pkg.password.password import compare_password
+from pkg.password.password import compare_password, hash_password
 from .jwt_service import JwtService
 from internal.service.base_service import BaseService
 from pkg.sqlalchemy import SQLAlchemy
@@ -83,3 +85,17 @@ class AccountService(BaseService):
             "expire_at": expire_at,
             "access_token": access_token,
         }
+
+    def update_password(self, password: str, account: Account):
+        """更新当前账号密码信息"""
+        # 1.生成密码随机盐值
+        salt = secrets.token_bytes(16)
+        base64_salt = base64.b64encode(salt).decode()
+
+        # 2.利用盐值和password进行加密
+        password_hashed = hash_password(password, salt)
+        base64_password_hashed = base64.b64encode(password_hashed).decode()
+
+        # 3.更新账号信息
+        self.update(account, password=base64_password_hashed, password_salt=base64_salt)
+        return account

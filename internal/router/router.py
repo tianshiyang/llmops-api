@@ -235,6 +235,8 @@ class Router:
 
         # 11.1 账号设置模块
         bp.add_url_rule("/account", view_func=self.account_handler.get_current_user)
+        # 11.2 更新密码
+        bp.add_url_rule("/account/password", methods=["POST"], view_func=self.account_handler.update_password)
 
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)

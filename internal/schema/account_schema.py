@@ -5,10 +5,14 @@
 @Author  : tianshiyang
 @File    : account_schema.py
 """
+from flask_wtf import FlaskForm
 from marshmallow import Schema, fields, pre_dump
+from wtforms.fields.simple import StringField
+from wtforms.validators import DataRequired, regexp
 
 from internal.lib.helper import datetime_to_timestamp
 from internal.model import Account
+from pkg.password import password_pattern
 
 
 class GetCurrentUserResp(Schema):
@@ -32,3 +36,11 @@ class GetCurrentUserResp(Schema):
             "last_login_ip": data.last_login_ip,
             "created_at": datetime_to_timestamp(data.created_at),
         }
+
+
+class UpdatePasswordReq(FlaskForm):
+    """更新账号密码请求"""
+    password = StringField("password", validators=[
+        DataRequired("登录密码不能为空"),
+        regexp(regex=password_pattern, message="密码最少包含一个字母、一个数字，并且长度是8-16"),
+    ])
