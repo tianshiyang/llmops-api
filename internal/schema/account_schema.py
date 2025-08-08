@@ -8,7 +8,7 @@
 from flask_wtf import FlaskForm
 from marshmallow import Schema, fields, pre_dump
 from wtforms.fields.simple import StringField
-from wtforms.validators import DataRequired, regexp, Length
+from wtforms.validators import DataRequired, regexp, Length, URL
 
 from internal.lib.helper import datetime_to_timestamp
 from internal.model import Account
@@ -51,4 +51,12 @@ class UpdateNameReq(FlaskForm):
     name = StringField("name", validators=[
         DataRequired("账号名字不能为空"),
         Length(min=3, max=30, message="账号名称长度在3-30位")
+    ])
+
+
+class UpdateAvatarReq(FlaskForm):
+    """更新头像地址"""
+    avatar = StringField("avatar", validators=[
+        DataRequired("账号头像不能为空"),
+        URL(message="账号头像必须是URL图片地址")
     ])
