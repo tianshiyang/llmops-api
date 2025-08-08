@@ -99,3 +99,8 @@ class AccountService(BaseService):
         # 3.更新账号信息
         self.update(account, password=base64_password_hashed, password_salt=base64_salt)
         return account
+
+    def update_account(self, account: Account, **kwargs) -> Account:
+        """根据传递的信息更新账号"""
+        self.update(account, **kwargs)
+        return account

@@ -8,7 +8,7 @@
 from flask_wtf import FlaskForm
 from marshmallow import Schema, fields, pre_dump
 from wtforms.fields.simple import StringField
-from wtforms.validators import DataRequired, regexp
+from wtforms.validators import DataRequired, regexp, Length
 
 from internal.lib.helper import datetime_to_timestamp
 from internal.model import Account
@@ -43,4 +43,12 @@ class UpdatePasswordReq(FlaskForm):
     password = StringField("password", validators=[
         DataRequired("登录密码不能为空"),
         regexp(regex=password_pattern, message="密码最少包含一个字母、一个数字，并且长度是8-16"),
+    ])
+
+
+class UpdateNameReq(FlaskForm):
+    """更新账号名称"""
+    name = StringField("name", validators=[
+        DataRequired("账号名字不能为空"),
+        Length(min=3, max=30, message="账号名称长度在3-30位")
     ])
