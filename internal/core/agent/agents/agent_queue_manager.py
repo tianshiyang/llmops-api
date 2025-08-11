@@ -14,7 +14,7 @@ from uuid import UUID
 
 from redis import Redis
 
-from internal.entity.conversation_entity import InvokeForm
+from internal.entity.conversation_entity import InvokeFrom
 
 
 class AgentQueueManager:
@@ -22,14 +22,14 @@ class AgentQueueManager:
     q: Queue  # 队列
     user_id: UUID  # 队列任务归属的用户id
     task_id: UUID  # 本次任务的id
-    invoke_from: InvokeForm
+    invoke_from: InvokeFrom
     redis_client: Redis
 
     def __init__(
             self,
             user_id: UUID,
             task_id: UUID,
-            invoke_from: InvokeForm,
+            invoke_from: InvokeFrom,
             redis_client: Redis
     ):
         """构造函数，初始化智能体队列管理器"""
@@ -41,7 +41,7 @@ class AgentQueueManager:
         self.redis_client = redis_client
 
         # 2.判断用户的类型，目前有账号(Debugger/WebAPP调用)以及终端用户(开放API调用)两种类型
-        user_prefix = "account" if invoke_from in [InvokeForm.WEB_APP, InvokeForm.DEBUGGER] else "end-user"
+        user_prefix = "account" if invoke_from in [InvokeFrom.WEB_APP, InvokeFrom.DEBUGGER] else "end-user"
 
         # 3.设置任务对应的缓存键，代表此次任务队列开始
         self.redis_client.setex(
@@ -98,7 +98,7 @@ class AgentQueueManager:
             return True
         return False
 
-    def set_stop_flask(self, task_id: UUID, invoke_from: InvokeForm, user_id: UUID) -> None:
+    def set_stop_flask(self, task_id: UUID, invoke_from: InvokeFrom, user_id: UUID) -> None:
         """设置任务停止标志"""
         # 1.检测当前任务是否存在，如果不存在则直接结束
         result: bytes = self.redis_client.get(self._generate_task_belong_cache_key(task_id))
@@ -106,10 +106,10 @@ class AgentQueueManager:
             return
 
         # 2.查询当前任务和用户信息是否匹配，如果不匹配则直接结束
-        user_prefix = "account" if invoke_from in [InvokeForm.WEB_APP, InvokeForm.DEBUGGER] else "end-user"
+        user_prefix = "account" if invoke_from in [InvokeFrom.WEB_APP, InvokeFrom.DEBUGGER] else "end-user"
         if result.decode("utf-8") != f"{user_prefix}-{str(user_id)}":
             return
-        
+
         # 3.构建停止缓存键，并设置缓存记录，时间为600s
         task_stopped_cache_key = self._generate_task_stopped_cache_key(task_id)
         self.redis_client.setex(task_stopped_cache_key, 600, 1)
