@@ -12,10 +12,10 @@ from dataclasses import dataclass
 from operator import itemgetter
 from queue import Queue
 from threading import Thread
-from typing import Literal, Annotated, Generator
+from typing import Literal, Generator
 
 from flask import request
-from flask_login import login_required
+from flask_login import login_required, current_user
 from injector import inject
 from langchain.memory import ConversationBufferWindowMemory
 from langchain_community.chat_message_histories import FileChatMessageHistory
@@ -28,11 +28,10 @@ from langchain_openai import ChatOpenAI
 from langgraph.graph import StateGraph, MessagesState
 from redis import Redis
 from langgraph.constants import END
-
 from internal.core.agent.agents.function_call_agent import FunctionCallAgent
 from internal.core.agent.entities.agent_entity import AgentConfig
 from internal.core.tools.builtin_tools.providers.builtin_provider_manager import BuiltinProviderManager
-from internal.schema.app_schema import CompletionReq
+from internal.schema.app_schema import CompletionReq, CreateAppReq
 from internal.service import AppService
 from internal.service.conversation_service import ConversationService
 from internal.service.embeddings_service import EmbeddingsService
@@ -51,40 +50,47 @@ class AppHandler:
     builtin_provider_manager: BuiltinProviderManager
     conversation_service: ConversationService
 
-    def debug(self, app_id):
-        req = CompletionReq()
-        if not req.validate():
-            return validate_error_json(req.errors)
-        # 1. 创建prompt
-        prompt = ChatPromptTemplate.from_messages([
-            SystemMessagePromptTemplate.from_template("你是openai开发的聊天机器人，请根据上下文回答问题"),
-            MessagesPlaceholder("history"),
-            HumanMessagePromptTemplate.from_template("{query}")
-        ])
-        # 2. 创建llm大语言模型
-        llm = ChatOpenAI(model="moonshot-v1-8k")
-        # 3. 创建记忆
-        memory = ConversationBufferWindowMemory(
-            k=3,
-            input_key="query",
-            output_key="output",
-            return_messages=True,
-            chat_memory=FileChatMessageHistory("./storage/memory/chat_history.txt")
-        )
-        # 4. 创建链
-        chain = RunnablePassthrough.assign(
-            history=RunnableLambda(memory.load_memory_variables) | itemgetter("history")
-        ) | prompt | llm | StrOutputParser()
-
-        chain_input = {"query": req.query.data}
-        content = chain.invoke(chain_input)
-        memory.save_context(chain_input, outputs={"output": content})
-        return success_json({"content": content})
+    # def debug(self, app_id):
+    #     req = CompletionReq()
+    #     if not req.validate():
+    #         return validate_error_json(req.errors)
+    #     # 1. 创建prompt
+    #     prompt = ChatPromptTemplate.from_messages([
+    #         SystemMessagePromptTemplate.from_template("你是openai开发的聊天机器人，请根据上下文回答问题"),
+    #         MessagesPlaceholder("history"),
+    #         HumanMessagePromptTemplate.from_template("{query}")
+    #     ])
+    #     # 2. 创建llm大语言模型
+    #     llm = ChatOpenAI(model="moonshot-v1-8k")
+    #     # 3. 创建记忆
+    #     memory = ConversationBufferWindowMemory(
+    #         k=3,
+    #         input_key="query",
+    #         output_key="output",
+    #         return_messages=True,
+    #         chat_memory=FileChatMessageHistory("./storage/memory/chat_history.txt")
+    #     )
+    #     # 4. 创建链
+    #     chain = RunnablePassthrough.assign(
+    #         history=RunnableLambda(memory.load_memory_variables) | itemgetter("history")
+    #     ) | prompt | llm | StrOutputParser()
+    #
+    #     chain_input = {"query": req.query.data}
+    #     content = chain.invoke(chain_input)
+    #     memory.save_context(chain_input, outputs={"output": content})
+    #     return success_json({"content": content})
 
     @login_required
     def create_app(self):
-        app = self.app_service.create_app()
-        return success_message(f"应用创建成功，id为{app.id}")
+        """调用服务创建新的APP记录"""
+        # 1.提取请求并校验
+        req = CreateAppReq()
+        if not req.validate():
+            return validate_error_json(req.errors)
+        # 2.调用服务创建应用信息
+        app = self.app_service.create_app(req, current_user)
+        # 3.返回创建成功响应提示
+        return success_json({"id": app.id})
 
     @login_required
     def get_app(self, id: uuid.UUID):
