@@ -5,21 +5,23 @@
 @Author  : 1685821150@qq.com
 @File    : app_service.py
 """
-import uuid
+from uuid import UUID
 from dataclasses import dataclass
 
 from injector import inject
 
 from internal.entity.app_entity import AppStatus, AppConfigType, DEFAULT_APP_CONFIG
+from internal.exception import NotFoundException, ForbiddenException
 from internal.model import App, Account, AppConfigVersion
 from internal.schema.app_schema import CreateAppReq
+from internal.service.base_service import BaseService
 
 from pkg.sqlalchemy import SQLAlchemy
 
 
 @inject
 @dataclass
-class AppService:
+class AppService(BaseService):
     """应用服务逻辑"""
 
     db: SQLAlchemy
@@ -57,8 +59,19 @@ class AppService:
         # 5.返回创建的应用记录
         return app
 
-    def get_app(self, id: uuid.UUID) -> App:
-        app = self.db.session.query(App).get(id)
+    def get_app(self, app_id: UUID, account: Account) -> App:
+        """根据传递的id获取应用的基础信息"""
+        # 1.查询数据库获取应用基础信息
+        app = self.get(App, app_id)
+
+        # 2.判断应用是否存在
+        if not app:
+            raise NotFoundException("该应用不存在，请核实后重试")
+
+        # 3.判断当前账号是否有权限访问该应用
+        if app.account_id != account.id:
+            raise ForbiddenException("当前账号无权限访问该应用，请核实后尝试")
+
         return app
 
     def update_app(self, id):

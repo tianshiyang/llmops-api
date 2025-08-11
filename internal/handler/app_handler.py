@@ -9,7 +9,7 @@ import json
 import os
 import uuid
 from dataclasses import dataclass
-from operator import itemgetter
+# from operator import itemgetter
 from queue import Queue
 from threading import Thread
 from typing import Literal, Generator
@@ -17,13 +17,13 @@ from typing import Literal, Generator
 from flask import request
 from flask_login import login_required, current_user
 from injector import inject
-from langchain.memory import ConversationBufferWindowMemory
-from langchain_community.chat_message_histories import FileChatMessageHistory
+# from langchain.memory import ConversationBufferWindowMemory
+# from langchain_community.chat_message_histories import FileChatMessageHistory
 from langchain_core.messages import ToolMessage
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate, \
     MessagesPlaceholder
-from langchain_core.runnables import RunnablePassthrough, RunnableLambda
+# from langchain_core.runnables import RunnablePassthrough, RunnableLambda
 from langchain_openai import ChatOpenAI
 from langgraph.graph import StateGraph, MessagesState
 from redis import Redis
@@ -31,7 +31,7 @@ from langgraph.constants import END
 from internal.core.agent.agents.function_call_agent import FunctionCallAgent
 from internal.core.agent.entities.agent_entity import AgentConfig
 from internal.core.tools.builtin_tools.providers.builtin_provider_manager import BuiltinProviderManager
-from internal.schema.app_schema import CompletionReq, CreateAppReq
+from internal.schema.app_schema import CompletionReq, CreateAppReq, GetAppResp
 from internal.service import AppService
 from internal.service.conversation_service import ConversationService
 from internal.service.embeddings_service import EmbeddingsService
@@ -94,8 +94,9 @@ class AppHandler:
 
     @login_required
     def get_app(self, id: uuid.UUID):
-        app = self.app_service.get_app(id)
-        return success_message(f"应用已经成功获取，名字是{app.name}")
+        app = self.app_service.get_app(id, current_user)
+        resp = GetAppResp()
+        return success_json(resp.dump(app))
 
     @login_required
     def update_app(self, id: uuid.UUID):

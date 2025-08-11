@@ -6,8 +6,11 @@
 @File    : app_schema.py
 """
 from flask_wtf import FlaskForm
-from wtforms import StringField
+from marshmallow import Schema, fields, pre_dump
+from wtforms import StringField, IntegerField
 from wtforms.validators import DataRequired, Length, URL
+from internal.lib.helper import datetime_to_timestamp
+from internal.model import App
 
 
 class CreateAppReq(FlaskForm):
@@ -23,6 +26,33 @@ class CreateAppReq(FlaskForm):
     description = StringField("description", validators=[
         Length(max=800, message="应用描述的长度不能超过800个字符")
     ])
+
+
+class GetAppResp(Schema):
+    """获取应用基础信息响应结构"""
+    id = fields.UUID(dump_default="")
+    debug_conversation_id = fields.UUID(dump_default="")
+    name = fields.String(dump_default="")
+    icon = fields.String(dump_default="")
+    description = fields.String(dump_default="")
+    status = fields.String(dump_default="")
+    draft_updated_at = fields.Integer(dump_default=0)
+    updated_at = fields.Integer(dump_default=0)
+    created_at = fields.Integer(dump_default=0)
+
+    @pre_dump
+    def process_data(self, data: App, **kwargs):
+        return {
+            "id": data.id,
+            "debug_conversation_id": data.debug_conversation_id if data.debug_conversation_id else "",
+            "name": data.name,
+            "icon": data.icon,
+            "description": data.description,
+            "status": data.status,
+            "draft_updated_at": datetime_to_timestamp(data.draft_app_config.updated_at),
+            "updated_at": datetime_to_timestamp(data.updated_at),
+            "created_at": datetime_to_timestamp(data.created_at),
+        }
 
 
 class CompletionReq(FlaskForm):

@@ -8,7 +8,7 @@
 from sqlalchemy import Column, UUID, String, PrimaryKeyConstraint, DateTime, text, Text, Integer
 from sqlalchemy.dialects.postgresql import JSONB
 
-from internal.entity.app_entity import AppConfigType
+from internal.entity.app_entity import AppConfigType, DEFAULT_APP_CONFIG
 from internal.entity.conversation_entity import InvokeFrom
 from internal.extension.database_extension import db
 from internal.model.conversation import Conversation
@@ -44,7 +44,7 @@ class App(db.Model):
         # 1.获取当前应用的草稿配置
         app_config_version = db.session.query(AppConfigVersion).filter(
             AppConfigVersion.app_id == self.draft_app_config_id,
-            AppConfigVersion.config_type == AppConfigType.DRAFT,
+            AppConfigVersion.config_type == AppConfigType.DRAFT.value,
         ).one_or_none()
 
         # 2.检测配置是否存在，如果不存在则创建一个默认值
@@ -52,8 +52,8 @@ class App(db.Model):
             app_config_version = AppConfigVersion(
                 app_id=self.id,
                 version=0,
-                config_type=AppConfigType.DRAFT,
-                **app_config_version
+                config_type=AppConfigType.DRAFT.value,
+                **DEFAULT_APP_CONFIG
             )
             db.session.add(app_config_version)
             db.session.commit()
