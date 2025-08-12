@@ -31,10 +31,12 @@ from langgraph.constants import END
 from internal.core.agent.agents.function_call_agent import FunctionCallAgent
 from internal.core.agent.entities.agent_entity import AgentConfig
 from internal.core.tools.builtin_tools.providers.builtin_provider_manager import BuiltinProviderManager
-from internal.schema.app_schema import CompletionReq, CreateAppReq, GetAppResp
+from internal.schema.app_schema import CompletionReq, CreateAppReq, GetAppResp, GetPublishHistoriesWithPageReq, \
+    GetPublishHistoriesWithPageResp
 from internal.service import AppService
 from internal.service.conversation_service import ConversationService
 from internal.service.embeddings_service import EmbeddingsService
+from pkg.paginator.paginator import PageModel
 from pkg.response import success_json, validate_error_json, success_message
 from pkg.response.response import compact_generate_response
 
@@ -125,6 +127,21 @@ class AppHandler:
         """根据传递的应用id，取消发布指定的应用配置信息"""
         self.app_service.cancel_publish_app_config(app_id, current_user)
         return success_message("取消发布应用配置成功")
+
+    @login_required
+    def get_publish_histories_with_page(self, app_id: uuid.UUID):
+        """根据传递的应用id，获取应用发布历史列表"""
+        # 1.获取请求数据并校验
+        req = GetPublishHistoriesWithPageReq(request.args)
+        if not req.validate():
+            return validate_error_json(req.errors)
+
+        # 2.调用服务获取分页列表数据
+        app_config_versions, paginator = self.app_service.get_publish_histories_with_page(app_id, req, current_user)
+
+        # 3. 创建响应结构并返回
+        resp = GetPublishHistoriesWithPageResp(many=True)
+        return success_json(PageModel(list=resp.dump(app_config_versions), paginator=paginator))
 
     def completion(self):
         """聊天接口"""

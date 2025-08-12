@@ -13,15 +13,16 @@ from dataclasses import dataclass
 
 from flask import request
 from injector import inject
-from sqlalchemy import func
+from sqlalchemy import func, desc
 
 from internal.core.tools.builtin_tools.providers.builtin_provider_manager import BuiltinProviderManager
 from internal.entity.app_entity import AppStatus, AppConfigType, DEFAULT_APP_CONFIG
 from internal.exception import NotFoundException, ForbiddenException, ValidateErrorException, FailException
 from internal.lib.helper import datetime_to_timestamp
 from internal.model import App, Account, AppConfigVersion, AppConfig, ApiTool, Dataset, AppDatasetJoin
-from internal.schema.app_schema import CreateAppReq
+from internal.schema.app_schema import CreateAppReq, GetPublishHistoriesWithPageReq
 from internal.service.base_service import BaseService
+from pkg.paginator.paginator import Paginator
 
 from pkg.sqlalchemy import SQLAlchemy
 
@@ -331,6 +332,25 @@ class AppService(BaseService):
             ).delete()
 
         return app
+
+    def get_publish_histories_with_page(self, app_id: UUID, req: GetPublishHistoriesWithPageReq, account: Account) -> \
+            tuple[list[AppConfigVersion], Paginator]:
+        """根据传递的应用id+请求数据，获取指定应用的发布历史配置列表信息"""
+        # 1.获取应用信息并校验权限
+        self.get_app(app_id, account)
+
+        # 2.构建分页器
+        paginator = Paginator(db=self.db, req=req)
+
+        # 3.执行分页并获取数据
+        app_config_versions = paginator.paginate(
+            self.db.session.query(AppConfigVersion).filter(
+                AppConfigVersion.app_id == app_id,
+                AppConfigVersion.config_type == AppConfigType.PUBLISHED.value,
+            ).order_by(desc("version"))
+        )
+
+        return app_config_versions, paginator
 
     def _validate_draft_app_config(self, draft_app_config: dict[str, Any], account: Account) -> dict[str, Any]:
         """校验传递的应用草稿配置信息，返回校验后的数据"""
