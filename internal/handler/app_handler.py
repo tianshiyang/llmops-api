@@ -120,6 +120,12 @@ class AppHandler:
         self.app_service.publish_draft_app_config(app_id, current_user)
         return success_message("发布/更新应用配置成功")
 
+    @login_required
+    def cancel_publish(self, app_id: uuid.UUID):
+        """根据传递的应用id，取消发布指定的应用配置信息"""
+        self.app_service.cancel_publish_app_config(app_id, current_user)
+        return success_message("取消发布应用配置成功")
+
     def completion(self):
         """聊天接口"""
         # 1.提取从接口中获取的输入，POST

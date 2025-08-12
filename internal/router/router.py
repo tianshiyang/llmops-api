@@ -59,6 +59,12 @@ class Router:
             methods=["POST"],
             view_func=self.app_handler.publish,
         )
+        # 2.6 取消发布
+        bp.add_url_rule(
+            "/apps/<uuid:app_id>/cancel-publish",
+            methods=["POST"],
+            view_func=self.app_handler.cancel_publish,
+        )
 
         # 3.1 内置插件广场模块
         bp.add_url_rule("/builtin-tools", view_func=self.builtin_tool_handler.get_builtin_tools)

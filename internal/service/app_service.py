@@ -17,7 +17,7 @@ from sqlalchemy import func
 
 from internal.core.tools.builtin_tools.providers.builtin_provider_manager import BuiltinProviderManager
 from internal.entity.app_entity import AppStatus, AppConfigType, DEFAULT_APP_CONFIG
-from internal.exception import NotFoundException, ForbiddenException, ValidateErrorException
+from internal.exception import NotFoundException, ForbiddenException, ValidateErrorException, FailException
 from internal.lib.helper import datetime_to_timestamp
 from internal.model import App, Account, AppConfigVersion, AppConfig, ApiTool, Dataset, AppDatasetJoin
 from internal.schema.app_schema import CreateAppReq
@@ -309,6 +309,26 @@ class AppService(BaseService):
             config_type=AppConfigType.PUBLISHED.value,
             **draft_app_config_copy
         )
+
+        return app
+
+    def cancel_publish_app_config(self, app_id: UUID, account: Account) -> App:
+        """根据传递的应用id+账号，取消发布指定的应用配置"""
+        # 1.获取应用信息并校验权限
+        app = self.get_app(app_id, account)
+
+        # 2.检测下当前应用的状态是否是已发布
+        if app.status != AppStatus.PUBLISHED.value:
+            raise FailException("当前应用未发布，请核实后重试")
+
+        # 3.修改账号的发布状态，并清空关联配置id
+        self.update(app, status=AppStatus.DRAFT.value, app_config_id=None)
+
+        # 4. 删除应用关联的知识库信息
+        with self.db.auto_commit():
+            self.db.session.query(AppDatasetJoin).filter(
+                AppDatasetJoin.app_id == app_id
+            ).delete()
 
         return app
 
