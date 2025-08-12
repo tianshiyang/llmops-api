@@ -99,6 +99,12 @@ class AppHandler:
         return success_json(resp.dump(app))
 
     @login_required
+    def get_draft_app_config(self, app_id: uuid.UUID):
+        """根据传递的应用id获取应用的最新草稿配置"""
+        draft_config = self.app_service.get_draft_app_config(app_id, current_user)
+        return success_json(draft_config)
+
+    @login_required
     def update_app(self, id: uuid.UUID):
         app = self.app_service.update_app(id)
         return success_message(f"应用名称修改成功，修改后的名字是{app.name}")

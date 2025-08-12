@@ -41,8 +41,12 @@ class Router:
         # bp.add_url_rule('/apps/<uuid:app_id>/debug', view_func=self.app_handler.debug, methods=['POST'])
         bp.add_url_rule('/ping', view_func=self.app_handler.ping)
         bp.add_url_rule('/app/completion', methods=["POST"], view_func=self.app_handler.completion)
+        # 2.1创建应用
         bp.add_url_rule('/apps', methods=["POST"], view_func=self.app_handler.create_app)
+        # 2.2获取应用
         bp.add_url_rule('/apps/<uuid:id>', view_func=self.app_handler.get_app)
+        # 2.3获取草稿配置
+        bp.add_url_rule("/apps/<uuid:app_id>/draft-app-config", view_func=self.app_handler.get_draft_app_config)
         bp.add_url_rule('/app/<uuid:id>', methods=["POST"], view_func=self.app_handler.update_app)
         bp.add_url_rule('/app/<uuid:id>/delete', methods=["POST"], view_func=self.app_handler.delete_app)
 
