@@ -32,7 +32,7 @@ from internal.core.agent.agents.function_call_agent import FunctionCallAgent
 from internal.core.agent.entities.agent_entity import AgentConfig
 from internal.core.tools.builtin_tools.providers.builtin_provider_manager import BuiltinProviderManager
 from internal.schema.app_schema import CompletionReq, CreateAppReq, GetAppResp, GetPublishHistoriesWithPageReq, \
-    GetPublishHistoriesWithPageResp
+    GetPublishHistoriesWithPageResp, FallbackHistoryToDraftReq
 from internal.service import AppService
 from internal.service.conversation_service import ConversationService
 from internal.service.embeddings_service import EmbeddingsService
@@ -142,6 +142,18 @@ class AppHandler:
         # 3. 创建响应结构并返回
         resp = GetPublishHistoriesWithPageResp(many=True)
         return success_json(PageModel(list=resp.dump(app_config_versions), paginator=paginator))
+
+    @login_required
+    def fallback_history_to_draft(self, app_id: uuid.UUID):
+        """根据传递的应用id+历史配置版本id，回退指定版本到草稿中"""
+        # 1.提取数据并校验
+        req = FallbackHistoryToDraftReq()
+        if not req.validate():
+            return validate_error_json(req.errors)
+
+        # 2.调用服务回退指定版本到草稿
+        self.app_service.fallback_history_to_draft(app_id, req.app_config_version_id.data, current_user)
+        return success_message("回退历史配置至草稿成功")
 
     def completion(self):
         """聊天接口"""

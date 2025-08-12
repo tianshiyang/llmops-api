@@ -70,6 +70,12 @@ class Router:
             "/apps/<uuid:app_id>/publish-histories",
             view_func=self.app_handler.get_publish_histories_with_page,
         )
+        # 2.8 回退发布
+        bp.add_url_rule(
+            "/apps/<uuid:app_id>/fallback-history",
+            methods=["POST"],
+            view_func=self.app_handler.fallback_history_to_draft,
+        )
 
         # 3.1 内置插件广场模块
         bp.add_url_rule("/builtin-tools", view_func=self.builtin_tool_handler.get_builtin_tools)
