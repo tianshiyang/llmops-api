@@ -19,7 +19,7 @@ from internal.core.tools.builtin_tools.providers.builtin_provider_manager import
 from internal.entity.app_entity import AppStatus, AppConfigType, DEFAULT_APP_CONFIG
 from internal.exception import NotFoundException, ForbiddenException, ValidateErrorException, FailException
 from internal.lib.helper import datetime_to_timestamp
-from internal.model import App, Account, AppConfigVersion, AppConfig, ApiTool, Dataset, AppDatasetJoin
+from internal.model import App, Account, AppConfigVersion, AppConfig, ApiTool, Dataset, AppDatasetJoin, Conversation
 from internal.schema.app_schema import CreateAppReq, GetPublishHistoriesWithPageReq
 from internal.service.base_service import BaseService
 from pkg.paginator.paginator import Paginator
@@ -394,6 +394,23 @@ class AppService(BaseService):
             raise FailException("该应用并未开启长期记忆，无法获取")
 
         return app.debug_conversation.summary
+
+    def update_debug_conversation_summary(self, app_id: UUID, summary: str, account: Account) -> Conversation:
+        """根据传递的应用id+总结更新指定应用的调试长期记忆"""
+        # 1.获取应用信息并校验权限
+        app = self.get_app(app_id, account)
+
+        # 2.获取应用的草稿配置，并校验长期记忆是否启用
+        draft_app_config = self.get_draft_app_config(app_id, account)
+        print(draft_app_config, "draft_app_config======")
+        if draft_app_config["long_term_memory"]["enable"] is False:
+            raise FailException("该应用并未开启长期记忆，无法获取")
+
+        # 3.更新应用长期记忆
+        debug_conversation = app.debug_conversation
+        self.update(debug_conversation, summary=summary)
+
+        return debug_conversation
 
     def _validate_draft_app_config(self, draft_app_config: dict[str, Any], account: Account) -> dict[str, Any]:
         """校验传递的应用草稿配置信息，返回校验后的数据"""

@@ -11,7 +11,7 @@ from flask import request
 from flask_login import login_required, current_user
 from injector import inject
 from internal.schema.app_schema import CreateAppReq, GetAppResp, GetPublishHistoriesWithPageReq, \
-    GetPublishHistoriesWithPageResp, FallbackHistoryToDraftReq
+    GetPublishHistoriesWithPageResp, FallbackHistoryToDraftReq, UpdateDebugConversationSummaryReq
 from internal.service import AppService
 
 from pkg.paginator.paginator import PageModel
@@ -102,6 +102,18 @@ class AppHandler:
         """根据传递的应用id获取调试会话长期记忆"""
         summary = self.app_service.get_debug_conversation_summary(app_id, current_user)
         return success_json({"summary": summary})
+
+    @login_required
+    def update_debug_conversation_summary(self, app_id: uuid.UUID):
+        """根据传递的应用id+摘要信息更新调试会话长期记忆"""
+        # 1.提取数据并校验
+        req = UpdateDebugConversationSummaryReq()
+        if not req.validate():
+            return validate_error_json(req.errors)
+
+        # 2.调用服务更新调试会话长期记忆
+        self.app_service.update_debug_conversation_summary(app_id, req.summary.data, current_user)
+        return success_message("更新AI应用长期记忆成功")
 
     # def ping(self):
     #     agent = FunctionCallAgent(AgentConfig(
