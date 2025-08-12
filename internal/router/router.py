@@ -39,8 +39,7 @@ class Router:
 
         # 2. 将url与对应的控制器方法做绑定
         # bp.add_url_rule('/apps/<uuid:app_id>/debug', view_func=self.app_handler.debug, methods=['POST'])
-        bp.add_url_rule('/ping', view_func=self.app_handler.ping)
-        bp.add_url_rule('/app/completion', methods=["POST"], view_func=self.app_handler.completion)
+        # bp.add_url_rule('/ping', view_func=self.app_handler.ping)
         # 2.1 创建应用
         bp.add_url_rule('/apps', methods=["POST"], view_func=self.app_handler.create_app)
         # 2.2 获取应用
@@ -75,6 +74,11 @@ class Router:
             "/apps/<uuid:app_id>/fallback-history",
             methods=["POST"],
             view_func=self.app_handler.fallback_history_to_draft,
+        )
+        # 2.9获取会话总结
+        bp.add_url_rule(
+            "/apps/<uuid:app_id>/summary",
+            view_func=self.app_handler.get_debug_conversation_summary,
         )
 
         # 3.1 内置插件广场模块

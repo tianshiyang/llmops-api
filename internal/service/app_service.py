@@ -383,6 +383,18 @@ class AppService(BaseService):
 
         return draft_app_config_record
 
+    def get_debug_conversation_summary(self, app_id: UUID, account: Account) -> str:
+        """根据传递的应用id+账号获取指定应用的调试会话长期记忆"""
+        # 1.获取应用信息并校验权限
+        app = self.get_app(app_id, account)
+
+        # 2.获取应用的草稿配置，并校验长期记忆是否启用
+        draft_app_config = self.get_draft_app_config(app_id, account)
+        if draft_app_config["long_term_memory"]["enable"] is False:
+            raise FailException("该应用并未开启长期记忆，无法获取")
+
+        return app.debug_conversation.summary
+
     def _validate_draft_app_config(self, draft_app_config: dict[str, Any], account: Account) -> dict[str, Any]:
         """校验传递的应用草稿配置信息，返回校验后的数据"""
         # 1.校验上传的草稿配置中的对应的字段，至少拥有一个可以更新的配置
