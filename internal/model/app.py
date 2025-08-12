@@ -43,7 +43,7 @@ class App(db.Model):
         """只读属性，返回当前应用的草稿配置"""
         # 1.获取当前应用的草稿配置
         app_config_version = db.session.query(AppConfigVersion).filter(
-            AppConfigVersion.app_id == self.draft_app_config_id,
+            AppConfigVersion.app_id == self.id,
             AppConfigVersion.config_type == AppConfigType.DRAFT.value,
         ).one_or_none()
 

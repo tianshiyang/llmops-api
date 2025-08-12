@@ -115,14 +115,10 @@ class AppHandler:
         return success_message("更新应用草稿配置成功")
 
     @login_required
-    def update_app(self, id: uuid.UUID):
-        app = self.app_service.update_app(id)
-        return success_message(f"应用名称修改成功，修改后的名字是{app.name}")
-
-    @login_required
-    def delete_app(self, id: uuid.UUID):
-        app = self.app_service.delete_app(id)
-        return success_message(f"应用已经成功删除，id为:{app.id}")
+    def publish(self, app_id: uuid.UUID):
+        """根据传递的应用id发布、更新特定的草稿配置信息"""
+        self.app_service.publish_draft_app_config(app_id, current_user)
+        return success_message("发布/更新应用配置成功")
 
     def completion(self):
         """聊天接口"""

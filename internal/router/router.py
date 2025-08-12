@@ -37,24 +37,28 @@ class Router:
         # 1. 创建一个蓝图（一组路由的集合）
         bp = Blueprint('llmops', __name__, url_prefix='')
 
-        # 2.将url与对应的控制器方法做绑定
+        # 2. 将url与对应的控制器方法做绑定
         # bp.add_url_rule('/apps/<uuid:app_id>/debug', view_func=self.app_handler.debug, methods=['POST'])
         bp.add_url_rule('/ping', view_func=self.app_handler.ping)
         bp.add_url_rule('/app/completion', methods=["POST"], view_func=self.app_handler.completion)
-        # 2.1创建应用
+        # 2.1 创建应用
         bp.add_url_rule('/apps', methods=["POST"], view_func=self.app_handler.create_app)
-        # 2.2获取应用
+        # 2.2 获取应用
         bp.add_url_rule('/apps/<uuid:id>', view_func=self.app_handler.get_app)
-        # 2.3获取草稿配置
+        # 2.3 获取草稿配置
         bp.add_url_rule("/apps/<uuid:app_id>/draft-app-config", view_func=self.app_handler.get_draft_app_config)
-        # 2.4更新草稿配置
+        # 2.4 更新草稿配置
         bp.add_url_rule(
             "/apps/<uuid:app_id>/draft-app-config",
             methods=["POST"],
             view_func=self.app_handler.update_draft_app_config,
         )
-        bp.add_url_rule('/app/<uuid:id>', methods=["POST"], view_func=self.app_handler.update_app)
-        bp.add_url_rule('/app/<uuid:id>/delete', methods=["POST"], view_func=self.app_handler.delete_app)
+        # 2.5 发布应用草稿配置信息
+        bp.add_url_rule(
+            "/apps/<uuid:app_id>/publish",
+            methods=["POST"],
+            view_func=self.app_handler.publish,
+        )
 
         # 3.1 内置插件广场模块
         bp.add_url_rule("/builtin-tools", view_func=self.builtin_tool_handler.get_builtin_tools)
