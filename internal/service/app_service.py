@@ -402,7 +402,6 @@ class AppService(BaseService):
 
         # 2.获取应用的草稿配置，并校验长期记忆是否启用
         draft_app_config = self.get_draft_app_config(app_id, account)
-        print(draft_app_config, "draft_app_config======")
         if draft_app_config["long_term_memory"]["enable"] is False:
             raise FailException("该应用并未开启长期记忆，无法获取")
 
@@ -411,6 +410,19 @@ class AppService(BaseService):
         self.update(debug_conversation, summary=summary)
 
         return debug_conversation
+
+    def delete_debug_conversation(self, app_id: UUID, account: Account) -> App:
+        """根据传递的应用id，删除指定的应用调试会话"""
+        # 1.获取应用信息并校验权限
+        app = self.get_app(app_id, account)
+
+        # 2.判断是否存在debug_conversation_id这个数据，如果不存在则表示没有会话，无需执行任何操作
+        if not app.debug_conversation_id:
+            return app
+
+        # 3.否则将debug_conversation_id的值重置为None
+        self.update(app, debug_conversation_id=None)
+        return app
 
     def _validate_draft_app_config(self, draft_app_config: dict[str, Any], account: Account) -> dict[str, Any]:
         """校验传递的应用草稿配置信息，返回校验后的数据"""

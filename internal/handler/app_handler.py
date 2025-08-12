@@ -115,6 +115,11 @@ class AppHandler:
         self.app_service.update_debug_conversation_summary(app_id, req.summary.data, current_user)
         return success_message("更新AI应用长期记忆成功")
 
+    def delete_debug_conversation(self, app_id: uuid.UUID):
+        """根据传递的应用id，清空该应用的调试会话记录"""
+        self.app_service.delete_debug_conversation(app_id, current_user)
+        return success_message("清空应用调试会话记录成功")
+
     # def ping(self):
     #     agent = FunctionCallAgent(AgentConfig(
     #         llm=ChatOpenAI(model=os.getenv("BASE_CHAT_MODEL")),
