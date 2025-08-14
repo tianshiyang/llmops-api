@@ -5,14 +5,19 @@
 @Author  : tianshiyang
 @File    : retrieval_service.py
 """
+from flask import Flask
 from injector import inject
 from dataclasses import dataclass
 
 from langchain.retrievers import EnsembleRetriever
 from langchain_core.documents import Document as LCDocument
+from langchain_core.tools import BaseTool, tool
+from pydantic import BaseModel, Field
 
+from internal.core.agent.entities.agent_entity import DATASET_RETRIEVAL_TOOL_NAME
 from internal.entity.dataset_entity import RetrievalStrategy, RetrievalSource
 from internal.exception import NotFoundException
+from internal.lib.helper import combine_documents
 from internal.model import Account
 from internal.model.dataset import Dataset, DatasetQuery, Segment
 from sqlalchemy import update
@@ -32,19 +37,19 @@ class RetrievalService(BaseService):
 
     def search_in_datasets(
             self,
+            account_id: UUID,
             dataset_ids: list[UUID],
             query: str,
             retrieval_strategy: RetrievalStrategy.SEMANTIC,
             k: int = 4,
             score: float = 0,
             retrival_source: str = RetrievalSource.HIT_TESTING,
-            account: Account = None
     ) -> list[LCDocument]:
         """根据传递的query+知识库列表执行检索，并返回检索的文档+得分数据（如果检索策略为全文检索，则得分为0）"""
         # 1.提取知识库列表并校验权限同时更新知识库id
         datasets = self.db.session.query(Dataset).filter(
             Dataset.id.in_(dataset_ids),
-            Dataset.account_id == account.id,
+            Dataset.account_id == account_id,
         ).all()
         if datasets is None or len(datasets) == 0:
             raise NotFoundException("当前无知识库可执行检索")
@@ -92,7 +97,7 @@ class RetrievalService(BaseService):
                 source=retrival_source,
                 # todo:等待APP配置模块完成后进行调整
                 source_app_id=None,
-                created_by=account.id,
+                created_by=account_id,
             )
 
         # 5.批量更新片段的命中次数，召回次数，涵盖了构建+执行语句
@@ -104,3 +109,41 @@ class RetrievalService(BaseService):
             )
             self.db.session.execute(stmt)
         return lc_documents
+
+    def create_langchain_tool_from_search(
+            self,
+            flask_app: Flask,
+            dataset_ids: list[UUID],
+            account_id: UUID,
+            retrieval_strategy: RetrievalStrategy.SEMANTIC,
+            k: int = 4,
+            score: float = 0,
+            retrival_source: str = RetrievalSource.HIT_TESTING,
+    ):
+        """根据传递的参数构建一个LangChain知识库搜索工具"""
+
+        class DatasetRetrievalInput(BaseModel):
+            """知识库搜索工具输入结构"""
+            query: str = Field(description="知识库搜索query语句，类型为字符串")
+
+        @tool(DATASET_RETRIEVAL_TOOL_NAME, args_schema=DatasetRetrievalInput)
+        def dataset_retrieval(query: str) -> str:
+            """如果需要搜索扩展的知识库内容，当你觉得用户的提问超过你的知识范围时，可以尝试调用该工具，输入为搜索query语句,返回数据为检索内容字符串"""
+            # 1.调用search_in_datasets检索得到LangChain文档列表
+            with flask_app.app_context():
+                documents = self.search_in_datasets(
+                    dataset_ids=dataset_ids,
+                    query=query,
+                    account_id=account_id,
+                    retrieval_strategy=retrieval_strategy,
+                    k=k,
+                    score=score,
+                    retrival_source=retrival_source,
+                )
+            # 2.将LangChain文档列表转换成字符串后返回
+            if len(documents) == 0:
+                return "知识库内没有检索到对应内容"
+
+            return combine_documents(documents)
+
+        return dataset_retrieval

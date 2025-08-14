@@ -5,17 +5,18 @@
 @Author  : 1685821150@qq.com
 @File    : app_handler.py
 """
-import uuid
+from uuid import UUID
 from dataclasses import dataclass
 from flask import request
 from flask_login import login_required, current_user
 from injector import inject
 from internal.schema.app_schema import CreateAppReq, GetAppResp, GetPublishHistoriesWithPageReq, \
-    GetPublishHistoriesWithPageResp, FallbackHistoryToDraftReq, UpdateDebugConversationSummaryReq
+    GetPublishHistoriesWithPageResp, FallbackHistoryToDraftReq, UpdateDebugConversationSummaryReq, DebugChatReq
 from internal.service import AppService
 
 from pkg.paginator.paginator import PageModel
 from pkg.response import success_json, validate_error_json, success_message
+from pkg.response.response import compact_generate_response
 
 
 @inject
@@ -37,19 +38,19 @@ class AppHandler:
         return success_json({"id": app.id})
 
     @login_required
-    def get_app(self, id: uuid.UUID):
+    def get_app(self, id: UUID):
         app = self.app_service.get_app(id, current_user)
         resp = GetAppResp()
         return success_json(resp.dump(app))
 
     @login_required
-    def get_draft_app_config(self, app_id: uuid.UUID):
+    def get_draft_app_config(self, app_id: UUID):
         """根据传递的应用id获取应用的最新草稿配置"""
         draft_config = self.app_service.get_draft_app_config(app_id, current_user)
         return success_json(draft_config)
 
     @login_required
-    def update_draft_app_config(self, app_id: uuid.UUID):
+    def update_draft_app_config(self, app_id: UUID):
         """根据传递的应用id+草稿配置更新应用的最新草稿配置"""
         # 1.获取草稿请求json数据
         draft_app_config = request.get_json(force=True, silent=True) or {}
@@ -59,19 +60,19 @@ class AppHandler:
         return success_message("更新应用草稿配置成功")
 
     @login_required
-    def publish(self, app_id: uuid.UUID):
+    def publish(self, app_id: UUID):
         """根据传递的应用id发布、更新特定的草稿配置信息"""
         self.app_service.publish_draft_app_config(app_id, current_user)
         return success_message("发布/更新应用配置成功")
 
     @login_required
-    def cancel_publish(self, app_id: uuid.UUID):
+    def cancel_publish(self, app_id: UUID):
         """根据传递的应用id，取消发布指定的应用配置信息"""
         self.app_service.cancel_publish_app_config(app_id, current_user)
         return success_message("取消发布应用配置成功")
 
     @login_required
-    def get_publish_histories_with_page(self, app_id: uuid.UUID):
+    def get_publish_histories_with_page(self, app_id: UUID):
         """根据传递的应用id，获取应用发布历史列表"""
         # 1.获取请求数据并校验
         req = GetPublishHistoriesWithPageReq(request.args)
@@ -86,7 +87,7 @@ class AppHandler:
         return success_json(PageModel(list=resp.dump(app_config_versions), paginator=paginator))
 
     @login_required
-    def fallback_history_to_draft(self, app_id: uuid.UUID):
+    def fallback_history_to_draft(self, app_id: UUID):
         """根据传递的应用id+历史配置版本id，回退指定版本到草稿中"""
         # 1.提取数据并校验
         req = FallbackHistoryToDraftReq()
@@ -98,13 +99,13 @@ class AppHandler:
         return success_message("回退历史配置至草稿成功")
 
     @login_required
-    def get_debug_conversation_summary(self, app_id: uuid.UUID):
+    def get_debug_conversation_summary(self, app_id: UUID):
         """根据传递的应用id获取调试会话长期记忆"""
         summary = self.app_service.get_debug_conversation_summary(app_id, current_user)
         return success_json({"summary": summary})
 
     @login_required
-    def update_debug_conversation_summary(self, app_id: uuid.UUID):
+    def update_debug_conversation_summary(self, app_id: UUID):
         """根据传递的应用id+摘要信息更新调试会话长期记忆"""
         # 1.提取数据并校验
         req = UpdateDebugConversationSummaryReq()
@@ -115,10 +116,22 @@ class AppHandler:
         self.app_service.update_debug_conversation_summary(app_id, req.summary.data, current_user)
         return success_message("更新AI应用长期记忆成功")
 
-    def delete_debug_conversation(self, app_id: uuid.UUID):
+    def delete_debug_conversation(self, app_id: UUID):
         """根据传递的应用id，清空该应用的调试会话记录"""
         self.app_service.delete_debug_conversation(app_id, current_user)
         return success_message("清空应用调试会话记录成功")
+
+    def debug_chat(self, app_id: UUID):
+        """根据传递的应用id+query，发起调试会话"""
+        # 1.提取数据并校验数据
+        req = DebugChatReq()
+        if not req.validate():
+            return validate_error_json(req.errors)
+
+        # 2.调用服务发起会话调试
+        response = self.app_service.debug_chat(app_id, req.query.data, current_user)
+
+        return compact_generate_response(response)
 
     # def ping(self):
     #     agent = FunctionCallAgent(AgentConfig(
@@ -163,7 +176,7 @@ class AppHandler:
     #     推理（Inference）：用户输入一句话，模型基于上下文预测下一个最合理的词，一步步生成回答。""")
     #     return success_json({"ping": value})
     #
-    # def debug(self, app_id: uuid.UUID):
+    # def debug(self, app_id: UUID):
     #     req = CompletionReq()
     #     if not req.validate():
     #         return validate_error_json(req.errors)

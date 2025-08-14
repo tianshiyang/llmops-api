@@ -102,3 +102,10 @@ class FallbackHistoryToDraftReq(FlaskForm):
 class UpdateDebugConversationSummaryReq(FlaskForm):
     """更新应用调试会话长期记忆请求体"""
     summary = StringField("summary", default="")
+
+
+class DebugChatReq(FlaskForm):
+    """应用调试会话请求结构体"""
+    query = StringField("query", validators=[
+        DataRequired("用户提问query不能为空"),
+    ])

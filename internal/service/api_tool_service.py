@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from injector import inject
 from sqlalchemy import desc
 
-from internal.core.tools.api_tools.openapi_schema import OpenAPISchema
+from internal.core.tools.api_tools.entities.openapi_schema import OpenAPISchema
 from internal.exception import ValidateErrorException, NotFoundException
 from internal.model import ApiToolProvider, ApiTool, Account
 from internal.schema.api_tool_schema import CreateApiToolReq, GetApiToolProvidersWithPageReq, UpdateApiToolProviderReq
@@ -28,7 +28,6 @@ class ApiToolService(BaseService):
 
     def create_api_tool(self, req: CreateApiToolReq, account: Account = None, ) -> None:
         """根据传递的请求创建自定义API工具"""
-        # todo:等待授权认证模块完成进行切换调整
         # 1.检验并提取openapi_schema对应的数据
         openapi_schema = self.parse_openapi_schema(req.openapi_schema.data)
 
@@ -79,12 +78,15 @@ class ApiToolService(BaseService):
         return api_tool_providers, paginator
 
     def get_api_tool_provider(self, provider_id: str, account: Account = None):
-        """根据传递的provider_id获取工具提供者的原始信息"""
-        filters = [ApiToolProvider.account_id == account.id, ApiToolProvider.id == provider_id]
-        result = self.db.session.query(ApiToolProvider).filter(*filters).one_or_none()
-        if result is None or str(result.account_id) != account.id:
+        """根据传递的provider_id获取API工具提供者信息"""
+        # 1.查询数据库获取对应的数据
+        api_tool_provider = self.get(ApiToolProvider, provider_id)
+
+        # 2.检验数据是否为空，并且判断该数据是否属于当前账号
+        if api_tool_provider is None or api_tool_provider.account_id != account.id:
             raise NotFoundException("该工具提供者不存在")
-        return result
+
+        return api_tool_provider
 
     def get_api_tool(self, provider_id: str, tool_name: str, account: Account = None) -> ApiTool:
         """根据传递的provider_id + tool_name获取对应工具的参数详情信息"""

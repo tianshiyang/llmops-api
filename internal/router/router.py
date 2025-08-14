@@ -75,22 +75,29 @@ class Router:
             methods=["POST"],
             view_func=self.app_handler.fallback_history_to_draft,
         )
-        # 2.9获取会话长期记忆
+        # 2.9 获取会话长期记忆
         bp.add_url_rule(
             "/apps/<uuid:app_id>/summary",
             view_func=self.app_handler.get_debug_conversation_summary,
         )
-        # 2.10更新会话长期记忆
+        # 2.10 更新会话长期记忆
         bp.add_url_rule(
             "/apps/<uuid:app_id>/summary",
             methods=["POST"],
             view_func=self.app_handler.update_debug_conversation_summary,
         )
-        # 2.11删除应用调试会话记录
+        # 2.11 删除应用调试会话记录
         bp.add_url_rule(
             "/apps/<uuid:app_id>/conversations/delete-debug-conversation",
             methods=["POST"],
             view_func=self.app_handler.delete_debug_conversation,
+        )
+
+        # 2.12 调试会话
+        bp.add_url_rule(
+            "/apps/<uuid:app_id>/conversations",
+            methods=["POST"],
+            view_func=self.app_handler.debug_chat,
         )
 
         # 3.1 内置插件广场模块

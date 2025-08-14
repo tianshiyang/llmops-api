@@ -117,4 +117,4 @@ class OpenAPISchema(BaseModel):
                     } for parameter in interface["operation"].get("parameters", [])]
                 }
             }
-        return paths
+        return extra_paths
