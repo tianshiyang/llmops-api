@@ -13,7 +13,7 @@ import uuid
 from typing import Literal
 
 from langchain_core.language_models import BaseLanguageModel
-from langchain_core.messages import HumanMessage, SystemMessage, RemoveMessage, BaseMessage, ToolMessage, \
+from langchain_core.messages import HumanMessage, SystemMessage, RemoveMessage, ToolMessage, \
     AIMessage, messages_to_dict
 from langgraph.constants import END
 from langgraph.graph.state import CompiledStateGraph, StateGraph
@@ -29,7 +29,7 @@ class FunctionCallAgent(BaseAgent):
     """基于函数/工具调用的智能体"""
 
     def __init__(self, llm: BaseLanguageModel, agent_config: AgentConfig, **kwargs):
-        super().__init__(llm=llm, agent_config=agent_config, **kwargs)
+        super().__init__(llm=llm, agent_config=agent_config, name="function_call_agent", **kwargs)
 
     def _build_agent(self) -> CompiledStateGraph:
         """构建LangGraph图结构编译程序"""
@@ -45,7 +45,7 @@ class FunctionCallAgent(BaseAgent):
         # 3.添加边，并设置起点和终点
         graph.set_entry_point("preset_operation")
         graph.add_conditional_edges("preset_operation", self._preset_operation_condition)
-        graph.add_edge("long_term_memory", "llm")
+        graph.add_edge("long_term_memory_recall", "llm")
         graph.add_conditional_edges("llm", self._tools_condition)
         graph.add_edge("tools", "llm")
 
@@ -80,9 +80,9 @@ class FunctionCallAgent(BaseAgent):
                     task_id=state["task_id"],
                     event=QueueEvent.AGENT_END
                 ))
-                return AgentState(**state, messages=[AIMessage(preset_response)])
+                return {"messages": [AIMessage(preset_response)]}
 
-        return AgentState(**state, messages=[])
+        return {"messages": []}
 
     def _long_term_memory_recall_node(self, state: AgentState) -> AgentState:
         """长期记忆召回节点"""
@@ -122,10 +122,9 @@ class FunctionCallAgent(BaseAgent):
         preset_messages.append(HumanMessage(human_message.content))
 
         # 7.处理预设消息，将预设消息添加到用户消息前，先去删除用户的原始消息，然后补充一个新的替代
-        return AgentState(
-            **state,
-            messages=[RemoveMessage(id=human_message.id), *preset_messages]
-        )
+        return {
+            "messages": [RemoveMessage(id=human_message.id), *preset_messages]
+        }
 
     def _llm_node(self, state: AgentState) -> AgentState:
         """大语言模型节点"""
@@ -150,10 +149,7 @@ class FunctionCallAgent(BaseAgent):
                     event=QueueEvent.AGENT_END
                 )
             )
-            return AgentState(
-                **state,
-                messages=[AIMessage(MAX_ITERATION_RESPONSE)]
-            )
+            return {"messages": [AIMessage(MAX_ITERATION_RESPONSE)]}
 
         # 2.从智能体配置中提取大语言模型
         id = uuid.uuid4()
@@ -161,7 +157,7 @@ class FunctionCallAgent(BaseAgent):
         llm = self.llm
 
         # 3.检测大语言模型实例是否有bind_tools方法，如果没有则不绑定，如果有还需要检测tools是否为空，不为空则绑定
-        if hasattr(llm, 'bind_tools') and callable(getattr(llm, "bind_toos")) and len(self.agent_config.tools) > 0:
+        if hasattr(llm, 'bind_tools') and callable(getattr(llm, "bind_tools")) and len(self.agent_config.tools) > 0:
             llm = llm.bind_tools(self.agent_config.tools)
 
         # 4.流式调用LLM输出对应内容
@@ -224,11 +220,10 @@ class FunctionCallAgent(BaseAgent):
                 event=QueueEvent.AGENT_END,
             ))
 
-        return AgentState(
-            **state,
-            messages=[gathered],
-            iteration_count=state["iteration_count"] + 1
-        )
+        return {
+            "messages": [gathered],
+            "iteration_count": state["iteration_count"] + 1
+        }
 
     def _tools_node(self, state: AgentState) -> AgentState:
         """工具执行节点"""
@@ -275,10 +270,9 @@ class FunctionCallAgent(BaseAgent):
                 latency=(time.perf_counter() - start_at),
             ))
 
-        return AgentState(
-            **state,
-            messages=messages
-        )
+        return {
+            "messages": messages,
+        }
 
     @classmethod
     def _tools_condition(cls, state: AgentState) -> Literal["tools", "__end__"]:

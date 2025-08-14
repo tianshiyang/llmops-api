@@ -54,9 +54,9 @@ class GetApiToolProvidersWithPageResp(Schema):
     name = fields.String()
     icon = fields.String()
     description = fields.String()
-    headers = fields.List(fields.Dict, default=[])
-    tools = fields.List(fields.Dict, default=[])
-    created_at = fields.Integer(default=0)
+    headers = fields.List(fields.Dict, dump_default=[])
+    tools = fields.List(fields.Dict, dump_default=[])
+    created_at = fields.Integer(dump_default=0)
 
     @pre_dump
     def process_data(self, data: ApiToolProvider, **kwargs):
@@ -82,8 +82,8 @@ class GetApiToolProviderResp(Schema):
     name: str = fields.String()
     icon: str = fields.String()
     openapi_schema: str = fields.String()
-    headers: list = fields.List(fields.Dict, default=[])
-    created_at = fields.Integer(default=0)
+    headers: list = fields.List(fields.Dict, dump_default=[])
+    created_at = fields.Integer(dump_default=0)
 
     @pre_dump
     def process_data(self, data: ApiToolProvider, **kwargs):
@@ -102,7 +102,7 @@ class GetApiToolResp(Schema):
     id: str = fields.UUID()
     name: str = fields.String()
     description: str = fields.String()
-    inputs: list = fields.List(fields.Dict, default=[])
+    inputs: list = fields.List(fields.Dict, dump_default=[])
     provider: dict = fields.Dict()
 
     @pre_dump

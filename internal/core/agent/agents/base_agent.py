@@ -26,9 +26,12 @@ class BaseAgent(Serializable, Runnable):
     """"基于Runnable的基础智能体基类"""
     llm: BaseLanguageModel
     agent_config: AgentConfig
-    agent_queue_manager: AgentQueueManager
     _agent: CompiledStateGraph = PrivateAttr(None)
     _agent_queue_manager: AgentQueueManager = PrivateAttr(None)
+
+    class Config:
+        # 字段允许接收任意类型，且不需要校验器
+        arbitrary_types_allowed = True
 
     def __init__(
             self,
@@ -42,12 +45,8 @@ class BaseAgent(Serializable, Runnable):
         self._agent = self._build_agent()
         self._agent_queue_manager = AgentQueueManager(
             user_id=agent_config.user_id,
-            invoke_from=agent_config.invoke_from
+            invoke_from=agent_config.invoke_from,
         )
-
-    class Config:
-        # 字段允许接收任意类型，且不需要校验器
-        arbitrary_types_allowed = True
 
     @abstractmethod
     def _build_agent(self) -> CompiledStateGraph:

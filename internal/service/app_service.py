@@ -14,11 +14,10 @@ from dataclasses import dataclass
 
 from flask import request, current_app, Flask
 from injector import inject
-from langchain_community.chat_models import ChatOpenAI
 from langchain_core.messages import HumanMessage
+from langchain_openai import ChatOpenAI
 from sqlalchemy import func, desc
 
-from internal.core.agent.agents.base_agent import BaseAgent
 from internal.core.agent.agents.function_call_agent import FunctionCallAgent
 from internal.core.agent.entities.agent_entity import AgentConfig, AgentState
 from internal.core.agent.entities.queue_entity import QueueEvent
