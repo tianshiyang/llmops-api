@@ -18,6 +18,7 @@ from langchain_core.messages import HumanMessage
 from langchain_openai import ChatOpenAI
 from sqlalchemy import func, desc
 
+from internal.core.agent.agents.agent_queue_manager import AgentQueueManager
 from internal.core.agent.agents.function_call_agent import FunctionCallAgent
 from internal.core.agent.entities.agent_entity import AgentConfig, AgentState
 from internal.core.agent.entities.queue_entity import QueueEvent
@@ -699,6 +700,14 @@ class AppService(BaseService):
                     status=MessageStatus.STOP.value if item["event"] == QueueEvent.STOP else MessageStatus.ERROR.value,
                     observation=item["observation"]
                 )
+
+    def stop_debug_chat(self, app_id: UUID, task_id: UUID, account: Account) -> None:
+        """根据传递的应用id+任务id+账号，停止某个应用的调试会话，中断流式事件"""
+        # 1.获取应用信息并校验权限
+        self.get_app(app_id, account)
+
+        # 2.调用智能体队列管理器停止特定任务
+        AgentQueueManager.set_stop_flag(task_id, InvokeFrom.DEBUGGER, account.id)
 
     def _validate_draft_app_config(self, draft_app_config: dict[str, Any], account: Account) -> dict[str, Any]:
         """校验传递的应用草稿配置信息，返回校验后的数据"""

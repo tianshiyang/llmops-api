@@ -100,6 +100,13 @@ class Router:
             view_func=self.app_handler.debug_chat,
         )
 
+        # 2.13 中断流式输出
+        bp.add_url_rule(
+            "/apps/<uuid:app_id>/conversations/tasks/<uuid:task_id>/stop",
+            methods=["POST"],
+            view_func=self.app_handler.stop_debug_chat,
+        )
+
         # 3.1 内置插件广场模块
         bp.add_url_rule("/builtin-tools", view_func=self.builtin_tool_handler.get_builtin_tools)
         # 3.2 获取插件广场所有分类信息（不分页）
