@@ -11,6 +11,7 @@ from .conversation import Conversation, Message, MessageAgentThought
 from .dataset import Dataset, Document, Segment, KeywordTable, DatasetQuery, ProcessRule
 from .upload_file import UploadFile
 from .account import Account, AccountOAuth
+from .api_key import ApiKey
 
 __all__ = [
     "App", "AppDatasetJoin", "AppConfig", "AppConfigVersion", "AppConfigType",
@@ -19,4 +20,5 @@ __all__ = [
     "Dataset", "Document", "Segment", "KeywordTable", "DatasetQuery", "ProcessRule",
     "Conversation", "Message", "MessageAgentThought",
     "Account", "AccountOAuth",
+    "ApiKey"
 ]

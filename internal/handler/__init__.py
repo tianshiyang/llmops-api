@@ -14,6 +14,9 @@ from .segment_handler import SegmentHandler
 from .oauth_handler import OAuthHandler
 from .auth_handler import AuthHandler
 from .account_handler import AccountHandler
+from .ai_handler import AiHandler
+from .document_handler import DocumentHandler
+from .api_key_handler import ApiKeyHandler
 
 __all__ = ["AppHandler", "BuiltinToolHandler", "ApiToolHandler", "UploadFileHandler", "DatasetHandler",
-           "SegmentHandler", "OAuthHandler", "AuthHandler"]
+           "SegmentHandler", "OAuthHandler", "AuthHandler", "AiHandler", "DocumentHandler", "ApiKeyHandler"]
