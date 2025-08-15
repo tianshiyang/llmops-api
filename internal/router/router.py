@@ -311,6 +311,10 @@ class Router:
 
         # 12.1 AI辅助模块
         bp.add_url_rule("/ai/optimize-prompt", methods=["POST"], view_func=self.ai_handler.optimize_prompt)
+        bp.add_url_rule(
+            "/ai/suggested-questions", methods=["POST"],
+            view_func=self.ai_handler.generate_suggested_questions,
+        )
 
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)

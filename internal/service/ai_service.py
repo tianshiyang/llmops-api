@@ -16,13 +16,31 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 
 from internal.entity.ai_entity import OPTIMIZE_PROMPT_TEMPLATE
+from internal.exception import ForbiddenException
+from internal.model import Account, Message
 from internal.service.base_service import BaseService
+from internal.service.conversation_service import ConversationService
+from pkg.sqlalchemy import SQLAlchemy
 
 
 @inject
 @dataclass
 class AiService(BaseService):
     """AI服务"""
+    conversation_service: ConversationService
+    db: SQLAlchemy
+
+    def generate_suggested_questions_from_message_id(self, message_id, account: Account) -> list[str]:
+        """根据传递的消息id+账号生成建议问题列表"""
+        # 1.查询消息并校验权限信息
+        message = self.get(Message, message_id)
+        if not message or message.created_by != account.id:
+            raise ForbiddenException("该条消息不存在或无权限")
+
+        # 2.构建对话历史列表
+        histories = f"Human: {message.query}\nAI: {message.answer}"
+
+        return self.conversation_service.generate_suggested_questions(histories)
 
     @classmethod
     def optimize_prompt(cls, prompt: str) -> Generator[str, None, None]:

@@ -7,7 +7,15 @@
 """
 from flask_wtf import FlaskForm
 from wtforms import StringField
-from wtforms.validators import DataRequired, Length
+from wtforms.validators import DataRequired, Length, UUID
+
+
+class GenerateSuggestedQuestionsReq(FlaskForm):
+    """生成建议问题列表请求结构体"""
+    message_id = StringField("message_id", validators=[
+        DataRequired("消息id不能为空"),
+        UUID(message="消息id格式必须为uuid")
+    ])
 
 
 class OptimizePromptReq(FlaskForm):
