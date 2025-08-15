@@ -63,6 +63,12 @@ class ApiKeyService(BaseService):
         self.update(api_key, **kwargs)
         return api_key
 
+    def delete_api_key(self, api_key_id: UUID, account: Account) -> ApiKey:
+        """根据传递的id删除API秘钥"""
+        api_key = self.get_api_key(api_key_id, account)
+        self.delete(api_key)
+        return api_key
+
     @classmethod
     def generate_api_key(cls, api_key_prefix: str = "llmops-v1/") -> str:
         """生成一个长度为48的API秘钥，并携带前缀"""

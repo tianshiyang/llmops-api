@@ -332,5 +332,11 @@ class Router:
             view_func=self.api_key_handler.update_api_key_is_active,
         )
 
+        bp.add_url_rule(
+            "/openapi/api-keys/<uuid:api_key_id>/delete",
+            methods=["POST"],
+            view_func=self.api_key_handler.delete_api_key,
+        )
+
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)
