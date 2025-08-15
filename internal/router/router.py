@@ -107,6 +107,12 @@ class Router:
             view_func=self.app_handler.stop_debug_chat,
         )
 
+        # 2.14获取该应用的调试会话分页列表记录
+        bp.add_url_rule(
+            "/apps/<uuid:app_id>/conversations/messages",
+            view_func=self.app_handler.get_debug_conversation_messages_with_page,
+        )
+
         # 3.1 内置插件广场模块
         bp.add_url_rule("/builtin-tools", view_func=self.builtin_tool_handler.get_builtin_tools)
         # 3.2 获取插件广场所有分类信息（不分页）

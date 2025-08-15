@@ -16,7 +16,7 @@ from sqlalchemy import (
     Numeric,
     Float,
     text,
-    PrimaryKeyConstraint, func,
+    PrimaryKeyConstraint, func, asc,
 )
 from sqlalchemy.dialects.postgresql import JSONB
 
@@ -107,6 +107,13 @@ class Message(db.Model):
         server_onupdate=text('CURRENT_TIMESTAMP(0)'),
     )
     created_at = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP(0)'))
+
+    @property
+    def agent_thoughts(self) -> list["MessageAgentThought"]:
+        """只读属性，返回该消息对应的智能体推理过程列表"""
+        return db.session.query(MessageAgentThought).filter(
+            MessageAgentThought.message_id == self.id,
+        ).order_by(asc("position")).all()
 
 
 class MessageAgentThought(db.Model):

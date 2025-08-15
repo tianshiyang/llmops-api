@@ -33,7 +33,8 @@ from internal.exception import NotFoundException, ForbiddenException, ValidateEr
 from internal.lib.helper import datetime_to_timestamp
 from internal.model import App, Account, AppConfigVersion, AppConfig, ApiTool, Dataset, AppDatasetJoin, Conversation, \
     Message, MessageAgentThought
-from internal.schema.app_schema import CreateAppReq, GetPublishHistoriesWithPageReq
+from internal.schema.app_schema import CreateAppReq, GetPublishHistoriesWithPageReq, \
+    GetDebugConversationMessagesWithPageReq
 from internal.service.base_service import BaseService
 from internal.service.conversation_service import ConversationService
 from internal.service.retrieval_service import RetrievalService
@@ -708,6 +709,39 @@ class AppService(BaseService):
 
         # 2.调用智能体队列管理器停止特定任务
         AgentQueueManager.set_stop_flag(task_id, InvokeFrom.DEBUGGER, account.id)
+
+    def get_debug_conversation_messages_with_page(
+            self,
+            app_id: UUID,
+            req: GetDebugConversationMessagesWithPageReq,
+            account: Account) -> tuple[list[Message], Paginator]:
+        """根据传递的应用id+请求数据，获取调试会话列表的分页数据"""
+        # 1. 获取应用信息并校验权限
+        app = self.get_app(app_id, account)
+
+        # 2. 获取应用的调试会话
+        debug_conversation = app.debug_conversation
+
+        # 3.构建分页器并构建游标条件
+        paginator = Paginator(db=self.db, req=req)
+        filters = []
+
+        if req.created_at.data:
+            # 将时间戳转换成DateTime
+            created_at_datetime = datetime.fromtimestamp(req.created_at.data)
+            filters.append(Message.created_at <= created_at_datetime)
+
+        # 5.执行分页并查询数据
+        messages = paginator.paginate(
+            self.db.session.query(Message).filter(
+                Message.conversation_id == debug_conversation.id,
+                Message.status.in_([MessageStatus.STOP, MessageStatus.NORMAL]),
+                Message.answer != "",
+                *filters,
+            ).order_by(desc("created_at"))
+        )
+
+        return messages, paginator
 
     def _validate_draft_app_config(self, draft_app_config: dict[str, Any], account: Account) -> dict[str, Any]:
         """校验传递的应用草稿配置信息，返回校验后的数据"""
