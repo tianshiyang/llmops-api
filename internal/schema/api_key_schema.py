@@ -41,3 +41,8 @@ class GetApiKeysWithPageResp(Schema):
             "updated_at": datetime_to_timestamp(data.updated_at),
             "created_at": datetime_to_timestamp(data.created_at),
         }
+
+
+class UpdateApiKeyIsActiveReq(FlaskForm):
+    """更新API秘钥激活请求"""
+    is_active = BooleanField("is_active")

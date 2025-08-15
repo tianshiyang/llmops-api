@@ -318,11 +318,18 @@ class Router:
         # 13.1获取秘钥列表
         bp.add_url_rule("/openapi/api-keys", view_func=self.api_key_handler.get_api_keys_with_page)
 
-        # 13.1创建API秘钥
+        # 13.2创建API秘钥
         bp.add_url_rule(
             "/openapi/api-keys",
             methods=["POST"],
             view_func=self.api_key_handler.create_api_key,
+        )
+
+        # 13.3更新api_key开启状态
+        bp.add_url_rule(
+            "/openapi/api-keys/<uuid:api_key_id>/is-active",
+            methods=["POST"],
+            view_func=self.api_key_handler.update_api_key_is_active,
         )
 
         # 6. 在应用上注册蓝图

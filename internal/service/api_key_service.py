@@ -9,9 +9,10 @@ import secrets
 
 from injector import inject
 from dataclasses import dataclass
-
+from uuid import UUID
 from sqlalchemy import desc
 
+from internal.exception import ForbiddenException
 from internal.model import ApiKey, Account
 from internal.schema.api_key_schema import CreateApiKeyReq
 from internal.service.base_service import BaseService
@@ -48,6 +49,19 @@ class ApiKeyService(BaseService):
         )
 
         return api_keys, paginate
+
+    def get_api_key(self, api_key_id: UUID, account: Account) -> ApiKey:
+        """根据传递的秘钥id+账号信息获取记录"""
+        api_key = self.get(ApiKey, api_key_id)
+        if not api_key or api_key.account_id != account.id:
+            raise ForbiddenException("API秘钥不存在或无权限")
+        return api_key
+
+    def update_api_key(self, api_key_id: UUID, account: Account, **kwargs) -> ApiKey:
+        """根据传递的信息，更新API秘钥"""
+        api_key = self.get_api_key(api_key_id, account)
+        self.update(api_key, **kwargs)
+        return api_key
 
     @classmethod
     def generate_api_key(cls, api_key_prefix: str = "llmops-v1/") -> str:
