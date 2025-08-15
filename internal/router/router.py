@@ -316,7 +316,7 @@ class Router:
         )
 
         # 13.1获取秘钥列表
-        # bp.add_url_rule("/openapi/api-keys", view_func=self.api_key_handler.get_api_keys_with_page)
+        bp.add_url_rule("/openapi/api-keys", view_func=self.api_key_handler.get_api_keys_with_page)
 
         # 13.1创建API秘钥
         bp.add_url_rule(
