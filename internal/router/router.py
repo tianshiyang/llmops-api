@@ -11,7 +11,7 @@ from flask import Flask, Blueprint
 from injector import inject
 
 from internal.handler import AppHandler, BuiltinToolHandler, ApiToolHandler, UploadFileHandler, DatasetHandler, \
-    SegmentHandler, OAuthHandler, AuthHandler, AccountHandler, AiHandler, DocumentHandler, ApiKeyHandler
+    SegmentHandler, OAuthHandler, AuthHandler, AccountHandler, AiHandler, DocumentHandler, ApiKeyHandler, OpenAPIHandler
 
 
 @inject
@@ -32,11 +32,13 @@ class Router:
     account_handler: AccountHandler
     ai_handler: AiHandler
     api_key_handler: ApiKeyHandler
+    openapi_handler: OpenAPIHandler
 
     def register_router(self, app: Flask):
         """注册路由"""
         # 1. 创建一个蓝图（一组路由的集合）
         bp = Blueprint('llmops', __name__, url_prefix='')
+        openapi_bp = Blueprint("openapi", __name__, url_prefix="")
 
         # 2. 将url与对应的控制器方法做绑定
         # bp.add_url_rule('/apps/<uuid:app_id>/debug', view_func=self.app_handler.debug, methods=['POST'])
@@ -331,12 +333,14 @@ class Router:
             methods=["POST"],
             view_func=self.api_key_handler.update_api_key_is_active,
         )
-
+        # 13.4删除api_key
         bp.add_url_rule(
             "/openapi/api-keys/<uuid:api_key_id>/delete",
             methods=["POST"],
             view_func=self.api_key_handler.delete_api_key,
         )
+        openapi_bp.add_url_rule("/openapi/chat", methods=["post"], view_func=self.openapi_handler.chat)
 
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)
+        app.register_blueprint(openapi_bp)

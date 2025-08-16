@@ -12,6 +12,7 @@ from .dataset import Dataset, Document, Segment, KeywordTable, DatasetQuery, Pro
 from .upload_file import UploadFile
 from .account import Account, AccountOAuth
 from .api_key import ApiKey
+from .end_user import EndUser
 
 __all__ = [
     "App", "AppDatasetJoin", "AppConfig", "AppConfigVersion", "AppConfigType",

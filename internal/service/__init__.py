@@ -10,6 +10,8 @@ from .builtin_tool_service import BuiltinToolService
 from .jwt_service import JwtService
 from .oauth_service import OAuthService
 from .account_service import AccountService
+from .openapi_service import OpenAPIService
+from .app_config_service import AppConfigService
 
 __all__ = [
     "AppService",
@@ -17,4 +19,6 @@ __all__ = [
     "JwtService",
     "OAuthService",
     "AccountService",
+    "OpenAPIService",
+    "AppConfigService"
 ]

@@ -69,6 +69,13 @@ class ApiKeyService(BaseService):
         self.delete(api_key)
         return api_key
 
+    def get_api_by_by_credential(self, api_key: str) -> ApiKey:
+        """根据传递的凭证信息获取ApiKey记录"""
+        print(api_key, '---------')
+        return self.db.session.query(ApiKey).filter(
+            ApiKey.api_key == api_key
+        ).one_or_none()
+
     @classmethod
     def generate_api_key(cls, api_key_prefix: str = "llmops-v1/") -> str:
         """生成一个长度为48的API秘钥，并携带前缀"""
