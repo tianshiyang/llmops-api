@@ -9,7 +9,7 @@ import mimetypes
 import os.path
 from typing import Any
 
-from flask import current_app
+from flask import current_app, request
 from injector import inject
 from dataclasses import dataclass
 
@@ -47,6 +47,7 @@ class BuiltinToolService:
             provider_entity = provider.provider_entity
             builtin_tool = {
                 **provider_entity.model_dump(exclude=set("icon")),
+                "icon": f"{request.scheme}://{request.host}/builtin-tools/{provider_entity.name}/icon",
                 "tools": [],
             }
 
