@@ -323,6 +323,7 @@ class AppService(BaseService):
             Message,
             app_id=app_id,
             conversation_id=debug_conversation.id,
+            invoke_from=InvokeFrom.DEBUGGER.value,
             created_by=account.id,
             query=query,
             status=MessageStatus.NORMAL.value
@@ -345,36 +346,7 @@ class AppService(BaseService):
         )
 
         # 7.将草稿配置中的tools转换成LangChain工具
-        tools = []
-        for tool in draft_app_config["tools"]:
-            # 8.根据不同的工具执行不同的操作
-            if tool["type"] == "builtin_tool":
-                # 9.内置工具，通过builtin_provider_manager获取工具实例
-                builtin_tool = self.builtin_provider_manager.get_tool(
-                    tool["provider"]["id"],
-                    tool["tool"]["name"]
-                )
-                if not builtin_tool:
-                    continue
-                tools.append(builtin_tool(**tool["tool"]["params"]))
-            else:
-                # 10.API工具，首先根据id找到ApiTool记录，然后创建示例
-                api_tool = self.get(ApiTool, tool["tool"]["id"])
-                if not api_tool:
-                    continue
-                tools.append(
-                    self.api_provider_manager.get_tool(
-                        ToolEntity(
-                            id=str(api_tool.id),
-                            name=api_tool.name,
-                            url=api_tool.url,
-                            method=api_tool.method,
-                            description=api_tool.description,
-                            headers=api_tool.provider.headers,
-                            parameters=api_tool.parameters,
-                        )
-                    )
-                )
+        tools = self.app_config_service.get_langchain_tools_by_tools_config(draft_app_config["tools"])
 
         # 11.检测是否关联了知识库
         if draft_app_config["datasets"]:
@@ -402,11 +374,11 @@ class AppService(BaseService):
 
         agent_thoughts = {}
 
-        for agent_thought in agent.stream(AgentState(
-                messages=[HumanMessage(query)],
-                history=history,
-                long_term_memory=debug_conversation.summary
-        )):
+        for agent_thought in agent.stream({
+            "messages": [HumanMessage(query)],
+            "history": history,
+            "long_term_memory": debug_conversation.summary,
+        }):
             # 15.提取thought以及answer
             event_id = str(agent_thought.id)
 
@@ -416,52 +388,25 @@ class AppService(BaseService):
                 if agent_thought.event == QueueEvent.AGENT_MESSAGE:
                     if event_id not in agent_thoughts:
                         # 19.初始化智能体事件消息
-                        agent_thoughts[event_id] = {
-                            "id": event_id,
-                            "task_id": str(agent_thought.task_id),
-                            "event": agent_thought.event,
-                            "thought": agent_thought.thought,
-                            "observation": agent_thought.observation,
-                            "tool": agent_thought.tool,
-                            "tool_input": agent_thought.tool_input,
-                            "message": agent_thought.message,
-                            "answer": agent_thought.answer,
-                            "latency": agent_thought.latency,
-                        }
+                        agent_thoughts[event_id] = agent_thought
                     else:
                         # 20.叠加智能体消息
-                        agent_thoughts[event_id] = {
-                            **agent_thoughts[event_id],
-                            "thought": agent_thoughts[event_id]["thought"] + agent_thought.thought,
-                            "answer": agent_thoughts[event_id]["answer"] + agent_thought.answer,
-                            "latency": agent_thought.latency,
-                        }
+                        agent_thoughts[event_id] = agent_thoughts[event_id].model_copy(update={
+                            "thought": agent_thoughts[event_id].thought + agent_thought.thought,
+                            "answer": agent_thoughts[event_id].answer + agent_thought.answer,
+                            "latency": agent_thought.latency
+                        })
                 else:
                     # 21.处理其他类型事件的消息
-                    agent_thoughts[event_id] = {
-                        "id": event_id,
-                        "task_id": str(agent_thought.task_id),
-                        "event": agent_thought.event,
-                        "thought": agent_thought.thought,
-                        "observation": agent_thought.observation,
-                        "tool": agent_thought.tool,
-                        "tool_input": agent_thought.tool_input,
-                        "message": agent_thought.message,
-                        "answer": agent_thought.answer,
-                        "latency": agent_thought.latency,
-                    }
+                    agent_thoughts[event_id] = agent_thought
             data = {
+                **agent_thought.model_dump(include={
+                    "event", "thought", "observation", "tool", "tool_input", "answer", "latency",
+                }),
                 "id": event_id,
                 "conversation_id": str(debug_conversation.id),
                 "message_id": str(message.id),
                 "task_id": str(agent_thought.task_id),
-                "event": agent_thought.event,
-                "thought": agent_thought.thought,
-                "observation": agent_thought.observation,
-                "tool": agent_thought.tool,
-                "tool_input": agent_thought.tool_input,
-                "answer": agent_thought.answer,
-                "latency": agent_thought.latency,
             }
             yield f"event: {agent_thought.event}\ndata:{json.dumps(data)}\n\n"
 
@@ -475,7 +420,7 @@ class AppService(BaseService):
                 "draft_app_config": draft_app_config,
                 "conversation_id": debug_conversation.id,
                 "message_id": message.id,
-                "agent_thoughts": agent_thoughts,
+                "agent_thoughts": [agent_thought for agent_thought in agent_thoughts.values()],
             }
         )
         thread.start()

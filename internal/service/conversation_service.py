@@ -53,18 +53,18 @@ class ConversationService(BaseService):
             message = self.get(Message, message_id)
 
             # 3.循环遍历所有的智能体推理过程执行存储操作
-            for key, item in agent_thoughts:
+            for agent_thought in agent_thoughts:
                 # 4.存储长期记忆召回、推理、消息、动作、知识库检索等步骤
-                if item["event"] in [
+                if agent_thought.event in [
                     QueueEvent.LONG_TERM_MEMORY_RECALL,
                     QueueEvent.AGENT_THOUGHT,
                     QueueEvent.AGENT_MESSAGE,
                     QueueEvent.AGENT_ACTION,
-                    QueueEvent.DATASET_RETRIEVAL
+                    QueueEvent.DATASET_RETRIEVAL,
                 ]:
                     # 5.更新位置及总耗时
                     position += 1
-                    latency += item["latency"]
+                    latency += agent_thought["latency"]
 
                     # 6.创建智能体消息推理步骤
                     self.create(
@@ -75,29 +75,29 @@ class ConversationService(BaseService):
                         invoke_from=InvokeFrom.DEBUGGER,
                         created_by=account_id,
                         position=position,
-                        event=item["event"],
-                        thought=item["thought"],
-                        observation=item["observation"],
-                        tool=item["tool"],
-                        tool_input=item["tool_input"],
-                        message=item["message"],
-                        answer=item["answer"],
-                        latency=item["latency"],
+                        event=agent_thought.event,
+                        thought=agent_thought.thought,
+                        observation=agent_thought.observation,
+                        tool=agent_thought.tool,
+                        tool_input=agent_thought.tool_input,
+                        message=agent_thought.message,
+                        answer=agent_thought.answer,
+                        latency=agent_thought.latency,
                     )
                 # 7.检测事件是否为Agent_message
-                if item["event"] == QueueEvent.AGENT_MESSAGE:
+                if agent_thought.event == QueueEvent.AGENT_MESSAGE:
                     # 8.更新消息信息
                     self.update(
                         message,
-                        message=item["message"],
-                        answer=item["answer"],
-                        latency=latency
+                        message=agent_thought.message,
+                        answer=agent_thought.answer,
+                        latency=latency,
                     )
                 # 9.检测是否开启长期记忆
                 if draft_app_config["long_term_memory"]["enable"]:
                     new_summary = self.summary(
                         message.query,
-                        item["answer"],
+                        agent_thought.answer,
                         conversation.summary
                     )
                     self.update(
@@ -110,11 +110,11 @@ class ConversationService(BaseService):
                     self.update(conversation, name=new_conversation_name)
 
             # 11.判断是否为停止或者错误，如果是则需要更新消息状态
-            if item["event"] in [QueueEvent.STOP, QueueEvent.ERROR]:
+            if agent_thought.event in [QueueEvent.TIMEOUT, QueueEvent.STOP, QueueEvent.ERROR]:
                 self.update(
                     message,
-                    status=MessageStatus.STOP.value if item["event"] == QueueEvent.STOP else MessageStatus.ERROR.value,
-                    observation=item["observation"]
+                    status=agent_thought.event,
+                    observation=agent_thought.observation,
                 )
 
     @classmethod
