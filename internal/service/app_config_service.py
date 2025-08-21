@@ -30,6 +30,34 @@ class AppConfigService(BaseService):
     builtin_provider_manager: BuiltinProviderManager
     api_provider_manager: ApiProviderManager
 
+    def get_draft_app_config(self, app: App) -> dict[str, Any]:
+        """根据传递的应用获取该应用的草稿配置"""
+        # 1.提取应用到草稿配置
+        draft_app_config = app.draft_app_config
+
+        # 2.todo:2.校验model_config配置信息，等待多LLM实现的时候再来完成
+
+        # 3.循环遍历工具列表删除已经被删除的工具信息
+        tools, validate_tools = self._process_and_validate_tools(draft_app_config.tools)
+
+        # 4.判断是否需要更新草稿配置中的工具列表信息
+        if draft_app_config.tools != validate_tools:
+            # 14.更新草稿配置中的工具列表
+            self.update(draft_app_config, tools=validate_tools)
+
+        # 5.校验知识库列表，如果引用了不存在/被删除的知识库，需要提出数据并更新，同时获取知识库的额外信息
+        datasets, validate_datasets = self._process_and_validate_datasets(draft_app_config.datasets)
+
+        # 6.判断是否存在已删除的知识库，如果存在则更新
+        if set(validate_datasets) != set(draft_app_config.datasets):
+            self.update(draft_app_config, datasets=validate_datasets)
+
+        # 7.todo：7校验工作流列表对应的数据
+        workflows = []
+
+        # 20.将数据转换成字典后
+        return self._process_and_transformer_app_config(tools, workflows, datasets, draft_app_config)
+
     def get_app_config(self, app: App) -> dict[str, Any]:
         """根据传递的应用获取该应用的运行配置"""
         # 1.提取应用的草稿配置
@@ -142,7 +170,7 @@ class AppConfigService(BaseService):
                 if not tool_entity:
                     continue
 
-                # 4.判断工具的params和草稿中的params是否一致，如果不一致则全部重置为默认值（或者开率删除这个工具的引用）
+                # 4.判断工具的params和草稿中的params是否一致，如果不一致则全部重置为默认值（或者考虑删除这个工具的引用）
                 param_keys = set([param.name for param in tool_entity.params])
                 params = tool["params"]
 
