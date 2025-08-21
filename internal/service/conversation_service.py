@@ -64,7 +64,7 @@ class ConversationService(BaseService):
                 ]:
                     # 5.更新位置及总耗时
                     position += 1
-                    latency += agent_thought["latency"]
+                    latency += agent_thought.latency
 
                     # 6.创建智能体消息推理步骤
                     self.create(
