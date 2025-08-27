@@ -382,7 +382,7 @@ class AppService(BaseService):
             # 15.提取thought以及answer
             event_id = str(agent_thought.id)
 
-            # 17.将数据填充到agent_though，便于春初到数据库服务中
+            # 17.将数据填充到agent_though，便于存储到数据库服务中
             if agent_thought.event != QueueEvent.PING:
                 # 18.除了agent_message数据为叠加，其他均为覆盖
                 if agent_thought.event == QueueEvent.AGENT_MESSAGE:
