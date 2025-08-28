@@ -347,6 +347,11 @@ class Router:
             methods=["POST"],
             view_func=self.api_key_handler.delete_api_key,
         )
+        bp.add_url_rule(
+            "/openapi/api-keys/<uuid:api_key_id>",
+            methods=["POST"],
+            view_func=self.api_key_handler.update_api_key,
+        )
         openapi_bp.add_url_rule("/openapi/chat", methods=["post"], view_func=self.openapi_handler.chat)
 
         # 6. 在应用上注册蓝图

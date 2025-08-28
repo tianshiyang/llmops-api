@@ -46,3 +46,11 @@ class GetApiKeysWithPageResp(Schema):
 class UpdateApiKeyIsActiveReq(FlaskForm):
     """更新API秘钥激活请求"""
     is_active = BooleanField("is_active")
+
+
+class UpdateApiKeyReq(FlaskForm):
+    """更新API秘钥请求"""
+    is_active = BooleanField("is_active")
+    remark = StringField("remark", validators=[
+        Length(max=100, message="秘钥备注不能超过100个字符")
+    ])

@@ -11,7 +11,8 @@ from flask import request
 from flask_login import login_required, current_user
 from injector import inject
 
-from internal.schema.api_key_schema import CreateApiKeyReq, GetApiKeysWithPageResp, UpdateApiKeyIsActiveReq
+from internal.schema.api_key_schema import CreateApiKeyReq, GetApiKeysWithPageResp, UpdateApiKeyIsActiveReq, \
+    UpdateApiKeyReq
 from internal.service.api_key_service import ApiKeyService
 from pkg.paginator.paginator import PaginatorReq, PageModel
 from pkg.response import validate_error_json, success_message, success_json
@@ -58,6 +59,17 @@ class ApiKeyHandler:
             # 2.调用服务更新秘钥是否激活
         self.api_key_service.update_api_key(api_key_id, current_user, **req.data)
         return success_message("更新API秘钥激活状态成功")
+
+    def update_api_key(self, api_key_id: UUID):
+        """根据传递的信息更新API秘钥"""
+        # 1.根据传递的信息更新API秘钥
+        req = UpdateApiKeyReq()
+        if not req.validate():
+            return validate_error_json(req.errors)
+
+        # 2.调用服务更新秘钥
+        self.api_key_service.update_api_key(api_key_id, current_user, **req.data)
+        return success_message("更新API秘钥成功")
 
     def delete_api_key(self, api_key_id: UUID):
         """根据传递的id删除API秘钥"""
