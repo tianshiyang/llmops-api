@@ -43,6 +43,14 @@ class Router:
         # 2. 将url与对应的控制器方法做绑定
         # bp.add_url_rule('/apps/<uuid:app_id>/debug', view_func=self.app_handler.debug, methods=['POST'])
         # bp.add_url_rule('/ping', view_func=self.app_handler.ping)
+        # 2.15 获取当前登录账号的应用分页列表数据
+        bp.add_url_rule("/apps", view_func=self.app_handler.get_apps_with_page)
+        # 2.16 根据传递的信息更新指定的应用
+        bp.add_url_rule("/apps/<uuid:app_id>", methods=["POST"], view_func=self.app_handler.update_app)
+        # 2.17 删除app
+        bp.add_url_rule("/apps/<uuid:app_id>/delete", methods=["POST"], view_func=self.app_handler.delete_app)
+        # 2.18 根据传递的应用id快速拷贝该应用
+        bp.add_url_rule("/apps/<uuid:app_id>/copy", methods=["POST"], view_func=self.app_handler.copy_app)
         # 2.1 创建应用
         bp.add_url_rule('/apps', methods=["POST"], view_func=self.app_handler.create_app)
         # 2.2 获取应用
