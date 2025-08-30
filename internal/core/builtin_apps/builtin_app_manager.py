@@ -63,6 +63,7 @@ class BuiltinAppManager(BaseModel):
                 # 5.初始化内置应用数据并添加到字典中
                 builtin_app["language_model_config"] = builtin_app.pop("model_config")
                 self.builtin_app_map[builtin_app.get("id")] = BuiltinAppEntity(**builtin_app)
+                print(self.builtin_app_map)
 
     def _init_categories(self):
         """初始化内置工具分类列表信息"""

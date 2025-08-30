@@ -359,11 +359,11 @@ class Router:
         # 10.内置应用模块
         bp.add_url_rule("/builtin-apps/categories", view_func=self.builtin_app_handler.get_builtin_app_categories)
         bp.add_url_rule("/builtin-apps", view_func=self.builtin_app_handler.get_builtin_apps)
-        # bp.add_url_rule(
-        #     "/builtin-apps/add-builtin-app-to-space",
-        #     methods=["POST"],
-        #     view_func=self.builtin_app_handler.add_builtin_app_to_space,
-        # )
+        bp.add_url_rule(
+            "/builtin-apps/add-builtin-app-to-space",
+            methods=["POST"],
+            view_func=self.builtin_app_handler.add_builtin_app_to_space,
+        )
 
         openapi_bp.add_url_rule("/openapi/chat", methods=["post"], view_func=self.openapi_handler.chat)
 
