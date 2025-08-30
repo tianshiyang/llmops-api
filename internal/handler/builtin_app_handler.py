@@ -7,7 +7,7 @@
 """
 from flask_login import login_required
 
-from internal.schema.builtin_app_schema import GetBuiltinAppCategoriesResp
+from internal.schema.builtin_app_schema import GetBuiltinAppCategoriesResp, GetBuiltinAppsResp
 from internal.service.builtin_app_service import BuiltinAppService
 from pkg.response import success_json
 from dataclasses import dataclass
@@ -26,3 +26,10 @@ class BuiltinAppHandler:
         categories = self.builtin_app_service.get_categories()
         resp = GetBuiltinAppCategoriesResp(many=True)
         return success_json(resp.dump(categories))
+
+    @login_required
+    def get_builtin_apps(self):
+        """获取所有内置应用列表信息"""
+        builtin_apps = self.builtin_app_service.get_builtin_apps()
+        resp = GetBuiltinAppsResp(many=True)
+        return success_json(resp.dump(builtin_apps))

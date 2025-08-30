@@ -28,13 +28,41 @@ class BuiltinAppManager(BaseModel):
         self._init_categories()
         self._init_builtin_app_map()
 
+    def get_builtin_app(self, builtin_app_id: str) -> BuiltinAppEntity:
+        """根据传递的id获取内置工具信息"""
+        return self.builtin_app_map.get(builtin_app_id, None)
+
+    def get_builtin_apps(self) -> list[BuiltinAppEntity]:
+        """获取内置应用实体列表信息"""
+        return [builtin_app_entity for builtin_app_entity in self.builtin_app_map.values()]
+
     def get_categories(self) -> list[CategoryEntity]:
         """获取内置应用实体分类列表信息"""
         return self.categories
 
     def _init_builtin_app_map(self):
         """内置工具管理器初始化时初始化所有内置工具信息"""
-        pass
+        # 1.检测builtin_app_map是否为空
+        if self.builtin_app_map:
+            return
+
+        # 2.获取当前文件夹/类所在的文件路径
+        current_path = os.path.abspath(__file__)
+        parent_path = os.path.dirname(current_path)
+        builtin_apps_yaml_path = os.path.join(parent_path, "builtin_apps")
+
+        # 3.循环遍历builtin_apps_yaml_path读取底下的所有yaml文件
+        for filename in os.listdir(builtin_apps_yaml_path):
+            if filename.endswith(".yaml") or filename.endswith(".yml"):
+                file_path = os.path.join(builtin_apps_yaml_path, filename)
+
+                # 4.读取yaml数据
+                with open(file_path, encoding="utf-8") as f:
+                    builtin_app = yaml.safe_load(f)
+
+                # 5.初始化内置应用数据并添加到字典中
+                builtin_app["language_model_config"] = builtin_app.pop("model_config")
+                self.builtin_app_map[builtin_app.get("id")] = BuiltinAppEntity(**builtin_app)
 
     def _init_categories(self):
         """初始化内置工具分类列表信息"""
