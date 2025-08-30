@@ -11,7 +11,8 @@ from flask import Flask, Blueprint
 from injector import inject
 
 from internal.handler import AppHandler, BuiltinToolHandler, ApiToolHandler, UploadFileHandler, DatasetHandler, \
-    SegmentHandler, OAuthHandler, AuthHandler, AccountHandler, AiHandler, DocumentHandler, ApiKeyHandler, OpenAPIHandler
+    SegmentHandler, OAuthHandler, AuthHandler, AccountHandler, AiHandler, DocumentHandler, ApiKeyHandler, \
+    OpenAPIHandler, BuiltinAppHandler
 
 
 @inject
@@ -33,6 +34,7 @@ class Router:
     ai_handler: AiHandler
     api_key_handler: ApiKeyHandler
     openapi_handler: OpenAPIHandler
+    builtin_app_handler: BuiltinAppHandler
 
     def register_router(self, app: Flask):
         """注册路由"""
@@ -352,6 +354,17 @@ class Router:
             methods=["POST"],
             view_func=self.api_key_handler.update_api_key,
         )
+
+        # 14.内置应用模块
+        # 10.内置应用模块
+        bp.add_url_rule("/builtin-apps/categories", view_func=self.builtin_app_handler.get_builtin_app_categories)
+        # bp.add_url_rule("/builtin-apps", view_func=self.builtin_app_handler.get_builtin_apps)
+        # bp.add_url_rule(
+        #     "/builtin-apps/add-builtin-app-to-space",
+        #     methods=["POST"],
+        #     view_func=self.builtin_app_handler.add_builtin_app_to_space,
+        # )
+
         openapi_bp.add_url_rule("/openapi/chat", methods=["post"], view_func=self.openapi_handler.chat)
 
         # 6. 在应用上注册蓝图

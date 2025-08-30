@@ -3,7 +3,7 @@
 """
 @Time    : 17.6.25 AM12:17
 @Author  : tianshiyang
-@File    : category_entity.py
+@File    : categories.py
 """
 from pydantic import BaseModel, field_validator
 

@@ -6,12 +6,14 @@
 @File    : __init__.py.py
 """
 from .app_service import AppService
+from .builtin_app_service import BuiltinAppService
 from .builtin_tool_service import BuiltinToolService
 from .jwt_service import JwtService
 from .oauth_service import OAuthService
 from .account_service import AccountService
 from .openapi_service import OpenAPIService
 from .app_config_service import AppConfigService
+from .builtin_app_service import BuiltinAppService
 
 __all__ = [
     "AppService",
@@ -20,5 +22,6 @@ __all__ = [
     "OAuthService",
     "AccountService",
     "OpenAPIService",
-    "AppConfigService"
+    "AppConfigService",
+    "BuiltinAppService",
 ]
