@@ -13,6 +13,7 @@ from injector import inject
 from internal.handler import AppHandler, BuiltinToolHandler, ApiToolHandler, UploadFileHandler, DatasetHandler, \
     SegmentHandler, OAuthHandler, AuthHandler, AccountHandler, AiHandler, DocumentHandler, ApiKeyHandler, \
     OpenAPIHandler, BuiltinAppHandler
+from internal.handler.workflow_handler import WorkflowHandler
 
 
 @inject
@@ -35,6 +36,7 @@ class Router:
     api_key_handler: ApiKeyHandler
     openapi_handler: OpenAPIHandler
     builtin_app_handler: BuiltinAppHandler
+    workflow_handler: WorkflowHandler
 
     def register_router(self, app: Flask):
         """注册路由"""
@@ -366,6 +368,10 @@ class Router:
             methods=["POST"],
             view_func=self.builtin_app_handler.add_builtin_app_to_space,
         )
+
+        # 14工作流模块
+        # 14.1创建工作流
+        bp.add_url_rule("/workflows", methods=["POST"], view_func=self.workflow_handler.create_workflow)
 
         openapi_bp.add_url_rule("/openapi/chat", methods=["post"], view_func=self.openapi_handler.chat)
 
