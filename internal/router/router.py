@@ -356,9 +356,11 @@ class Router:
         )
 
         # 14.内置应用模块
-        # 10.内置应用模块
+        # 14.1 内置应用模块
         bp.add_url_rule("/builtin-apps/categories", view_func=self.builtin_app_handler.get_builtin_app_categories)
+        # 14.2获取所有内置应用列表信息
         bp.add_url_rule("/builtin-apps", view_func=self.builtin_app_handler.get_builtin_apps)
+        # 14.3将指定的内置应用添加到个人空间
         bp.add_url_rule(
             "/builtin-apps/add-builtin-app-to-space",
             methods=["POST"],
