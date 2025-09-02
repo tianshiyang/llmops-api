@@ -6,10 +6,12 @@
 @File    : workflow_service.py
 """
 from pip._internal import req
+from sqlalchemy import desc
 
 from internal.core.workflow.entities.workflow_entity import DEFAULT_WORKFLOW_CONFIG, WorkflowStatus
 from internal.exception import ValidateErrorException, NotFoundException, ForbiddenException
-from internal.schema.workflow_schema import CreateWorkflowReq, UpdateWorkflowReq
+from internal.schema.workflow_schema import CreateWorkflowReq, UpdateWorkflowReq, GetWorkFlowWithPageReq
+from pkg.paginator.paginator import Paginator
 from .base_service import BaseService
 from pkg.sqlalchemy import SQLAlchemy
 from internal.model import Workflow, Account
@@ -75,3 +77,22 @@ class WorkflowService(BaseService):
         # 更新工作流基础信息
         self.update(workflow, **kwargs)
         return workflow
+
+    def GetWorkFlowWithPageReq(self, req: GetWorkFlowWithPageReq, account: Account) -> tuple[list[Workflow], Paginator]:
+        """根据传递的信息获取工作流分页列表数据"""
+        # 1. 构建分页器
+        paginator = Paginator(db=self.db, req=req)
+
+        # 2.构建查询
+        filters = [Workflow.account_id == account.id]
+        if req.search_word.data:
+            filters.append(Workflow.name.ilike(f"%{req.search_word.data}%"))
+        if req.status.data:
+            filters.append(Workflow.status == req.status.data)
+
+        # 3.分页查询数据
+        workflows = paginator.paginate(
+            self.db.session.query(Workflow).filter(*filters).order_by(desc("created_at"))
+        )
+
+        return workflows, paginator

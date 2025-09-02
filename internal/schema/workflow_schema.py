@@ -8,11 +8,12 @@
 from flask_wtf import FlaskForm
 from marshmallow import Schema, fields, pre_dump
 from wtforms import StringField
-from wtforms.validators import DataRequired, Length, Regexp, URL
+from wtforms.validators import DataRequired, Length, Regexp, URL, Optional, AnyOf
 
-from internal.core.workflow.entities.workflow_entity import WORKFLOW_CONFIG_NAME_PATTERN
+from internal.core.workflow.entities.workflow_entity import WORKFLOW_CONFIG_NAME_PATTERN, WorkflowStatus
 from internal.lib.helper import datetime_to_timestamp
 from internal.model import Workflow
+from pkg.paginator.paginator import PaginatorReq
 
 
 class CreateWorkflowReq(FlaskForm):
@@ -81,6 +82,48 @@ class GetWorkflowResp(Schema):
             "status": data.status,
             "is_debug_passed": data.is_debug_passed,
             "node_count": len(data.draft_graph.get("nodes", [])),
+            "published_at": datetime_to_timestamp(data.published_at),
+            "updated_at": datetime_to_timestamp(data.updated_at),
+            "created_at": datetime_to_timestamp(data.created_at),
+        }
+
+
+class GetWorkFlowWithPageReq(PaginatorReq):
+    """获取工作流分页列表数据请求结构"""
+    status = StringField("status", default="", validators=[
+        Optional(),
+        AnyOf(WorkflowStatus.__members__.values(), message="工作流状态格式错误")
+    ])
+    search_word = StringField("search_word", default="", validators=[
+        Optional()
+    ])
+
+
+class GetWorkflowsWithPageResp(Schema):
+    """获取工作流分页列表数据响应结构"""
+    id = fields.UUID(dump_default="")
+    name = fields.String(dump_default="")
+    tool_call_name = fields.String(dump_default="")
+    icon = fields.String(dump_default="")
+    description = fields.String(dump_default="")
+    status = fields.String(dump_default="")
+    is_debug_passed = fields.Boolean(dump_default=False)
+    node_count = fields.Integer(dump_default=0)
+    published_at = fields.Integer(dump_default=0)
+    updated_at = fields.Integer(dump_default=0)
+    created_at = fields.Integer(dump_default=0)
+
+    @pre_dump
+    def process_data(self, data: Workflow, **kwargs):
+        return {
+            "id": data.id,
+            "name": data.name,
+            "tool_call_name": data.tool_call_name,
+            "icon": data.icon,
+            "description": data.description,
+            "status": data.status,
+            "is_debug_passed": data.is_debug_passed,
+            "node_count": len(data.graph.get("nodes", [])),
             "published_at": datetime_to_timestamp(data.published_at),
             "updated_at": datetime_to_timestamp(data.updated_at),
             "created_at": datetime_to_timestamp(data.created_at),

@@ -5,12 +5,15 @@
 @Author  : tianshiyang
 @File    : workflow_handler.py
 """
+from flask import request
 from flask_login import login_required, current_user
 from injector import inject
 from dataclasses import dataclass
 
-from internal.schema.workflow_schema import CreateWorkflowReq, UpdateWorkflowReq, GetWorkflowResp
+from internal.schema.workflow_schema import CreateWorkflowReq, UpdateWorkflowReq, GetWorkflowResp, \
+    GetWorkFlowWithPageReq, GetWorkflowsWithPageResp
 from internal.service.workflow_service import WorkflowService
+from pkg.paginator.paginator import PageModel
 from pkg.response import validate_error_json, success_json, success_message
 from uuid import UUID
 
@@ -36,6 +39,20 @@ class WorkflowHandler:
         workflow = self.workflow_service.get_workflow(workflow_id, current_user)
         resp = GetWorkflowResp()
         return success_json(resp.dump(workflow))
+
+    @login_required
+    def get_workflows_with_page(self):
+        """获取当前登录账号下的工作流分页列表数据"""
+        req = GetWorkFlowWithPageReq(request.args)
+        if not req.validate():
+            return validate_error_json(req.errors)
+
+        # 获取分页列表数据
+        workflows, paginator = self.workflow_service.GetWorkFlowWithPageReq(req, current_user)
+
+        # 构建响应
+        reps = GetWorkflowsWithPageResp(many=True)
+        return success_json(PageModel(list=reps.dump(workflows), paginator=paginator))
 
     @login_required
     def update_workflow(self, workflow_id: UUID):

@@ -370,9 +370,13 @@ class Router:
         )
 
         # 14工作流模块
+        # 14.获取所有工作流
+        bp.add_url_rule("/workflows", view_func=self.workflow_handler.get_workflows_with_page)
         # 14.1创建工作流
         bp.add_url_rule("/workflows", methods=["POST"], view_func=self.workflow_handler.create_workflow)
+        # 14.2获取工作流详情
         bp.add_url_rule("/workflows/<uuid:workflow_id>", view_func=self.workflow_handler.get_workflow)
+        # 14.3更新工作流
         bp.add_url_rule(
             "/workflows/<uuid:workflow_id>",
             methods=["POST"],
