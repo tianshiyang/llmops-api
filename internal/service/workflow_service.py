@@ -60,6 +60,16 @@ class WorkflowService(BaseService):
 
         return workflow
 
+    def delete_workflow(self, workflow_id: UUID, account: Account) -> Workflow:
+        """根据传递的工作流id+账号信息，删除指定的工作流"""
+        # 1.获取工作流基础信息并校验权限
+        workflow = self.get_workflow(workflow_id, account)
+
+        # 2.删除工作流
+        self.delete(workflow)
+
+        return workflow
+
     def update_workflow(self, workflow_id: UUID, account: Account, **kwargs) -> Workflow:
         """根据传递的工作流id+请求更新工作流基础信息"""
         # 1.获取工作流基础信息并校验权限

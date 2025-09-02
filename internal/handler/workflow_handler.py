@@ -34,6 +34,12 @@ class WorkflowHandler:
         return success_json({"id": workflow.id})
 
     @login_required
+    def delete_workflow(self, workflow_id: UUID):
+        """根据传递的工作流id删除指定的工作流"""
+        self.workflow_service.delete_workflow(workflow_id, current_user)
+        return success_message("删除工作流成功")
+
+    @login_required
     def get_workflow(self, workflow_id: UUID):
         """根据传递的工作流id获取工作流详情"""
         workflow = self.workflow_service.get_workflow(workflow_id, current_user)

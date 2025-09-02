@@ -382,6 +382,12 @@ class Router:
             methods=["POST"],
             view_func=self.workflow_handler.update_workflow,
         )
+        # 14.4删除工作流
+        bp.add_url_rule(
+            "/workflows/<uuid:workflow_id>/delete",
+            methods=["POST"],
+            view_func=self.workflow_handler.delete_workflow,
+        )
 
         openapi_bp.add_url_rule("/openapi/chat", methods=["post"], view_func=self.openapi_handler.chat)
 
