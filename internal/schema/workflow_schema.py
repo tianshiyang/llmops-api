@@ -10,7 +10,7 @@ from marshmallow import Schema, fields, pre_dump
 from wtforms import StringField
 from wtforms.validators import DataRequired, Length, Regexp, URL, Optional, AnyOf
 
-from internal.core.workflow.entities.workflow_entity import WORKFLOW_CONFIG_NAME_PATTERN, WorkflowStatus
+from internal.entity.workflow_entity import WORKFLOW_CONFIG_NAME_PATTERN, WorkflowStatus
 from internal.lib.helper import datetime_to_timestamp
 from internal.model import Workflow
 from pkg.paginator.paginator import PaginatorReq

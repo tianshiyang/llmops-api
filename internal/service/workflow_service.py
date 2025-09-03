@@ -5,10 +5,12 @@
 @Author  : tianshiyang
 @File    : workflow_service.py
 """
+from typing import Any
+
 from pip._internal import req
 from sqlalchemy import desc
 
-from internal.core.workflow.entities.workflow_entity import DEFAULT_WORKFLOW_CONFIG, WorkflowStatus
+from internal.entity.workflow_entity import DEFAULT_WORKFLOW_CONFIG, WorkflowStatus
 from internal.exception import ValidateErrorException, NotFoundException, ForbiddenException
 from internal.schema.workflow_schema import CreateWorkflowReq, UpdateWorkflowReq, GetWorkFlowWithPageReq
 from pkg.paginator.paginator import Paginator
@@ -18,6 +20,9 @@ from internal.model import Workflow, Account
 from injector import inject
 from dataclasses import dataclass
 from uuid import UUID
+
+from ..core.workflow.entities.node_entity import NodeType
+from ..core.workflow.nodes import CodeNodeData
 
 
 @inject
@@ -106,3 +111,30 @@ class WorkflowService(BaseService):
         )
 
         return workflows, paginator
+
+    def update_draft_graph(self, workflow_id: UUID, draft_graph: dict[str, Any], account: Account) -> Workflow:
+        """根据传递的工作流id+草稿图配置+账号更新工作流的草稿图"""
+        # 1.根据传递的id获取工作流并校验权限
+        workflow = self.get_workflow(workflow_id, account)
+
+        # 2.校验传递的草稿图配置，因为有可能边有可能还未建立，所以需要校验相关数据
+        validate_draft_graph = self._validate_graph(draft_graph, account)
+
+        # 3.更新工作流草稿图配置，每次修改都将is_debug_passed的值重置为False, 该处可以优化对比字典里除position的其他属性
+        self.update(workflow, **{
+            "draft_graph": validate_draft_graph,
+            "is_debug_passed": False,
+        })
+
+        return workflow
+
+    def _validate_graph(self, graph: dict[str, Any], account: Account):
+        """校验传递的graph信息，涵盖nodes和edges对应的数据，该函数使用相对宽松的校验方式，并且因为是草稿，不需要校验节点与边的关系"""
+        # 1. 提取nodes和edges数据
+        nodes = graph["nodes"]
+        edges = graph["edges"]
+
+        # 2.构建节点类型与节点数据类映射
+        node_data_classes = {
+            NodeType.CODE: CodeNodeData,
+        }

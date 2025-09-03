@@ -5,29 +5,31 @@
 @Author  : tianshiyang
 @File    : workflow_entity.py
 """
-from enum import Enum
+from typing import TypedDict, Annotated, Any
 
-WORKFLOW_CONFIG_NAME_PATTERN = r'^[A-Za-z_][A-Za-z0-9_]*$'
-
-
-class WorkflowStatus(str, Enum):
-    """工作流状态类型枚举"""
-    DRAFT = "draft"
-    PUBLISHED = "published"
+from internal.core.workflow.entities.node_entity import NodeResult
 
 
-class WorkflowResultStatus(str, Enum):
-    """工作流运行结果状态"""
-    RUNNING = "running"
-    SUCCEEDED = "succeeded"
-    FAILED = "failed"
+def _process_dict(left: dict[str, Any], right: dict[str, Any]) -> dict[str, Any]:
+    """工作流状态字典归纳函数"""
+    # 1.处理left和right出现空的情况
+    left = left or {}
+    right = right or {}
+    return {**left, **right}
 
 
-# 工作流默认配置信息，默认添加一个空的工作流
-DEFAULT_WORKFLOW_CONFIG = {
-    "graph": {},
-    "draft_graph": {
-        "nodes": [],
-        "edges": []
-    },
-}
+def _process_node_result(left: dict[str, Any], right: dict[str, Any]) -> list[NodeResult]:
+    """工作流状态节点结果列表归纳函数"""
+    # 1.处理left和right出现空的情况
+    left = left or []
+    right = right or []
+
+    # 2.合并列表更新后返回
+    return left + right
+
+
+class WorkflowState(TypedDict):
+    """工作流图程序状态字典"""
+    inputs: Annotated[dict[str, Any], _process_dict]  # 工作流的最初始输入，也就是工具的输入
+    outputs: Annotated[dict[str, Any], _process_dict]  # 工作流的最终输出结果，也就是工具输出
+    node_results: Annotated[list[NodeResult], _process_node_result]  # 各节点的运行结果

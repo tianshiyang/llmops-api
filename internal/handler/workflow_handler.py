@@ -68,3 +68,17 @@ class WorkflowHandler:
 
         self.workflow_service.update_workflow(workflow_id, current_user, **req.data)
         return success_message("修改工作流基础信息成功")
+
+    @login_required
+    def update_draft_graph(self, workflow_id: UUID):
+        """根据传递的工作流id+请求信息更新工作流草稿图配置"""
+        # 1.提取草稿图接口请求json数据
+        draft_graph_dict = request.get_json(force=True, silent=True) or {
+            "nodes": [],
+            "edges": [],
+        }
+
+        # 2.调用服务更新工作流的草稿图配置
+        self.workflow_service.update_draft_graph(workflow_id, draft_graph_dict, current_user)
+
+        return success_message("更新工作流草稿配置成功")
