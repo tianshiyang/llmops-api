@@ -5,7 +5,7 @@
 @Author  : tianshiyang
 @File    : workflow_service.py
 """
-from typing import Any, Optional
+from typing import Any, Optional, Union
 
 from flask import request
 from sqlalchemy import desc
@@ -161,13 +161,14 @@ class WorkflowService(BaseService):
                     raise ValidateErrorException("工作流节点数据类型出错，请核实后重试")
 
                 # 5.提取节点的node_type类型，并判断类型是否正确
-                node_type: Optional[NodeType, str] = node.get("node_type", "")
+                node_type: Union[NodeType, str] = node.get("node_type", "")
                 node_data_cls = node_data_classes.get(node_type, None)
-                if node_data_cls is not None:
+                if node_data_cls is None:
                     raise ValidateErrorException("工作流节点类型出错，请核实后重试")
 
                 # 6.实例化节点数据类型，如果出错则跳过当前数据
                 node_data = node_data_cls(**node)
+                print("实例化出错了？")
 
                 # 7.判断节点id是否唯一，如果不唯一，则将该节点删除
                 if node_data.id in node_data_dict:
@@ -195,7 +196,8 @@ class WorkflowService(BaseService):
                     node_data.dataset_ids = [dataset.id for dataset in datasets]
                 # 11.将数据添加到node_data_dict中
                 node_data_dict[node_data.id] = node_data
-            except Exception:
+            except Exception as e:
+                print("又出错了", e)
                 continue
 
         # 14.循环校验edges中各个节点对应的数据

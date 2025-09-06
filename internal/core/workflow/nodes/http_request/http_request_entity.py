@@ -17,8 +17,8 @@ from internal.exception import ValidateErrorException
 
 class HttpRequestMethod(str, Enum):
     """HTTP请求方法类型枚举"""
-    GET = "GET"
-    POST = "POST"
+    GET = "get"
+    POST = "post"
     PUT = "put"
     PATCH = "patch"
     DELETE = "delete"

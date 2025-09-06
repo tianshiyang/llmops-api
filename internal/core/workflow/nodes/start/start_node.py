@@ -6,22 +6,24 @@
 @File    : start_node.py
 """
 import time
-from typing import Optional
+from typing import Optional, Any
 
 from langchain_core.runnables import RunnableConfig
+from langchain_core.runnables.utils import Input, Output
 
 from internal.core.workflow.entities.node_entity import NodeResult, NodeStatus
 from internal.core.workflow.entities.variable_entity import VARIABLE_TYPE_DEFAULT_VALUE_MAP
 from internal.core.workflow.entities.workflow_entity import WorkflowState
-from internal.core.workflow.nodes import BaseNode, CodeNodeData
+from .start_entity import StartNodeData
 from internal.exception import FailException
+from internal.core.workflow.nodes import BaseNode
 
 
 class StartNode(BaseNode):
     """开始节点"""
-    node_data: CodeNodeData
+    node_data: StartNodeData
 
-    def invoke(self, state: WorkflowState, config: Optional[RunnableConfig] = None) -> WorkflowState:
+    def invoke(self, state: WorkflowState, config: Optional[RunnableConfig] = None, **kwargs: Any) -> WorkflowState:
         """开始节点执行函数，该函数会提取状态中的输入信息并生成节点结果"""
         # 1.提取节点数据中的输入数据
         start_at = time.perf_counter()
