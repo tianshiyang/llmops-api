@@ -24,7 +24,7 @@ def extract_variables_from_state(variables: list[VariableEntity], state: Workflo
 
         # 4.判断数据是引用还是直接输入
         if variable.value.type == VariableValueType.LITERAL:
-            variables_dict[variable.name] = variable.value
+            variables_dict[variable.name] = variable_type_cls(variable.value.content)
         else:
             # 5.引用or生成数据类型，遍历节点获取数据
             for node_result in state["node_results"]:
