@@ -11,7 +11,7 @@ from sqlalchemy import desc
 
 from internal.entity.workflow_entity import DEFAULT_WORKFLOW_CONFIG, WorkflowStatus
 from internal.exception import ValidateErrorException, NotFoundException, ForbiddenException
-from internal.schema.workflow_schema import CreateWorkflowReq, UpdateWorkflowReq, GetWorkFlowWithPageReq
+from internal.schema.workflow_schema import CreateWorkflowReq, GetWorkFlowWithPageReq
 from pkg.paginator.paginator import Paginator
 from .base_service import BaseService
 from pkg.sqlalchemy import SQLAlchemy
@@ -22,7 +22,7 @@ from uuid import UUID
 
 from ..core.workflow.entities.edge_entity import BaseEdgeData
 from ..core.workflow.entities.node_entity import NodeType, BaseNodeData
-from ..core.workflow.nodes import CodeNodeData, LLMNodeData, StartNodeData
+from ..core.workflow.nodes import CodeNodeData, LLMNodeData, StartNodeData, HttpRequestNodeData, EndNodeData
 from ..lib.helper import convert_model_to_dict
 
 
@@ -138,13 +138,13 @@ class WorkflowService(BaseService):
         # 2.构建节点类型与节点数据类映射
         node_data_classes = {
             NodeType.START: StartNodeData,
-            # NodeType.END: EndNodeData,
+            NodeType.END: EndNodeData,
             NodeType.LLM: LLMNodeData,
             # NodeType.TEMPLATE_TRANSFORM: TemplateTransformNodeData,
             # NodeType.DATASET_RETRIEVAL: DatasetRetrievalNodeData,
             NodeType.CODE: CodeNodeData,
             # NodeType.TOOL: ToolNodeData,
-            # NodeType.HTTP_REQUEST: HttpRequestNodeData,
+            NodeType.HTTP_REQUEST: HttpRequestNodeData,
         }
 
         # 3.循环校验nodes中的各个节点对应的数据
