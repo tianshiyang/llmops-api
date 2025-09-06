@@ -7,6 +7,7 @@
 """
 from typing import Any, Optional
 
+from flask import request
 from sqlalchemy import desc
 
 from internal.entity.workflow_entity import DEFAULT_WORKFLOW_CONFIG, WorkflowStatus
@@ -15,11 +16,12 @@ from internal.schema.workflow_schema import CreateWorkflowReq, GetWorkFlowWithPa
 from pkg.paginator.paginator import Paginator
 from .base_service import BaseService
 from pkg.sqlalchemy import SQLAlchemy
-from internal.model import Workflow, Account, Dataset
+from internal.model import Workflow, Account, Dataset, ApiTool
 from injector import inject
 from dataclasses import dataclass
 from uuid import UUID
 
+from ..core.tools.builtin_tools.providers.builtin_provider_manager import BuiltinProviderManager
 from ..core.workflow.entities.edge_entity import BaseEdgeData
 from ..core.workflow.entities.node_entity import NodeType, BaseNodeData
 from ..core.workflow.nodes import CodeNodeData, LLMNodeData, StartNodeData, HttpRequestNodeData, EndNodeData
@@ -30,6 +32,7 @@ from ..lib.helper import convert_model_to_dict
 @dataclass
 class WorkflowService(BaseService):
     db: SQLAlchemy
+    builtin_provider_manager: BuiltinProviderManager
 
     def create_workflow(self, req: CreateWorkflowReq, account: Account) -> Workflow:
         """根据传递的请求信息创建工作流"""
@@ -233,3 +236,118 @@ class WorkflowService(BaseService):
             "nodes": [convert_model_to_dict(node_data) for node_data in node_data_dict.values()],
             "edges": [convert_model_to_dict(edge_data) for edge_data in edge_data_dict.values()],
         }
+
+    def get_draft_graph(self, workflow_id: UUID, account: Account) -> dict[str, Any]:
+        """根据传递的工作流id+账号信息，获取指定工作流的草稿配置信息"""
+        # 1.根据传递的id获取工作流并校验权限
+        workflow = self.get_workflow(workflow_id, account)
+
+        # 2.提取草稿图结构信息并校验（不更新校验后的数据到数据库）
+        draft_graph = workflow.draft_graph
+        validate_draft_graph = self._validate_graph(draft_graph, account)
+
+        # 3.循环节点信息，为工具节点、知识库节点附加元数据
+        for node in validate_draft_graph["nodes"]:
+            if node.get("node_type") == NodeType.TOOL:
+                # 4.判断工具的类型执行不同的操作
+                if node.get("tool_type") == "builtin_tool":
+                    # 5.节点类型为工具，则附加工具的名称、图标、参数等额外信息
+                    provider = self.builtin_provider_manager.get_provider(node.get("provider_id"))
+                    if not provider:
+                        continue
+                    # 6.获取提供者下的工具实体，并检测是否存在
+                    tool_entity = provider.get_tool_entity(node.get("tool_id"))
+                    if not tool_entity:
+                        continue
+
+                    # 7.判断工具的params和草稿中的params是否一致，如果不一致则全部重置为默认值（或者考虑删除这个工具的引用）
+                    param_keys = set([param.name for param in tool_entity.params])
+                    params = node.get("params")
+                    if set(params.keys()) - param_keys:
+                        params = {
+                            param.name: param.default
+                            for param in tool_entity.params
+                            if param.default is not None
+                        }
+
+                    # 8.数据校验成功附加展示信息
+                    provider_entity = provider.provider_entity
+                    node["meta"] = {
+                        "type": "builtin_tool",
+                        "provider": {
+                            "id": provider_entity.name,
+                            "name": provider_entity.name,
+                            "label": provider_entity.label,
+                            "icon": f"{request.scheme}://{request.host}/builtin-tools/{provider_entity.name}/icon",
+                            "description": provider_entity.description,
+                        },
+                        "tool": {
+                            "id": tool_entity.name,
+                            "name": tool_entity.name,
+                            "label": tool_entity.label,
+                            "description": tool_entity.description,
+                            "params": params
+                        }
+                    }
+                elif node.get("tool_type") == "api_tool":
+                    # 9.查询数据库获取对应的工具记录，并检测是否存在
+                    tool_record = self.db.session.query(ApiTool).filter(
+                        ApiTool.provider_id == node.get("provider_id"),
+                        ApiTool.name == node.get("tool_id"),
+                        ApiTool.account_id == account.id
+                    ).one_or_none()
+                    if not tool_record:
+                        continue
+
+                    # 10.组装api工具展示信息
+                    provider = tool_record.provider
+                    node["meta"] = {
+                        "type": "api_tool",
+                        "provider": {
+                            "id": str(provider.id),
+                            "name": provider.name,
+                            "label": provider.name,
+                            "icon": provider.icon,
+                            "description": provider.description,
+                        },
+                        "tool": {
+                            "id": str(tool_record.id),
+                            "name": tool_record.name,
+                            "label": tool_record.name,
+                            "description": tool_record.description,
+                            "params": {},
+                        },
+                    }
+                else:
+                    node["meta"] = {
+                        "type": "api_tool",
+                        "provider": {
+                            "id": "",
+                            "name": "",
+                            "label": "",
+                            "icon": "",
+                            "description": "",
+                        },
+                        "tool": {
+                            "id": "",
+                            "name": "",
+                            "label": "",
+                            "description": "",
+                            "params": {},
+                        },
+                    }
+            elif node.get("node_type") == NodeType.DATASET_RETRIEVAL:
+                # 5.节点类型为知识库检索，需要附加知识库的名称、图标等信息
+                datasets = self.db.session.query(Dataset).filter(
+                    Dataset.id.in_(node.get("dataset_ids", [])),
+                    Dataset.account_id == account.id
+                ).all()
+                node["meta"] = {
+                    "datasets": [{
+                        "id": dataset.id,
+                        "name": dataset.name,
+                        "icon": dataset.icon,
+                        "description": dataset.description,
+                    } for dataset in datasets]
+                }
+        return validate_draft_graph

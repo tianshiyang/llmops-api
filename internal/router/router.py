@@ -394,6 +394,11 @@ class Router:
             methods=["POST"],
             view_func=self.workflow_handler.update_draft_graph,
         )
+        # 14.6获取工作流
+        bp.add_url_rule(
+            "/workflows/<uuid:workflow_id>/draft-graph",
+            view_func=self.workflow_handler.get_draft_graph,
+        )
 
         openapi_bp.add_url_rule("/openapi/chat", methods=["post"], view_func=self.openapi_handler.chat)
 

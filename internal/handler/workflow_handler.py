@@ -82,3 +82,9 @@ class WorkflowHandler:
         self.workflow_service.update_draft_graph(workflow_id, draft_graph_dict, current_user)
 
         return success_message("更新工作流草稿配置成功")
+
+    @login_required
+    def get_draft_graph(self, workflow_id: UUID):
+        """根据传递的工作流id获取该工作流的草稿配置信息"""
+        draft_graph = self.workflow_service.get_draft_graph(workflow_id, current_user)
+        return success_json(draft_graph)
