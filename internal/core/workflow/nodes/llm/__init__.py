@@ -5,3 +5,6 @@
 @Author  : tianshiyang
 @File    : __init__.py.py
 """
+from .llm_entity import LLMNodeData
+
+__all__ = ["LLMNodeData"]
