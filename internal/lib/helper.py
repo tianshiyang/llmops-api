@@ -13,7 +13,7 @@ from typing import Any
 from uuid import UUID
 
 from langchain_core.documents import Document
-from langchain_core.pydantic_v1 import BaseModel
+from pydantic.v1 import BaseModel
 
 
 def dynamic_import(module_name: str, symbol_name: str) -> Any:

@@ -8,7 +8,7 @@
 from enum import Enum
 from typing import Any
 
-from langchain_core.pydantic_v1 import BaseModel, Field
+from pydantic.v1 import BaseModel, Field
 from uuid import UUID
 
 

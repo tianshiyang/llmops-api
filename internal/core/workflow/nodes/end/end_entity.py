@@ -7,7 +7,7 @@
 """
 from internal.core.workflow.entities.node_entity import BaseNodeData
 from internal.core.workflow.entities.variable_entity import VariableEntity
-from langchain_core.pydantic_v1 import Field
+from pydantic.v1 import Field
 
 
 class EndNodeData(BaseNodeData):

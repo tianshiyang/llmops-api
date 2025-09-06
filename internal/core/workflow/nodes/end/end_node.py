@@ -5,10 +5,9 @@
 @Author  : tianshiyang
 @File    : end_node.py
 """
-import time
 from typing import Optional
 
-from langchain_core.pydantic_v1 import BaseModel
+from pydantic.v1 import BaseModel
 from langchain_core.runnables import RunnableConfig
 
 from internal.core.workflow.entities.node_entity import NodeResult, NodeStatus

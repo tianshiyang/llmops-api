@@ -5,8 +5,9 @@
 @Author  : tianshiyang
 @File    : edge_entity.py
 """
-from langchain_core.pydantic_v1 import BaseModel
 from uuid import UUID
+
+from pydantic import BaseModel
 
 from internal.core.workflow.entities.node_entity import NodeType
 

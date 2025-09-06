@@ -9,7 +9,7 @@ import re
 from enum import Enum
 from typing import Optional, Union, Any
 from uuid import UUID
-from langchain_core.pydantic_v1 import BaseModel, Field, validator
+from pydantic.v1 import BaseModel, Field, validator
 
 from internal.exception import ValidateErrorException
 

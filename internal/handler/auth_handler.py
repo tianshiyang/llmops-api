@@ -32,7 +32,7 @@ class AuthHandler:
 
         # 3. 创建响应结构并返回
         resp = PasswordLoginResp()
-        return success_json(resp.dumps(credential))
+        return success_json(credential)
 
     @login_required
     def logout(self):
