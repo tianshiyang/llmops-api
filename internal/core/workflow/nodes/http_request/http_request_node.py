@@ -35,7 +35,7 @@ class HttpRequestNode(BaseNode):
             HttpRequestInputType.BODY: {},
         }
         for input in self.node_data.inputs:
-            inputs_dict[input.meta.get("type")[input.name]] = _inputs_dict.get(input.name)
+            inputs_dict[input.meta.get("type")][input.name] = _inputs_dict.get(input.name)
 
         # 3.请求方法映射
         request_methods = {
