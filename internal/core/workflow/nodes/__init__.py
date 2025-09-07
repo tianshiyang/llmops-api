@@ -14,14 +14,14 @@ from .http_request.http_request_node import HttpRequestNode, HttpRequestNodeData
 from .llm import LLMNodeData, LLMNode
 from .start import StartNodeData, StartNode
 
-# from .template_transform.template_transform_node import TemplateTransformNode, TemplateTransformNodeData
+from .template_transform import TemplateTransformNodeData, TemplateTransformNode
 from .tool.tool_node import ToolNode, ToolNodeData
 
 __all__ = [
     "BaseNode",
     "StartNodeData", "StartNode",
     "LLMNode", "LLMNodeData",
-    # "TemplateTransformNode", "TemplateTransformNodeData",
+    "TemplateTransformNodeData", "TemplateTransformNode",
     "DatasetRetrievalNode", "DatasetRetrievalNodeData",
     "CodeNode", "CodeNodeData",
     "ToolNode", "ToolNodeData",

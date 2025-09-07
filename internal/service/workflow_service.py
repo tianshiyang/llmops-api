@@ -25,7 +25,7 @@ from ..core.tools.builtin_tools.providers.builtin_provider_manager import Builti
 from ..core.workflow.entities.edge_entity import BaseEdgeData
 from ..core.workflow.entities.node_entity import NodeType, BaseNodeData
 from ..core.workflow.nodes import CodeNodeData, LLMNodeData, StartNodeData, HttpRequestNodeData, EndNodeData, \
-    DatasetRetrievalNodeData, ToolNodeData
+    DatasetRetrievalNodeData, ToolNodeData, TemplateTransformNodeData
 from ..lib.helper import convert_model_to_dict
 
 
@@ -144,7 +144,7 @@ class WorkflowService(BaseService):
             NodeType.START: StartNodeData,
             NodeType.END: EndNodeData,
             NodeType.LLM: LLMNodeData,
-            # NodeType.TEMPLATE_TRANSFORM: TemplateTransformNodeData,
+            NodeType.TEMPLATE_TRANSFORM: TemplateTransformNodeData,
             NodeType.DATASET_RETRIEVAL: DatasetRetrievalNodeData,
             NodeType.CODE: CodeNodeData,
             NodeType.TOOL: ToolNodeData,
