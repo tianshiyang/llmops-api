@@ -7,7 +7,7 @@
 """
 from uuid import UUID
 
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 
 from internal.core.workflow.entities.node_entity import NodeType
 
