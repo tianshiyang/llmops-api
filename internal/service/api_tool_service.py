@@ -88,10 +88,14 @@ class ApiToolService(BaseService):
 
         return api_tool_provider
 
-    def get_api_tool(self, provider_id: str, tool_name: str, account: Account = None) -> ApiTool:
+    def get_api_tool(self, provider_id: str, tool_name: str, account: Account) -> ApiTool:
         """根据传递的provider_id + tool_name获取对应工具的参数详情信息"""
-        api_tool = self.db.session.query(ApiTool).filter_by(provider_id=provider_id, name=tool_name).one_or_none()
-        if api_tool is None or str(api_tool.account_id) != account.id:
+        api_tool = self.db.session.query(ApiTool).filter_by(
+            provider_id=provider_id,
+            name=tool_name
+        ).one_or_none()
+        if api_tool is None or api_tool.account_id != account.id:
+            print("这里执行了")
             raise NotFoundException("该工具不存在")
         return api_tool
 
