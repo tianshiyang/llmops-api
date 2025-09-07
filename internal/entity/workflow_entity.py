@@ -7,8 +7,6 @@
 """
 from enum import Enum
 
-WORKFLOW_CONFIG_NAME_PATTERN = r'^[A-Za-z_][A-Za-z0-9_]*$'
-
 
 class WorkflowStatus(str, Enum):
     """工作流状态类型枚举"""

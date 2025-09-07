@@ -399,6 +399,18 @@ class Router:
             "/workflows/<uuid:workflow_id>/draft-graph",
             view_func=self.workflow_handler.get_draft_graph,
         )
+        # 14.7发布工作流
+        bp.add_url_rule(
+            "/workflows/<uuid:workflow_id>/publish",
+            methods=["POST"],
+            view_func=self.workflow_handler.publish_workflow,
+        )
+        # 14.8取消发布工作流
+        bp.add_url_rule(
+            "/workflows/<uuid:workflow_id>/cancel-publish",
+            methods=["POST"],
+            view_func=self.workflow_handler.cancel_publish_workflow,
+        )
 
         openapi_bp.add_url_rule("/openapi/chat", methods=["post"], view_func=self.openapi_handler.chat)
 

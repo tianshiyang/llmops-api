@@ -88,3 +88,15 @@ class WorkflowHandler:
         """根据传递的工作流id获取该工作流的草稿配置信息"""
         draft_graph = self.workflow_service.get_draft_graph(workflow_id, current_user)
         return success_json(draft_graph)
+
+    @login_required
+    def publish_workflow(self, workflow_id: UUID):
+        """根据传递的工作流id发布指定的工作流"""
+        self.workflow_service.publish_workflow(workflow_id, current_user)
+        return success_message("发布工作流成功")
+
+    @login_required
+    def cancel_publish_workflow(self, workflow_id: UUID):
+        """根据传递的工作流id取消发布指定的工作流"""
+        self.workflow_service.cancel_publish_workflow(workflow_id, current_user)
+        return success_message("取消发布工作流成功")

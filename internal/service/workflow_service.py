@@ -11,7 +11,7 @@ from flask import request
 from sqlalchemy import desc
 
 from internal.entity.workflow_entity import DEFAULT_WORKFLOW_CONFIG, WorkflowStatus
-from internal.exception import ValidateErrorException, NotFoundException, ForbiddenException
+from internal.exception import ValidateErrorException, NotFoundException, ForbiddenException, FailException
 from internal.schema.workflow_schema import CreateWorkflowReq, GetWorkFlowWithPageReq
 from pkg.paginator.paginator import Paginator
 from .base_service import BaseService
@@ -24,6 +24,7 @@ from uuid import UUID
 from ..core.tools.builtin_tools.providers.builtin_provider_manager import BuiltinProviderManager
 from ..core.workflow.entities.edge_entity import BaseEdgeData
 from ..core.workflow.entities.node_entity import NodeType, BaseNodeData
+from ..core.workflow.entities.workflow_entity import WorkFlowConfig
 from ..core.workflow.nodes import CodeNodeData, LLMNodeData, StartNodeData, HttpRequestNodeData, EndNodeData, \
     DatasetRetrievalNodeData, ToolNodeData, TemplateTransformNodeData
 from ..lib.helper import convert_model_to_dict
@@ -354,3 +355,54 @@ class WorkflowService(BaseService):
                     } for dataset in datasets]
                 }
         return validate_draft_graph
+
+    def publish_workflow(self, workflow_id: UUID, account: Account):
+        """根据传递的工作流id，发布指定的工作流"""
+        # 1.根据传递的id获取工作流并校验权限
+        workflow = self.get_workflow(workflow_id, account)
+
+        # 2.校验工作流是否调试通过
+        if workflow.is_debug_passed is False:
+            raise FailException("该工作流未调试通过，请调试通过后发布")
+
+        # 3.使用workflowConfig二次校验，如果校验失败则不发布
+        try:
+            WorkFlowConfig(
+                account_id=account.id,
+                name=workflow.tool_call_name,
+                description=workflow.description,
+                nodes=workflow.draft_graph.get("nodes", []),
+                edges=workflow.draft_graph.get("edges", []),
+            )
+        except Exception as e:
+            self.update(Workflow, **{
+                "is_debug_passed": False,
+            })
+            raise ValidateErrorException("工作流配置校验失败，请核实后重试")
+
+        # 4.更新工作流的发布状态
+        self.update(workflow, **{
+            "graph": workflow.draft_graph,
+            "status": WorkflowStatus.PUBLISHED,
+            "is_debug_passed": True,
+        })
+
+        return workflow
+
+    def cancel_publish_workflow(self, workflow_id: UUID, account: Account):
+        """取消发布指定的工作流"""
+        # 1.根据传递的id获取工作流并校验权限
+        workflow = self.get_workflow(workflow_id, account)
+
+        # 2.校验工作流是否为已发布状态
+        if workflow.status != WorkflowStatus.PUBLISHED:
+            raise FailException("该工作流未发布无法取消发布")
+
+        # 3.更新发布状态并删除运行图草稿配置
+        self.update(workflow, **{
+            "graph": {},
+            "status": WorkflowStatus.DRAFT,
+            "is_debug_passed": False,
+        })
+
+        return workflow
