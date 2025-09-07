@@ -24,7 +24,8 @@ from uuid import UUID
 from ..core.tools.builtin_tools.providers.builtin_provider_manager import BuiltinProviderManager
 from ..core.workflow.entities.edge_entity import BaseEdgeData
 from ..core.workflow.entities.node_entity import NodeType, BaseNodeData
-from ..core.workflow.nodes import CodeNodeData, LLMNodeData, StartNodeData, HttpRequestNodeData, EndNodeData
+from ..core.workflow.nodes import CodeNodeData, LLMNodeData, StartNodeData, HttpRequestNodeData, EndNodeData, \
+    DatasetRetrievalNodeData
 from ..lib.helper import convert_model_to_dict
 
 
@@ -144,7 +145,7 @@ class WorkflowService(BaseService):
             NodeType.END: EndNodeData,
             NodeType.LLM: LLMNodeData,
             # NodeType.TEMPLATE_TRANSFORM: TemplateTransformNodeData,
-            # NodeType.DATASET_RETRIEVAL: DatasetRetrievalNodeData,
+            NodeType.DATASET_RETRIEVAL: DatasetRetrievalNodeData,
             NodeType.CODE: CodeNodeData,
             # NodeType.TOOL: ToolNodeData,
             NodeType.HTTP_REQUEST: HttpRequestNodeData,
@@ -168,7 +169,6 @@ class WorkflowService(BaseService):
 
                 # 6.实例化节点数据类型，如果出错则跳过当前数据
                 node_data = node_data_cls(**node)
-                print("实例化出错了？")
 
                 # 7.判断节点id是否唯一，如果不唯一，则将该节点删除
                 if node_data.id in node_data_dict:
@@ -188,6 +188,7 @@ class WorkflowService(BaseService):
                         raise ValidateErrorException("工作流中只允许有1个结束节点")
                     end_nodes += 1
                 elif node_data.node_type == NodeType.DATASET_RETRIEVAL:
+
                     # 10. 剔除关联知识库列表中不存在当前账户的数据
                     datasets = self.db.session.query(Dataset).filter(
                         Dataset.id.in_(node_data.dataset_ids[:5]),

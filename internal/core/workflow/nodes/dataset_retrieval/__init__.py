@@ -5,3 +5,10 @@
 @Author  : tianshiyang
 @File    : __init__.py.py
 """
+from .dataset_retrieval_node import DatasetRetrievalNode
+from .dataset_retrieval_entity import DatasetRetrievalNodeData
+
+__all__ = [
+    "DatasetRetrievalNode",
+    "DatasetRetrievalNodeData",
+]
