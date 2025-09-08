@@ -8,7 +8,7 @@
 from typing import Literal, Any
 
 from internal.core.workflow.entities.node_entity import BaseNodeData
-from pydantic.v1 import Field, validator
+from pydantic import Field, field_validator
 
 from internal.core.workflow.entities.variable_entity import VariableEntity, VariableValueType
 
@@ -24,7 +24,8 @@ class ToolNodeData(BaseNodeData):
         VariableEntity(name="text", value={"type": VariableValueType.GENERATED})
     ])  # 输出字典列表信息
 
-    @validator("outputs", pre=True)
+    @field_validator('outputs', mode="before")
+    @classmethod
     def validate_outputs(cls, outputs: list[VariableEntity]):
         return [
             VariableEntity(name="text", value={"type": VariableValueType.GENERATED})

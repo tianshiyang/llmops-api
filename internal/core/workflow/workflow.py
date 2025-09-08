@@ -159,8 +159,8 @@ class Workflow(BaseTool):
         graph.set_finish_point(end_node)
 
         # 8.循环遍历合并边
-        for target_node, source_node in parallel_edges.items():
-            graph.add_node(source_node, target_node)
+        for target_node, source_nodes in parallel_edges.items():
+            graph.add_edge(source_nodes, target_node)
 
         # 9.构建图程序并编译
         return graph.compile()

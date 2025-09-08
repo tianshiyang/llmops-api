@@ -7,18 +7,19 @@
 """
 from typing import Optional
 
-from pydantic.v1 import BaseModel
+from pydantic import BaseModel
 from langchain_core.runnables import RunnableConfig
 
 from internal.core.workflow.entities.node_entity import NodeResult, NodeStatus
 from internal.core.workflow.entities.workflow_entity import WorkflowState
+from internal.core.workflow.nodes import BaseNode
 from internal.core.workflow.nodes.end.end_entity import EndNodeData
 import time
 
 from internal.core.workflow.uitls.helper import extract_variables_from_state
 
 
-class EndNode(BaseModel):
+class EndNode(BaseNode):
     """结束节点"""
     node_data: EndNodeData
 

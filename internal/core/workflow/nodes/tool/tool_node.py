@@ -11,7 +11,7 @@ import time
 from langchain_core.runnables import RunnableConfig
 from langchain_core.runnables.utils import Input, Output
 from langchain_core.tools import BaseTool
-from pydantic.v1 import PrivateAttr
+from pydantic import PrivateAttr
 from typing import Any, Optional
 
 from internal.core.tools.api_tools.entities.tool_entity import ToolEntity

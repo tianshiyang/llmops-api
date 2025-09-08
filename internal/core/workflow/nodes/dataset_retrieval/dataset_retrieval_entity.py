@@ -5,7 +5,7 @@
 @Author  : tianshiyang
 @File    : dataset_retrieval_entity.py
 """
-from pydantic.v1 import BaseModel, Field, validator
+from pydantic import BaseModel, Field, validator, field_validator
 from uuid import UUID
 from internal.core.workflow.entities.node_entity import BaseNodeData
 from internal.core.workflow.entities.variable_entity import VariableEntity, VariableValueType, VariableType
@@ -25,13 +25,15 @@ class DatasetRetrievalNodeData(BaseNodeData):
         VariableEntity(name="combine_documents", value={"type": VariableValueType.GENERATED})
     ])
 
-    @validator("outputs", pre=True)
+    @field_validator("outputs", mode="before")
+    @classmethod
     def validate_outputs(cls, value: list[VariableEntity]):
         return [
             VariableEntity(name="combine_documents", value={"type": VariableValueType.GENERATED})
         ]
 
-    @validator("inputs")
+    @field_validator("inputs")
+    @classmethod
     def validate_inputs(cls, value: list[VariableEntity]):
         """校验输入变量信息"""
         # 1.判断是否只有一个输入变量，如果有多个则抛出错误
@@ -42,5 +44,5 @@ class DatasetRetrievalNodeData(BaseNodeData):
         query_input = value[0]
         if query_input.name != "query" or query_input.type != VariableType.STRING or query_input.required is False:
             raise FailException("知识库节点输入变量名字/变量类型/必填属性出错")
-        
+
         return value

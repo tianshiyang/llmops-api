@@ -12,7 +12,7 @@ from flask import Flask
 from langchain_core.runnables import RunnableConfig
 from langchain_core.runnables.utils import Input, Output
 from langchain_core.tools import BaseTool
-from pydantic.v1 import PrivateAttr
+from pydantic import PrivateAttr
 from uuid import UUID
 
 from internal.core.workflow.entities.node_entity import NodeResult, NodeStatus

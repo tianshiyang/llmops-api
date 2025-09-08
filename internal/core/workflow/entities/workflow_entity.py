@@ -10,7 +10,7 @@ from collections import defaultdict, deque
 from typing import TypedDict, Annotated, Any
 from uuid import UUID
 
-from pydantic.v1 import BaseModel, Field, root_validator
+from pydantic import BaseModel, Field, root_validator, model_validator
 
 from internal.core.workflow.entities.edge_entity import BaseEdgeData
 from internal.core.workflow.entities.node_entity import NodeResult, BaseNodeData, NodeType
@@ -48,7 +48,8 @@ class WorkFlowConfig(BaseModel):
     nodes: list[BaseNodeData] = Field(default_factory=list)  # 工作流对应的节点列表信息
     edges: list[BaseEdgeData] = Field(default_factory=list)  # 工作流对应的边列表信息
 
-    @root_validator(pre=True)
+    @model_validator(mode="before")
+    @classmethod
     def validate_workflow_config(cls, values: dict[str, Any]):
         """自定义校验函数，用于校验工作流配置中的所有参数信息"""
         # 1.获取工作流名字，并校验是否符合规则

@@ -5,7 +5,7 @@
 @Author  : tianshiyang
 @File    : llm_entity.py
 """
-from pydantic.v1 import Field, validator
+from pydantic import Field, validator, field_validator
 
 from internal.core.workflow.entities.node_entity import BaseNodeData
 from internal.core.workflow.entities.variable_entity import VariableEntity, VariableValueType
@@ -24,7 +24,8 @@ class LLMNodeData(BaseNodeData):
         VariableEntity(name="output", value={"type": VariableValueType.GENERATED})
     ])
 
-    @validator("outputs", pre=True)
+    @field_validator("outputs", mode="before")
+    @classmethod
     def output_validator(cls, value: list[VariableEntity]):
         return [
             VariableEntity(name="outputs", value={"type": VariableValueType.GENERATED})
