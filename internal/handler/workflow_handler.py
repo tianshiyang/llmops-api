@@ -17,6 +17,8 @@ from pkg.paginator.paginator import PageModel
 from pkg.response import validate_error_json, success_json, success_message
 from uuid import UUID
 
+from pkg.response.response import compact_generate_response
+
 
 @inject
 @dataclass
@@ -100,3 +102,13 @@ class WorkflowHandler:
         """根据传递的工作流id取消发布指定的工作流"""
         self.workflow_service.cancel_publish_workflow(workflow_id, current_user)
         return success_message("取消发布工作流成功")
+
+    @login_required
+    def debug_workflow(self, workflow_id: UUID):
+        """根据传递的变量字典+工作流id调试指定的工作流"""
+        # 1.提取用户传递的输入变量信息
+        inputs = request.get_json(force=True, silent=True) or {}
+
+        # 2.调用服务调试指定的API接口
+        response = self.workflow_service.debug_workflow(workflow_id, inputs, current_user)
+        return compact_generate_response(response)

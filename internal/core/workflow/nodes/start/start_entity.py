@@ -5,7 +5,7 @@
 @Author  : tianshiyang
 @File    : start_entity.py
 """
-from pydantic.v1 import Field
+from pydantic import Field
 
 from internal.core.workflow.entities.node_entity import BaseNodeData
 from internal.core.workflow.entities.variable_entity import VariableEntity

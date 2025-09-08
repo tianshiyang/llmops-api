@@ -5,3 +5,6 @@
 @Author  : tianshiyang
 @File    : __init__.py.py
 """
+from .workflow import Workflow
+
+__all__ = ["Workflow"]

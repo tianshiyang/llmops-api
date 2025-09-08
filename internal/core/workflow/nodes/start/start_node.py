@@ -9,7 +9,6 @@ import time
 from typing import Optional, Any
 
 from langchain_core.runnables import RunnableConfig
-from langchain_core.runnables.utils import Input, Output
 
 from internal.core.workflow.entities.node_entity import NodeResult, NodeStatus
 from internal.core.workflow.entities.variable_entity import VARIABLE_TYPE_DEFAULT_VALUE_MAP

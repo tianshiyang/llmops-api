@@ -226,7 +226,7 @@ class WorkFlowConfig(BaseModel):
     def _is_cycle(cls, nodes: list[BaseNodeData], adj_list: defaultdict[Any, list], in_degree: dict[Any, int]) -> bool:
         """根据传递的节点列表、邻接表、入度数据，使用拓扑排序(Kahn算法)检测图中是否存在环，如果存在则返回True，不存在则返回False"""
         # 1.存储所有入度为0的节点id，即开始节点
-        zero_in_degree_nodes = deque([node.id for node in in_degree if in_degree[node.id] == 0])
+        zero_in_degree_nodes = deque([node.id for node in nodes if in_degree[node.id] == 0])
 
         # 2.记录已访问的节点数
         visited_count = 0

@@ -411,6 +411,12 @@ class Router:
             methods=["POST"],
             view_func=self.workflow_handler.cancel_publish_workflow,
         )
+        # 14.9调试
+        bp.add_url_rule(
+            "/workflows/<uuid:workflow_id>/debug",
+            methods=["POST"],
+            view_func=self.workflow_handler.debug_workflow,
+        )
 
         openapi_bp.add_url_rule("/openapi/chat", methods=["post"], view_func=self.openapi_handler.chat)
 
