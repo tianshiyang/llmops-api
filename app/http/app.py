@@ -35,6 +35,7 @@ app = Http(
     login_manager=injector.get(LoginManager),
     middleware=injector.get(Middleware)
 )
+app.config['JSON_AS_ASCII'] = False
 
 celery = app.extensions["celery"]
 

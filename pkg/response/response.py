@@ -90,5 +90,5 @@ def compact_generate_response(response: Union[Response, Generator]) -> FlaskResp
         return FlaskResponse(
             stream_with_context(generate()),
             status=200,
-            content_type="text/event-stream"
+            content_type="text/event-stream; charset=utf-8"
         )
