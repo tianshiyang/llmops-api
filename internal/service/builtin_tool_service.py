@@ -105,7 +105,7 @@ class BuiltinToolService:
         return {
             "provider": {**provider.provider_entity.model_dump(exclude={"icon", "created_at"})},
             **tool_entity.model_dump(),
-            "input": self.get_tool_inputs(tool)
+            "inputs": self.get_tool_inputs(tool)
         }
 
     @classmethod
