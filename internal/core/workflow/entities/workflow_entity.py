@@ -10,7 +10,7 @@ from collections import defaultdict, deque
 from typing import TypedDict, Annotated, Any
 from uuid import UUID
 
-from pydantic import BaseModel, Field, root_validator, model_validator
+from pydantic import BaseModel, Field, model_validator
 
 from internal.core.workflow.entities.edge_entity import BaseEdgeData
 from internal.core.workflow.entities.node_entity import NodeResult, BaseNodeData, NodeType
