@@ -8,7 +8,7 @@
 from enum import Enum
 from typing import Any
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from uuid import UUID
 
 
@@ -32,8 +32,8 @@ class BaseNodeData(BaseModel):
         x: float = 0
         y: float = 0
 
-    class Config:
-        validate_by_name = True  # 允许通过字段名进行赋值
+    # 允许通过字段名赋值
+    model_config = ConfigDict(validate_by_name=True)
 
     id: UUID  # 节点id，数值必须唯一
     node_type: NodeType  # 节点类型

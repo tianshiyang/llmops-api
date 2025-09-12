@@ -15,7 +15,7 @@ from pydantic import BaseModel, Field, model_validator
 from internal.core.language_model.entities.default_model_parameter_template import DEFAULT_MODEL_PARAMETER_TEMPLATE
 from internal.core.language_model.entities.model_entity import ModelType, ModelEntity
 from internal.exception import FailException, NotFoundException
-from internal.lib import dynamic_import
+from internal.lib.helper import dynamic_import
 
 
 class ProviderEntity(BaseModel):
@@ -31,34 +31,34 @@ class ProviderEntity(BaseModel):
 class Provider(BaseModel):
     """大语言模型服务提供商，在该类下，可以获取到该服务提供商的所有大语言模型、描述、图标、标签等多个信息"""
     name: str = ""  # 提供商名字
-    position: str = ""  # 服务提供商的位置信息
+    position: int = 0  # 服务提供商的位置信息
     provider_entity: ProviderEntity  # 模型提供商实体
-    model_entity_map: dict[str, ModelEntity] = Field(default=dict)
-    model_class_map: dict[str, Union[None, Type[BaseLanguageModel]]] = Field(default=dict)
+    model_entity_map: dict[str, ModelEntity] = Field(default_factory=dict)
+    model_class_map: dict[str, Union[None, Type[BaseLanguageModel]]] = Field(default_factory=dict)
 
-    @model_validator(mode="before")
+    @model_validator(mode="after")
     @classmethod
-    def validate_provider(cls, provider: dict[str, Any]) -> dict[str, Any]:
+    def validate_provider(cls, provider: dict[str, Any]):
         """服务提供者校验器，利用校验器完成该服务提供者的实体与类实例化"""
         # 1.获取服务提供商实体
-        provider_entity: ProviderEntity = provider.get("provider_entity")
+        provider_entity: ProviderEntity = provider.provider_entity
 
         # 2.动态导入服务提供商的模型类
         for model_type in provider_entity.supported_model_types:
-            # 3.将类型的第一个字符转换成大写，其他不变，构建类映射
+            # 3.将类型的第一个字符转换成大写，其他不变，并构建类映射
             symbol_name = model_type[0].upper() + model_type[1:]
-            provider["model_class_map"][symbol_name] = dynamic_import(
+            provider.model_class_map[model_type] = dynamic_import(
                 f"internal.core.language_model.providers.{provider_entity.name}.{model_type}",
                 symbol_name
             )
 
         # 4.获取当前类所在的位置，provider提供商所在的位置
-        current_path = os.path.dirname(os.path.abspath(__file__))
+        current_path = os.path.abspath(__file__)
         entities_path = os.path.dirname(current_path)
-        provider_path = os.path.join(os.path.dirname(entities_path), 'providers', provider_entity.name)
+        provider_path = os.path.join(os.path.dirname(entities_path), "providers", provider_entity.name)
 
         # 5.组装positions.yaml的位置，并读取数据
-        positions_yaml_path = os.path.join(provider_path, 'positions.yaml')
+        positions_yaml_path = os.path.join(provider_path, "positions.yaml")
         with open(positions_yaml_path, encoding="utf-8") as f:
             positions_yaml_data = yaml.safe_load(f) or []
         if not isinstance(positions_yaml_data, list):
@@ -75,7 +75,7 @@ class Provider(BaseModel):
             yaml_parameters = model_yaml_data.get("parameters")
             parameters = []
             for parameter in yaml_parameters:
-                # 9.检测参数规则是否使用了模版配置
+                # 9.检测参数规则是否使用了模板配置
                 use_template = parameter.get("use_template")
                 if use_template:
                     # 10.使用了模板，则使用模板补全剩余数据，并删除use_template
@@ -88,7 +88,7 @@ class Provider(BaseModel):
 
             # 12.修改对应模板的yaml数据，并创建ModelEntity随后传递给provider
             model_yaml_data["parameters"] = parameters
-            provider["model_entity_map"][model_name] = ModelEntity(**model_yaml_data)
+            provider.model_entity_map[model_name] = ModelEntity(**model_yaml_data)
 
         return provider
 
