@@ -71,3 +71,7 @@ class ModelEntity(BaseModel):
     attributes: dict[str, Any] = Field(default_factory=dict)  # 模型固定属性字典
     parameters: list[ModelParameter] = Field(default_factory=list)  # 模型参数字段规则列表，用于记录模型的配置参数
     metadata: dict[str, Any] = Field(default_factory=dict)  # 模型元数据，用于存储模型的额外数据，例如价格、词表等等信息
+
+
+class BaseLanguageModel:
+    pass
