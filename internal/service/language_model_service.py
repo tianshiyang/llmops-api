@@ -11,6 +11,7 @@ from typing import Any
 from injector import inject
 
 from internal.core.language_model.language_model_manager import LanguageModelManager
+from internal.exception import NotFoundException
 from internal.lib.helper import convert_model_to_dict
 from internal.service.base_service import BaseService
 from pkg.sqlalchemy import SQLAlchemy
@@ -50,7 +51,17 @@ class LanguageModelService(BaseService):
         return language_models
 
     def get_language_model(self, provider_name: str, model_name: str):
-        pass
+        """根据传递的提供者名字+模型名字获取模型详细信息"""
+        # 1. 获取提供者+模型名字实体
+        provider = self.language_model_manager.get_provider(provider_name)
+        if not provider:
+            raise NotFoundException("该服务提供者不存在")
+
+        # 2.获取模型实体
+        model_entity = provider.get_model_entity(model_name)
+        if not model_entity:
+            raise NotFoundException("该模型不存在")
+        return convert_model_to_dict(model_entity)
 
     def get_language_model_icon(self, provider_name: str):
         pass

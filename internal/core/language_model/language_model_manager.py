@@ -10,8 +10,10 @@ import os.path
 import yaml
 from pydantic import BaseModel, Field, model_validator
 from .entities.provider_entity import Provider, ProviderEntity
-from typing import Any
+from typing import Any, Optional
 from injector import inject, singleton
+
+from ...exception import NotFoundException
 
 
 @inject
@@ -47,3 +49,10 @@ class LanguageModelManager(BaseModel):
     def get_providers(self) -> list[Provider]:
         """获取所有提供者列表信息"""
         return list(self.provider_map.values())
+
+    def get_provider(self, provider_name: str) -> Optional[Provider]:
+        """根据传递的提供者名字获取提供者"""
+        provider = self.provider_map.get(provider_name, None)
+        if provider is None:
+            raise NotFoundException("该模型服务提供商不存在，请核实后重试")
+        return provider
