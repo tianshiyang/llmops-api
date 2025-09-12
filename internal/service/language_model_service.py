@@ -5,9 +5,12 @@
 @Author  : tianshiyang
 @File    : language_model_service.py
 """
+import mimetypes
+import os.path
 from dataclasses import dataclass
 from typing import Any
 
+from flask import current_app
 from injector import inject
 
 from internal.core.language_model.language_model_manager import LanguageModelManager
@@ -64,4 +67,33 @@ class LanguageModelService(BaseService):
         return convert_model_to_dict(model_entity)
 
     def get_language_model_icon(self, provider_name: str):
-        pass
+        """根据传递的提供者名字获取提供商对应的图标信息"""
+        # 1.获取提供商信息
+        provider = self.language_model_manager.get_provider(provider_name)
+        if not provider:
+            raise NotFoundException("该服务提供者不存在")
+
+        # 2.获取项目的根路径信息
+        root_path = os.path.dirname(os.path.dirname(current_app.root_path))
+
+        # 3.拼接得到提供者所在的文件夹
+        provider_path = os.path.join(
+            root_path,
+            "internal", "core", "language_model", "providers", provider_name,
+        )
+
+        # 4.拼接得到icon对应的路径
+        icon_path = os.path.join(provider_path, "_asset", provider.provider_entity.icon)
+
+        # 5.检测icon是否存在
+        if not os.path.exists(icon_path):
+            raise NotFoundException(f"该模型提供者_asset下未提供图标")
+
+        # 6.读取icon的类型
+        mimetype, _ = mimetypes.guess_type(icon_path)
+        mimetype = mimetype or "application/octet-stream"
+
+        # 7.读取icon的字节数据
+        with open(icon_path, "rb") as f:
+            byte_data = f.read()
+            return byte_data, mimetype
