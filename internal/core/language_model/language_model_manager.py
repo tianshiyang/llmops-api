@@ -9,8 +9,10 @@ import os.path
 
 import yaml
 from pydantic import BaseModel, Field, model_validator
+
+from .entities.model_entity import ModelType, BaseLanguageModel
 from .entities.provider_entity import Provider, ProviderEntity
-from typing import Any, Optional
+from typing import Any, Optional, Type
 from injector import inject, singleton
 
 from ...exception import NotFoundException
@@ -56,3 +58,20 @@ class LanguageModelManager(BaseModel):
         if provider is None:
             raise NotFoundException("该模型服务提供商不存在，请核实后重试")
         return provider
+
+    def get_model_class_by_provider_and_type(self, provider_name: str, model_type: ModelType) -> Optional[
+        type[BaseLanguageModel]]:
+        """根据传递的提供者名字+模型类型，获取模型类"""
+        provider = self.provider_map.get(provider_name)
+        return provider.get_model_class(model_type)
+
+    def get_model_class_by_provider_and_model(self, provider_name: str, model_name: str) -> Optional[
+        Type[BaseLanguageModel]]:
+        """根据传递的提供者名字+模型名字获取模型类"""
+        # 1.根据名字获取提供者信息
+        provider = self.get_provider(provider_name)
+
+        # 2.在提供者下获取该模型实体
+        model_entity = provider.get_model_entity(model_name)
+
+        return provider.get_model_class(model_entity.model_type)
