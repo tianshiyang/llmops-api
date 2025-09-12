@@ -12,7 +12,7 @@ from injector import inject
 
 from internal.handler import AppHandler, BuiltinToolHandler, ApiToolHandler, UploadFileHandler, DatasetHandler, \
     SegmentHandler, OAuthHandler, AuthHandler, AccountHandler, AiHandler, DocumentHandler, ApiKeyHandler, \
-    OpenAPIHandler, BuiltinAppHandler
+    OpenAPIHandler, BuiltinAppHandler, LanguageModelHandler
 from internal.handler.workflow_handler import WorkflowHandler
 
 
@@ -37,6 +37,7 @@ class Router:
     openapi_handler: OpenAPIHandler
     builtin_app_handler: BuiltinAppHandler
     workflow_handler: WorkflowHandler
+    language_model_handler: LanguageModelHandler
 
     def register_router(self, app: Flask):
         """注册路由"""
@@ -416,6 +417,20 @@ class Router:
             "/workflows/<uuid:workflow_id>/debug",
             methods=["POST"],
             view_func=self.workflow_handler.debug_workflow,
+        )
+
+        # 15.语言模型模块
+        # 15.1获取所有内置的语言模型
+        bp.add_url_rule("/language-models", view_func=self.language_model_handler.get_language_models)
+        # 15.2获取语言模型提供商的icon
+        bp.add_url_rule(
+            "/language-models/<string:provider_name>/icon",
+            view_func=self.language_model_handler.get_language_model_icon,
+        )
+        # 15.3获取语言模型详情
+        bp.add_url_rule(
+            "/language-models/<string:provider_name>/<string:model_name>",
+            view_func=self.language_model_handler.get_language_model,
         )
 
         openapi_bp.add_url_rule("/openapi/chat", methods=["post"], view_func=self.openapi_handler.chat)

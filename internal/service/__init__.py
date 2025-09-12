@@ -14,6 +14,7 @@ from .account_service import AccountService
 from .openapi_service import OpenAPIService
 from .app_config_service import AppConfigService
 from .builtin_app_service import BuiltinAppService
+from .language_model_service import LanguageModelService
 
 __all__ = [
     "AppService",
@@ -24,4 +25,5 @@ __all__ = [
     "OpenAPIService",
     "AppConfigService",
     "BuiltinAppService",
+    "LanguageModelService"
 ]
