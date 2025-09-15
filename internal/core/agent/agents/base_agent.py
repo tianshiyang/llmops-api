@@ -9,8 +9,7 @@ import uuid
 from abc import abstractmethod
 from threading import Thread
 from typing import Optional, Any, Iterator
-
-from langchain_core.language_models import BaseLanguageModel
+from internal.core.language_model.entities.model_entity import BaseLanguageModel
 from langchain_core.load import Serializable
 from langchain_core.runnables import Runnable, RunnableConfig
 from langgraph.graph.state import CompiledStateGraph

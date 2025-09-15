@@ -5,7 +5,7 @@
 @Author  : tianshiyang
 @File    : chat.py
 """
-from langchain_core.language_models import BaseLanguageModel
+from internal.core.language_model.entities.model_entity import BaseLanguageModel
 from langchain_openai import ChatOpenAI
 
 

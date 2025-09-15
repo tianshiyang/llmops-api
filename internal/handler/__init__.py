@@ -20,7 +20,8 @@ from .api_key_handler import ApiKeyHandler
 from .openapi_handler import OpenAPIHandler
 from .builtin_app_handler import BuiltinAppHandler
 from .language_model_handler import LanguageModelHandler
+from .assistant_agent_handler import AssistantAgentHandler
 
 __all__ = ["AppHandler", "BuiltinToolHandler", "ApiToolHandler", "UploadFileHandler", "DatasetHandler",
            "SegmentHandler", "OAuthHandler", "AuthHandler", "AiHandler", "DocumentHandler", "ApiKeyHandler",
-           "OpenAPIHandler", "BuiltinAppHandler", "LanguageModelHandler"]
+           "OpenAPIHandler", "BuiltinAppHandler", "LanguageModelHandler", "AssistantAgentHandler"]

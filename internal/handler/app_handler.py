@@ -209,8 +209,8 @@ class AppHandler:
         })
         return success_json({
             "content": llm.invoke("你好，你是").content,
-            "features": model_entity.features,
-            "metadata": model_entity.metadata,
+            "features": llm.features,
+            "metadata": llm.metadata,
         })
     #
     # def _ping(self):

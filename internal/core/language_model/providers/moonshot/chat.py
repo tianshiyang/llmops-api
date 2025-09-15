@@ -6,7 +6,7 @@
 @File    : chat.py.py
 """
 from langchain_community.chat_models import MoonshotChat
-from langchain_core.language_models import BaseLanguageModel
+from internal.core.language_model.entities.model_entity import BaseLanguageModel
 
 
 class Chat(MoonshotChat, BaseLanguageModel):
