@@ -25,6 +25,7 @@ from internal.entity.dataset_entity import RetrievalSource
 from internal.exception import NotFoundException, ForbiddenException
 from internal.model import Account, EndUser, Conversation, Message
 from internal.schema.openapi_schema import OpenAPIChatReq
+from .language_model_service import LanguageModelService
 from internal.service.app_service import AppService
 from internal.service.app_config_service import AppConfigService
 from internal.service.base_service import BaseService
@@ -32,6 +33,8 @@ from internal.service.conversation_service import ConversationService
 from internal.service.retrieval_service import RetrievalService
 from pkg.response import Response
 from pkg.sqlalchemy import SQLAlchemy
+from ..core.agent.agents import ReACTAgent
+from ..core.language_model.entities.model_entity import ModelFeature
 
 
 @inject
@@ -42,6 +45,7 @@ class OpenAPIService(BaseService):
     app_config_service: AppConfigService
     retrieval_service: RetrievalService
     conversation_service: ConversationService
+    language_model_service: LanguageModelService
 
     def chat(self, req: OpenAPIChatReq, account: Account):
         """根据传递的请求+账号信息发起聊天对话，返回数据为块内容或者生成器"""
@@ -96,11 +100,8 @@ class OpenAPIService(BaseService):
             "status": MessageStatus.NORMAL
         })
 
-        # todo:根据传递的model_config创建LLM实例，等待多LLM接入时需要调整
-        llm = ChatOpenAI(
-            model=app_config["model_config"]["model"],
-            **app_config["model_config"]["parameters"]
-        )
+        # 9.从语言模型中根据模型配置获取模型实例
+        llm = self.language_model_service.load_language_model(app_config.get("model_config", {}))
 
         # 10.实例化TokenBufferMemory用于提取短期记忆
         token_buffer_memory = TokenBufferMemory(
@@ -127,16 +128,18 @@ class OpenAPIService(BaseService):
             )
             tools.append(dataset_retrieval)
 
-        # todo:14 构建Agent智能体，目前暂时使用FunctionCallAgent
-        agent = FunctionCallAgent(
+        # 14.根据LLM是否支持tool_call决定使用不同的Agent
+        agent_class = FunctionCallAgent if ModelFeature.TOOL_CALL in llm.features else ReACTAgent
+        agent = agent_class(
             llm=llm,
             agent_config=AgentConfig(
                 user_id=account.id,
                 invoke_from=InvokeFrom.DEBUGGER,
-                enable_long_term_memory=app_config["enable_long_term_memory"]["enable"],
+                preset_prompt=app_config["preset_prompt"],
+                enable_long_term_memory=app_config["long_term_memory"]["enable"],
                 tools=tools,
-                review_config=app_config["review_config"]
-            )
+                review_config=app_config["review_config"],
+            ),
         )
 
         # 15定义智能体状态基础数据
