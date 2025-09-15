@@ -5,8 +5,11 @@
 @Author  : tianshiyang
 @File    : model_entity.py
 """
+from abc import ABC
 from enum import Enum
 from typing import Any, Optional
+
+from langchain_core.language_models import BaseLanguageModel as LCBaseLanguageModel
 
 from pydantic import BaseModel, Field
 
@@ -73,5 +76,7 @@ class ModelEntity(BaseModel):
     metadata: dict[str, Any] = Field(default_factory=dict)  # 模型元数据，用于存储模型的额外数据，例如价格、词表等等信息
 
 
-class BaseLanguageModel:
-    pass
+class BaseLanguageModel(LCBaseLanguageModel, ABC):
+    """基础语言模型"""
+    features: list[ModelFeature] = Field(default_factory=list)  # 模型特性
+    metadata: dict[str, Any] = Field(default_factory=dict)  # 模型元数据信息
