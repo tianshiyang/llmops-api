@@ -11,6 +11,8 @@ from dataclasses import dataclass
 from flask import request
 from flask_login import login_required, current_user
 from injector import inject
+
+from internal.core.language_model.language_model_manager import LanguageModelManager
 from internal.schema.app_schema import CreateAppReq, GetAppResp, GetPublishHistoriesWithPageReq, \
     GetPublishHistoriesWithPageResp, FallbackHistoryToDraftReq, UpdateDebugConversationSummaryReq, DebugChatReq, \
     GetDebugConversationMessagesWithPageReq, GetDebugConversationMessagesWithPageResp, GetAppsWithPageReq, \
@@ -27,6 +29,7 @@ from pkg.response.response import compact_generate_response
 class AppHandler:
     """应用控制器"""
     app_service: AppService
+    language_model_manager: LanguageModelManager
 
     @login_required
     def create_app(self):
@@ -193,14 +196,22 @@ class AppHandler:
         resp = GetDebugConversationMessagesWithPageResp(many=True)
 
         return success_json(PageModel(list=resp.dump(messages), paginator=paginator))
-    # def ping(self):
-    #     agent = FunctionCallAgent(AgentConfig(
-    #         llm=ChatOpenAI(model=os.getenv("BASE_CHAT_MODEL")),
-    #         preset_prompt="你是一个拥有20年经验的诗人，请根据用户提供的主题写一首诗"
-    #     ))
-    #     state = agent.run("程序员", [], "")
-    #     content = state['messages'][-1]['content']
-    #     return success_json({"content": content})
+
+    @login_required
+    def ping(self):
+        provider = self.language_model_manager.get_provider("ollama")
+        model_entity = provider.get_model_entity("qwen2.5-7b")
+        model_class = provider.get_model_class(model_entity.model_type)
+        llm = model_class(**{
+            **model_entity.attributes,
+            "features": model_entity.features,
+            "metadata": model_entity.metadata,
+        })
+        return success_json({
+            "content": llm.invoke("你好，你是").content,
+            "features": model_entity.features,
+            "metadata": model_entity.metadata,
+        })
     #
     # def _ping(self):
     #     # self.redis_client.set('name', 'zhangsan')
