@@ -37,7 +37,7 @@ class WebAppHandler:
         req = WebAppChatReq()
         if not req.validate():
             return validate_error_json(req.errors)
-
+        print("111")
         # 2.调用服务获取对应响应内容
         response = self.web_app_service.web_app_chat(token, req, current_user)
 
