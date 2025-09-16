@@ -62,8 +62,10 @@ class AppConfigService(BaseService):
         if set(validate_datasets) != set(draft_app_config.datasets):
             self.update(draft_app_config, datasets=validate_datasets)
 
-        # 7.todo：7校验工作流列表对应的数据
-        workflows = []
+            # 7.校验工作流列表对应的数据
+            workflows, validate_workflows = self._process_and_validate_workflows(draft_app_config.workflows)
+            if set(validate_workflows) != set(draft_app_config.workflows):
+                self.update(draft_app_config, workflows=validate_workflows)
 
         # 20.将数据转换成字典后
         return self._process_and_transformer_app_config(tools, workflows, datasets, draft_app_config)
@@ -96,8 +98,10 @@ class AppConfigService(BaseService):
             with self.db.auto_commit():
                 self.db.session.query(AppDatasetJoin).filter(AppDatasetJoin.dataset_id == dataset_id).delete()
 
-        # 7.todo：校验工作流列表对应的数据
-        workflows = []
+        # 7.校验工作流列表对应的数据
+        workflows, validate_workflows = self._process_and_validate_workflows(app_config.workflows)
+        if set(validate_workflows) != set(app_config.workflows):
+            self.update(app_config, workflows=validate_workflows)
 
         # 将数据转换成字典后返回
         return self._process_and_transformer_app_config(tools, workflows, datasets, app_config)
@@ -372,3 +376,29 @@ class AppConfigService(BaseService):
             })
 
         return datasets, validate_datasets
+
+    def _process_and_validate_workflows(self, origin_workflows: list[UUID]) -> tuple[list[dict], list[UUID]]:
+        """根据传递的工作流列表并返回工作流配置和校验后的数据"""
+        # 1.校验工作流配置列表，如果引用了不存在/被删除的工作流，则需要提出数据并更新，同时获取工作流的额外信息
+        workflows = []
+        workflow_records = self.db.session.query(Workflow).filter(
+            Workflow.id.in_(origin_workflows),
+            Workflow.status == WorkflowStatus.PUBLISHED,
+        ).all()
+        workflow_dict = {str(workflow_record.id): workflow_record for workflow_record in workflow_records}
+        workflow_sets = set(workflow_dict.keys())
+
+        # 2.计算存在的工作流id列表，为了保留原始顺序，使用列表循环的方式来判断
+        validate_workflows = [workflow_id for workflow_id in origin_workflows if workflow_id in workflow_sets]
+
+        # 3.循环获取工作流数据
+        for workflow_id in validate_workflows:
+            workflow = workflow_dict.get(str(workflow_id))
+            workflows.append({
+                "id": str(workflow.id),
+                "name": workflow.name,
+                "icon": workflow.icon,
+                "description": workflow.description,
+            })
+
+        return workflows, validate_workflows
