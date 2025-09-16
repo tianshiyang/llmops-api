@@ -42,7 +42,7 @@ from internal.entity.conversation_entity import MessageStatus, InvokeFrom
 from internal.entity.dataset_entity import RetrievalSource
 from internal.exception import NotFoundException, ForbiddenException, ValidateErrorException, FailException
 from internal.model import App, Account, AppConfigVersion, AppConfig, ApiTool, Dataset, AppDatasetJoin, Conversation, \
-    Message
+    Message, Workflow
 from internal.schema.app_schema import CreateAppReq, GetPublishHistoriesWithPageReq, \
     GetDebugConversationMessagesWithPageReq, GetAppsWithPageReq
 from .cos_service import CosService
@@ -56,6 +56,7 @@ from internal.lib.helper import remove_fields, get_value_type
 
 from pkg.sqlalchemy import SQLAlchemy
 from ..entity.ai_entity import OPTIMIZE_PROMPT_TEMPLATE
+from ..entity.workflow_entity import WorkflowStatus
 
 
 @inject
@@ -307,8 +308,7 @@ class AppService(BaseService):
                     "params": tool["tool"]["params"]
                 } for tool in draft_app_config["tools"]
             ],
-            # todo: 工作流模块完成后该处可能有变动
-            workflows=draft_app_config["workflows"],
+            workflows=[workflow["id"] for workflow in draft_app_config["workflows"]],
             retrieval_config=draft_app_config["retrieval_config"],
             long_term_memory=draft_app_config["long_term_memory"],
             opening_statement=draft_app_config["opening_statement"],
@@ -517,6 +517,13 @@ class AppService(BaseService):
             )
             tools.append(dataset_retrieval)
 
+        # 10.检测是否关联工作流，如果关联了工作流则将工作流构建成工具添加到tools中
+        if draft_app_config["workflows"]:
+            workflow_tools = self.app_config_service.get_langchain_tools_by_workflow_ids(
+                [workflow["id"] for workflow in draft_app_config["workflows"]]
+            )
+            tools.extend(workflow_tools)
+
         # 13.根据LLM是否支持tool_call决定使用不同的Agent
         agent_class = FunctionCallAgent if ModelFeature.TOOL_CALL in llm.features else ReACTAgent
         agent = agent_class(
@@ -570,6 +577,8 @@ class AppService(BaseService):
             yield f"event: {agent_thought.event}\ndata:{json.dumps(data)}\n\n"
 
         # 22.将消息以及推理过程添加到数据库
+        # todo:将数据库数据存储/更新的操作转换为同步，将summary和conversation_name生成放置到Thread执行
+        # todo:考虑将错误信息/超时信息也一并存储到answer中，这个需求可以根据不同的业务逻辑做相应的抉择
         thread = Thread(
             target=self.conversation_service.save_agent_thoughts,
             kwargs={
@@ -804,9 +813,33 @@ class AppService(BaseService):
             # 6.11 重新赋值工具
             draft_app_config["tools"] = validate_tools
 
-        # todo:7.校验workflows,等待工作流模块完成后实现
-        if "workflows" in draft_app_config:
-            draft_app_config["workflows"] = []
+            # 7.校验workflow，提取已发布+权限正确的工作流列表进行绑定（更新配置阶段不校验工作流是否可以正常运行）
+            if "workflows" in draft_app_config:
+                workflows = draft_app_config["workflows"]
+                # 7.1 判断workflows是否为列表
+                if not isinstance(workflows, list):
+                    raise ValidateErrorException("绑定工作流列表参数格式错误")
+                # 7.2 判断关联的工作流列表是否超过5个
+                if len(workflows) > 5:
+                    raise ValidateErrorException("Agent绑定的工作流数量不能超过5个")
+                # 7.3 循环校验工作流的每个参数，类型必须为UUID
+                for workflow_id in workflows:
+                    try:
+                        UUID(workflow_id)
+                    except Exception as _:
+                        raise ValidateErrorException("工作流参数必须是UUID")
+                # 7.4 判断是否重复关联了工作流
+                if len(set(workflows)) != len(workflows):
+                    raise ValidateErrorException("绑定工作流存在重复")
+                # 7.5 校验关联工作流的权限，剔除不属于当前账号，亦或者未发布的工作流
+                workflow_records = self.db.session.query(Workflow).filter(
+                    Workflow.id.in_(workflows),
+                    Workflow.account_id == account.id,
+                    Workflow.status == WorkflowStatus.PUBLISHED,
+                ).all()
+                workflow_sets = set([str(workflow_record.id) for workflow_record in workflow_records])
+                draft_app_config["workflows"] = [workflow_id for workflow_id in workflows if
+                                                 workflow_id in workflow_sets]
 
         # 8.校验datasets知识库列表
         if "datasets" in draft_app_config:
