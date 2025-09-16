@@ -17,6 +17,7 @@ from .builtin_app_service import BuiltinAppService
 from .language_model_service import LanguageModelService
 from .assistant_agent_service import AssistantAgentService
 from .faiss_service import FaissService
+from .analysis_service import AnalysisService
 
 __all__ = [
     "AppService",
@@ -29,5 +30,6 @@ __all__ = [
     "BuiltinAppService",
     "LanguageModelService",
     "AssistantAgentService",
-    "FaissService"
+    "FaissService",
+    "AnalysisService"
 ]

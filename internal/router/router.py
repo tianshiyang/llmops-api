@@ -12,7 +12,7 @@ from injector import inject
 
 from internal.handler import AppHandler, BuiltinToolHandler, ApiToolHandler, UploadFileHandler, DatasetHandler, \
     SegmentHandler, OAuthHandler, AuthHandler, AccountHandler, AiHandler, DocumentHandler, ApiKeyHandler, \
-    OpenAPIHandler, BuiltinAppHandler, LanguageModelHandler, AssistantAgentHandler
+    OpenAPIHandler, BuiltinAppHandler, LanguageModelHandler, AssistantAgentHandler, AnalysisHandler
 from internal.handler.workflow_handler import WorkflowHandler
 
 
@@ -22,7 +22,7 @@ class Router:
     """"路由"""
 
     app_handler: AppHandler
-
+    analysis_handler: AnalysisHandler
     builtin_tool_handler: BuiltinToolHandler
     api_tool_handler: ApiToolHandler
     upload_file_handler: UploadFileHandler
@@ -452,6 +452,12 @@ class Router:
             "/assistant-agent/delete-conversation",
             methods=["POST"],
             view_func=self.assistant_agent_handler.delete_assistant_agent_conversation,
+        )
+
+        # 14.应用统计模块
+        bp.add_url_rule(
+            "/analysis/<uuid:app_id>",
+            view_func=self.analysis_handler.get_app_analysis,
         )
 
         openapi_bp.add_url_rule("/openapi/chat", methods=["post"], view_func=self.openapi_handler.chat)
