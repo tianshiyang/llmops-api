@@ -24,7 +24,7 @@ from internal.core.agent.entities.queue_entity import QueueEvent
 from internal.core.language_model.entities.model_entity import ModelFeature
 from internal.service.faiss_service import FaissService
 from internal.task.app_task import auto_create_app
-from internal.core.language_model.providers.moonshot.chat import Chat
+from internal.core.language_model.providers.openai.chat import Chat
 from internal.core.memory.token_buffer_memory import TokenBufferMemory
 from internal.entity.conversation_entity import InvokeFrom, MessageStatus
 from internal.model import Account, Message
@@ -61,8 +61,8 @@ class AssistantAgentService(BaseService):
 
         # 4.使用GPT模型作为辅助Agent的LLM大脑
         llm = Chat(
-            client=os.getenv("BASE_CHAT_MODEL"),
-            api_key=os.getenv("OPENAI_API_KEY"),
+            # base_url=os.getenv("OPENAI_BASE_URL"),
+            model=os.getenv("BASE_CHAT_MODEL"),
             temperature=0.8,
             features=[ModelFeature.TOOL_CALL, ModelFeature.AGENT_THOUGHT],
             metadata={}

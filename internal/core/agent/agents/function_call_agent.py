@@ -19,7 +19,8 @@ from langgraph.graph.state import CompiledStateGraph, StateGraph
 
 from .base_agent import BaseAgent
 from internal.core.agent.entities.agent_entity import AgentState, AGENT_SYSTEM_PROMPT_TEMPLATE, MAX_ITERATION_RESPONSE, \
-    DATASET_RETRIEVAL_TOOL_NAME, AgentConfig
+    DATASET_RETRIEVAL_TOOL_NAME
+from .base_agent import AgentConfig
 from internal.core.agent.entities.queue_entity import AgentThought, QueueEvent
 from internal.core.language_model.entities.model_entity import ModelFeature, BaseLanguageModel
 from internal.exception import FailException
