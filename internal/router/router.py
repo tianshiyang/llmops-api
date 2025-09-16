@@ -12,7 +12,7 @@ from injector import inject
 
 from internal.handler import AppHandler, BuiltinToolHandler, ApiToolHandler, UploadFileHandler, DatasetHandler, \
     SegmentHandler, OAuthHandler, AuthHandler, AccountHandler, AiHandler, DocumentHandler, ApiKeyHandler, \
-    OpenAPIHandler, BuiltinAppHandler, LanguageModelHandler, AssistantAgentHandler, AnalysisHandler
+    OpenAPIHandler, BuiltinAppHandler, LanguageModelHandler, AssistantAgentHandler, AnalysisHandler, WebAppHandler
 from internal.handler.workflow_handler import WorkflowHandler
 
 
@@ -39,6 +39,7 @@ class Router:
     workflow_handler: WorkflowHandler
     language_model_handler: LanguageModelHandler
     assistant_agent_handler: AssistantAgentHandler
+    web_app_handler: WebAppHandler
 
     def register_router(self, app: Flask):
         """注册路由"""
@@ -59,7 +60,7 @@ class Router:
         # 2.1 创建应用
         bp.add_url_rule('/apps', methods=["POST"], view_func=self.app_handler.create_app)
         # 2.2 获取应用
-        bp.add_url_rule('/apps/<uuid:id>', view_func=self.app_handler.get_app)
+        bp.add_url_rule('/apps/<uuid:app_id>', view_func=self.app_handler.get_app)
         # 2.3 获取草稿配置
         bp.add_url_rule("/apps/<uuid:app_id>/draft-app-config", view_func=self.app_handler.get_draft_app_config)
         # 2.4 更新草稿配置
@@ -127,6 +128,18 @@ class Router:
         bp.add_url_rule(
             "/apps/<uuid:app_id>/conversations/messages",
             view_func=self.app_handler.get_debug_conversation_messages_with_page,
+        )
+
+        # 2.15获取指定应用的发布配置信息
+        bp.add_url_rule(
+            "/apps/<uuid:app_id>/published-config",
+            view_func=self.app_handler.get_published_config,
+        )
+        # 2.16重新生成 WebApp 的凭证标识
+        bp.add_url_rule(
+            "/apps/<uuid:app_id>/published-config/regenerate-web-app-token",
+            methods=["POST"],
+            view_func=self.app_handler.regenerate_web_app_token,
         )
 
         # 3.1 内置插件广场模块
@@ -459,6 +472,20 @@ class Router:
             "/analysis/<uuid:app_id>",
             view_func=self.analysis_handler.get_app_analysis,
         )
+
+        # 15.WebApp模块
+        bp.add_url_rule("/web-apps/<string:token>", view_func=self.web_app_handler.get_web_app)
+        # bp.add_url_rule(
+        #     "/web-apps/<string:token>/chat",
+        #     methods=["POST"],
+        #     view_func=self.web_app_handler.web_app_chat,
+        # )
+        # bp.add_url_rule(
+        #     "/web-apps/<string:token>/chat/<uuid:task_id>/stop",
+        #     methods=["POST"],
+        #     view_func=self.web_app_handler.stop_web_app_chat,
+        # )
+        # bp.add_url_rule("/web-apps/<string:token>/conversations", view_func=self.web_app_handler.get_conversations)
 
         openapi_bp.add_url_rule("/openapi/chat", methods=["post"], view_func=self.openapi_handler.chat)
 

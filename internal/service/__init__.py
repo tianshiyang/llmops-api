@@ -18,6 +18,7 @@ from .language_model_service import LanguageModelService
 from .assistant_agent_service import AssistantAgentService
 from .faiss_service import FaissService
 from .analysis_service import AnalysisService
+from .web_app_service import WebAppService
 
 __all__ = [
     "AppService",
@@ -31,5 +32,6 @@ __all__ = [
     "LanguageModelService",
     "AssistantAgentService",
     "FaissService",
-    "AnalysisService"
+    "AnalysisService",
+    "WebAppService"
 ]
