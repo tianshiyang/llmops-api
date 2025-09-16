@@ -148,7 +148,6 @@ class AppConfigService(BaseService):
             Workflow.id.in_(workflow_ids),
             Workflow.status == WorkflowStatus.PUBLISHED
         ).all()
-        print('111')
 
         # 2.循环遍历所有工作流记录列表
         workflows = []
