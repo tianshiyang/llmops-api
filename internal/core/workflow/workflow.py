@@ -17,7 +17,7 @@ from pydantic import PrivateAttr, BaseModel, Field
 
 from internal.core.workflow.entities.node_entity import NodeType
 from internal.core.workflow.entities.variable_entity import VARIABLE_TYPE_MAP
-from internal.core.workflow.entities.workflow_entity import WorkFlowConfig, WorkflowState
+from internal.core.workflow.entities.workflow_entity import WorkflowConfig, WorkflowState
 from internal.core.workflow.nodes import StartNode, EndNode, LLMNode, TemplateTransformNode, DatasetRetrievalNode, \
     CodeNode, ToolNode, HttpRequestNode
 from internal.exception import ValidateErrorException
@@ -36,10 +36,10 @@ NodeClasses = {
 
 
 class Workflow(BaseTool):
-    _workflow_config: WorkFlowConfig = PrivateAttr(None)
+    _workflow_config: WorkflowConfig = PrivateAttr(None)
     _workflow: CompiledStateGraph = PrivateAttr(None)
 
-    def __init__(self, workflow_config: WorkFlowConfig, **kwargs: Any):
+    def __init__(self, workflow_config: WorkflowConfig, **kwargs: Any):
         """构造函数，完成工作流函数的初始化"""
         # 1.调用父类构造函数万策划给你基础数据初始化
         super().__init__(
@@ -54,7 +54,7 @@ class Workflow(BaseTool):
         self._workflow = self._build_workflow()
 
     @classmethod
-    def _build_args_schema(cls, workflow_config: WorkFlowConfig) -> type[BaseModel]:
+    def _build_args_schema(cls, workflow_config: WorkflowConfig) -> type[BaseModel]:
         """构建输入参数结构体"""
         # 1.提取开始节点的输入参数信息
         fields = {}

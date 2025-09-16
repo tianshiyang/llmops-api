@@ -6,23 +6,26 @@
 @File    : app_config_service.py
 """
 from typing import Any, Union
+from uuid import UUID
 
 from flask import request
 from injector import inject
 from dataclasses import dataclass
 
 from langchain_core.tools import BaseTool
-
+from internal.core.workflow import Workflow as WorkflowTool
 from internal.core.language_model.entities.model_entity import ModelParameterType
 from internal.core.language_model.language_model_manager import LanguageModelManager
 from internal.core.tools.api_tools.entities.tool_entity import ToolEntity
 from internal.core.tools.api_tools.providers import ApiProviderManager
 from internal.core.tools.builtin_tools.providers.builtin_provider_manager import BuiltinProviderManager
 from internal.entity.app_entity import DEFAULT_APP_CONFIG
+from internal.entity.workflow_entity import WorkflowStatus
 from internal.lib.helper import datetime_to_timestamp, get_value_type
-from internal.model import App, ApiTool, Dataset, AppDatasetJoin, AppConfig, AppConfigVersion
+from internal.model import App, ApiTool, Dataset, AppDatasetJoin, AppConfig, AppConfigVersion, Workflow
 from internal.service.base_service import BaseService
 from pkg.sqlalchemy import SQLAlchemy
+from ..core.workflow.entities.workflow_entity import WorkflowConfig
 
 
 @inject
@@ -133,6 +136,32 @@ class AppConfigService(BaseService):
                     )
                 )
         return tools
+
+    def get_langchain_tools_by_workflow_ids(self, workflow_ids: list[UUID]) -> list[BaseTool]:
+        """根据传递的工作流配置列表获取langchain工具列表"""
+        # 1.根据传递的工作流id查询工作流记录信息
+        workflow_records = self.db.session.query(Workflow).filter(
+            Workflow.id.in_(workflow_ids),
+            Workflow.status == WorkflowStatus.PUBLISHED
+        ).all()
+
+        # 2.循环遍历所有工作流记录列表
+        workflows = []
+        for workflow_record in workflow_records:
+            try:
+                # 3.创建工作流工具
+                workflow_tool = WorkflowTool(workflow_config=WorkflowConfig(
+                    account_id=workflow_record.account_id,
+                    name=f"wf_{workflow_record.tool_call_name}",
+                    description=workflow_record.description,
+                    nodes=workflow_record.graph.get("nodes", []),
+                    edges=workflow_record.graph.get("edges", []),
+                ))
+                workflows.append(workflow_tool)
+            except Exception:
+                continue
+
+        return workflows
 
     @classmethod
     def _process_and_transformer_app_config(

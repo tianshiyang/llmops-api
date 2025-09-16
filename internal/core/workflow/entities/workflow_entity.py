@@ -40,7 +40,7 @@ def _process_node_result(left: dict[str, Any], right: dict[str, Any]) -> list[No
     return left + right
 
 
-class WorkFlowConfig(BaseModel):
+class WorkflowConfig(BaseModel):
     """工作流配置信息"""
     account_id: UUID  # 用户的唯一标识数据
     name: str = ""  # 工作流名称，必须是英文

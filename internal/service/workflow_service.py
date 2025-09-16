@@ -29,7 +29,7 @@ from uuid import UUID
 from ..core.tools.builtin_tools.providers.builtin_provider_manager import BuiltinProviderManager
 from ..core.workflow.entities.edge_entity import BaseEdgeData
 from ..core.workflow.entities.node_entity import NodeType, BaseNodeData
-from ..core.workflow.entities.workflow_entity import WorkFlowConfig
+from ..core.workflow.entities.workflow_entity import WorkflowConfig
 from ..core.workflow.nodes import CodeNodeData, LLMNodeData, StartNodeData, HttpRequestNodeData, EndNodeData, \
     DatasetRetrievalNodeData, ToolNodeData, TemplateTransformNodeData
 from ..lib.helper import convert_model_to_dict
@@ -368,7 +368,7 @@ class WorkflowService(BaseService):
 
         # 2.创建工作流工具
         workflow_tool = WorkflowTool(
-            workflow_config=WorkFlowConfig(
+            workflow_config=WorkflowConfig(
                 account_id=account.id,
                 name=workflow.tool_call_name,
                 description=workflow.description,
@@ -439,7 +439,7 @@ class WorkflowService(BaseService):
 
         # 3.使用workflowConfig二次校验，如果校验失败则不发布
         try:
-            WorkFlowConfig(
+            WorkflowConfig(
                 account_id=account.id,
                 name=workflow.tool_call_name,
                 description=workflow.description,
