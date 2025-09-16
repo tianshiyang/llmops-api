@@ -480,11 +480,11 @@ class Router:
             methods=["POST"],
             view_func=self.web_app_handler.web_app_chat,
         )
-        # bp.add_url_rule(
-        #     "/web-apps/<string:token>/chat/<uuid:task_id>/stop",
-        #     methods=["POST"],
-        #     view_func=self.web_app_handler.stop_web_app_chat,
-        # )
+        bp.add_url_rule(
+            "/web-apps/<string:token>/chat/<uuid:task_id>/stop",
+            methods=["POST"],
+            view_func=self.web_app_handler.stop_web_app_chat,
+        )
         # bp.add_url_rule("/web-apps/<string:token>/conversations", view_func=self.web_app_handler.get_conversations)
 
         openapi_bp.add_url_rule("/openapi/chat", methods=["post"], view_func=self.openapi_handler.chat)

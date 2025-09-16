@@ -8,11 +8,13 @@
 import json
 from threading import Thread
 from typing import Generator
+from uuid import UUID
 
 from flask import current_app
 from langchain_core.messages import HumanMessage
+from sqlalchemy import desc
 
-from internal.core.agent.agents import FunctionCallAgent, ReACTAgent
+from internal.core.agent.agents import FunctionCallAgent, ReACTAgent, AgentQueueManager
 from internal.core.agent.entities.agent_entity import AgentConfig
 from internal.core.agent.entities.queue_entity import QueueEvent
 from internal.core.language_model.entities.model_entity import ModelFeature
@@ -206,3 +208,27 @@ class WebAppService(BaseService):
             }
         )
         thread.start()
+
+    def stop_web_app_chat(self, token: str, task_id: UUID, account: Account):
+        """根据传递的token+task_id停止与指定WebApp对话"""
+        # 1.获取WebApp应用并校验应用是否发布
+        self.get_web_app(token)
+
+        # 2.调用智能体队列管理器停止特定任务
+        AgentQueueManager.set_stop_flag(task_id, InvokeFrom.WEB_APP, account.id)
+
+    def get_conversations(self, token: str, is_pinned: bool, account: Account) -> list[Conversation]:
+        """根据传递的token+is_pinned+account获取指定账号在该WebApp下的会话列表数据"""
+        # 1.获取WebApp应用并校验应用是否发布
+        app = self.get_web_app(token)
+
+        # 2.筛选过滤并查询数据
+        conversations = self.db.session.query(Conversation).filter(
+            Conversation.app_id == app.id,
+            Conversation.created_by == account.id,
+            Conversation.invoke_from == InvokeFrom.WEB_APP,
+            Conversation.is_pinned == is_pinned,
+            ~Conversation.is_deleted,
+        ).order_by(desc("created_at")).all()
+
+        return conversations
