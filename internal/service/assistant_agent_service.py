@@ -8,6 +8,7 @@
 import json
 import os
 from dataclasses import dataclass
+from datetime import datetime
 from threading import Thread
 from typing import Generator
 from uuid import UUID
@@ -17,11 +18,13 @@ from injector import inject
 from langchain_core.messages import HumanMessage
 from langchain_core.tools import BaseTool, tool
 from pydantic import BaseModel, Field
+from sqlalchemy import desc
 
-from internal.core.agent.agents import FunctionCallAgent
+from internal.core.agent.agents import FunctionCallAgent, AgentQueueManager
 from internal.core.agent.entities.agent_entity import AgentConfig
 from internal.core.agent.entities.queue_entity import QueueEvent
 from internal.core.language_model.entities.model_entity import ModelFeature
+from internal.schema.assistant_agent_schema import GetAssistantAgentMessagesWithPageReq
 from internal.service.faiss_service import FaissService
 from internal.task.app_task import auto_create_app
 from internal.core.language_model.providers.openai.chat import Chat
@@ -30,6 +33,7 @@ from internal.entity.conversation_entity import InvokeFrom, MessageStatus
 from internal.model import Account, Message
 from internal.service.base_service import BaseService
 from internal.service.conversation_service import ConversationService
+from pkg.paginator.paginator import Paginator
 from pkg.sqlalchemy import SQLAlchemy
 
 
@@ -167,3 +171,37 @@ class AssistantAgentService(BaseService):
             return f"已调用后端异步任务创建Agent应用。\n应用名称: {name}\n应用描述: {description}"
 
         return create_app
+
+    @classmethod
+    def stop_assistant_agent_chat(cls, task_id: UUID, account: Account) -> None:
+        """根据传递的任务id+账号停止某次响应会话"""
+        AgentQueueManager.set_stop_flag(task_id, InvokeFrom.ASSISTANT_AGENT, account.id)
+
+    def get_conversation_messages_with_page(self, req: GetAssistantAgentMessagesWithPageReq, account: Account):
+        """根据传递的请求+账号获取与辅助Agent对话的消息分页列表"""
+        # 1.获取应用的调试会话列表
+        conversation = account.assistant_agent_conversation
+
+        # 2.构建分页器并构建游标条件
+        paginator = Paginator(db=self.db, req=req)
+        filters = []
+        if req.created_at.data:
+            # 3.将时间戳转换成DateTime
+            created_at_datetime = datetime.fromtimestamp(req.created_at.data)
+            filters.append(Message.created_at <= created_at_datetime)
+
+        # 4.执行分页并查询数据
+        messages = paginator.paginate(
+            self.db.session.query(Message).filter(
+                Message.conversation_id == conversation.id,
+                Message.status.in_([MessageStatus.STOP, MessageStatus.NORMAL]),
+                Message.answer != "",
+                *filters
+            ).order_by(desc("created_at"))
+        )
+
+        return messages, paginator
+
+    def delete_conversation(self, account: Account) -> None:
+        """根据传递的账号，清空辅助Agent智能体会话消息列表"""
+        self.update(account, assistant_agent_conversation_id=None)

@@ -439,20 +439,20 @@ class Router:
             methods=["POST"],
             view_func=self.assistant_agent_handler.assistant_agent_chat,
         )
-        # bp.add_url_rule(
-        #     "/assistant-agent/chat/<uuid:task_id>/stop",
-        #     methods=["POST"],
-        #     view_func=self.assistant_agent_handler.stop_assistant_agent_chat,
-        # )
-        # bp.add_url_rule(
-        #     "/assistant-agent/messages",
-        #     view_func=self.assistant_agent_handler.get_assistant_agent_messages_with_page,
-        # )
-        # bp.add_url_rule(
-        #     "/assistant-agent/delete-conversation",
-        #     methods=["POST"],
-        #     view_func=self.assistant_agent_handler.delete_assistant_agent_conversation,
-        # )
+        bp.add_url_rule(
+            "/assistant-agent/chat/<uuid:task_id>/stop",
+            methods=["POST"],
+            view_func=self.assistant_agent_handler.stop_assistant_agent_chat,
+        )
+        bp.add_url_rule(
+            "/assistant-agent/messages",
+            view_func=self.assistant_agent_handler.get_assistant_agent_messages_with_page,
+        )
+        bp.add_url_rule(
+            "/assistant-agent/delete-conversation",
+            methods=["POST"],
+            view_func=self.assistant_agent_handler.delete_assistant_agent_conversation,
+        )
 
         openapi_bp.add_url_rule("/openapi/chat", methods=["post"], view_func=self.openapi_handler.chat)
 
