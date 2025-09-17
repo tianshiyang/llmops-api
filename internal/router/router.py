@@ -517,11 +517,11 @@ class Router:
             methods=["POST"],
             view_func=self.conversation_handler.update_conversation_name,
         )
-        # bp.add_url_rule(
-        #     "/conversations/<uuid:conversation_id>/is-pinned",
-        #     methods=["POST"],
-        #     view_func=self.conversation_handler.update_conversation_is_pinned,
-        # )
+        bp.add_url_rule(
+            "/conversations/<uuid:conversation_id>/is-pinned",
+            methods=["POST"],
+            view_func=self.conversation_handler.update_conversation_is_pinned,
+        )
 
         # 6. 在应用上注册蓝图
         app.register_blueprint(bp)

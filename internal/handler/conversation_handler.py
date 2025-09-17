@@ -12,12 +12,12 @@ from flask_login import login_required, current_user
 from injector import inject
 
 from internal.schema.conversation_schema import GetConversationMessagesWithPageReq, GetConversationMessagesWithPageResp, \
-    UpdateConversationNameReq
+    UpdateConversationNameReq, UpdateConversationIsPinnedReq
 from internal.service import ConversationService
 from uuid import UUID
 
 from pkg.paginator.paginator import PageModel
-from pkg.response import validate_error_json, success_json
+from pkg.response import validate_error_json, success_json, success_message
 
 
 @inject
@@ -65,3 +65,16 @@ class ConversationHandler:
         self.conversation_service.update_conversation(conversation_id, current_user, name=req.name.data)
 
         return success_json("修改会话名称成功")
+
+    @login_required
+    def update_conversation_is_pinned(self, conversation_id: UUID):
+        """根据传递的会话id+is_pinned更新会话的置顶状态"""
+        # 1.提取请求并校验
+        req = UpdateConversationIsPinnedReq()
+        if not req.validate():
+            return validate_error_json(req.errors)
+
+        # 2.调用服务更新会话置顶状态
+        self.conversation_service.update_conversation(conversation_id, current_user, is_pinned=req.is_pinned.data)
+
+        return success_message("修改会话置顶状态成功")
