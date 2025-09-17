@@ -24,7 +24,7 @@ from internal.core.agent.entities.queue_entity import AgentThought, QueueEvent
 from internal.entity.conversation_entity import SUMMARIZER_TEMPLATE, CONVERSATION_NAME_TEMPLATE, ConversationInfo, \
     SUGGESTED_QUESTIONS_TEMPLATE, SuggestedQuestions, InvokeFrom, MessageStatus
 from internal.exception import NotFoundException
-from internal.model import Conversation, Message, MessageAgentThought, Account
+from internal.model import Conversation, Message, MessageAgentThought, Account, account
 from internal.schema.conversation_schema import GetConversationMessagesWithPageReq
 from internal.service.base_service import BaseService
 from pkg.paginator.paginator import Paginator
@@ -243,6 +243,47 @@ class ConversationService(BaseService):
         # 2.校验通过返回会话
         return conversation
 
+    def delete_conversation(self, conversation_id: UUID, account: Account) -> Conversation:
+        """根据传递的会话id+账号删除指定的会话记录"""
+        # 1.获取会话记录并校验权限
+        conversation = self.get_conversation(conversation_id, account)
+
+        # 2.更新会话的删除状态
+        self.update(conversation, is_deleted=True)
+
+        return conversation
+
+    def get_message(self, message_id: UUID, account: Account) -> Message:
+        """根据传递的消息id+账号，获取指定的消息"""
+        # 1.根据message_id查询消息记录
+        message = self.get(Message, message_id)
+        if (
+                not message
+                or message.created_by != account.id
+                or message.is_deleted
+        ):
+            raise NotFoundException("该消息不存在或被删除，请核实后重试")
+
+        # 2.校验通过返回消息
+        return message
+
+    def delete_message(self, conversation_id: UUID, message_id: UUID, account: Account) -> Conversation:
+        """根据传递的会话id+消息id删除指定的消息记录"""
+        # 1.获取会话记录并校验权限
+        conversation = self.get_conversation(conversation_id, account)
+
+        # 2.获取消息并校验权限
+        message = self.get_message(message_id, account)
+
+        # 3.判断消息和会话是否关联
+        if conversation.id != message.conversation_id:
+            raise NotFoundException("该会话下不存在该消息，请核实后重试")
+
+        # 4.校验通过修改消息is_deleted属性标记删除
+        self.update(message, is_deleted=True)
+
+        return message
+
     def get_conversation_messages_with_page(
             self,
             conversation_id: UUID,
@@ -272,7 +313,7 @@ class ConversationService(BaseService):
         )
 
         return messages, paginator
-    
+
     def update_conversation(self, conversation_id: UUID, account: Account, **kwargs) -> Conversation:
         """根据传递的会话id+账号+kwargs更新会话信息"""
         # 1.获取会话记录并校验权限

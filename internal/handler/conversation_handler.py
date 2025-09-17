@@ -46,6 +46,20 @@ class ConversationHandler:
 
         return success_json(PageModel(list=resp.dump(messages), paginator=paginator))
 
+    @login_required
+    def delete_message(self, conversation_id: UUID, message_id: UUID):
+        """根据传递的会话id+消息id删除指定的消息"""
+        self.conversation_service.delete_message(conversation_id, message_id, current_user)
+
+        return success_message("删除会话消息成功")
+
+    @login_required
+    def delete_conversation(self, conversation_id: UUID):
+        """根据传递的会话id删除指定的会话"""
+        self.conversation_service.delete_conversation(conversation_id, current_user)
+
+        return success_message("删除会话成功")
+
     def get_conversation_name(self, conversation_id: UUID):
         """根据传递的会话id获取指定会话的名字"""
         # 1.调用服务获取会话
