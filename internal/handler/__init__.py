@@ -23,8 +23,9 @@ from .language_model_handler import LanguageModelHandler
 from .assistant_agent_handler import AssistantAgentHandler
 from .analysis_handler import AnalysisHandler
 from .web_app_handler import WebAppHandler
+from .conversation_handler import ConversationHandler
 
 __all__ = ["AppHandler", "BuiltinToolHandler", "ApiToolHandler", "UploadFileHandler", "DatasetHandler",
            "SegmentHandler", "OAuthHandler", "AuthHandler", "AiHandler", "DocumentHandler", "ApiKeyHandler",
            "OpenAPIHandler", "BuiltinAppHandler", "LanguageModelHandler", "AssistantAgentHandler", "AnalysisHandler",
-           "WebAppHandler"]
+           "WebAppHandler", "ConversationHandler"]
