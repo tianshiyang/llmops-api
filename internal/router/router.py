@@ -508,15 +508,15 @@ class Router:
         #     methods=["POST"],
         #     view_func=self.conversation_handler.delete_message,
         # )
-        # bp.add_url_rule(
-        #     "/conversations/<uuid:conversation_id>/name",
-        #     view_func=self.conversation_handler.get_conversation_name,
-        # )
-        # bp.add_url_rule(
-        #     "/conversations/<uuid:conversation_id>/name",
-        #     methods=["POST"],
-        #     view_func=self.conversation_handler.update_conversation_name,
-        # )
+        bp.add_url_rule(
+            "/conversations/<uuid:conversation_id>/name",
+            view_func=self.conversation_handler.get_conversation_name,
+        )
+        bp.add_url_rule(
+            "/conversations/<uuid:conversation_id>/name",
+            methods=["POST"],
+            view_func=self.conversation_handler.update_conversation_name,
+        )
         # bp.add_url_rule(
         #     "/conversations/<uuid:conversation_id>/is-pinned",
         #     methods=["POST"],
